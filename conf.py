@@ -18,16 +18,16 @@ import time
 
 # Data about this site
 BLOG_AUTHOR = "cHoWy"  # (translatable)
-BLOG_TITLE = "rAndOm MuSInGs"  # (translatable)
+BLOG_TITLE = "R@ndom Musings"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
 SITE_URL = "/"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
-# BASE_URL = "https://chowy.me/"
+# BASE_URL = "/blog/"
 BLOG_EMAIL = "me@chowy.me"
-BLOG_DESCRIPTION = ""  # (translatable)
-
+BLOG_DESCRIPTION = ""# (translatable)
+# =^..^=  =^..^=  =^..^= #
 # Nikola is multilingual!
 #
 # Currently supported languages are:
@@ -138,7 +138,8 @@ NAVIGATION_LINKS = {
 }
 
 # Name of the theme to use.
-THEME = "bootstrap3"
+# THEME = "bootstrap3"
+THEME = "hyde"
 
 # Primary color of your theme. This will be used to customize your theme and
 # auto-generate related colors in POSTS_SECTION_COLORS. Must be a HEX value.
@@ -172,11 +173,13 @@ THEME_COLOR = '#5670d4'
 #
 
 POSTS = (
+    ("posts/*.md", "posts", "post.tmpl"),
     ("posts/*.rst", "posts", "post.tmpl"),
     ("posts/*.txt", "posts", "post.tmpl"),
     ("posts/*.html", "posts", "post.tmpl"),
 )
 PAGES = (
+    ("stories/*.md", "stories", "story.tmpl"),
     ("stories/*.rst", "stories", "story.tmpl"),
     ("stories/*.txt", "stories", "story.tmpl"),
     ("stories/*.html", "stories", "story.tmpl"),
@@ -283,7 +286,7 @@ COMPILERS = {
 # Nikola supports logo display.  If you have one, you can put the URL here.
 # Final output is <img src="LOGO_URL" id="logo" alt="BLOG_TITLE">.
 # The URL may be relative to the site root.
-# LOGO_URL = ''
+# LOGO_URL = '/images/icon_256x256.thumbnail.png'
 
 # If you want to hide the title of your website (for example, if your logo
 # already contains the text), set this to False.
@@ -786,10 +789,10 @@ IMAGE_FOLDERS = {'images': 'images'}
 # FAVICONS contains (name, file, size) tuples.
 # Used to create favicon link like this:
 # <link rel="name" href="file" sizes="size"/>
-# FAVICONS = (
-#     ("icon", "/favicon.ico", "16x16"),
-#     ("icon", "/icon_128x128.png", "128x128"),
-# )
+FAVICONS = (
+    ("icon", "favicon.ico", "16x16"),
+    ("icon", "images/icon_256x256.png", "256x256"),
+)
 
 # Show teasers (instead of full posts) in indexes? Defaults to False.
 # INDEX_TEASERS = False
@@ -823,7 +826,11 @@ FEED_LINKS_APPEND_QUERY = False
 
 # A HTML fragment describing the license, for the sidebar.
 # (translatable)
-LICENSE = ""
+# LICENSE = """
+# <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+# <img alt="Creative Commons License BY-NC-SA" style="margin-left:0px; margin-top:15px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>
+# """
+
 # I recommend using the Creative Commons' wizard:
 # https://creativecommons.org/choose/
 # LICENSE = """
@@ -834,7 +841,10 @@ LICENSE = ""
 
 # A small copyright notice for the page footer (in HTML).
 # (translatable)
-CONTENT_FOOTER = 'Contents &copy; {date}         <a href="mailto:{email}">{author}</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         {license}'
+CONTENT_FOOTER = """
+Contents &copy; {date} by <a href="mailto:{email}">{author}</a> &middot;
+Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br/> Theme <a href="http://hyde.getpoole.com" target="_blank">Hyde</a> Inspired by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>
+"""
 
 # Things that will be passed to CONTENT_FOOTER.format().  This is done
 # for translatability, as dicts are not formattable.  Nikola will
@@ -851,10 +861,13 @@ CONTENT_FOOTER_FORMATS = {
     DEFAULT_LANG: (
         (),
         {
-            "email": BLOG_EMAIL,
-            "author": BLOG_AUTHOR,
+            "email": "me@chowy.me",
+            "author": "cHoWy",
+            "twitter": "https://twitter.com/MeChowy",
+            "github": "https://github.com/MeChowy",
             "date": time.gmtime().tm_year,
-            "license": LICENSE
+            "license": """LICENSE""",
+
         }
     )
 }
@@ -868,7 +881,7 @@ COMMENT_SYSTEM = "disqus"
 # depends on what comment system you use. The default is
 # "nikolademo" which is a test account for Disqus. More information
 # is in the manual.
-COMMENT_SYSTEM_ID = "cHoWy"
+COMMENT_SYSTEM_ID = "chowy"
 
 # Enable annotations using annotateit.org?
 # If set to False, you can still enable them for individual posts and pages
@@ -1106,6 +1119,7 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 # before </head>
 # (translatable)
 # EXTRA_HEAD_DATA = ""
+
 # Google Analytics or whatever else you use. Added to the bottom of <body>
 # in the default template (base.tmpl).
 # (translatable)
@@ -1201,7 +1215,9 @@ USE_BUNDLES = False
 
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
-GLOBAL_CONTEXT = {}
+GLOBAL_CONTEXT = {
+    "hyde_subtheme": ""
+}
 
 # Add functions here and they will be called with template
 # GLOBAL_CONTEXT as parameter when the template is about to be
