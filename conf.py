@@ -561,14 +561,14 @@ GITHUB_SOURCE_BRANCH = 'master'
 GITHUB_DEPLOY_BRANCH = 'gh-pages'
 
 # from https://asmeurer.github.io/blog/posts/moving-to-github-pages-with-nikola/
-# DEPLOY_COMMANDS = [
-#     "git checkout gh-pages",
-#     "rsync -rPv --delete-after --exclude old_blog --exclude .git --exclude .gitignore --exclude cache/ --exclude .doit.db.db output/ .",
-#     "git add -A",
-#     "git commit -a -m 'Updating blog content'",
-#     "git push",
-#     "git checkout master",
-# ]
+DEPLOY_COMMANDS = [
+    "git checkout gh-pages",
+    "rsync -rPv --delete-after --exclude old_blog --exclude .git --exclude .gitignore --exclude cache/ --exclude .doit.db.db output/ .",
+    "git add -A",
+    "git commit -a -m 'Updating blog content'",
+    "git push",
+    "git checkout master",
+]
 
 # from http://sampathweb.com/posts/blogging-made-easy.html
 # DEPLOY_COMMANDS = ["git add .",
