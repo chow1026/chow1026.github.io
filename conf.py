@@ -21,7 +21,7 @@ BLOG_AUTHOR = "cHoWy"  # (translatable)
 BLOG_TITLE = "R@ndom Musings"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
-SITE_URL = "/"
+SITE_URL = "https://chowy1026.github.io/"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "/blog/"
@@ -557,8 +557,26 @@ REDIRECTIONS = []
 # https://getnikola.com/handbook.html#deploying-to-github
 # For user.github.io OR organization.github.io pages, the DEPLOY branch
 # MUST be 'master', and 'gh-pages' for other repositories.
-# GITHUB_SOURCE_BRANCH = 'master'
-# GITHUB_DEPLOY_BRANCH = 'gh-pages'
+GITHUB_SOURCE_BRANCH = 'master'
+GITHUB_DEPLOY_BRANCH = 'gh-pages'
+
+# from https://asmeurer.github.io/blog/posts/moving-to-github-pages-with-nikola/
+# DEPLOY_COMMANDS = [
+#     "git checkout gh-pages",
+#     "rsync -rPv --delete-after --exclude old_blog --exclude .git --exclude .gitignore --exclude cache/ --exclude .doit.db.db output/ .",
+#     "git add -A",
+#     "git commit -a -m 'Updating blog content'",
+#     "git push",
+#     "git checkout master",
+# ]
+
+# from http://sampathweb.com/posts/blogging-made-easy.html
+# DEPLOY_COMMANDS = ["git add .",
+#                    "git commit -am 'Update'",
+#                    "git push origin master",
+#                    "git subtree split --prefix output -b gh-pages",
+#                    "git push -f origin gh-pages:gh-pages",
+#                    "git branch -D gh-pages"]
 
 # The name of the remote where you wish to push to, using github_deploy.
 # GITHUB_REMOTE_NAME = 'origin'
