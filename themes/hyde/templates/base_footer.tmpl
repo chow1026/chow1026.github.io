@@ -1,0 +1,25 @@
+{#  -*- coding: utf-8 -*- #}
+{% import 'base_helper.tmpl' as base with context %}
+
+{% macro html_footer() %}
+    {% if content_footer %}
+        <footer id="footer">
+            <p class="footer">
+              <span class="icon_row">
+                <a href="mailto:{email}">
+                  <img class="social_icon" src="/images/envelope1.png" title="email" width="24" /></a> &middot;
+                <a href="{twitter}">
+                  <img class="social_icon" src="/images/twitter-black-shape1.png" title="twitter" width="24" /></a> &middot;
+                <a href="{github}">
+                  <img class="social_icon" src="/images/github-character1.png" title="github" width="24" />
+                </a>
+              </span>
+              <br/><br/>
+              <span class="copyright">
+              {{ content_footer }}
+            </span>
+            </p>
+            {{ template_hooks['page_footer']() }}
+        </footer>
+    {% endif %}
+{% endmacro %}
