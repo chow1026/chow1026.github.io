@@ -133,13 +133,13 @@ TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
 #          with a ``/``, otherwise end them with ``/index.html`` — or
 #          else they won’t be highlighted when active.
 
-# NAVIGATION_LINKS = {
-#     DEFAULT_LANG: (
-#         ("/archive.html", "Archive"),
-#         ("/categories/", "Tags"),
-#
-#     ),
-# }
+NAVIGATION_LINKS = {
+    DEFAULT_LANG: (
+        ("/archives/archives.html", "Archives"),
+        ("tags.html", "Tags"),
+
+    ),
+}
 
 # Name of the theme to use.
 # THEME = "bootstrap3"
@@ -359,12 +359,12 @@ POSTS_SECTIONS = True
 # output / TRANSLATION[lang] / TAG_PATH / tag.html (list of posts for a tag)
 # output / TRANSLATION[lang] / TAG_PATH / tag.xml (RSS feed for a tag)
  # (translatable)
-# TAG_PATH = "categories"
+TAG_PATH = "tags"
 
 # See TAG_PATH's "list of tags" for the default setting value. Can be overwritten
 # here any path relative to the output directory.
  # (translatable)
-# TAGS_INDEX_PATH = "tags.html"
+TAGS_INDEX_PATH = "tags.html"
 
 # If TAG_PAGES_ARE_INDEXES is set to True, each tag's page will contain
 # the posts themselves. If set to False, it will be just a list of links.
@@ -485,21 +485,21 @@ FRONT_INDEX_HEADER = {
 }
 
 # Create per-month archives instead of per-year
-# CREATE_MONTHLY_ARCHIVE = False
+CREATE_MONTHLY_ARCHIVE = True
 # Create one large archive instead of per-year
 # CREATE_SINGLE_ARCHIVE = False
 # Create year, month, and day archives each with a (long) list of posts
 # (overrides both CREATE_MONTHLY_ARCHIVE and CREATE_SINGLE_ARCHIVE)
 # CREATE_FULL_ARCHIVES = False
 # If monthly archives or full archives are created, adds also one archive per day
-# CREATE_DAILY_ARCHIVE = False
+CREATE_DAILY_ARCHIVE = True
 # Final locations for the archives are:
 # output / TRANSLATION[lang] / ARCHIVE_PATH / ARCHIVE_FILENAME
 # output / TRANSLATION[lang] / ARCHIVE_PATH / YEAR / index.html
 # output / TRANSLATION[lang] / ARCHIVE_PATH / YEAR / MONTH / index.html
 # output / TRANSLATION[lang] / ARCHIVE_PATH / YEAR / MONTH / DAY / index.html
-# ARCHIVE_PATH = ""
-# ARCHIVE_FILENAME = "archive.html"
+ARCHIVE_PATH = "archives"
+ARCHIVE_FILENAME = "archives.html"
 
 # If ARCHIVES_ARE_INDEXES is set to True, each archive page which contains a list
 # of posts will contain the posts themselves. If set to False, it will be just a
@@ -823,8 +823,8 @@ IMAGE_FOLDERS = {'images': 'images'}
 # Used to create favicon link like this:
 # <link rel="name" href="file" sizes="size"/>
 FAVICONS = (
-    ("icon", "images/favicon.png", "16x16"),
-    ("icon", "images/icon_512x512.png", "256x256"),
+    ("icon", "images/favicon.png", "64x64"),
+    ("icon", "images/icon_512x512.png", "512x512"),
 )
 
 # Show teasers (instead of full posts) in indexes? Defaults to False.
@@ -954,7 +954,7 @@ STRIP_INDEXES = True
 # from indexing and other robotic spidering. * is supported. Will only be effective
 # if SITE_URL points to server root. The list is used to exclude resources from
 # /robots.txt and /sitemap.xml, and to inform search engines about /sitemapindex.xml.
-# ROBOTS_EXCLUSIONS = ["/archive.html", "/category/*.html"]
+ROBOTS_EXCLUSIONS = ["/archive.html", "/category/*.html"]
 
 # Instead of putting files in <slug>.html, put them in <slug>/index.html.
 # No web server configuration is required. Also enables STRIP_INDEXES.
