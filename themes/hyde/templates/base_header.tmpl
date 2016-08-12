@@ -36,7 +36,7 @@
 {% macro html_navigation_links() %}
     <nav id="menu" role="navigation" class="sidebar-nav">
     {% for url, text in navigation_links[lang] %}
-        <a class="sidebar-nav-item" href="${url}">{{text}}</a>
+        <a class="sidebar-nav-item" href="{{url}}">{{text}}</a>
     {% endfor %}
     {{ template_hooks['menu']() }}
     {{ template_hooks['menu_alt']() }}

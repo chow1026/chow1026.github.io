@@ -9,4 +9,6 @@
 .. type: text
 -->
 
-Hello! I am writing this post we'll see how this works!
+Hello! I am <!--\\[ e^{i\pi} + 1 = 0 \\] -->writing this post <!--\\( e^{i\pi} + 1 = 0 \\) --> we'll see how this works!
+
+ <!--\\[ e^{i\pi} + 1 = 0 \\]-->
