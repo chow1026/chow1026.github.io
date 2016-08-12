@@ -2,7 +2,7 @@
 .. title: Lolita - Vladimir Nabokov
 .. slug: lolita
 .. date: 2016-08-12 11:10:40 UTC+08:00
-.. tags:
+.. tags: book, Vladimir Nabokov
 .. category:
 .. link:
 .. description:

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title> =^..^= MEH</title><link>https://chowy1026.github.io/</link><description></description><atom:link type="application/rss+xml" href="https://chowy1026.github.io/rss.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 12 Aug 2016 03:32:57 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Lolita - Vladimir Nabokov</title><link>https://chowy1026.github.io/books/lolita/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Quotes&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title> =^..^= MEH</title><link>https://chowy1026.github.io/</link><description></description><atom:link type="application/rss+xml" rel="self" href="https://chowy1026.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Fri, 12 Aug 2016 03:42:53 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Lolita - Vladimir Nabokov</title><link>https://chowy1026.github.io/books/lolita/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Quotes&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;"Human life is but a series of footnotes to a vast obscure unfinished masterpiece"&lt;/li&gt;
 &lt;li&gt;"He broke my heart. You merely broke my life."&lt;/li&gt;
@@ -67,7 +67,7 @@ With a height of sixty inches.&lt;/p&gt;
 &lt;p&gt;My car is limping, Dolores Haze,
 And the last long lap is the hardest,
 And I shall be dumped where the weed decays,
-And the rest is rust and stardust.&lt;/p&gt;&lt;/div&gt;</description><guid>https://chowy1026.github.io/books/lolita/</guid><pubDate>Fri, 12 Aug 2016 03:10:40 GMT</pubDate></item><item><title>Helpful Links on Nikola</title><link>https://chowy1026.github.io/links/nikola/</link><dc:creator>cHoWy</dc:creator><description>&lt;ul&gt;
+And the rest is rust and stardust.&lt;/p&gt;&lt;/div&gt;</description><category>book</category><category>Vladimir Nabokov</category><guid>https://chowy1026.github.io/books/lolita/</guid><pubDate>Fri, 12 Aug 2016 03:10:40 GMT</pubDate></item><item><title>Helpful Links on Nikola</title><link>https://chowy1026.github.io/links/nikola/</link><dc:creator>cHoWy</dc:creator><description>&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://getnikola.com/" title="Nikola Homepage"&gt;Nikola Homepage&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://nikola.readthedocs.io/en/latest/" title="Nikola Documentation"&gt;Nikola Documentation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://groups.google.com/forum/#!forum/nikola-discuss" title="Nikola Google Group"&gt;Nikola Google Group&lt;/a&gt;&lt;/li&gt;

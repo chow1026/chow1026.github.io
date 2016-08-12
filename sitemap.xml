@@ -87,7 +87,11 @@
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags.html</loc>
-  <lastmod>2016-08-12T03:35:00Z</lastmod>
+  <lastmod>2016-08-12T03:42:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/book/</loc>
+  <lastmod>2016-08-12T03:42:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags/descriptive-statistics/</loc>
@@ -104,5 +108,9 @@
  <url>
   <loc>https://chowy1026.github.io/tags/nikola/</loc>
   <lastmod>2016-08-12T02:44:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/vladimir-nabokov/</loc>
+  <lastmod>2016-08-12T03:42:00Z</lastmod>
  </url>
 </urlset>
