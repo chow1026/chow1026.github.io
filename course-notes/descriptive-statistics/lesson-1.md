@@ -3,7 +3,7 @@
 .. slug: lesson-1
 .. date: 2016-08-11 21:10:06 UTC+08:00
 .. tags: descriptive-statistics
-.. category: 
+.. category:
 .. link:
 .. description:
 .. type: text
@@ -12,12 +12,12 @@
 ## Lesson 1: Introduction to Research Methods ##
 ### Some Definitions ###
 
-1. Constructs**
+1. **Constructs**
     - **Contruct**: Anything that is difficult to measure because it can be defined and measured in very many different ways.
     - **Operational Definition**: Operational Definitions {of a construct} is a unit of measurement for a construct.  Once an Operational Definitions is defined {for a construct}, it is no longer a construct.
     - **Extraneous Factors**: Also known as "Lurking Variables", these factors that could impact the outcome of an experiment or test.  Extraneous factors should be held constant as much as possible to maximize accuracy of experiments/tests.
 
-<!-- For mathJax, use \\( xxx \\) for inline; \\[ xxx \\] for block -->
+
 2. **Samples and Populations**
     - **Population Parameter**: denoted by \\(  \mu \\) (μ pronounced mu) are values that describe the whole population.
     - **Sample statistics**: denoted by \\( \overline{x} \\) (pronounced as X-bar) are values that describe our sample.  Statistics are used to estimate/approximate the population parameter.
