@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title> =^..^= MEH</title><link>https://chowy1026.github.io/</link><description></description><atom:link type="application/rss+xml" rel="self" href="https://chowy1026.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Fri, 12 Aug 2016 03:42:53 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Lolita - Vladimir Nabokov</title><link>https://chowy1026.github.io/books/lolita/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Quotes&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title> =^..^= MEH</title><link>https://chowy1026.github.io/</link><description></description><atom:link href="https://chowy1026.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 12 Aug 2016 04:11:48 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Lolita - Vladimir Nabokov</title><link>https://chowy1026.github.io/books/lolita/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Quotes&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;"Human life is but a series of footnotes to a vast obscure unfinished masterpiece"&lt;/li&gt;
 &lt;li&gt;"He broke my heart. You merely broke my life."&lt;/li&gt;
@@ -78,16 +78,14 @@ And the rest is rust and stardust.&lt;/p&gt;&lt;/div&gt;</description><category>
 &lt;/ul&gt;</description><category>helpful-links</category><category>Nikola</category><guid>https://chowy1026.github.io/links/nikola/</guid><pubDate>Fri, 12 Aug 2016 02:31:52 GMT</pubDate></item><item><title>Descriptive Statistics - Lesson 1</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-1/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 1: Introduction to Research Methods&lt;/h3&gt;
 &lt;h4&gt;Some Definitions&lt;/h4&gt;
 &lt;ol&gt;
-&lt;li&gt;Constructs**&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Constructs&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Contruct&lt;/strong&gt;: Anything that is difficult to measure because it can be defined and measured in very many different ways.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Operational Definition&lt;/strong&gt;: Operational Definitions {of a construct} is a unit of measurement for a construct.  Once an Operational Definitions is defined {for a construct}, it is no longer a construct.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Extraneous Factors&lt;/strong&gt;: Also known as "Lurking Variables", these factors that could impact the outcome of an experiment or test.  Extraneous factors should be held constant as much as possible to maximize accuracy of experiments/tests.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ol&gt;
-&lt;!-- For mathJax, use \\( xxx \\) for inline; \\[ xxx \\] for block --&gt;
-
-&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Samples and Populations&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
