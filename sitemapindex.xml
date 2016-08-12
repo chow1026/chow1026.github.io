@@ -7,14 +7,30 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>https://chowy1026.github.io/galleries/rss.xml</loc>
-  <lastmod>2016-08-08T04:41:00Z</lastmod>
+  <lastmod>2016-08-12T03:35:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/rss.xml</loc>
-  <lastmod>2016-08-08T04:35:00Z</lastmod>
+  <lastmod>2016-08-12T03:32:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/sitemap.xml</loc>
-  <lastmod>2016-08-08T04:41:00Z</lastmod>
+  <lastmod>2016-08-12T03:35:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chowy1026.github.io/tags/descriptive-statistics.xml</loc>
+  <lastmod>2016-08-11T15:12:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chowy1026.github.io/tags/hello-world.xml</loc>
+  <lastmod>2016-08-12T03:32:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chowy1026.github.io/tags/helpful-links.xml</loc>
+  <lastmod>2016-08-12T02:56:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chowy1026.github.io/tags/nikola.xml</loc>
+  <lastmod>2016-08-12T02:56:00Z</lastmod>
  </sitemap>
 </sitemapindex>

@@ -16,9 +16,31 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="https://chowy1026.github.io/categories/">
-<link rel="icon" href="images/favicon.png" sizes="16x16">
-<link rel="icon" href="images/icon_512x512.png" sizes="256x256">
-<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+<link rel="icon" href="../images/favicon.png" sizes="64x64">
+<link rel="icon" href="../images/icon_512x512.png" sizes="512x512">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+    </script><script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
 </head>
 <body class="">
     <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -38,7 +60,15 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
                 <p class="lead"></p>
 
             </div>
-                <nav id="menu" role="navigation" class="sidebar-nav"></nav><footer id="footer"><p class="footer">
+                <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../posts/index.html">Articles</a>
+        <a class="sidebar-nav-item" href="../course-notes/index.html">Course Notes</a>
+        <a class="sidebar-nav-item" href="../links/index.html">Links</a>
+        <a class="sidebar-nav-item" href="../books/index.html">Books</a>
+        <a class="sidebar-nav-item" href="../archives/archives.html">Archives</a>
+        <a class="sidebar-nav-item" href="../tags.html">Tags</a>
+    
+    
+    </nav><footer id="footer"><p class="footer">
               <span class="icon_row">
 
                 <a href="mailto:chowy1026@gmail.com">
@@ -61,7 +91,7 @@ Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href
     </div>
 
     <div class="content container" id="content">
-<article class="tagindex"><header><h1>Tags</h1>
+<article class="post tagindex"><header><h1>Tags</h1>
     </header></article>
 </div>
 
