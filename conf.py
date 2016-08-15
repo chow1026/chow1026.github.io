@@ -566,16 +566,16 @@ REDIRECTIONS = []
 #     "git push",
 #     "git checkout master",
 # ]
-DEPLOY_COMMANDS = {
-    'default': [
-        'git add .',
-        "git commit -am 'Update'",
-        'git push origin master',
-        'git subtree split --prefix output -b gh-pages',
-        'git push -f origin gh-pages:gh-pages',
-        'git branch -D gh-pages'
-    ]
-}
+# DEPLOY_COMMANDS = {
+#     'default': [
+#         'git add .',
+#         "git commit -am 'Update'",
+#         'git push origin master',
+#         'git subtree split --prefix output -b gh-pages',
+#         'git push -f origin gh-pages:gh-pages',
+#         'git branch -D gh-pages'
+#     ]
+# }
 
 # from http://sampathweb.com/posts/blogging-made-easy.html
 # DEPLOY_COMMANDS = ["git add .",
