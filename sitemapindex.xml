@@ -7,15 +7,15 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>https://chowy1026.github.io/galleries/rss.xml</loc>
-  <lastmod>2016-08-15T07:00:00Z</lastmod>
+  <lastmod>2016-08-15T07:25:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/rss.xml</loc>
-  <lastmod>2016-08-15T06:58:00Z</lastmod>
+  <lastmod>2016-08-15T07:11:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/sitemap.xml</loc>
-  <lastmod>2016-08-15T07:00:00Z</lastmod>
+  <lastmod>2016-08-15T07:25:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/book.xml</loc>
@@ -27,11 +27,11 @@
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/github-pages.xml</loc>
-  <lastmod>2016-08-15T06:58:00Z</lastmod>
+  <lastmod>2016-08-15T07:11:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/github.xml</loc>
-  <lastmod>2016-08-15T06:58:00Z</lastmod>
+  <lastmod>2016-08-15T07:11:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/hello-world.xml</loc>
@@ -43,7 +43,7 @@
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/nikola.xml</loc>
-  <lastmod>2016-08-15T06:58:00Z</lastmod>
+  <lastmod>2016-08-15T07:11:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/vladimir-nabokov.xml</loc>
