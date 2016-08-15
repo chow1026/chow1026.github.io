@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title> =^..^= MEH (github)</title><link>https://chowy1026.github.io/</link><description></description><atom:link rel="self" type="application/rss+xml" href="https://chowy1026.github.io/tags/github.xml"></atom:link><language>en</language><lastBuildDate>Mon, 15 Aug 2016 06:58:37 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Setting Up Nikola, a Static Site Generator</title><link>https://chowy1026.github.io/posts/nikola-setup/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;A while back, I started to look into static site generators for building my professional and personal blog site.  I had used &lt;a href="https://wordpress.org/" title="Wordpress"&gt;Wordpress&lt;/a&gt; long ago, but want to practice programming in Python.  Recently I tried out &lt;a href="https://medium.com/" title="Medium"&gt;Medium&lt;/a&gt;, but find it rather limiting when it comes to formatting content, and to organizing my posts.   &lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title> =^..^= MEH (github)</title><link>https://chowy1026.github.io/</link><description></description><atom:link rel="self" type="application/rss+xml" href="https://chowy1026.github.io/tags/github.xml"></atom:link><language>en</language><lastBuildDate>Mon, 15 Aug 2016 07:11:26 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Setting Up Nikola, a Static Site Generator</title><link>https://chowy1026.github.io/posts/nikola-setup/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;A while back, I started to look into static site generators for building my professional and personal blog site.  I had used &lt;a href="https://wordpress.org/" title="Wordpress"&gt;Wordpress&lt;/a&gt; long ago, but want to practice programming in Python.  Recently I tried out &lt;a href="https://medium.com/" title="Medium"&gt;Medium&lt;/a&gt;, but find it rather limiting when it comes to formatting content, and to organizing my posts.   &lt;/p&gt;
 &lt;p&gt;I want to use the opportunity to explore what's new out there and get my hands dirty in programming again.  While researching, I stumble upon this site for static site generator - &lt;a href="https://www.staticgen.com/" title="StaticGen"&gt;StaticGen&lt;/a&gt;.  After testing out briefly with Pelican and Nikola, At last I decided to go with &lt;a href="https://getnikola.com/" title="Nikola"&gt;Nikola&lt;/a&gt; .&lt;/p&gt;
 &lt;p&gt;Nikola is rather lightweight, written with Python, supports contents written in markdown (my preferred way of writing content), and supports &lt;a href="https://www.mathjax.org/" title="MathJax"&gt;MathJax&lt;/a&gt; with a little tweaking.&lt;/p&gt;
 &lt;h4&gt;Installation&lt;/h4&gt;
@@ -143,16 +143,16 @@ PAGES = (
 &lt;h4&gt;GitHub Deploy&lt;/h4&gt;
 &lt;p&gt;Admittedly, Git confuses me sometimes.  And the built-in command that Nikola offers is absolutely godsent.  It nicely push content to the master branch of your userpage repo, which is {github.username}.github.io, and keep source in the source branch.  &lt;/p&gt;
 &lt;p&gt;Having had my empty &lt;code&gt;{github.username}.github.io&lt;/code&gt; repo ready on github, I have these in my &lt;code&gt;config.py&lt;/code&gt;:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;DEPLOY_COMMANDS = {
-    'default': [
-        'git add .',
-        "git commit -am 'Update'",
-        'git push origin master',
-        'git subtree split --prefix output -b gh-pages',
-        'git push -f origin gh-pages:gh-pages',
-        'git branch -D gh-pages'
-    ]
-}
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;# DEPLOY_COMMANDS = {
+#    'default': [
+#        'git add .',
+#        "git commit -am 'Update'",
+#        'git push origin master',
+#        'git subtree split --prefix output -b gh-pages',
+#        'git push -f origin gh-pages:gh-pages',
+#        'git branch -D gh-pages'
+#    ]
+#}
 
 GITHUB_SOURCE_BRANCH = 'source'
 GITHUB_DEPLOY_BRANCH = 'master'
@@ -163,8 +163,9 @@ GITHUB_COMMIT_SOURCE = True
 &lt;/pre&gt;
 
 
-&lt;p&gt;I am honestly a little confused whether or not the &lt;code&gt;DEPLOY_COMMANDS&lt;/code&gt; is actually needed.  I looked into the github_deploy.py under the hood of Nikola, it seems the deploy commands are already predefined.  I need to further experiment whether the &lt;code&gt;nikola github_deploy&lt;/code&gt; would work without a &lt;code&gt;DEPLOY_COMMANDS&lt;/code&gt; defined in &lt;code&gt;config.py&lt;/code&gt;.  Will update when I am 200% certain.&lt;/p&gt;
-&lt;p&gt;That said, whenever I want to update content to my github page, I simply type:&lt;/p&gt;
+&lt;p&gt;&lt;del&gt; I am honestly a little confused whether or not the &lt;code&gt;DEPLOY_COMMANDS&lt;/code&gt; is actually needed.  I looked into the github_deploy.py under the hood of Nikola, it seems the deploy commands are already predefined.  I need to further experiment whether the &lt;code&gt;nikola github_deploy&lt;/code&gt; would work without a &lt;code&gt;DEPLOY_COMMANDS&lt;/code&gt; defined in &lt;code&gt;config.py&lt;/code&gt;.  Will update when I am 200% certain. &lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;Update: &lt;code&gt;nikola github_deploy&lt;/code&gt; IS indeed GOD-SENT.  Without having to define &lt;code&gt;DEPLOY_COMMANDS&lt;/code&gt;, it nicely does everything for us - push &lt;code&gt;output&lt;/code&gt; content to master, and source to source.&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;That said&lt;/del&gt; Now, whenever I want to update content to my github page, I simply type:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ nikola github_deploy
 &lt;/pre&gt;
 

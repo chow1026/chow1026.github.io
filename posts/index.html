@@ -244,16 +244,16 @@ PAGES = (
 <h4>GitHub Deploy</h4>
 <p>Admittedly, Git confuses me sometimes.  And the built-in command that Nikola offers is absolutely godsent.  It nicely push content to the master branch of your userpage repo, which is {github.username}.github.io, and keep source in the source branch.  </p>
 <p>Having had my empty <code>{github.username}.github.io</code> repo ready on github, I have these in my <code>config.py</code>:</p>
-<pre class="code literal-block"><span></span>DEPLOY_COMMANDS = {
-    'default': [
-        'git add .',
-        "git commit -am 'Update'",
-        'git push origin master',
-        'git subtree split --prefix output -b gh-pages',
-        'git push -f origin gh-pages:gh-pages',
-        'git branch -D gh-pages'
-    ]
-}
+<pre class="code literal-block"><span></span># DEPLOY_COMMANDS = {
+#    'default': [
+#        'git add .',
+#        "git commit -am 'Update'",
+#        'git push origin master',
+#        'git subtree split --prefix output -b gh-pages',
+#        'git push -f origin gh-pages:gh-pages',
+#        'git branch -D gh-pages'
+#    ]
+#}
 
 GITHUB_SOURCE_BRANCH = 'source'
 GITHUB_DEPLOY_BRANCH = 'master'
@@ -264,8 +264,9 @@ GITHUB_COMMIT_SOURCE = True
 </pre>
 
 
-<p>I am honestly a little confused whether or not the <code>DEPLOY_COMMANDS</code> is actually needed.  I looked into the github_deploy.py under the hood of Nikola, it seems the deploy commands are already predefined.  I need to further experiment whether the <code>nikola github_deploy</code> would work without a <code>DEPLOY_COMMANDS</code> defined in <code>config.py</code>.  Will update when I am 200% certain.</p>
-<p>That said, whenever I want to update content to my github page, I simply type:</p>
+<p><del> I am honestly a little confused whether or not the <code>DEPLOY_COMMANDS</code> is actually needed.  I looked into the github_deploy.py under the hood of Nikola, it seems the deploy commands are already predefined.  I need to further experiment whether the <code>nikola github_deploy</code> would work without a <code>DEPLOY_COMMANDS</code> defined in <code>config.py</code>.  Will update when I am 200% certain. </del></p>
+<p>Update: <code>nikola github_deploy</code> IS indeed GOD-SENT.  Without having to define <code>DEPLOY_COMMANDS</code>, it nicely does everything for us - push <code>output</code> content to master, and source to source.</p>
+<p><del>That said</del> Now, whenever I want to update content to my github page, I simply type:</p>
 <pre class="code literal-block"><span></span>$ nikola github_deploy
 </pre>
 
