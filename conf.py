@@ -26,10 +26,8 @@ SITE_URL = "https://chowy1026.github.io/"
 # If not set, defaults to SITE_URL
 # BASE_URL = "/blog/"
 BLOG_EMAIL = "chowy1026@gmail.com"
-BLOG_DESCRIPTION = ""# (translatable)
+BLOG_DESCRIPTION = "" # (translatable)
 # =^..^=  =^..^=  =^..^= #
-AUTHOR_TWITTER = ""
-AUTHOR_GITHUB = "https://github.com/chowy1026/"
 
 
 # Nikola is multilingual!
@@ -1062,6 +1060,14 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 # <script src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
 # <!-- End of social buttons -->
 # """
+# SOCIAL_BUTTONS_CODE = """
+#         <!-- Social Icons -->
+#         <span class="icon_row">
+#             <a href="{ social_email[1] }">
+#             <img class="social_icon" src="{ social_email[0] }" title="email" width="24" /></a> &middot;
+#         </span>
+#         <br/><br/>
+#     """
 
 # Show link to source for the posts?
 # Formerly known as HIDE_SOURCELINK (inverse)
@@ -1260,10 +1266,40 @@ USE_BUNDLES = False
 # those.
 # TEMPLATE_FILTERS = {}
 
+# SHOW Social Icon Row above footer Notes. Enter in {{alt-text}:{image path},} format
+# NAVIGATION_LINKS = {
+#     DEFAULT_LANG: (
+#         ("/posts/index.html", "Articles"),
+#         ("/course-notes/index.html", "Course Notes"),
+#         ("/links/index.html", "Links"),
+#         ("/books/index.html", "Books"),
+#         # ("/movies-shows/index.html", "Movies/Shows"),
+#         # ("/music/index.html", "Music"),
+#         ("/archives/archives.html", "Archives"),
+#         ("/tags.html", "Tags"),
+#     ),
+# }
+
+# SHOW_SOCIAL_ICONS = {
+#     DEFAULT_LANG: (
+#         ("email", "/images/envelope1.png", "mailto:chowy1026@gmail.com"),
+#         ("twitter","/images/twitter-black-shape1.png", "#"),
+#         ("github", "/images/github-character1.png", "https://github.com/chowy1026/"),
+#     ),
+# }
+
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
 GLOBAL_CONTEXT = {
-    "hyde_subtheme": ""
+    "hyde_subtheme": "test",
+    "social_email": ("/images/envelope1.png", "mailto:chowy1026@gmail.com"),
+    "social_twitter": ("/images/twitter-black-shape1.png", "#"),
+    "social_github": ("/images/github-character1.png", "https://github.com/chowy1026/"),
+    "social_icons": (
+        ("email", "/images/envelope1.png", "mailto:chowy1026@gmail.com"),
+        ("twitter","/images/twitter-black-shape1.png", "#"),
+        ("github", "/images/github-character1.png", "https://github.com/chowy1026/")
+    ),
 }
 
 # Add functions here and they will be called with template

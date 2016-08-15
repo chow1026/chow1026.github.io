@@ -9,6 +9,7 @@
 .. type: text
 -->
 
+## Primary References ##
 - [Nikola Homepage][4c8cd0ba]
 - [Nikola Documentation][b8941b17]
 - [Nikola Google Group][ee788dbf]
@@ -24,3 +25,9 @@
   [f28906fc]: http://nikola.readthedocs.io/en/latest/creating-a-theme/ "Theming Nikola"
   [c0a43a71]: http://nikola.readthedocs.io/en/latest/manual/#math "MathJax on Nikola"
   [65e057f7]: http://sampathweb.com/posts/blogging-made-easy.html "GitHub DEPLOY_COMMANDS in Config.py"
+
+## Other Notable References ##
+- [Louis Tiao's Guide][1ffcfa86]
+
+
+  [1ffcfa86]: http://louistiao.me/posts/how-i-customized-my-nikola-powered-site/ "Louis Tiao's Guide"
