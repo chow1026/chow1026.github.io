@@ -169,16 +169,16 @@ Admittedly, Git confuses me sometimes.  And the built-in command that Nikola off
 
 Having had my empty `{github.username}.github.io` repo ready on github, I have these in my `config.py`:
 ```
-DEPLOY_COMMANDS = {
-    'default': [
-        'git add .',
-        "git commit -am 'Update'",
-        'git push origin master',
-        'git subtree split --prefix output -b gh-pages',
-        'git push -f origin gh-pages:gh-pages',
-        'git branch -D gh-pages'
-    ]
-}
+# DEPLOY_COMMANDS = {
+#    'default': [
+#        'git add .',
+#        "git commit -am 'Update'",
+#        'git push origin master',
+#        'git subtree split --prefix output -b gh-pages',
+#        'git push -f origin gh-pages:gh-pages',
+#        'git branch -D gh-pages'
+#    ]
+#}
 
 GITHUB_SOURCE_BRANCH = 'source'
 GITHUB_DEPLOY_BRANCH = 'master'
@@ -188,9 +188,11 @@ GITHUB_REMOTE_NAME = 'origin'
 GITHUB_COMMIT_SOURCE = True
 ```
 
-I am honestly a little confused whether or not the `DEPLOY_COMMANDS` is actually needed.  I looked into the github_deploy.py under the hood of Nikola, it seems the deploy commands are already predefined.  I need to further experiment whether the `nikola github_deploy` would work without a `DEPLOY_COMMANDS` defined in `config.py`.  Will update when I am 200% certain.
+~~ I am honestly a little confused whether or not the `DEPLOY_COMMANDS` is actually needed.  I looked into the github_deploy.py under the hood of Nikola, it seems the deploy commands are already predefined.  I need to further experiment whether the `nikola github_deploy` would work without a `DEPLOY_COMMANDS` defined in `config.py`.  Will update when I am 200% certain. ~~
 
-That said, whenever I want to update content to my github page, I simply type:
+Update: `nikola github_deploy` IS indeed GOD-SENT.  Without having to define `DEPLOY_COMMANDS`, it nicely does everything for us - push `output` content to master, and source to source.
+
+~~That said~~ Now, whenever I want to update content to my github page, I simply type:
 ```
 $ nikola github_deploy
 ```
