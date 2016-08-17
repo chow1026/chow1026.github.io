@@ -35,7 +35,10 @@
         - \\[  \frac{X_{\frac{n}{2}} + X_{\frac{n}{2} + 1}}{2} \\]
     - If dataset has ODD number, n, of data,
         - \\[ X_{\frac{n}{2} + 1} \\]
-4. **Measures of Center**:
+4. **Conclusions of Measures of Center**:
     - Mean, Mode and Median are measure of center for datasets.
-    -
-5.
+    - Mean has a simple equation.
+    - Mean will always change if any data value changes.
+    - While Mode IS affected by bin size, both Mean and Median are NOT affected by bin size.
+    - While Mean IS severely affected by outliers, Median and Mode are NOT severely affected by outliers.
+    - Mode is easy to find on histogram.  
