@@ -1,8 +1,8 @@
 <!--
-.. title: Descriptive Statistics - Lesson 1
+.. title: Descriptive Statistics - Research Methods
 .. slug: lesson-1
 .. date: 2016-08-11 21:10:06 UTC+08:00
-.. tags: descriptive-statistics
+.. tags: descriptive-statistics, introduction, research methods
 .. category:
 .. link:
 .. description:

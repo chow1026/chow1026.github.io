@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://chowy1026.github.io/</loc>
-  <lastmod>2016-08-12T07:15:00Z</lastmod>
+  <lastmod>2016-08-19T02:36:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/archives/2016/</loc>
@@ -15,7 +15,7 @@
  </url>
  <url>
   <loc>https://chowy1026.github.io/archives/2016/08/</loc>
-  <lastmod>2016-08-15T05:29:00Z</lastmod>
+  <lastmod>2016-08-19T02:36:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/archives/2016/08/06/</loc>
@@ -34,8 +34,24 @@
   <lastmod>2016-08-15T05:29:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/archives/2016/08/16/</loc>
+  <lastmod>2016-08-16T07:09:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2016/08/17/</loc>
+  <lastmod>2016-08-17T03:29:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2016/08/18/</loc>
+  <lastmod>2016-08-18T02:09:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2016/08/19/</loc>
+  <lastmod>2016-08-19T02:36:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/archives/archives.html</loc>
-  <lastmod>2016-08-15T07:25:00Z</lastmod>
+  <lastmod>2016-08-19T02:36:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/books/</loc>
@@ -62,8 +78,32 @@
   <lastmod>2016-08-12T07:15:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-3/</loc>
+  <lastmod>2016-08-16T07:09:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-4/</loc>
+  <lastmod>2016-08-17T03:29:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-5/</loc>
+  <lastmod>2016-08-18T02:09:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-6/</loc>
+  <lastmod>2016-08-18T06:23:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-7/</loc>
+  <lastmod>2016-08-19T02:36:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/galleries/</loc>
   <lastmod>2016-08-12T07:15:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/index-1.html</loc>
+  <lastmod>2016-08-19T02:36:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/links/</loc>
@@ -95,11 +135,15 @@
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags.html</loc>
-  <lastmod>2016-08-15T07:25:00Z</lastmod>
+  <lastmod>2016-08-21T14:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags/book/</loc>
   <lastmod>2016-08-12T07:15:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/central-tendency/</loc>
+  <lastmod>2016-08-16T07:11:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags/descriptive-statistics/</loc>
@@ -122,8 +166,28 @@
   <lastmod>2016-08-12T07:15:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/tags/introduction/</loc>
+  <lastmod>2016-08-16T07:10:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/tags/nikola/</loc>
   <lastmod>2016-08-12T07:15:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/research-methods/</loc>
+  <lastmod>2016-08-16T07:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/sampling-distribution/</loc>
+  <lastmod>2016-08-22T03:19:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/standardizing/</loc>
+  <lastmod>2016-08-18T02:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/variability/</loc>
+  <lastmod>2016-08-17T03:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags/vladimir-nabokov/</loc>

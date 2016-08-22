@@ -4,9 +4,9 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
 " vocab="http://ogp.me/ns" lang="en">
 <head>
 <meta charset="utf-8">
-<base href="https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-2/">
+<base href="https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-4/">
 <meta name="viewport" content="width=device-width">
-<title> =^..^= MEH · Descriptive Statistics - Lesson 2 </title>
+<title> =^..^= MEH · Descriptive Statistics - Variability </title>
 <link href="../../../assets/css/rst.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/poole.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/hyde.css" rel="stylesheet" type="text/css">
@@ -14,7 +14,7 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700%7CAbril+Fatface">
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
-<link rel="canonical" href="https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-2/">
+<link rel="canonical" href="https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-4/">
 <link rel="icon" href="../../../images/favicon.png" sizes="64x64">
 <link rel="icon" href="../../../images/icon_512x512.png" sizes="512x512">
 <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
@@ -40,20 +40,21 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
     }
 });
 </script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="cHoWy">
-<link rel="prev" href="../../../posts/hello-world/" title="Hello World!" type="text/html">
-<link rel="next" href="../lesson-1/" title="Descriptive Statistics - Lesson 1" type="text/html">
+<link rel="prev" href="../lesson-3/" title="Descriptive Statistics - Central Tendency" type="text/html">
+<link rel="next" href="../lesson-5/" title="Descriptive Statistics - Standardizing" type="text/html">
 <meta property="og:site_name" content=" =^..^= MEH">
-<meta property="og:title" content="Descriptive Statistics - Lesson 2">
-<meta property="og:url" content="https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-2/">
-<meta property="og:description" content="Lesson 2: Visualizing Data
-Some Definitions
+<meta property="og:title" content="Descriptive Statistics - Variability">
+<meta property="og:url" content="https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-4/">
+<meta property="og:description" content="Lesson 4: Variability
+General Ideas of Variability
 
-Frequencies
-Frequencies: The number of times a certain outcome occurs.
-Relative Frequencies: The probability (0.0 - 1.0) of an outcome happening in compari">
+Range: The maximum data point minus the minimum data point.  
+Wide Spread: The data set has shorter and wider distribution.
+Consistency: When a data">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2016-08-11T21:04:36+08:00">
+<meta property="article:published_time" content="2016-08-17T11:29:46+08:00">
 <meta property="article:tag" content="descriptive-statistics">
+<meta property="article:tag" content="variability">
 </head>
 <body class="test">
     <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -104,67 +105,106 @@ Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href
     </div>
 
     <div class="content container" id="content">
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><h1 class="post-title p-name"><a href="." class="u-url">Descriptive Statistics - Lesson 2</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><h1 class="post-title p-name"><a href="." class="u-url">Descriptive Statistics - Variability</a></h1>
 
     <span class="post-date">
-      <time class="published dt-published" datetime="2016-08-11T21:04:36+08:00" itemprop="datePublished" title="2016-08-11 21:04">2016-08-11 21:04</time></span>
+      <time class="published dt-published" datetime="2016-08-17T11:29:46+08:00" itemprop="datePublished" title="2016-08-17 11:29">2016-08-17 11:29</time></span>
 
     
     
 
     <div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<h3>Lesson 2: Visualizing Data</h3>
-<h4>Some Definitions</h4>
+<h3>Lesson 4: Variability</h3>
+<h4>General Ideas of Variability</h4>
 <ol>
-<li><strong>Frequencies</strong></li>
 <li>
-<strong>Frequencies</strong>: The number of times a certain outcome occurs.</li>
+<strong>Range</strong>: The maximum data point minus the minimum data point.  </li>
 <li>
-<strong>Relative Frequencies</strong>: The probability (0.0 - 1.0) of an outcome happening in comparison to other outcomes.</li>
+<strong>Wide Spread</strong>: The data set has shorter and wider distribution.</li>
 <li>
-<strong>Proportion</strong>: A proportion is the fraction of counts over the total sample.A proportion can be turned into a percentage by multiplying the proportion by 100.</li>
-<li><strong>Histogram</strong></li>
+<strong>Consistency</strong>: When a data is more consistent, it forms taller and narrower distribution.  </li>
+<li>Outlier(s) usually widen the range of distribution and INCREASES variability.  Statisticians usually cut off outliers.</li>
+<li>1st Quartile, <strong>\( Q_{1} \)</strong>, is the 25% of the distribution, while 3rd Quartile, <strong>\( Q_{3} \)</strong>, is the 75% of the distribution.  2nd Quartile, also known as Median, is the 50% of the distribution.  </li>
 <li>
-<strong>Histogram</strong>: Histogram is a graphical representation of distribution of data.  Discrete intervals (bin size) are decided upon to form widths of our boxes.  </li>
-<li>
-<strong>Bin Size and Number of Rows</strong>: The two are inter-dependent.  Bin size is the discrete intervals set to accommodate the outcomes that falls within the defined intervals.  Bin size is also the intervals in which one is counting the frequencies of the outcomes.  The number of rows increases when bin size decreases; and vice versa.  Number of rows represent number of bars in a histogram diagram.  </li>
-<li><strong>Histogram and Bar Graphs: Differences between them</strong></li>
-<li>
-<strong>Histogram</strong>: Data in histogram can be mixed, or distributed differently simply by changing the bin size.  The independent variables (x-axis) is usually numerical and quantitative.  The order of the bars are usually based on the incremental quantitative x-axis, small to big.  The shape of a histogram is very important as it represents the distribution curve.</li>
-<li>
-<strong>Bar Graph</strong>: Columns in bar graphs are spaced out. Each column in a bar graph represents one distinct categories. Distribution of data in a bar chart is less flexible for change because of its distinctive representation.  The x-axis is usually categorical or qualitative.  The order of how the bars are charted is solely dependent on how we want to sort it.  The shape of a bar chart is arbitrary.</li>
-<li><strong>More on Histogram</strong></li>
-<li>
-<strong>Distribution</strong>: How data falls into the different bin size.  Normal distribution forms a symmetrical bell-shape, with the highest frequencies in the middle.  The bin-size with highest frequencies is mod.  </li>
-<li>
-<strong>Positively Skewed</strong>: When most data falls onto the left side of the histogram than on the right.</li>
-<li>
-<strong>Negatively Skewed</strong>: When most values falls onto the right side of the histogram then the left.<br>
-5.<strong>Math Symbols</strong>:</li>
-<li>
-<strong>\( \mathcal{f}  \)</strong>: Frequencies</li>
-<li>\( \sum \): Total sum</li>
-<li>
-<strong>\( \mathcal{p} \)</strong>: Proportion (Probability)</li>
+<strong>Interquartile Range</strong>:<ul>
+<li><strong>\(IQR =  Q_{3} - Q_{1} \)</strong></li>
+</ul>
+</li>
+<li>Facts about <strong>\(IQR \)</strong>:<ul>
+<li>About 50% of data lies between IQR.</li>
+<li>IQR may or may not be affected by every value in the dataset.  </li>
+<li>IQR is NOT affected by outliers.</li>
+</ul>
+</li>
+<li>A data point is considered an outlier if any of the below is true:<ul>
+<li>\[ x_{outlier} &lt; Q_{1} - 1.5*IQR \]</li>
+<li>\[ x_{outlier} &gt; Q_{3} - 1.5*IQR \]</li>
+</ul>
+</li>
+</ol>
+<h4>Box Plots</h4>
+<ol>
+<li>Key Elements of Box Plots:<ul>
+<li>Max, Min (two handles of the box)</li>
+<li>\( Q_{1} \), \( Q_{3} \), \( Q_{2} \) (aka Median) forms the box, with Median in the center "splitting" the box.</li>
+<li>Outliers, drawn as dots next to /outside of Max and/or Min.  </li>
+</ul>
+</li>
+<li>Box plots sometimes don't tell about the distribution model of data.  The box plot for normal, bimodal, or uniform distribution are the same.</li>
+<li>Although usually the mean lies between \( Q_{1} \) and \( Q_{3} \), it may lie outside of it, if there are outliers.</li>
+</ol>
+<h4>Measuring Variability</h4>
+<ol>
+<li>To measure variability, we find the average distance between each data value and the mean.</li>
+<li>\[ Deviation, \delta = x_{i} - \bar{x} \]</li>
+<li>Average Deviation, \(\bar{\delta}\):<ul>
+<li>\[ \bar{\delta} = \frac{ \sum_{i=0}^N{  \lvert{x_{i} - \bar{x} } \rvert }}{N}\]</li>
+<li>\[ \bar{\delta} = \frac{ \sum_{i=0}^N{\lvert\bar{x} - x_{i}\rvert}}{N} \]</li>
+<li>\[ \bar{\delta} = \sum_{i=0}^N{\frac{ \lvert \bar{x} - x_{i} \rvert }{N}} \]</li>
+</ul>
+</li>
+<li>Squared Deviation, \( \delta^2 \):<ul>
+<li>\[ \delta^2 = {\lvert{x_{i} - \bar{x} } \rvert}^2 \]</li>
+</ul>
+</li>
+<li>Sum of Squares, \( \sum_{i=0}^N(\delta^2) \), aka \( SS \):<ul>
+<li>\[ SS = \sum_{i=0}^N{({x_{i} - \bar{x}})^2} \]</li>
+</ul>
+</li>
+<li>Variance, \( \sigma^2 \), which is simply the Mean of \( SS \), \( \bar{SS} \) is:<ul>
+<li>\[ \sigma^2 = \frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N} \]</li>
+</ul>
+</li>
+<li>Standard Deviation, \( \sigma \), is the square root of variance.  <ul>
+<li>\[ \sigma = \sqrt{\frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N}} \]</li>
+</ul>
+</li>
+<li>Why Standard Deviation? In a perfectly normal distribution where mean equals to median equals to mode, 68% of the data values would fall between \( -1 \sigma \) and \( +1 \sigma \), 95% of the data values will fall between \( -2 \sigma \) and \( +2 \sigma \)</li>
+<li>When a sample is taken from a population, the sample standard deviation is usually smaller than true standard deviation, \( \sigma \), of the population.  To correct that, we apply Bessel's Correction.  The corrected/estimation sample standard deviation, denoted as \( s \), and corresponding variance, will have the formulas below:<ul>
+<li>\[ s^2 = \frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N -1} \]</li>
+<li>\[ s = \sqrt{\frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N-1}} \]</li>
+</ul>
+</li>
 </ol>
 </div>
     </div>
     <aside class="postpromonav"><nav><p itemprop="keywords" class="tags">
             <span class="tag"><a class="p-category" href="../../../tags/descriptive-statistics/" rel="tag">descriptive-statistics</a></span>
+            <span class="tag"><a class="p-category" href="../../../tags/variability/" rel="tag">variability</a></span>
       </p>
 
             <div class="pager hidden-print pagination">
 
             <span class="previous pagination-item older">
-                <a href="../../../posts/hello-world/" rel="prev" title="Hello World!">
+                <a href="../lesson-3/" rel="prev" title="Descriptive Statistics - Central Tendency">
                 Previous post
                 </a>
             </span>
 
 
             <span class="next pagination-item newer">
-                <a href="../lesson-1/" rel="next" title="Descriptive Statistics - Lesson 1">
+                <a href="../lesson-5/" rel="next" title="Descriptive Statistics - Standardizing">
 Next post
               </a>
             </span>
@@ -175,9 +215,9 @@ Next post
                         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="chowygit",
-            disqus_url="https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-2/",
-        disqus_title="Descriptive Statistics - Lesson 2",
-        disqus_identifier="cache/course-notes/descriptive-statistics/lesson-2.html",
+            disqus_url="https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-4/",
+        disqus_title="Descriptive Statistics - Variability",
+        disqus_identifier="cache/course-notes/descriptive-statistics/lesson-4.html",
         disqus_config = function () {
             this.language = "en";
         };

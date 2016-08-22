@@ -4,9 +4,9 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
 " vocab="http://ogp.me/ns" lang="en">
 <head>
 <meta charset="utf-8">
-<base href="https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-2/">
+<base href="https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-5/">
 <meta name="viewport" content="width=device-width">
-<title> =^..^= MEH · Descriptive Statistics - Lesson 2 </title>
+<title> =^..^= MEH · Descriptive Statistics - Standardizing </title>
 <link href="../../../assets/css/rst.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/poole.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/hyde.css" rel="stylesheet" type="text/css">
@@ -14,7 +14,7 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700%7CAbril+Fatface">
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
-<link rel="canonical" href="https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-2/">
+<link rel="canonical" href="https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-5/">
 <link rel="icon" href="../../../images/favicon.png" sizes="64x64">
 <link rel="icon" href="../../../images/icon_512x512.png" sizes="512x512">
 <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
@@ -40,20 +40,19 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
     }
 });
 </script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="cHoWy">
-<link rel="prev" href="../../../posts/hello-world/" title="Hello World!" type="text/html">
-<link rel="next" href="../lesson-1/" title="Descriptive Statistics - Lesson 1" type="text/html">
+<link rel="prev" href="../lesson-4/" title="Descriptive Statistics - Variability" type="text/html">
+<link rel="next" href="../lesson-6/" title="Descriptive Statistics - Normal Distribution" type="text/html">
 <meta property="og:site_name" content=" =^..^= MEH">
-<meta property="og:title" content="Descriptive Statistics - Lesson 2">
-<meta property="og:url" content="https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-2/">
-<meta property="og:description" content="Lesson 2: Visualizing Data
-Some Definitions
+<meta property="og:title" content="Descriptive Statistics - Standardizing">
+<meta property="og:url" content="https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-5/">
+<meta property="og:description" content="Lesson 5: Standardizing
 
-Frequencies
-Frequencies: The number of times a certain outcome occurs.
-Relative Frequencies: The probability (0.0 - 1.0) of an outcome happening in compari">
+If we are concerned about a proportion less than or greater than a certain value on a distribution, we should use RELATIVE FREQUENCIES.
+When a bin-size is too big, we can't te">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2016-08-11T21:04:36+08:00">
+<meta property="article:published_time" content="2016-08-18T10:09:35+08:00">
 <meta property="article:tag" content="descriptive-statistics">
+<meta property="article:tag" content="standardizing">
 </head>
 <body class="test">
     <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -104,67 +103,51 @@ Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href
     </div>
 
     <div class="content container" id="content">
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><h1 class="post-title p-name"><a href="." class="u-url">Descriptive Statistics - Lesson 2</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><h1 class="post-title p-name"><a href="." class="u-url">Descriptive Statistics - Standardizing</a></h1>
 
     <span class="post-date">
-      <time class="published dt-published" datetime="2016-08-11T21:04:36+08:00" itemprop="datePublished" title="2016-08-11 21:04">2016-08-11 21:04</time></span>
+      <time class="published dt-published" datetime="2016-08-18T10:09:35+08:00" itemprop="datePublished" title="2016-08-18 10:09">2016-08-18 10:09</time></span>
 
     
     
 
     <div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<h3>Lesson 2: Visualizing Data</h3>
-<h4>Some Definitions</h4>
+<h3>Lesson 5: Standardizing</h3>
 <ol>
-<li><strong>Frequencies</strong></li>
-<li>
-<strong>Frequencies</strong>: The number of times a certain outcome occurs.</li>
-<li>
-<strong>Relative Frequencies</strong>: The probability (0.0 - 1.0) of an outcome happening in comparison to other outcomes.</li>
-<li>
-<strong>Proportion</strong>: A proportion is the fraction of counts over the total sample.A proportion can be turned into a percentage by multiplying the proportion by 100.</li>
-<li><strong>Histogram</strong></li>
-<li>
-<strong>Histogram</strong>: Histogram is a graphical representation of distribution of data.  Discrete intervals (bin size) are decided upon to form widths of our boxes.  </li>
-<li>
-<strong>Bin Size and Number of Rows</strong>: The two are inter-dependent.  Bin size is the discrete intervals set to accommodate the outcomes that falls within the defined intervals.  Bin size is also the intervals in which one is counting the frequencies of the outcomes.  The number of rows increases when bin size decreases; and vice versa.  Number of rows represent number of bars in a histogram diagram.  </li>
-<li><strong>Histogram and Bar Graphs: Differences between them</strong></li>
-<li>
-<strong>Histogram</strong>: Data in histogram can be mixed, or distributed differently simply by changing the bin size.  The independent variables (x-axis) is usually numerical and quantitative.  The order of the bars are usually based on the incremental quantitative x-axis, small to big.  The shape of a histogram is very important as it represents the distribution curve.</li>
-<li>
-<strong>Bar Graph</strong>: Columns in bar graphs are spaced out. Each column in a bar graph represents one distinct categories. Distribution of data in a bar chart is less flexible for change because of its distinctive representation.  The x-axis is usually categorical or qualitative.  The order of how the bars are charted is solely dependent on how we want to sort it.  The shape of a bar chart is arbitrary.</li>
-<li><strong>More on Histogram</strong></li>
-<li>
-<strong>Distribution</strong>: How data falls into the different bin size.  Normal distribution forms a symmetrical bell-shape, with the highest frequencies in the middle.  The bin-size with highest frequencies is mod.  </li>
-<li>
-<strong>Positively Skewed</strong>: When most data falls onto the left side of the histogram than on the right.</li>
-<li>
-<strong>Negatively Skewed</strong>: When most values falls onto the right side of the histogram then the left.<br>
-5.<strong>Math Symbols</strong>:</li>
-<li>
-<strong>\( \mathcal{f}  \)</strong>: Frequencies</li>
-<li>\( \sum \): Total sum</li>
-<li>
-<strong>\( \mathcal{p} \)</strong>: Proportion (Probability)</li>
+<li>If we are concerned about a proportion less than or greater than a certain value on a distribution, we should use RELATIVE FREQUENCIES.</li>
+<li>When a bin-size is too big, we can't tell for sure the detailed values of the bin; when a bin-size is too small, the distribution becomes more and more of a uniform distribution.  A predicament: We want a small bin size to have as much details as possible about the location of data values, relative to the rest of the distribution.  </li>
+<li>We solve this conundrum with a theoretical model of our distribution.</li>
+<li>Z score: how many standard deviation any number, x, is away from the mean.  We can convert any value from a normal distribution to a z score.  When we do this we standardize the distribution.  <ul>
+<li>\[ z = \frac{ x - \mu }{\sigma} \]</li>
+</ul>
+</li>
+<li>A negative z score means:<ul>
+<li>The original value, \( x \) is less than the mean, \( \mu \).</li>
+<li>The original value, \( x \) minus the mean, \( \mu \) is negative.</li>
+</ul>
+</li>
+<li>On a standardized distribution, the mean, \( \mu \) is 0.  </li>
+<li>On a standardized distribution, the standard deviation, \( \sigma \) is 1.</li>
 </ol>
 </div>
     </div>
     <aside class="postpromonav"><nav><p itemprop="keywords" class="tags">
             <span class="tag"><a class="p-category" href="../../../tags/descriptive-statistics/" rel="tag">descriptive-statistics</a></span>
+            <span class="tag"><a class="p-category" href="../../../tags/standardizing/" rel="tag">standardizing</a></span>
       </p>
 
             <div class="pager hidden-print pagination">
 
             <span class="previous pagination-item older">
-                <a href="../../../posts/hello-world/" rel="prev" title="Hello World!">
+                <a href="../lesson-4/" rel="prev" title="Descriptive Statistics - Variability">
                 Previous post
                 </a>
             </span>
 
 
             <span class="next pagination-item newer">
-                <a href="../lesson-1/" rel="next" title="Descriptive Statistics - Lesson 1">
+                <a href="../lesson-6/" rel="next" title="Descriptive Statistics - Normal Distribution">
 Next post
               </a>
             </span>
@@ -175,9 +158,9 @@ Next post
                         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="chowygit",
-            disqus_url="https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-2/",
-        disqus_title="Descriptive Statistics - Lesson 2",
-        disqus_identifier="cache/course-notes/descriptive-statistics/lesson-2.html",
+            disqus_url="https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-5/",
+        disqus_title="Descriptive Statistics - Standardizing",
+        disqus_identifier="cache/course-notes/descriptive-statistics/lesson-5.html",
         disqus_config = function () {
             this.language = "en";
         };
