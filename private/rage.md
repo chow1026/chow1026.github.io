@@ -2,7 +2,7 @@
 .. title: Why My Rage to Go Home
 .. slug: rage
 .. date: 2016-09-06 09:10:27 UTC+08:00
-.. tags:
+.. tags: private
 .. category:
 .. link:
 .. description:
@@ -31,6 +31,6 @@ On the flip side of rage, I had this self-conflicted.
 
 Since I got out of the United States, I have not really regretted or thought much about marrying someone to get a PR/GreenCard there.  I was much of an idealist or purist to marry for love.  During last week in Malaysia, I really wished I had marry a guy for visa.  I had a strong urge to ask you if you are willing to do it.  And I would have ruined our friendship forever.  During the last week in Malaysia, I know if I ended up being in Malaysia, and ended up being in the General Hospital, I would be so angry, and have so much rage.  I would rather die.  
 
-Having been educated about mindfulness, I start to examine myself, why I feel the way I feel.  Why I feel my rage? 
+Having been educated about mindfulness, I start to examine myself, why I feel the way I feel.  Why I feel my rage?
 - I don't feel special anymore.  When I was still working in the US, I came home with USD, I had higher buying power, and people treat me special.  
 - Apparently I have sibling rivalry.  I am jealous of my sister.  And now, she has the upper hand.  She always gives idea of who should be doing what, the last idea she has was to ask me go home to accompany my dad.  Now I don't mind accompanying my dad for doctor's visit.  But I don't enjoy accompanying him for his hospital stay.  Not a single bit.  Not even that it earned me the title "Good daughter" and "Nice of you".  have been home too often.  
