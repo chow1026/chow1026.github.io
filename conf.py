@@ -181,6 +181,7 @@ THEME_COLOR = '#5670d4'
 
 POSTS = (
     ("posts/*.md", "posts", "post.tmpl"),
+    ("private/*.md", "private", "post.tmpl"),
     ("course-notes/*.md", "course-notes", "post.tmpl"),
     ("links/*.md", "links", "post.tmpl"),
     ("books/*.md", "books", "post.tmpl"),

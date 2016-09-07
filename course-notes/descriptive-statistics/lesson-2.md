@@ -1,8 +1,8 @@
 <!--
-.. title: Descriptive Statistics - Lesson 2
+.. title: Descriptive Statistics - Visualizing Data
 .. slug: lesson-2
 .. date: 2016-08-11 21:04:36 UTC+08:00
-.. tags: descriptive-statistics
+.. tags: descriptive-statistics, visualizing data
 .. category:
 .. link:
 .. description:
