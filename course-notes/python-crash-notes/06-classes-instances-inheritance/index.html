@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" vocab="http://ogp.me/ns" lang="en">
+<head>
+<meta charset="utf-8">
+<base href="https://chowy1026.github.io/course-notes/python-crash-notes/06-classes-instances-inheritance/">
+<meta name="viewport" content="width=device-width">
+<title> =^..^= MEH · Classes, Instances and Inheritance </title>
+<link href="../../../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/poole.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/hyde.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/code.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700%7CAbril+Fatface">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://chowy1026.github.io/course-notes/python-crash-notes/06-classes-instances-inheritance/">
+<link rel="icon" href="../../../images/favicon.png" sizes="64x64">
+<link rel="icon" href="../../../images/icon_512x512.png" sizes="512x512">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+    </script><script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="cHoWy">
+<link rel="prev" href="../05-functions-modules/" title="Functions and Modules" type="text/html">
+<link rel="next" href="../07-files-and-exceptions-and-storing-data/" title="Files and Exceptions and Storing Data" type="text/html">
+<meta property="og:site_name" content=" =^..^= MEH">
+<meta property="og:title" content="Classes, Instances and Inheritance">
+<meta property="og:url" content="https://chowy1026.github.io/course-notes/python-crash-notes/06-classes-instances-inheritance/">
+<meta property="og:description" content='Classes
+
+dog.py
+
+  class Dog(): # define class with class_name
+    """ A simple attempt to model a dog """ #docstring describing what this class does.  
+
+    def __init__(self, name, age):
+      """ I'>
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-09-07T13:12:46+08:00">
+<meta property="article:tag" content="classes">
+<meta property="article:tag" content="inheritance">
+<meta property="article:tag" content="instances">
+<meta property="article:tag" content="python-crash-course">
+</head>
+<body class="test">
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+    <div class="sidebar">
+        <div class="container sidebar-sticky">
+            <div class="sidebar-about">
+              <h1>
+                <a href="https://chowy1026.github.io/">
+                      <h1 id="brand"><a href="https://chowy1026.github.io/" title=" =^..^= MEH" rel="home">
+
+        <span id="blog-title"> =^..^= MEH</span>
+    </a></h1>
+
+                </a>
+              </h1>
+                <p class="lead"></p>
+
+            </div>
+                <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../../posts/index.html">Articles</a>
+        <a class="sidebar-nav-item" href="../../index.html">Course Notes</a>
+        <a class="sidebar-nav-item" href="../../../links/index.html">Links</a>
+        <a class="sidebar-nav-item" href="../../../books/index.html">Books</a>
+        <a class="sidebar-nav-item" href="../../../archives/archives.html">Archives</a>
+        <a class="sidebar-nav-item" href="../../../tags.html">Tags</a>
+    
+    
+    </nav><footer id="footer"><p class="footer">
+              <span class="icon_row">
+
+                <a href="mailto:chowy1026@gmail.com">
+                  <img class="social_icon" src="../../../images/envelope1.png" title="email" width="24"></a> ·
+                <!--<a href="">
+                  <img class="social_icon" src="/images/twitter-black-shape1.png" title="twitter" width="24" /></a> &middot;-->
+                <a href="https://github.com/chowy1026/">
+                  <img class="social_icon" src="../../../images/github-character1.png" title="github" width="24"></a>
+              </span>
+              <br><br><span class="copyright">
+              
+Contents © 2016 by <a href="mailto:chowy1026@gmail.com">cHoWy</a> ·
+Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>
+
+            </span>
+            </p>
+            
+        </footer>
+</div>
+    </div>
+
+    <div class="content container" id="content">
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><h1 class="post-title p-name"><a href="." class="u-url">Classes, Instances and Inheritance</a></h1>
+
+    <span class="post-date">
+      <time class="published dt-published" datetime="2016-09-07T13:12:46+08:00" itemprop="datePublished" title="2016-09-07 13:12">2016-09-07 13:12</time></span>
+
+    
+    
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<h3>Classes</h3>
+<ul>
+<li>dog.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">class</span> <span class="nc">Dog</span><span class="p">():</span> <span class="c1"># define class with class_name</span>
+    <span class="sd">""" A simple attempt to model a dog """</span> <span class="c1">#docstring describing what this class does.  </span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+      <span class="sd">""" Initialize name and age attributes """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+    <span class="k">def</span> <span class="nf">sit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Simulate a dog sitting in response to command """</span>
+      <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="o">+</span> <span class="s2">" is now sitting."</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">roll_over</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Simulate a dog rolling over in response to a command """</span>
+      <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="o">+</span> <span class="s2">" rolled over!"</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>
+<code>my_dog = Dog('willie', 6)</code> // makes an instance of dog.  </li>
+<li>
+<code>print("My dog's name is " + my_dog.name.title() + ".")</code> // access name of my_dog.</li>
+<li>
+<code>print("My dog is " + str(my_dog.age) + " years old.")</code> // access age of my_dog.</li>
+<li>
+<code>my_dog.sit()</code> // calling sit method</li>
+<li>
+<code>my_dog.roll_over()</code> // calling roll_over method.</li>
+<li>car.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">class</span> <span class="nc">Car</span><span class="p">():</span>
+    <span class="sd">""" A simple attempt to represent a car. """</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+      <span class="sd">""" Initialize attributes to describe a car. """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">make</span> <span class="o">=</span> <span class="n">make</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">year</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># setting default value for an attribute</span>
+
+    <span class="k">def</span> <span class="nf">get_descriptive_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Return a neatly formatted descriptive name."""</span>
+      <span class="n">long_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">make</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
+      <span class="k">return</span> <span class="n">long_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">read_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Print a statement showing the car's mileage."""</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"This car has "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" miles on it."</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mileage</span><span class="p">):</span>
+      <span class="sd">"""</span>
+<span class="sd">      Set the odometer reading to new value.</span>
+<span class="sd">      Rejects if it attempts to roll the odometer back.</span>
+<span class="sd">      """</span>
+      <span class="k">if</span> <span class="n">mileage</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="n">mileage</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"You are not allowed to roll back an odometer"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">increment_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">miles</span><span class="p">):</span>
+      <span class="sd">""" Add the given amount to odometer reading """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">+=</span> <span class="n">miles</span>
+
+    <span class="k">def</span> <span class="nf">fill_gas_tank</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" A function to simulate filing gas tank of a car """</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"Gas tank is filled to full."</span><span class="p">)</span>
+
+  <span class="n">my_car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s1">'audi'</span><span class="p">,</span> <span class="s1">'a4'</span><span class="p">,</span> <span class="mi">2016</span><span class="p">)</span> <span class="c1">#instantiating a car (create an instance of car)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_car</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>  
+  <span class="n">my_car</span><span class="o">.</span><span class="n">read_odometer</span><span class="p">()</span> <span class="c1"># calling method to read odometer value</span>
+  <span class="n">my_car</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="mi">45</span> <span class="c1"># modifying an attribute's value directly</span>
+  <span class="n">my_car</span><span class="o">.</span><span class="n">read_odometer</span><span class="p">()</span> <span class="c1"># calling method to read odometer value again</span>
+  <span class="n">my_car</span><span class="o">.</span><span class="n">update_odometer</span><span class="p">(</span><span class="mi">78</span><span class="p">)</span> <span class="c1"># modifying an attribute's value through a method</span>
+  <span class="n">my_car</span><span class="o">.</span><span class="n">read_odometer</span><span class="p">()</span> <span class="c1"># calling method to read odometer value again</span>
+  <span class="n">my_car</span><span class="o">.</span><span class="n">increment_odometer</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># increment a set amount of miles to odometer</span>
+  <span class="n">my_car</span><span class="o">.</span><span class="n">read_odometer</span><span class="p">()</span> <span class="c1"># calling method to read odometer value again</span>
+
+
+  <span class="k">class</span> <span class="nc">Battery</span><span class="p">():</span>
+    <span class="sd">""" A simple attempt to model a battery for an electric car """</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">battery_size</span> <span class="o">=</span> <span class="mi">70</span><span class="p">):</span>
+      <span class="sd">""" Initialize the battery's attributes. """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">=</span> <span class="n">battery_size</span>
+
+    <span class="k">def</span> <span class="nf">describe_battery</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Print a statement describing the battery size """</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"This car has a "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"-kWh battery."</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_range</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Print a statement about the range this battery provides """</span>
+      <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">==</span> <span class="mi">70</span><span class="p">:</span>
+        <span class="nb">range</span> <span class="o">=</span> <span class="mi">240</span>
+      <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">==</span> <span class="mi">85</span><span class="p">:</span>
+        <span class="nb">range</span> <span class="o">=</span> <span class="mi">270</span>
+      <span class="n">message</span> <span class="o">=</span> <span class="s2">"This car can go approximately "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">range</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" miles on a full charge."</span>
+      <span class="k">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+  <span class="k">class</span> <span class="nc">ElectricCar</span><span class="p">(</span><span class="n">Car</span><span class="p">):</span>
+    <span class="sd">""" Represents aspects of a car, but specific to electric vehicle. """</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+      <span class="sd">""" Initialize attributes of the parent class """</span>
+      <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+      <span class="sd">""" Initialize attributes specific to an electric car """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">=</span> <span class="mi">70</span> <span class="c1"># specifying initial battery size</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">=</span> <span class="n">Battery</span><span class="p">()</span> <span class="c1"># initialize a battery object</span>
+
+    <span class="c1"># Method Moved to Battery Class</span>
+    <span class="c1">#def describe_battery(self):</span>
+    <span class="c1">#  """ Print a statement describing the battery size """</span>
+    <span class="c1">#  print("This car has a " + str(self.battery_size) + "-kWh battery.")</span>
+
+    <span class="k">def</span> <span class="nf">fill_gas_tank</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># overwrite parent class car's method</span>
+      <span class="sd">""" Electric Car has no gas tanks """</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"This car doesn't have a gas tank!"</span><span class="p">)</span>
+
+  <span class="n">my_tesla</span> <span class="o">=</span> <span class="n">ElectricCar</span><span class="p">(</span><span class="s1">'tesla'</span><span class="p">,</span> <span class="s1">'model s'</span><span class="p">,</span> <span class="mi">2016</span><span class="p">)</span> <span class="c1">#instantiating an electric car (create an instance of electric car)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_tesla</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>  
+  <span class="n">my_tesla</span><span class="o">.</span><span class="n">describe_battery</span><span class="p">()</span> <span class="c1"># if battery isn't a separate class.</span>
+  <span class="n">my_tesla</span><span class="o">.</span><span class="n">battery</span><span class="o">.</span><span class="n">describe_battery</span><span class="p">()</span> <span class="c1"># if battery is its separate own class.</span>
+  <span class="n">my_tesla</span><span class="o">.</span><span class="n">battery</span><span class="o">.</span><span class="n">get_range</span><span class="p">()</span>
+</pre>
+
+
+<h4>Importing Class</h4>
+<ul>
+<li>The above examples show classes stored in a same file.  When more functionality added to the classes, the file could get long. Thus it is a good idea to store classes in modules and import the classes as needed.  </li>
+<li>car.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">class</span> <span class="nc">Car</span><span class="p">():</span>
+    <span class="sd">""" A simple attempt to represent a car. """</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+      <span class="sd">""" Initialize attributes to describe a car. """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">make</span> <span class="o">=</span> <span class="n">make</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">year</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># setting default value for an attribute</span>
+
+    <span class="k">def</span> <span class="nf">get_descriptive_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Return a neatly formatted descriptive name."""</span>
+      <span class="n">long_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">make</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
+      <span class="k">return</span> <span class="n">long_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">read_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Print a statement showing the car's mileage."""</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"This car has "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" miles on it."</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mileage</span><span class="p">):</span>
+      <span class="sd">"""</span>
+<span class="sd">      Set the odometer reading to new value.</span>
+<span class="sd">      Rejects if it attempts to roll the odometer back.</span>
+<span class="sd">      """</span>
+      <span class="k">if</span> <span class="n">mileage</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="n">mileage</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"You are not allowed to roll back an odometer"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">increment_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">miles</span><span class="p">):</span>
+      <span class="sd">""" Add the given amount to odometer reading """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">+=</span> <span class="n">miles</span>
+
+    <span class="k">def</span> <span class="nf">fill_gas_tank</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" A function to simulate filing gas tank of a car """</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"Gas tank is filled to full."</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>my_car.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">car</span> <span class="kn">import</span> <span class="n">Car</span>
+  <span class="n">my_car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s1">'audi'</span><span class="p">,</span> <span class="s1">'a4'</span><span class="p">,</span> <span class="mi">2016</span><span class="p">)</span> <span class="c1">#instantiating a car (create an instance of car)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_car</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>  
+  <span class="n">my_car</span><span class="o">.</span><span class="n">read_odometer</span><span class="p">()</span> <span class="c1"># calling method to read odometer value</span>
+  <span class="n">my_car</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="mi">45</span> <span class="c1"># modifying an attribute's value directly</span>
+  <span class="n">my_car</span><span class="o">.</span><span class="n">read_odometer</span><span class="p">()</span> <span class="c1"># calling method to read odometer value again</span>
+</pre>
+
+
+<h4>Multiple Classes in one Module</h4>
+<ul>
+<li>You could store multiple classes in one module, for example keeping both class Car and class ElectricCar in the same file as Car.py, as shown below again.</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">class</span> <span class="nc">Car</span><span class="p">():</span>
+    <span class="sd">""" A simple attempt to represent a car. """</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+      <span class="sd">""" Initialize attributes to describe a car. """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">make</span> <span class="o">=</span> <span class="n">make</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">year</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># setting default value for an attribute</span>
+
+    <span class="k">def</span> <span class="nf">get_descriptive_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Return a neatly formatted descriptive name."""</span>
+      <span class="n">long_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">make</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
+      <span class="k">return</span> <span class="n">long_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">read_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Print a statement showing the car's mileage."""</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"This car has "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" miles on it."</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mileage</span><span class="p">):</span>
+      <span class="sd">"""</span>
+<span class="sd">      Set the odometer reading to new value.</span>
+<span class="sd">      Rejects if it attempts to roll the odometer back.</span>
+<span class="sd">      """</span>
+      <span class="k">if</span> <span class="n">mileage</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="n">mileage</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"You are not allowed to roll back an odometer"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">increment_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">miles</span><span class="p">):</span>
+      <span class="sd">""" Add the given amount to odometer reading """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">+=</span> <span class="n">miles</span>
+
+    <span class="k">def</span> <span class="nf">fill_gas_tank</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" A function to simulate filing gas tank of a car """</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"Gas tank is filled to full."</span><span class="p">)</span>
+
+  <span class="k">class</span> <span class="nc">ElectricCar</span><span class="p">(</span><span class="n">Car</span><span class="p">):</span>
+    <span class="sd">""" Represents aspects of a car, but specific to electric vehicle. """</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+      <span class="sd">""" Initialize attributes of the parent class """</span>
+      <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+      <span class="sd">""" Initialize attributes specific to an electric car """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">=</span> <span class="n">Battery</span><span class="p">()</span> <span class="c1"># initialize a battery object</span>
+
+    <span class="k">def</span> <span class="nf">fill_gas_tank</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># overwrite parent class car's method</span>
+      <span class="sd">""" Electric Car has no gas tanks """</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"This car doesn't have a gas tank!"</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>my_electric_car.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">car</span> <span class="kn">import</span> <span class="n">ElectricCar</span>
+  <span class="n">my_tesla</span> <span class="o">=</span> <span class="n">ElectricCar</span><span class="p">(</span><span class="s1">'tesla'</span><span class="p">,</span> <span class="s1">'model s'</span><span class="p">,</span> <span class="mi">2016</span><span class="p">)</span> <span class="c1">#instantiating an electric car (create an instance of electric car)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_tesla</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>  
+  <span class="n">my_tesla</span><span class="o">.</span><span class="n">describe_battery</span><span class="p">()</span> <span class="c1"># if battery isn't a separate class.</span>
+  <span class="n">my_tesla</span><span class="o">.</span><span class="n">battery</span><span class="o">.</span><span class="n">describe_battery</span><span class="p">()</span> <span class="c1"># if battery is its separate own class.</span>
+  <span class="n">my_tesla</span><span class="o">.</span><span class="n">battery</span><span class="o">.</span><span class="n">get_range</span><span class="p">()</span>
+</pre>
+
+
+<h4>Importing Multiple Classes from a Module</h4>
+<ul>
+<li>my_cars.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">car</span> <span class="kn">import</span> <span class="n">Car</span><span class="p">,</span> <span class="n">ElectricCar</span>
+
+  <span class="n">my_toyota</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s1">'Toyota'</span><span class="p">,</span> <span class="s1">'Corola'</span><span class="p">,</span> <span class="mi">2003</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_toyota</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>
+
+  <span class="n">my_tesla</span> <span class="o">=</span> <span class="n">ElectricCar</span><span class="p">(</span><span class="s1">'tesla'</span><span class="p">,</span> <span class="s1">'roadster'</span><span class="p">,</span> <span class="mi">2016</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_tesla</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>
+</pre>
+
+
+<h4>Importing Entire Module</h4>
+<ul>
+<li>my_cars.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">car</span>
+
+  <span class="n">my_toyota</span> <span class="o">=</span> <span class="n">car</span><span class="o">.</span><span class="n">Car</span><span class="p">(</span><span class="s1">'Toyota'</span><span class="p">,</span> <span class="s1">'Corola'</span><span class="p">,</span> <span class="mi">2003</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_toyota</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>
+
+  <span class="n">my_tesla</span> <span class="o">=</span> <span class="n">car</span><span class="o">.</span><span class="n">ElectricCar</span><span class="p">(</span><span class="s1">'tesla'</span><span class="p">,</span> <span class="s1">'roadster'</span><span class="p">,</span> <span class="mi">2016</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_tesla</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>
+</pre>
+
+
+<h4>Importing a Module into a Module</h4>
+<ul>
+<li>You could also separate Car.py for generic cars properties, and keep all electric car related properties in electric_car.py</li>
+<li>car.py</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="k">class</span> <span class="nc">Car</span><span class="p">():</span>
+  <span class="sd">""" A simple attempt to represent a car. """</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+    <span class="sd">""" Initialize attributes to describe a car. """</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">make</span> <span class="o">=</span> <span class="n">make</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">year</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># setting default value for an attribute</span>
+
+  <span class="k">def</span> <span class="nf">get_descriptive_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">""" Return a neatly formatted descriptive name."""</span>
+    <span class="n">long_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">make</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
+    <span class="k">return</span> <span class="n">long_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">read_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">""" Print a statement showing the car's mileage."""</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"This car has "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" miles on it."</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">update_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mileage</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Set the odometer reading to new value.</span>
+<span class="sd">    Rejects if it attempts to roll the odometer back.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">mileage</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="n">mileage</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"You are not allowed to roll back an odometer"</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">increment_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">miles</span><span class="p">):</span>
+    <span class="sd">""" Add the given amount to odometer reading """</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">+=</span> <span class="n">miles</span>
+
+  <span class="k">def</span> <span class="nf">fill_gas_tank</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">""" A function to simulate filing gas tank of a car """</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Gas tank is filled to full."</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>electric_car.py</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">car</span> <span class="kn">import</span> <span class="n">Car</span>
+
+<span class="k">class</span> <span class="nc">Battery</span><span class="p">():</span>
+  <span class="sd">""" A simple attempt to model a battery for an electric car """</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">battery_size</span> <span class="o">=</span> <span class="mi">70</span><span class="p">):</span>
+    <span class="sd">""" Initialize the battery's attributes. """</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">=</span> <span class="n">battery_size</span>
+
+  <span class="k">def</span> <span class="nf">describe_battery</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">""" Print a statement describing the battery size """</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"This car has a "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"-kWh battery."</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">get_range</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">""" Print a statement about the range this battery provides """</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">==</span> <span class="mi">70</span><span class="p">:</span>
+      <span class="nb">range</span> <span class="o">=</span> <span class="mi">240</span>
+    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">==</span> <span class="mi">85</span><span class="p">:</span>
+      <span class="nb">range</span> <span class="o">=</span> <span class="mi">270</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">"This car can go approximately "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">range</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" miles on a full charge."</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">ElectricCar</span><span class="p">(</span><span class="n">Car</span><span class="p">):</span>
+  <span class="sd">""" Represents aspects of a car, but specific to electric vehicle. """</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+    <span class="sd">""" Initialize attributes of the parent class """</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+    <span class="sd">""" Initialize attributes specific to an electric car """</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">=</span> <span class="n">Battery</span><span class="p">()</span> <span class="c1"># initialize a battery object</span>
+
+  <span class="k">def</span> <span class="nf">fill_gas_tank</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># overwrite parent class car's method</span>
+    <span class="sd">""" Electric Car has no gas tanks """</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"This car doesn't have a gas tank!"</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>my_cars.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">car</span> <span class="kn">import</span> <span class="n">Car</span>
+  <span class="kn">from</span> <span class="nn">electric_car</span> <span class="kn">import</span> <span class="n">ElectricCar</span>
+
+  <span class="n">my_toyota</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s1">'Toyota'</span><span class="p">,</span> <span class="s1">'Corola'</span><span class="p">,</span> <span class="mi">2003</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_toyota</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>
+
+  <span class="n">my_tesla</span> <span class="o">=</span> <span class="n">ElectricCar</span><span class="p">(</span><span class="s1">'tesla'</span><span class="p">,</span> <span class="s1">'roadster'</span><span class="p">,</span> <span class="mi">2016</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_tesla</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>
+</pre>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><p itemprop="keywords" class="tags">
+            <span class="tag"><a class="p-category" href="../../../tags/classes/" rel="tag">classes</a></span>
+            <span class="tag"><a class="p-category" href="../../../tags/inheritance/" rel="tag">inheritance</a></span>
+            <span class="tag"><a class="p-category" href="../../../tags/instances/" rel="tag">instances</a></span>
+            <span class="tag"><a class="p-category" href="../../../tags/python-crash-course/" rel="tag">python-crash-course</a></span>
+      </p>
+
+            <div class="pager hidden-print pagination">
+
+            <span class="previous pagination-item older">
+                <a href="../05-functions-modules/" rel="prev" title="Functions and Modules">
+                Previous post
+                </a>
+            </span>
+
+
+            <span class="next pagination-item newer">
+                <a href="../07-files-and-exceptions-and-storing-data/" rel="next" title="Files and Exceptions and Storing Data">
+Next post
+              </a>
+            </span>
+
+        </div>
+
+    </nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="chowygit",
+            disqus_url="https://chowy1026.github.io/course-notes/python-crash-notes/06-classes-instances-inheritance/",
+        disqus_title="Classes, Instances and Inheritance",
+        disqus_identifier="cache/course-notes/python-crash-notes/06-classes-instances-inheritance.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="chowygit";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73098247-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

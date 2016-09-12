@@ -1,5 +1,1106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title> =^..^= MEH</title><link>https://chowy1026.github.io/</link><description></description><atom:link rel="self" type="application/rss+xml" href="https://chowy1026.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Sun, 21 Aug 2016 14:18:07 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Descriptive Statistics - Sampling Distributions</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-7/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 7: Central Limit Theorem&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title> =^..^= MEH</title><link>https://chowy1026.github.io/</link><description></description><atom:link type="application/rss+xml" href="https://chowy1026.github.io/rss.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Wed, 07 Sep 2016 09:53:44 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Testing Python Code</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/08-testing/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Testing a Function&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;name_function.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_formatted_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Generated a Neatly formatted full name """&lt;/span&gt;
+    &lt;span class="n"&gt;full_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;full_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;names.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;name_function&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_formatted_name&lt;/span&gt;
+
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Enter 'q' to quit any time."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;First Name: "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;'q'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="k"&gt;break&lt;/span&gt;
+    &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;Last Name: "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;'q'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="k"&gt;break&lt;/span&gt;
+    &lt;span class="n"&gt;formatted_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_formatted_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fist&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\t&lt;/span&gt;&lt;span class="s2"&gt;Neatly formatted name: "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;formatted_name&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;"."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Unit Tests and Test Cases&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;A &lt;em&gt;unit test&lt;/em&gt; verifies that one specific aspect of a function's behavior is correct.  &lt;/li&gt;
+&lt;li&gt;A &lt;em&gt;test case&lt;/em&gt; is a collection of unit tests that together prove that a function behaves as it's supposed to, within the full range of situations it is expected to handle.  &lt;/li&gt;
+&lt;li&gt;A test case with &lt;em&gt;full coverage&lt;/em&gt; includes a full range of unit tests covering all the possible ways you can use a function.  Achieving full coverage on a large project can be daunting.  Aim for full coverage only if project starts to see widespread use.  &lt;/li&gt;
+&lt;li&gt;test_name_function.py (an example test case for name_function.py)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt;
+  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;name_function&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_formatted_name&lt;/span&gt;
+
+  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;NamesTestCase&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;unittest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TestCase&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Test for 'name_function.py' """&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_first_last_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Do names like 'Janis Joplin' work? """&lt;/span&gt;
+      &lt;span class="n"&gt;formatted_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_formatted_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'janis'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'joplin'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;formatted_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Janis Joplin'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="n"&gt;unittest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# tells python to run the test.&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;python3 test_name_function.py&lt;/code&gt; in CLI to run.  For now, test will pass.  &lt;/li&gt;
+&lt;li&gt;name_function.py (modified)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_formatted_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;middle&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Generated a Neatly formatted full name """&lt;/span&gt;
+    &lt;span class="n"&gt;full_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;middle&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;full_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;python3 test_name_function.py&lt;/code&gt; will raise error.&lt;/li&gt;
+&lt;li&gt;name_function.py (modified again, to make &lt;code&gt;middle&lt;/code&gt; optional)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_formatted_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;middle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;''&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Generated a Neatly formatted full name """&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;middle&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="n"&gt;full_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;middle&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="n"&gt;full_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;full_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;python3 test_name_function.py&lt;/code&gt; will pass again.&lt;/li&gt;
+&lt;li&gt;test_name_function.py (Add new test to test both cases)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt;
+  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;name_function&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_formatted_name&lt;/span&gt;
+
+  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;NamesTestCase&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;unittest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TestCase&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Test for 'name_function.py' """&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_first_last_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Do names like 'Janis Joplin' work? """&lt;/span&gt;
+      &lt;span class="n"&gt;formatted_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_formatted_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'janis'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'joplin'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;formatted_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Janis Joplin'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_first_last_middle_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Do names like 'Wolfgang Amadeus Mozart' work? """&lt;/span&gt;
+      &lt;span class="n"&gt;formatted_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_formatted_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'wolfgang'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'mozart'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'amadeus'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;formatted_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Wolfgang Amadeus Mozart'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="n"&gt;unittest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# tells python to run the test.&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;A Variety of Assert Methods&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;assertEqual(a, b) :: Verify if a == b&lt;/li&gt;
+&lt;li&gt;assertNotEqual(a, b) :: Verify if a != b&lt;/li&gt;
+&lt;li&gt;assertTrue(x) :: Verify if x is True&lt;/li&gt;
+&lt;li&gt;assertFalse(x) :: Verify if x is False&lt;/li&gt;
+&lt;li&gt;assertIn(&lt;em&gt;item&lt;/em&gt;, &lt;em&gt;list&lt;/em&gt;) :: Verify that &lt;em&gt;item&lt;/em&gt; is in &lt;em&gt;list&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;assertNotIn(&lt;em&gt;item&lt;/em&gt;, &lt;em&gt;list&lt;/em&gt;) :: Verify that &lt;em&gt;item&lt;/em&gt; is NOT in &lt;em&gt;list&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Testing a Class&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;survey.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;AnonymousSurvey&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Collect anonymous answers to a survey question. """&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;question&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Store a question, prepare to store responses. """&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;question&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="n"&gt;question&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;responses&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;show_question&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Show the survey question """&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;question&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;store_response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;new_response&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Store a single response to the survey. """&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;new_response&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;show_results&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Show all responses that had been given """&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Survey results:"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'- '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;lang_survey.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;survey&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;AnonymousSurvey&lt;/span&gt;
+
+  &lt;span class="n"&gt;question&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"What language did you first learn to speak? "&lt;/span&gt; &lt;span class="c1"&gt;# define question&lt;/span&gt;
+  &lt;span class="n"&gt;survey&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;AnonymousSurvey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;question&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# instantiate a survey&lt;/span&gt;
+
+  &lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show_question&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# show question&lt;/span&gt;
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Enter 'q' any time to quit. &lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Language: "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;'q'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="k"&gt;break&lt;/span&gt;
+    &lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store_response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;Thank you for your participation. "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show_results&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;test_survey.py (test case for survey.py)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt;
+  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;survey&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;AnonymousSurvey&lt;/span&gt;
+
+  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;TestAnonymousSurvey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;unittest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TestCase&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Test Case for class AnonymousSurvey """&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_store_single_response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Test that a single response is stored properly """&lt;/span&gt;
+      &lt;span class="n"&gt;question&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"What language did you first learn to speak? "&lt;/span&gt; &lt;span class="c1"&gt;# define question&lt;/span&gt;
+      &lt;span class="n"&gt;survey&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;AnonymousSurvey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;question&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# instantiate a survey&lt;/span&gt;
+      &lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store_response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'English'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertIn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'English'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_store_three_responses&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Test that a single response is stored properly """&lt;/span&gt;
+      &lt;span class="n"&gt;question&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"What language did you first learn to speak? "&lt;/span&gt; &lt;span class="c1"&gt;# define question&lt;/span&gt;
+      &lt;span class="n"&gt;survey&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;AnonymousSurvey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;question&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# instantiate a survey&lt;/span&gt;
+      &lt;span class="n"&gt;responses&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'English'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Spanish'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Mandarin'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+      &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;resp&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store_response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;resp&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+      &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;resp&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertIn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;resp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;The setUp() Method&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;As shown in the previous test_survey.py, we define question, create new instance of survey and new responses in each test methods.  The unittest.TestCase class has a setUp() method that allows you to reate these objects once and then use them in each of your test methods.  When a setUp() method is included, Python runs the setUp() method before running each method starting with _test__.  Any objects created in the setUp() method will be available in each test method you write.  &lt;/li&gt;
+&lt;li&gt;test_survey.py (refactored with setUp() method)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt;
+  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;survey&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;AnonymousSurvey&lt;/span&gt;
+
+  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;TestAnonymousSurvey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;unittest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TestCase&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Test Case for class AnonymousSurvey """&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;setUp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Define question, create survey and a set of responses to be used in all test methods """&lt;/span&gt;
+      &lt;span class="n"&gt;question&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"What language did you first learn to speak? "&lt;/span&gt; &lt;span class="c1"&gt;# define question&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;survey&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;AnonymousSurvey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;question&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# instantiate a survey&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;responses&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'English'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Spanish'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Mandarin'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_store_single_response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Test that a single response is stored properly """&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store_response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'English'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertIn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'English'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_store_three_responses&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Test that a single response is stored properly """&lt;/span&gt;
+      &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;resp&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store_response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;resp&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;resp&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertIn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;resp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><category>python-crash-course</category><category>setUp()-method</category><category>test-cases</category><category>testing</category><category>unit-test</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/08-testing/</guid><pubDate>Wed, 07 Sep 2016 08:55:02 GMT</pubDate></item><item><title>Files and Exceptions and Storing Data</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/07-files-and-exceptions-and-storing-data/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Files&lt;/h3&gt;
+&lt;h4&gt;Filepath&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;A &lt;em&gt;relative path&lt;/em&gt; is a to look for a given location relative to the directory where the currently running program file is stored.  &lt;/li&gt;
+&lt;li&gt;An &lt;em&gt;absolute path&lt;/em&gt; is exactly the file location on your computer, regardless of where the program being executed is stored.  &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;os.getcwd&lt;/code&gt; returns current working directory.  Remember to &lt;code&gt;import os&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Reading an Entire File&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;pi_digits.txt&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;3.1415926535
+  8979323846
+  2643383279
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;file_reader.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'pi_digits.txt'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;contents&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;contents&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;output:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;3.1415926535
+  8979323846
+  2643383279
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Note that output has an extra blank line, because read() returns an empty string when it reaches the end of the file.  To remove the extra blank line, use rstrip().  --&amp;gt; &lt;code&gt;print(contents.rstrip())&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Reading a File Line by Line&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;file_reader.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'pi_digits.txt'&lt;/span&gt;
+  &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rstrip&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="c1"&gt;# rstrip() removes the blank lines from .read()&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Making a List of Lines from a File&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;file_reader.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'pi_digits.txt'&lt;/span&gt;
+  &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;lines&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readlines&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rstrip&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="c1"&gt;# rstrip() removes the blank lines from .read()&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Working with a File's Contents&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;file_reader.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'pi_digits.txt'&lt;/span&gt;
+  &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;lines&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readlines&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+  &lt;span class="n"&gt;pi_string&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;''&lt;/span&gt;
+  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;pi_string&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rstrip&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# rstrip() removes the blank lines from .read()&lt;/span&gt;
+
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pi_string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# prints 3.1415926535  8979323846  2643383279&lt;/span&gt;
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pi_string&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="c1"&gt;# prints 36 due to blank spaces for 2nd and 3rd lines&lt;/span&gt;
+
+  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;pi_string&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# strip all blank spaces and lines&lt;/span&gt;
+
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pi_string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# prints 3.141592653589793238462643383279&lt;/span&gt;
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pi_string&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="c1"&gt;# prints 32 due to blank spaces for 2nd and 3rd lines&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Writing to a File&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;write_message.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'writing.txt'&lt;/span&gt;
+  &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="c1"&gt;# 'w' denote writing mode&lt;/span&gt;
+    &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"I test writing."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"I test writing second line."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="c1"&gt;# Both these sentences will be written in one /same line.  &lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Insert line break.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'writing.txt'&lt;/span&gt;
+  &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="c1"&gt;# 'w' denote writing mode&lt;/span&gt;
+    &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"I test writing. &lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"I test writing second line. &lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="c1"&gt;# Both these sentences will be written in separate line.  &lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Appending to a File&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;write_message.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'writing.txt'&lt;/span&gt;
+  &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'a'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="c1"&gt;# 'a' denotes append&lt;/span&gt;
+    &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"I test writing more."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"I test writing the last line."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="c1"&gt;# Both these sentences will be appended to previous file content.  &lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h3&gt;Exceptions&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Python uses exceptions to manage errors that arise during a program's execution.  It is advisable to write code that handles exceptions properly so the program continues running.  If not, the program will halt and show a &lt;em&gt;traceback&lt;/em&gt;, which includes a report of the exception that was raised.&lt;/li&gt;
+&lt;li&gt;A couple of common Python exceptions are ZeroDivisionError and FileNotFound exceptions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;try-except-else block&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;division.py (example of try-except block)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Give me two numbers, I will divide them."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Enter 'q' to quit."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;first_num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;First Number: "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;first_num&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;'q'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="k"&gt;break&lt;/span&gt;
+    &lt;span class="n"&gt;sec_num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;Second Number: "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;sec_num&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;'q'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="k"&gt;break&lt;/span&gt;
+
+    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="n"&gt;answer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first_num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sec_num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;ZeroDivisionError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"You can't divide by 0!"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="c1"&gt;# proceed if no ZeroDivisionError exception&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;answer&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;alice.py (example of handling FileNotFound exception)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'alice.txt'&lt;/span&gt;
+
+  &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="n"&gt;contents&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+  &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="n"&gt;FileNotFoundError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;msg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"Sorry, the file "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" doesn't exist. "&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;words&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;contents&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;word_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;words&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"The file "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" has about "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;word_count&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" words."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;word_count.py (example of working with multiple files)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;count_words&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Count the approximate number of words in a file """&lt;/span&gt;
+    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;contents&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="n"&gt;FileNotFoundError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="n"&gt;msg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"Sorry, the file "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" doesn't exist. "&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="n"&gt;words&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;contents&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+      &lt;span class="n"&gt;word_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;words&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"The file "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" has about "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;word_count&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" words."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'alice.txt'&lt;/span&gt;
+  &lt;span class="n"&gt;count_words&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="n"&gt;filenames&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'alice.txt'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'siddharta.txt'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'moby_dick.txt'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'little_women.txt'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;filenames&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;count_words&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Failing silently&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;word_count.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;count_words&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Count the approximate number of words in a file """&lt;/span&gt;
+    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;contents&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="n"&gt;FileNotFoundError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="k"&gt;pass&lt;/span&gt; &lt;span class="c1"&gt;# pass is used to silent the error.  Often times used as a placeholder as well.&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="n"&gt;words&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;contents&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+      &lt;span class="n"&gt;word_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;words&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"The file "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" has about "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;word_count&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" words."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'alice.txt'&lt;/span&gt;
+  &lt;span class="n"&gt;count_words&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="n"&gt;filenames&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'alice.txt'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'siddharta.txt'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'moby_dick.txt'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'little_women.txt'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;filenames&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;count_words&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h3&gt;Storing Data&lt;/h3&gt;
+&lt;h4&gt;json.dump() and json.load()&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;num_write.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+
+  &lt;span class="n"&gt;nums&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;13&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'prime.json'&lt;/span&gt;
+  &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dump&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nums&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;num_read.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+
+  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'prime.json'&lt;/span&gt;
+  &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;primes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;primes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><category>exceptions</category><category>files</category><category>python-crash-course</category><category>storing-data</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/07-files-and-exceptions-and-storing-data/</guid><pubDate>Wed, 07 Sep 2016 07:05:56 GMT</pubDate></item><item><title>Classes, Instances and Inheritance</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/06-classes-instances-inheritance/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Classes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;dog.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Dog&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt; &lt;span class="c1"&gt;# define class with class_name&lt;/span&gt;
+    &lt;span class="sd"&gt;""" A simple attempt to model a dog """&lt;/span&gt; &lt;span class="c1"&gt;#docstring describing what this class does.  &lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Initialize name and age attributes """&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;sit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Simulate a dog sitting in response to command """&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" is now sitting."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;roll_over&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Simulate a dog rolling over in response to a command """&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" rolled over!"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;my_dog = Dog('willie', 6)&lt;/code&gt; // makes an instance of dog.  &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;print("My dog's name is " + my_dog.name.title() + ".")&lt;/code&gt; // access name of my_dog.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;print("My dog is " + str(my_dog.age) + " years old.")&lt;/code&gt; // access age of my_dog.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;my_dog.sit()&lt;/code&gt; // calling sit method&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;my_dog.roll_over()&lt;/code&gt; // calling roll_over method.&lt;/li&gt;
+&lt;li&gt;car.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="sd"&gt;""" A simple attempt to represent a car. """&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Initialize attributes to describe a car. """&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;year&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="c1"&gt;# setting default value for an attribute&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_descriptive_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Return a neatly formatted descriptive name."""&lt;/span&gt;
+      &lt;span class="n"&gt;long_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;
+      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;long_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;read_odometer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Print a statement showing the car's mileage."""&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"This car has "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" miles on it."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;update_odometer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mileage&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;span class="sd"&gt;      Set the odometer reading to new value.&lt;/span&gt;
+&lt;span class="sd"&gt;      Rejects if it attempts to roll the odometer back.&lt;/span&gt;
+&lt;span class="sd"&gt;      """&lt;/span&gt;
+      &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;mileage&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mileage&lt;/span&gt;
+      &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"You are not allowed to roll back an odometer"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;increment_odometer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;miles&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Add the given amount to odometer reading """&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;miles&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fill_gas_tank&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" A function to simulate filing gas tank of a car """&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Gas tank is filled to full."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="n"&gt;my_car&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'audi'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'a4'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2016&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;#instantiating a car (create an instance of car)&lt;/span&gt;
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_car&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_descriptive_name&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;  
+  &lt;span class="n"&gt;my_car&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_odometer&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# calling method to read odometer value&lt;/span&gt;
+  &lt;span class="n"&gt;my_car&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;45&lt;/span&gt; &lt;span class="c1"&gt;# modifying an attribute's value directly&lt;/span&gt;
+  &lt;span class="n"&gt;my_car&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_odometer&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# calling method to read odometer value again&lt;/span&gt;
+  &lt;span class="n"&gt;my_car&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update_odometer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;78&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# modifying an attribute's value through a method&lt;/span&gt;
+  &lt;span class="n"&gt;my_car&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_odometer&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# calling method to read odometer value again&lt;/span&gt;
+  &lt;span class="n"&gt;my_car&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;increment_odometer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# increment a set amount of miles to odometer&lt;/span&gt;
+  &lt;span class="n"&gt;my_car&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_odometer&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# calling method to read odometer value again&lt;/span&gt;
+
+
+  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Battery&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="sd"&gt;""" A simple attempt to model a battery for an electric car """&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;70&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Initialize the battery's attributes. """&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;battery_size&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;describe_battery&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Print a statement describing the battery size """&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"This car has a "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery_size&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;"-kWh battery."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Print a statement about the range this battery provides """&lt;/span&gt;
+      &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;70&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="nb"&gt;range&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;240&lt;/span&gt;
+      &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;85&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="nb"&gt;range&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;270&lt;/span&gt;
+      &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"This car can go approximately "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" miles on a full charge."&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ElectricCar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Represents aspects of a car, but specific to electric vehicle. """&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Initialize attributes of the parent class """&lt;/span&gt;
+      &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Initialize attributes specific to an electric car """&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;70&lt;/span&gt; &lt;span class="c1"&gt;# specifying initial battery size&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Battery&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# initialize a battery object&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Method Moved to Battery Class&lt;/span&gt;
+    &lt;span class="c1"&gt;#def describe_battery(self):&lt;/span&gt;
+    &lt;span class="c1"&gt;#  """ Print a statement describing the battery size """&lt;/span&gt;
+    &lt;span class="c1"&gt;#  print("This car has a " + str(self.battery_size) + "-kWh battery.")&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fill_gas_tank&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="c1"&gt;# overwrite parent class car's method&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Electric Car has no gas tanks """&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"This car doesn't have a gas tank!"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="n"&gt;my_tesla&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ElectricCar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'tesla'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'model s'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2016&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;#instantiating an electric car (create an instance of electric car)&lt;/span&gt;
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_tesla&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_descriptive_name&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;  
+  &lt;span class="n"&gt;my_tesla&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;describe_battery&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# if battery isn't a separate class.&lt;/span&gt;
+  &lt;span class="n"&gt;my_tesla&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;describe_battery&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# if battery is its separate own class.&lt;/span&gt;
+  &lt;span class="n"&gt;my_tesla&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_range&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Importing Class&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;The above examples show classes stored in a same file.  When more functionality added to the classes, the file could get long. Thus it is a good idea to store classes in modules and import the classes as needed.  &lt;/li&gt;
+&lt;li&gt;car.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="sd"&gt;""" A simple attempt to represent a car. """&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Initialize attributes to describe a car. """&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;year&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="c1"&gt;# setting default value for an attribute&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_descriptive_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Return a neatly formatted descriptive name."""&lt;/span&gt;
+      &lt;span class="n"&gt;long_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;
+      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;long_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;read_odometer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Print a statement showing the car's mileage."""&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"This car has "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" miles on it."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;update_odometer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mileage&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;span class="sd"&gt;      Set the odometer reading to new value.&lt;/span&gt;
+&lt;span class="sd"&gt;      Rejects if it attempts to roll the odometer back.&lt;/span&gt;
+&lt;span class="sd"&gt;      """&lt;/span&gt;
+      &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;mileage&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mileage&lt;/span&gt;
+      &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"You are not allowed to roll back an odometer"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;increment_odometer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;miles&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Add the given amount to odometer reading """&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;miles&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fill_gas_tank&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" A function to simulate filing gas tank of a car """&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Gas tank is filled to full."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;my_car.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;car&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Car&lt;/span&gt;
+  &lt;span class="n"&gt;my_car&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'audi'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'a4'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2016&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;#instantiating a car (create an instance of car)&lt;/span&gt;
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_car&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_descriptive_name&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;  
+  &lt;span class="n"&gt;my_car&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_odometer&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# calling method to read odometer value&lt;/span&gt;
+  &lt;span class="n"&gt;my_car&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;45&lt;/span&gt; &lt;span class="c1"&gt;# modifying an attribute's value directly&lt;/span&gt;
+  &lt;span class="n"&gt;my_car&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_odometer&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# calling method to read odometer value again&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Multiple Classes in one Module&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;You could store multiple classes in one module, for example keeping both class Car and class ElectricCar in the same file as Car.py, as shown below again.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="sd"&gt;""" A simple attempt to represent a car. """&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Initialize attributes to describe a car. """&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;year&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="c1"&gt;# setting default value for an attribute&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_descriptive_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Return a neatly formatted descriptive name."""&lt;/span&gt;
+      &lt;span class="n"&gt;long_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;
+      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;long_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;read_odometer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Print a statement showing the car's mileage."""&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"This car has "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" miles on it."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;update_odometer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mileage&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;span class="sd"&gt;      Set the odometer reading to new value.&lt;/span&gt;
+&lt;span class="sd"&gt;      Rejects if it attempts to roll the odometer back.&lt;/span&gt;
+&lt;span class="sd"&gt;      """&lt;/span&gt;
+      &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;mileage&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mileage&lt;/span&gt;
+      &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"You are not allowed to roll back an odometer"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;increment_odometer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;miles&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Add the given amount to odometer reading """&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;miles&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fill_gas_tank&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" A function to simulate filing gas tank of a car """&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Gas tank is filled to full."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ElectricCar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Represents aspects of a car, but specific to electric vehicle. """&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Initialize attributes of the parent class """&lt;/span&gt;
+      &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Initialize attributes specific to an electric car """&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Battery&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# initialize a battery object&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fill_gas_tank&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="c1"&gt;# overwrite parent class car's method&lt;/span&gt;
+      &lt;span class="sd"&gt;""" Electric Car has no gas tanks """&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"This car doesn't have a gas tank!"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;my_electric_car.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;car&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ElectricCar&lt;/span&gt;
+  &lt;span class="n"&gt;my_tesla&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ElectricCar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'tesla'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'model s'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2016&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;#instantiating an electric car (create an instance of electric car)&lt;/span&gt;
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_tesla&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_descriptive_name&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;  
+  &lt;span class="n"&gt;my_tesla&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;describe_battery&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# if battery isn't a separate class.&lt;/span&gt;
+  &lt;span class="n"&gt;my_tesla&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;describe_battery&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# if battery is its separate own class.&lt;/span&gt;
+  &lt;span class="n"&gt;my_tesla&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_range&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Importing Multiple Classes from a Module&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;my_cars.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;car&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ElectricCar&lt;/span&gt;
+
+  &lt;span class="n"&gt;my_toyota&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Toyota'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Corola'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2003&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_toyota&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_descriptive_name&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+
+  &lt;span class="n"&gt;my_tesla&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ElectricCar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'tesla'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'roadster'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2016&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_tesla&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_descriptive_name&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Importing Entire Module&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;my_cars.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;car&lt;/span&gt;
+
+  &lt;span class="n"&gt;my_toyota&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;car&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Toyota'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Corola'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2003&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_toyota&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_descriptive_name&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+
+  &lt;span class="n"&gt;my_tesla&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;car&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ElectricCar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'tesla'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'roadster'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2016&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_tesla&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_descriptive_name&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Importing a Module into a Module&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;You could also separate Car.py for generic cars properties, and keep all electric car related properties in electric_car.py&lt;/li&gt;
+&lt;li&gt;car.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+  &lt;span class="sd"&gt;""" A simple attempt to represent a car. """&lt;/span&gt;
+
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Initialize attributes to describe a car. """&lt;/span&gt;
+    &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;
+    &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;
+    &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;year&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;
+    &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="c1"&gt;# setting default value for an attribute&lt;/span&gt;
+
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_descriptive_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Return a neatly formatted descriptive name."""&lt;/span&gt;
+    &lt;span class="n"&gt;long_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;long_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;read_odometer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Print a statement showing the car's mileage."""&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"This car has "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" miles on it."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;update_odometer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mileage&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;span class="sd"&gt;    Set the odometer reading to new value.&lt;/span&gt;
+&lt;span class="sd"&gt;    Rejects if it attempts to roll the odometer back.&lt;/span&gt;
+&lt;span class="sd"&gt;    """&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;mileage&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mileage&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"You are not allowed to roll back an odometer"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;increment_odometer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;miles&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Add the given amount to odometer reading """&lt;/span&gt;
+    &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;odometer_reading&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;miles&lt;/span&gt;
+
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fill_gas_tank&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" A function to simulate filing gas tank of a car """&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Gas tank is filled to full."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;electric_car.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;car&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Car&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Battery&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+  &lt;span class="sd"&gt;""" A simple attempt to model a battery for an electric car """&lt;/span&gt;
+
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;70&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Initialize the battery's attributes. """&lt;/span&gt;
+    &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;battery_size&lt;/span&gt;
+
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;describe_battery&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Print a statement describing the battery size """&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"This car has a "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery_size&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;"-kWh battery."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Print a statement about the range this battery provides """&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;70&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="nb"&gt;range&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;240&lt;/span&gt;
+    &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;85&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="nb"&gt;range&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;270&lt;/span&gt;
+    &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"This car can go approximately "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" miles on a full charge."&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ElectricCar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="sd"&gt;""" Represents aspects of a car, but specific to electric vehicle. """&lt;/span&gt;
+
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Initialize attributes of the parent class """&lt;/span&gt;
+    &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Initialize attributes specific to an electric car """&lt;/span&gt;
+    &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Battery&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# initialize a battery object&lt;/span&gt;
+
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fill_gas_tank&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="c1"&gt;# overwrite parent class car's method&lt;/span&gt;
+    &lt;span class="sd"&gt;""" Electric Car has no gas tanks """&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"This car doesn't have a gas tank!"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;my_cars.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;car&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Car&lt;/span&gt;
+  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;electric_car&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ElectricCar&lt;/span&gt;
+
+  &lt;span class="n"&gt;my_toyota&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Toyota'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Corola'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2003&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_toyota&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_descriptive_name&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+
+  &lt;span class="n"&gt;my_tesla&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ElectricCar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'tesla'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'roadster'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2016&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_tesla&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_descriptive_name&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><category>classes</category><category>inheritance</category><category>instances</category><category>python-crash-course</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/06-classes-instances-inheritance/</guid><pubDate>Wed, 07 Sep 2016 05:12:46 GMT</pubDate></item><item><title>Functions and Modules</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/05-functions-modules/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Functions&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;def function_name():&lt;/code&gt; // define a function&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Parameters and Arguments&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;def describe_pet(animal_type, pet_name):&lt;/code&gt; // define function describe_pet with parameter animal_type and pet_name&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;describe_pet('dog', 'willie')&lt;/code&gt; // calling function describe_pet and passing 'dog' and 'willie' as positional arguments, order matters.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;describe_pet(animal_type = 'dog', pet_name = 'willie')&lt;/code&gt; or &lt;code&gt;describe_pet(pet_name = 'harry', animal_type = 'hamster', )&lt;/code&gt; // calling function describe_pet and passing 'dog' and 'willie' as positional arguments, order doesn't matter.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;def describe_pet(pet_name, animal_type = 'dog'):&lt;/code&gt; // define function describe_pet with parameter animal_type, its default value 'dog' and pet_name.  Parameter with default value usually listed last.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;def get_formatted_name(fname, lname, mname=''):&lt;/code&gt; // define function get_formatted_name with parameters fname, lname, and optional mname.  Optional parameter also listed last.&lt;/li&gt;
+&lt;li&gt;When a list is passed to a function, the function can modify the list.  Any changes made to the list inside the function's body are permanent.  &lt;/li&gt;
+&lt;li&gt;Sometimes, you may decide you want to keep the original list unchanged.  In that case, you may pass the function with a copy of the list.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;function_name(list_name[:])&lt;/code&gt; // calling function_name and pass a copy of list_name by ' list_name[:] '&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Passing an Arbitrary Number of Arguments&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Sometimes you won't know ahead of times how many arguments a function needs to accept.  In this case, we define a function with *parameter to collect as many arguments as the calling line provides.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;def make_pizza(*toppings):&lt;/code&gt; // the asterisk in the parameter name *toppings tells python to make an empty tuple and pack whatever values it receives into this tuple.  &lt;/li&gt;
+&lt;li&gt;Eg: &lt;code&gt;make_pizza('pepperoni')&lt;/code&gt; or &lt;code&gt;make_pizza('mushrooms', 'green peppers', 'extra cheese')&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;def make_pizza(size, *toppings):&lt;/code&gt; // mix positional and arbitrary arguments&lt;/li&gt;
+&lt;li&gt;Eg: &lt;code&gt;make_pizza(16, 'pepperoni')&lt;/code&gt; or &lt;code&gt;make_pizza(24, 'mushrooms', 'green peppers', 'extra cheese')&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Using Arbitrary Keyword Arguments&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Sometimes you'll want to accept an arbitrary number of arguments, but won't know ahead of time what kind of information will be passed to the function.  In this case, you can write functions that accept as many key-value pair as the calling statement provides.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;build_profile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;user_info&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+          &lt;span class="n"&gt;profile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
+          &lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'first_name'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fname&lt;/span&gt;
+          &lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'last_name'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;lname&lt;/span&gt;
+          &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;user_info&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+              &lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
+          &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;profile&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;**user_info represents an arbitrary number of keyword arguments.  &lt;/li&gt;
+&lt;li&gt;Eg: &lt;code&gt;user_profile = build_profile('albert', 'einstein', location='princeton', field='physics')&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Modules&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;A module is a file ending in .py that contains the code you want to import to your program.  For example, to make a module that contains the function make_pizza(), move the function make_pizza() to a file pizza.py.  &lt;/li&gt;
+&lt;li&gt;pizza.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;toppings&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;Making a "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;"-inch pizza with the following toppings: "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;topping&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;toppings&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"- "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;topping&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;making_pizza.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pizza&lt;/span&gt;
+
+  &lt;span class="n"&gt;pizza&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'pepperoni'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;pizza&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'mushrooms'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'green peppers'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'extra cheese'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Importing Specific Functions&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;from module_name import function_name&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;from module_name import function_0, function_1, function_2&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pizza&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;make_pizza&lt;/span&gt;
+
+  &lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'pepperoni'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'mushrooms'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'green peppers'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'extra cheese'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Use as to Give a Function an Alias&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;from module_name import function_name as fn&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pizza&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;make_pizza&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;mp&lt;/span&gt;
+  &lt;span class="n"&gt;mp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'pepperoni'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;mp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'mushrooms'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'green peppers'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'extra cheese'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Use as to Give a Module an Alias&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;import module_name as mn&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pizza&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;p&lt;/span&gt;
+  &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'pepperoni'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'mushrooms'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'green peppers'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'extra cheese'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Import All Functions in a Module&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;from module_name import *&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pizza&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+  &lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'pepperoni'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'mushrooms'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'green peppers'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'extra cheese'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;However it is best not to use this approach.  Python may see several functions or variables with the same name, and instead of importing all the functions separately it will overwrite the functions.&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><category>functions</category><category>modules</category><category>python-crash-course</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/05-functions-modules/</guid><pubDate>Wed, 07 Sep 2016 03:14:55 GMT</pubDate></item><item><title>User Input and Loops</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/04-user-inputs-and-loops/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Loops&lt;/h3&gt;
+&lt;h4&gt;For Loop&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;for x in {list_name}:&lt;/code&gt; // loop through list_name list&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;for x in range(1, 10):&lt;/code&gt; //  loop from 1 through 9, but NOT 10&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;for ky, val in {dictionary}.items():&lt;/code&gt; // loop through key value pair in dictionary&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;While Loop&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;while {list_name}:&lt;/code&gt; // loop as long as list isn't empty&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;      &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+      &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;something&lt;/span&gt;
+        &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Breaking Loop&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;To exit a while loop immediately without running any remaining code in the loop, regardless of the results of any conditional test, use the break statement.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;      &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+      &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;some&lt;/span&gt; &lt;span class="n"&gt;condition&lt;/span&gt;&lt;span class="p"&gt;}:&lt;/span&gt;
+          &lt;span class="k"&gt;break&lt;/span&gt;
+        &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+          &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;something&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Skip but Continue Looping&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Rather than breaking out of a loop entirely without executing the rest of its code, use the continue statement to go back to the loop&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;      &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+      &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+          &lt;span class="k"&gt;continue&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><category>loops</category><category>python-crash-course</category><category>user-input</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/04-user-inputs-and-loops/</guid><pubDate>Tue, 30 Aug 2016 07:00:52 GMT</pubDate></item><item><title>Lists and Tuples and Dictionaries</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/03-lists-and-tuples-and-dictionaries/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lists&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Lists are mutable.  Lists can be modified throughout the life of a programme.&lt;/li&gt;
+&lt;li&gt;Accessing Element in a List&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;bicycles[0]&lt;/code&gt;, &lt;code&gt;bicycles[-1]&lt;/code&gt;, &lt;code&gt;bicycles[3]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Adding Elements to a List&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;motorcycles.append('ducati')&lt;/code&gt; // Add to end of the list&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;motorcycles.insert(0, 'ducati')&lt;/code&gt; // Insert 'ducati' at position 0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Removing Element from a List&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;del motorcycles[1]&lt;/code&gt; // remove element by index&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;last_owned = motorcycles.pop()&lt;/code&gt; // remove last element in motorcycles list and store as last_owned&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;most_expensive = motorcycles.pop(2)&lt;/code&gt; // remove third element in motorcycles list and store as most_expensive&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;motorcycles.remove('yamaha')&lt;/code&gt; // remove element by value&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Organizing a List&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cars.sort()&lt;/code&gt; // sorting permanently&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cars.sort(reverse=True)&lt;/code&gt; // sorting in reverse order, permanently&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sorted(cars)&lt;/code&gt; // temporarily sort a list&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cars.reverse()&lt;/code&gt; //simply reverse the order of the list&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Length of a List&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;len(cars)&lt;/code&gt; // returns integer of element count in the list&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Copying a List&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;b = a[:]&lt;/code&gt; // b copies a, and is separate list from a&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Aliasing a List&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;q = p&lt;/code&gt; // q and p refers to same list object.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Looping through lists:&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;for x in {list_name}:&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;for x in range(1, 10):&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Tuples&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Just like strings, tuples is IMMUTABLE.&lt;/li&gt;
+&lt;li&gt;Values of Tuples can be reassigned, or overwritten.  &lt;ul&gt;
+&lt;li&gt;&lt;code&gt;tup = ('alice', 'not in', 'wonderland')&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tup = ('alice', 'now in', 'wonderland')&lt;/code&gt; //final value will be the last assigned value.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tuples can be looped just like lists.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Dictionaries&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Elements in dictionaries are stored in key-value pairs.&lt;/li&gt;
+&lt;li&gt;Value is assessed by key.&lt;/li&gt;
+&lt;li&gt;Looping through dictionaries:&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;for x, y in dict.items():&lt;/code&gt; // looping through x, y {key-value} pairs in dict&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;for ky in dict.keys():&lt;/code&gt; // looping through all keys of dict dictionary&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;for val in dict.values():&lt;/code&gt; // looping through all values of dict dictionary&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;set(dict.values())&lt;/code&gt; // build a set by selecting unique items from dict.values()&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><category>lists</category><category>python-crash-course</category><category>tuples</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/03-lists-and-tuples-and-dictionaries/</guid><pubDate>Tue, 30 Aug 2016 06:29:09 GMT</pubDate></item><item><title>Variables and Simple Data Types</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/02-variables-and-simple-data-types/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;String&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Strings are NOT mutable.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Methods&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;.title() : put string in camel case&lt;/li&gt;
+&lt;li&gt;.upper() : put string in upper case&lt;/li&gt;
+&lt;li&gt;.lower() : put string in lower case&lt;/li&gt;
+&lt;li&gt;.rstrip() : stripping whitespace from the right&lt;/li&gt;
+&lt;li&gt;.lstrip() : stripping whitespace from the left&lt;/li&gt;
+&lt;li&gt;.strip() : stripping whitespace from both left and right&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Other String Manipulations&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;" + " : plus sign is to concatenate strings together&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;print("Hello " + "!!!")&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;" \t " : tabs&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;print("Languages:\n\tPython\n\tC\n\tJavascript")&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;" \n " : new line&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;print("Languages:\nPython\nC\nJavascript")&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Numbers&lt;/h3&gt;
+&lt;h3&gt;Number Types&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Integers&lt;/li&gt;
+&lt;li&gt;Floats&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><category>python-crash-course</category><category>simple-data-types</category><category>variables</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/02-variables-and-simple-data-types/</guid><pubDate>Tue, 30 Aug 2016 05:58:19 GMT</pubDate></item><item><title>Python Basics and Philosophy</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/01-basics/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;The Zen of Python&lt;/h3&gt;
+&lt;h4&gt;by Tim Peters&lt;/h4&gt;
+&lt;p&gt;:: Type &lt;code&gt;import this&lt;/code&gt; in python CLI&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Beautiful is better than ugly.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Explicit is better than implicit.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Simple is better than complex.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Complex is better than complicated.&lt;/li&gt;
+&lt;li&gt;Flat is better than nested.&lt;/li&gt;
+&lt;li&gt;Sparse is better than dense.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Readability counts.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Special cases aren't special enough to break the rules.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Although practicality beats purity.&lt;/li&gt;
+&lt;li&gt;Errors should never pass silently.&lt;/li&gt;
+&lt;li&gt;Unless explicitly silenced.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;In the face of ambiguity, refuse the temptation to guess.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;There should be one -- and preferably only one -- obvious way to do it.  &lt;/li&gt;
+&lt;li&gt;Although that way may not be obvious unless you are Dutch.  &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Now is better than never.&lt;/strong&gt;  &lt;/li&gt;
+&lt;li&gt;Although never is often better than &lt;em&gt;right&lt;/em&gt; now&lt;/li&gt;
+&lt;li&gt;If the implementation is hard to explain, it's a bad idea.  &lt;/li&gt;
+&lt;li&gt;If the implementation is easy to explain, it may be a good idea.&lt;/li&gt;
+&lt;li&gt;Namespaces are one honking good idea - let's do more of those!&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><category>basics</category><category>python-crash-course</category><category>zen-of-python</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/01-basics/</guid><pubDate>Mon, 29 Aug 2016 06:15:20 GMT</pubDate></item><item><title>Descriptive Statistics - Sampling Distributions</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-7/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 7: Central Limit Theorem&lt;/h3&gt;
 &lt;p&gt;The Central Limit Theorem is used to help us understand the following facts regardless of
 whether the population distribution is normal or not:&lt;/p&gt;
 &lt;ol&gt;
@@ -16,468 +1117,4 @@ n, increases.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Referring to the z-table, we can get the probability of a measurement of equal or less than \( x \) occurring.  &lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-6/</guid><pubDate>Thu, 18 Aug 2016 06:23:03 GMT</pubDate></item><item><title>Descriptive Statistics - Standardizing</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-5/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 5: Standardizing&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;If we are concerned about a proportion less than or greater than a certain value on a distribution, we should use RELATIVE FREQUENCIES.&lt;/li&gt;
-&lt;li&gt;When a bin-size is too big, we can't tell for sure the detailed values of the bin; when a bin-size is too small, the distribution becomes more and more of a uniform distribution.  A predicament: We want a small bin size to have as much details as possible about the location of data values, relative to the rest of the distribution.  &lt;/li&gt;
-&lt;li&gt;We solve this conundrum with a theoretical model of our distribution.&lt;/li&gt;
-&lt;li&gt;Z score: how many standard deviation any number, x, is away from the mean.  We can convert any value from a normal distribution to a z score.  When we do this we standardize the distribution.  &lt;ul&gt;
-&lt;li&gt;\[ z = \frac{ x - \mu }{\sigma} \]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;A negative z score means:&lt;ul&gt;
-&lt;li&gt;The original value, \( x \) is less than the mean, \( \mu \).&lt;/li&gt;
-&lt;li&gt;The original value, \( x \) minus the mean, \( \mu \) is negative.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;On a standardized distribution, the mean, \( \mu \) is 0.  &lt;/li&gt;
-&lt;li&gt;On a standardized distribution, the standard deviation, \( \sigma \) is 1.&lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><category>descriptive-statistics</category><category>standardizing</category><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-5/</guid><pubDate>Thu, 18 Aug 2016 02:09:35 GMT</pubDate></item><item><title>Descriptive Statistics - Variability</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-4/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 4: Variability&lt;/h3&gt;
-&lt;h4&gt;General Ideas of Variability&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Range&lt;/strong&gt;: The maximum data point minus the minimum data point.  &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Wide Spread&lt;/strong&gt;: The data set has shorter and wider distribution.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Consistency&lt;/strong&gt;: When a data is more consistent, it forms taller and narrower distribution.  &lt;/li&gt;
-&lt;li&gt;Outlier(s) usually widen the range of distribution and INCREASES variability.  Statisticians usually cut off outliers.&lt;/li&gt;
-&lt;li&gt;1st Quartile, &lt;strong&gt;\( Q_{1} \)&lt;/strong&gt;, is the 25% of the distribution, while 3rd Quartile, &lt;strong&gt;\( Q_{3} \)&lt;/strong&gt;, is the 75% of the distribution.  2nd Quartile, also known as Median, is the 50% of the distribution.  &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Interquartile Range&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;\(IQR =  Q_{3} - Q_{1} \)&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Facts about &lt;strong&gt;\(IQR \)&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;About 50% of data lies between IQR.&lt;/li&gt;
-&lt;li&gt;IQR may or may not be affected by every value in the dataset.  &lt;/li&gt;
-&lt;li&gt;IQR is NOT affected by outliers.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;A data point is considered an outlier if any of the below is true:&lt;ul&gt;
-&lt;li&gt;\[ x_{outlier} &amp;lt; Q_{1} - 1.5*IQR \]&lt;/li&gt;
-&lt;li&gt;\[ x_{outlier} &amp;gt; Q_{3} - 1.5*IQR \]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4&gt;Box Plots&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;Key Elements of Box Plots:&lt;ul&gt;
-&lt;li&gt;Max, Min (two handles of the box)&lt;/li&gt;
-&lt;li&gt;\( Q_{1} \), \( Q_{3} \), \( Q_{2} \) (aka Median) forms the box, with Median in the center "splitting" the box.&lt;/li&gt;
-&lt;li&gt;Outliers, drawn as dots next to /outside of Max and/or Min.  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Box plots sometimes don't tell about the distribution model of data.  The box plot for normal, bimodal, or uniform distribution are the same.&lt;/li&gt;
-&lt;li&gt;Although usually the mean lies between \( Q_{1} \) and \( Q_{3} \), it may lie outside of it, if there are outliers.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4&gt;Measuring Variability&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;To measure variability, we find the average distance between each data value and the mean.&lt;/li&gt;
-&lt;li&gt;\[ Deviation, \delta = x_{i} - \bar{x} \]&lt;/li&gt;
-&lt;li&gt;Average Deviation, \(\bar{\delta}\):&lt;ul&gt;
-&lt;li&gt;\[ \bar{\delta} = \frac{ \sum_{i=0}^N{  \lvert{x_{i} - \bar{x} } \rvert }}{N}\]&lt;/li&gt;
-&lt;li&gt;\[ \bar{\delta} = \frac{ \sum_{i=0}^N{\lvert\bar{x} - x_{i}\rvert}}{N} \]&lt;/li&gt;
-&lt;li&gt;\[ \bar{\delta} = \sum_{i=0}^N{\frac{ \lvert \bar{x} - x_{i} \rvert }{N}} \]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Squared Deviation, \( \delta^2 \):&lt;ul&gt;
-&lt;li&gt;\[ \delta^2 = {\lvert{x_{i} - \bar{x} } \rvert}^2 \]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Sum of Squares, \( \sum_{i=0}^N(\delta^2) \), aka \( SS \):&lt;ul&gt;
-&lt;li&gt;\[ SS = \sum_{i=0}^N{({x_{i} - \bar{x}})^2} \]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Variance, \( \sigma^2 \), which is simply the Mean of \( SS \), \( \bar{SS} \) is:&lt;ul&gt;
-&lt;li&gt;\[ \sigma^2 = \frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N} \]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Standard Deviation, \( \sigma \), is the square root of variance.  &lt;ul&gt;
-&lt;li&gt;\[ \sigma = \sqrt{\frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N}} \]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Why Standard Deviation? In a perfectly normal distribution where mean equals to median equals to mode, 68% of the data values would fall between \( -1 \sigma \) and \( +1 \sigma \), 95% of the data values will fall between \( -2 \sigma \) and \( +2 \sigma \)&lt;/li&gt;
-&lt;li&gt;When a sample is taken from a population, the sample standard deviation is usually smaller than true standard deviation, \( \sigma \), of the population.  To correct that, we apply Bessel's Correction.  The corrected/estimation sample standard deviation, denoted as \( s \), and corresponding variance, will have the formulas below:&lt;ul&gt;
-&lt;li&gt;\[ s^2 = \frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N -1} \]&lt;/li&gt;
-&lt;li&gt;\[ s = \sqrt{\frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N-1}} \]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><category>descriptive-statistics</category><category>variability</category><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-4/</guid><pubDate>Wed, 17 Aug 2016 03:29:46 GMT</pubDate></item><item><title>Descriptive Statistics - Central Tendency</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-3/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 3: Central Tendency&lt;/h3&gt;
-&lt;h4&gt;Some Definitions&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Mode&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;Mode is always on x-axis&lt;/li&gt;
-&lt;li&gt;Mode can be used to describe any type of data we have, be it numerical or categorical&lt;/li&gt;
-&lt;li&gt;All scores in a data set affects the mode.&lt;/li&gt;
-&lt;li&gt;Even if we take a lot of samples from the same population, the mode will NOT be the same in each sample.&lt;/li&gt;
-&lt;li&gt;There is NO equation for mode.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Mean&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;All scores in a distribution affects a mean&lt;/li&gt;
-&lt;li&gt;The mean can be describe with a formula.  As notated below:&lt;ul&gt;
-&lt;li&gt;\[ \mu  = \frac{ \sum{x} }{N} \]&lt;/li&gt;
-&lt;li&gt;\[ \bar{x} = \frac{ \sum_{i=0}^{n}{x} }{n}\]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Many samples from the same population will have similar means.&lt;/li&gt;
-&lt;li&gt;The means of a sample can be used to make inferences of a population it came from.&lt;/li&gt;
-&lt;li&gt;The mean will change if we add an extreme value to the data set.  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Median&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;Median is the middle of the data.&lt;/li&gt;
-&lt;li&gt;When there is an even number of data points, the median is the average of the two middle scores, after arranged in ascending/descending order.  &lt;/li&gt;
-&lt;li&gt;Median is generally Robust - Strong and Steady, Doesn't affected much by the outlier data.  &lt;/li&gt;
-&lt;li&gt;Median serves as a better measurement for the center of the data when the data distribution is heavily skewed.  &lt;/li&gt;
-&lt;li&gt;If dataset has EVEN number, n, of data,&lt;ul&gt;
-&lt;li&gt;\[  \frac{X_{\frac{n}{2}} + X_{\frac{n}{2} + 1}}{2} \]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;If dataset has ODD number, n, of data,&lt;ul&gt;
-&lt;li&gt;\[ X_{\frac{n}{2} + 1} \]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Conclusions of Measures of Center&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;Mean, Mode and Median are measure of center for datasets.&lt;/li&gt;
-&lt;li&gt;Mean has a simple equation.&lt;/li&gt;
-&lt;li&gt;Mean will always change if any data value changes.&lt;/li&gt;
-&lt;li&gt;While Mode IS affected by bin size, both Mean and Median are NOT affected by bin size.&lt;/li&gt;
-&lt;li&gt;While Mean IS severely affected by outliers, Median and Mode are NOT severely affected by outliers.&lt;/li&gt;
-&lt;li&gt;Mode is easy to find on histogram.  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><category>central tendency</category><category>descriptive-statistics</category><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-3/</guid><pubDate>Tue, 16 Aug 2016 07:09:38 GMT</pubDate></item><item><title>Setting Up Nikola, a Static Site Generator</title><link>https://chowy1026.github.io/posts/nikola-setup/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;A while back, I started to look into static site generators for building my professional and personal blog site.  I had used &lt;a href="https://wordpress.org/" title="Wordpress"&gt;Wordpress&lt;/a&gt; long ago, but want to practice programming in Python.  Recently I tried out &lt;a href="https://medium.com/" title="Medium"&gt;Medium&lt;/a&gt;, but find it rather limiting when it comes to formatting content, and to organizing my posts.   &lt;/p&gt;
-&lt;p&gt;I want to use the opportunity to explore what's new out there and get my hands dirty in programming again.  While researching, I stumble upon this site for static site generator - &lt;a href="https://www.staticgen.com/" title="StaticGen"&gt;StaticGen&lt;/a&gt;.  After testing out briefly with Pelican and Nikola, At last I decided to go with &lt;a href="https://getnikola.com/" title="Nikola"&gt;Nikola&lt;/a&gt; .&lt;/p&gt;
-&lt;p&gt;Nikola is rather lightweight, written with Python, supports contents written in markdown (my preferred way of writing content), and supports &lt;a href="https://www.mathjax.org/" title="MathJax"&gt;MathJax&lt;/a&gt; with a little tweaking.&lt;/p&gt;
-&lt;h4&gt;Installation&lt;/h4&gt;
-&lt;p&gt;The initial installation is rather basic.  First I install Nikola using pip.  Note that I install the extras as well, so I don't have to worry about them later.&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ pip install --upgrade &lt;span class="s2"&gt;"Nikola[extras]"&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;Then, I created a virtual environment and a project for this using  &lt;a href="https://virtualenv.pypa.io/en/stable/" title="Python VirtualEnv"&gt;&lt;code&gt;virtualevn&lt;/code&gt;&lt;/a&gt; and &lt;a href="https://virtualenvwrapper.readthedocs.io/en/latest/" title="Python VirtualEnvWrapper"&gt;&lt;code&gt;virtualevnwrapper&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ mkproject -p /usr/local/bin/python3 nikola
-$ workon nikola
-&lt;/pre&gt;
-
-
-&lt;p&gt;Then I was able to initialize a Nikola site.  &lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ nikola init &lt;span class="o"&gt;{&lt;/span&gt;site_name&lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;Voila! We have a site!  Nikola has neat built-in commands. Check them out with &lt;code&gt;nikola help&lt;/code&gt;.  For example, to create a new post, use the following:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ nikola new_post &lt;span class="o"&gt;{&lt;/span&gt;post_name&lt;span class="o"&gt;}&lt;/span&gt;.md
-&lt;/pre&gt;
-
-
-&lt;p&gt;I like to keep the nikola server running as I go through the edit/preview cycles, I typed&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ nikola auto -b
-&lt;/pre&gt;
-
-
-&lt;h4&gt;Configurations&lt;/h4&gt;
-&lt;p&gt;I used most of the default settings in the &lt;code&gt;config.py&lt;/code&gt;, except for the following:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;# Category Settings #
-CATEGORY_PATH = "categories"
-CATEGORY_PREFIX = ""
-CATEGORY_ALLOW_HIERARCHIES = True
-CATEGORY_OUTPUT_FLAT_HIERARCHY = False
-CATEGORY_PAGES_ARE_INDEXES = False
-
-# Author Page #
-ENABLE_AUTHOR_PAGES = False
-
-# Archives Settings #
-CREATE_MONTHLY_ARCHIVE = True
-CREATE_DAILY_ARCHIVE = True
-ARCHIVE_PATH = "archives"
-ARCHIVE_FILENAME = "archives.html"
-
-# FavIcons #
-FAVICONS = (
-    ("icon", "{path to favicon}", "64x64"),
-    ("icon", "{path to favicon}", "512x512"),
-)
-
-# Hide Source Link #
-SHOW_SOURCELINK = False
-&lt;/pre&gt;
-
-
-&lt;h4&gt;Organizing Content&lt;/h4&gt;
-&lt;p&gt;Instead the built-in Category and Tag features, I am not quite satisfied with the way it organizes my content.  I prefer to organize my content a certain way.  So, in the &lt;code&gt;config.py&lt;/code&gt;, I made the following settings:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;POSTS = (
-    ("posts/*.md", "posts", "post.tmpl"),
-    ("course-notes/*.md", "course-notes", "post.tmpl"),
-    ("links/*.md", "links", "post.tmpl"),
-    ("books/*.md", "books", "post.tmpl"),
-    ("movies-shows/*.md", "movies-shows", "post.tmpl"),
-    ("music/*.md", "music", "post.tmpl"),
-)
-PAGES = (
-    ("pages/*.md", "pages", "story.tmpl"),
-)
-&lt;/pre&gt;
-
-
-&lt;p&gt;Although Nikola offers two content types - post and page, I figure I only use the post type (for now at least).  I am simply keeping &lt;code&gt;PAGES&lt;/code&gt; as is.   &lt;/p&gt;
-&lt;p&gt;To add the corresponding content type to the navigation links,&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;NAVIGATION_LINKS = {
-    DEFAULT_LANG: (
-        ("/posts/index.html", "Articles"),
-        ("/course-notes/index.html", "Course Notes"),
-        ("/links/index.html", "Links"),
-        ("/books/index.html", "Books"),
-        ("/archives/archives.html", "Archives"),
-        ("/tags.html", "Tags"),
-    ),
-}
-&lt;/pre&gt;
-
-
-&lt;h4&gt;Themes&lt;/h4&gt;
-&lt;p&gt;Nikola's theme repo doesn't offer too extensive a choice. So I decided to make my own by following this very nicely written guide in &lt;a href="http://nikola.readthedocs.io/en/latest/creating-a-theme/" title="Creating a Nikola Theme"&gt;creating your own theme&lt;/a&gt;.  You may find &lt;a href="https://github.com/chowy1026/nikola-themes/tree/hyde/v7/hyde" title="Nikola Theme - Hyde"&gt;my theme here&lt;/a&gt;.  &lt;/p&gt;
-&lt;h4&gt;Enabling MathJax&lt;/h4&gt;
-&lt;p&gt;The steps to enable MathJax in Nikola are easy. First, add the following line to &lt;code&gt;templates\base_helper.tmpl&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface"&amp;gt;
-&lt;/pre&gt;
-
-
-&lt;p&gt;Then add&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;MATHJAX_CONFIG = """
-    &lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;"text/javascript"&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;"https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;"text/x-mathjax-config"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-        MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [ ['$','$'], ["\\\(","\\\)"] ],
-                displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ],
-                processEscapes: true
-            },
-            displayAlign: 'left', // Change this to 'center' to center equations.
-            "HTML-CSS": {
-                styles: {'.MathJax_Display': {"margin": 0}}
-            }
-        });
-    &lt;span class="nt"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;"text/x-mathjax-config"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-  MathJax.Hub.Queue(function() {
-    // Fix &lt;span class="nt"&gt;&amp;lt;code&amp;gt;&lt;/span&gt; tags after MathJax finishes running. This is a
-    // hack to overcome a shortcoming of Markdown. Discussion at
-    // https://github.com/mojombo/jekyll/issues/199
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i &lt;span class="nt"&gt;&amp;lt; all.length&lt;/span&gt;&lt;span class="err"&gt;;&lt;/span&gt; &lt;span class="err"&gt;i&lt;/span&gt; &lt;span class="err"&gt;+=&lt;/span&gt; &lt;span class="err"&gt;1)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-        &lt;span class="err"&gt;all[i].SourceElement().parentNode.className&lt;/span&gt; &lt;span class="err"&gt;+=&lt;/span&gt; &lt;span class="err"&gt;'&lt;/span&gt; &lt;span class="err"&gt;has-jax';&lt;/span&gt;
-    &lt;span class="err"&gt;}&lt;/span&gt;
-&lt;span class="err"&gt;});&lt;/span&gt;
-&lt;span class="err"&gt;&amp;lt;/script&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-    """
-&lt;/pre&gt;
-
-
-&lt;p&gt;and this&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;HIDDEN_TAGS = ['mathjax']
-&lt;/pre&gt;
-
-
-&lt;p&gt;to &lt;code&gt;config.py&lt;/code&gt;.  All set! In markdown, I can use
-&lt;code&gt;\\( {math expression} \\)&lt;/code&gt; for inline math, and&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;\\[ {math expression} \\]
-&lt;/pre&gt;
-
-
-&lt;p&gt;for block display.  For other references to &lt;a href="https://www.mathjax.org/" title="MathJax"&gt;MathJax&lt;/a&gt;, see &lt;a href="https://mechowy.github.io/link/mathjax/" title="MathJax Reference Links"&gt;this link&lt;/a&gt;.&lt;/p&gt;
-&lt;h4&gt;GitHub Deploy&lt;/h4&gt;
-&lt;p&gt;Admittedly, Git confuses me sometimes.  And the built-in command that Nikola offers is absolutely godsent.  It nicely push content to the master branch of your userpage repo, which is {github.username}.github.io, and keep source in the source branch.  &lt;/p&gt;
-&lt;p&gt;Having had my empty &lt;code&gt;{github.username}.github.io&lt;/code&gt; repo ready on github, I have these in my &lt;code&gt;config.py&lt;/code&gt;:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;# DEPLOY_COMMANDS = {
-#    'default': [
-#        'git add .',
-#        "git commit -am 'Update'",
-#        'git push origin master',
-#        'git subtree split --prefix output -b gh-pages',
-#        'git push -f origin gh-pages:gh-pages',
-#        'git branch -D gh-pages'
-#    ]
-#}
-
-GITHUB_SOURCE_BRANCH = 'source'
-GITHUB_DEPLOY_BRANCH = 'master'
-
-GITHUB_REMOTE_NAME = 'origin'
-
-GITHUB_COMMIT_SOURCE = True
-&lt;/pre&gt;
-
-
-&lt;p&gt;&lt;del&gt; I am honestly a little confused whether or not the &lt;code&gt;DEPLOY_COMMANDS&lt;/code&gt; is actually needed.  I looked into the github_deploy.py under the hood of Nikola, it seems the deploy commands are already predefined.  I need to further experiment whether the &lt;code&gt;nikola github_deploy&lt;/code&gt; would work without a &lt;code&gt;DEPLOY_COMMANDS&lt;/code&gt; defined in &lt;code&gt;config.py&lt;/code&gt;.  Will update when I am 200% certain. &lt;/del&gt;&lt;/p&gt;
-&lt;p&gt;Update: &lt;code&gt;nikola github_deploy&lt;/code&gt; IS indeed GOD-SENT.  Without having to define &lt;code&gt;DEPLOY_COMMANDS&lt;/code&gt;, it nicely does everything for us - push &lt;code&gt;output&lt;/code&gt; content to master, and source to source.&lt;/p&gt;
-&lt;p&gt;&lt;del&gt;That said&lt;/del&gt; Now, whenever I want to update content to my github page, I simply type:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ nikola github_deploy
-&lt;/pre&gt;
-
-
-&lt;h4&gt;Others&lt;/h4&gt;
-&lt;p&gt;For additional features, there are &lt;a href="https://github.com/getnikola/plugins" title="Nikola Plugins"&gt;plugins&lt;/a&gt; that could be installed.  There is also a &lt;a href="https://groups.google.com/forum/#!forum/nikola-discuss" title="Nikola Google Dicussion Group"&gt;Google Discussion Group for Nikola&lt;/a&gt;.  &lt;/p&gt;&lt;/div&gt;</description><category>github</category><category>github pages</category><category>Nikola</category><guid>https://chowy1026.github.io/posts/nikola-setup/</guid><pubDate>Mon, 15 Aug 2016 03:32:11 GMT</pubDate></item><item><title>Lolita - Vladimir Nabokov</title><link>https://chowy1026.github.io/books/lolita/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Quotes&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;"Human life is but a series of footnotes to a vast obscure unfinished masterpiece"&lt;/li&gt;
-&lt;li&gt;"He broke my heart. You merely broke my life."&lt;/li&gt;
-&lt;li&gt;"It was love at first sight, at last sight, at ever and ever sight."&lt;/li&gt;
-&lt;li&gt;"I knew I had fallen in love with Lolita forever; but I also knew she would not be forever Lolita."&lt;/li&gt;
-&lt;li&gt;"You have to be an artist and a madman, a creature of infinite melancholy, with a bubble of hot poison in your loins and a super-voluptuous flame permanently aglow in your subtle spine (oh, how you have to cringe and hide!), in order to discern at once, by ineffable signs―the slightly feline outline of a cheekbone, the slenderness of a downy limbs, and other indices which despair and shame and tears of tenderness forbid me to tabulate―the little deadly demon among the wholesome children; she stands unrecognized by them and unconscious herself of her fantastic power."&lt;/li&gt;
-&lt;li&gt;“I recall certain moments, let us call them icebergs in paradise, when after having had my fill of her –after fabulous, insane exertions that left me limp and azure-barred–I would gather her in my arms with, at last, a mute moan of human tenderness (her skin glistening in the neon light coming from the paved court through the slits in the blind, her soot-black lashes matted, her grave gray eyes more vacant than ever–for all the world a little patient still in the confusion of a drug after a major operation)–and the tenderness would deepen to shame and despair, and I would lull and rock my lone light Lolita in my marble arms, and moan in her warm hair, and caress her at random and mutely ask her blessing, and at the peak of this human agonized selfless tenderness (with my soul actually hanging around her naked body and ready to repent), all at once, ironically, horribly, lust would swell again–and 'oh, no,' Lolita would say with a sigh to heaven, and the next moment the tenderness and the azure–all would be shattered.”&lt;/li&gt;
-&lt;li&gt;"if a violin string could ache, i would be that string."&lt;/li&gt;
-&lt;li&gt;"Lolita, light of my life, fire of my loins. My sin, my soul. Lo-lee-ta: the tip of the tongue taking a trip of three steps down the palate to tap, at three, on the teeth. Lo. Lee. Ta. She was Lo, plain Lo, in the morning, standing four feet ten in one sock. She was Lola in slacks. She was Dolly at school. She was Dolores on the dotted line. But in my arms she was always Lolita. "&lt;/li&gt;
-&lt;li&gt;“You know, what's so dreadful about dying is that you are completely on your own. and it struck me, as my automaton knees went up and down, that I simply did not know a thing about my darling's mind and that quite possibly, behind the awful juvenile cliches, there was in her a garden and a twilight, and a palace gate - dim and adorable regions which happened to be lucidly and absolutely forbidden to me, in my polluted rags and miserable convulsions...”&lt;/li&gt;
-&lt;li&gt;“Don't touch me; I'll die if you touch me.”  &lt;/li&gt;
-&lt;li&gt;“Despite our tiffs, despite her nastiness, despite all the fuss and faces she made, and the vulgarity, and the danger, and the horrible hopelessness of it all, I still dwelled deep in my elected paradise - a paradise whose skies were the color of hell-flames - but still a paradise.”&lt;/li&gt;
-&lt;li&gt;“In a nervous and slender-leaved mimosa grove at the back of their villa we found a perch on the ruins of a low stone wall. She trembled and twitched as I kissed the corner of her parted lips and the hot lobe of her ear. A cluster of stars palely glowed above us between the silhouettes of long thin leaves; that vibrant sky seemed as naked as she was under her light frock. I saw her face in the sky, strangely distinct, as if it emitted a faint radiance of its own. Her legs, her lovely live legs, were not too close together, and when my hand located what it sought, a dreamy and eerie expression, half-pleasure, half-pain, came over those childish features. She sat a little higher than I, and whenever in her solitary ecstasy she was led to kiss me, her head would bend with a sleepy, soft, drooping movement that was almost woeful, and her bare knees caught and compressed my wrist, and slackened again; and her quivering mouth, distorted by the acridity of some mysterious potion, with a sibilant intake of breath came near to my face. She would try to relieve the pain of love by first roughly rubbing her dry lips against mine; then my darling would draw away with a nervous toss of her hair, and then again come darkly near and let me feed on her open mouth, while with a generosity that was ready to offer her everything, my heart, my throat, my entrails, I gave her to hold in her awkward fist the scepter of my passion.”&lt;/li&gt;
-&lt;li&gt;“”&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Poem Wanted, Wanted&lt;/h3&gt;
-&lt;p&gt;Wanted, wanted: Dolores Haze.
-Hair: brown. Lips: scarlet.
-Age: five thousand three hundred days.
-Profession: none, or "starlet"&lt;/p&gt;
-&lt;p&gt;Where are you hiding, Dolores Haze?
-Why are you hiding, darling?
-(I Talk in a daze, I walk in a maze
-I cannot get out, said the starling).&lt;/p&gt;
-&lt;p&gt;Where are you riding, Dolores Haze?
-What make is the magic carpet?
-Is a Cream Cougar the present craze?
-And where are you parked, my car pet?&lt;/p&gt;
-&lt;p&gt;Who is your hero, Dolores Haze?
-Still one of those blue-capped star-men?
-Oh the balmy days and the palmy bays,
-And the cars, and the bars, my Carmen!&lt;/p&gt;
-&lt;p&gt;Oh Dolores, that juke-box hurts!
-Are you still dancin', darlin'?
-(Both in worn levis, both in torn T-shirts,
-And I, in my corner, snarlin').&lt;/p&gt;
-&lt;p&gt;Happy, happy is gnarled McFate
-Touring the States with a child wife,
-Plowing his Molly in every State
-Among the protected wild life.&lt;/p&gt;
-&lt;p&gt;My Dolly, my folly! Her eyes were vair,
-And never closed when I kissed her.
-Know an old perfume called Soliel Vert?
-Are you from Paris, mister?&lt;/p&gt;
-&lt;p&gt;L'autre soir un air froid d'opera m'alita;
-Son fele -- bien fol est qui s'y fie!
-Il neige, le decor s'ecroule, Lolita!
-Lolita, qu'ai-je fait de ta vie?&lt;/p&gt;
-&lt;p&gt;Dying, dying, Lolita Haze,
-Of hate and remorse, I'm dying.
-And again my hairy fist I raise,
-And again I hear you crying.&lt;/p&gt;
-&lt;p&gt;Officer, officer, there they go--
-In the rain, where that lighted store is!
-And her socks are white, and I love her so,
-And her name is Haze, Dolores.&lt;/p&gt;
-&lt;p&gt;Officer, officer, there they are--
-Dolores Haze and her lover!
-Whip out your gun and follow that car.
-Now tumble out and take cover.&lt;/p&gt;
-&lt;p&gt;Wanted, wanted: Dolores Haze.
-Her dream-gray gaze never flinches.
-Ninety pounds is all she weighs
-With a height of sixty inches.&lt;/p&gt;
-&lt;p&gt;My car is limping, Dolores Haze,
-And the last long lap is the hardest,
-And I shall be dumped where the weed decays,
-And the rest is rust and stardust.&lt;/p&gt;&lt;/div&gt;</description><category>book</category><category>Vladimir Nabokov</category><guid>https://chowy1026.github.io/books/lolita/</guid><pubDate>Fri, 12 Aug 2016 03:10:40 GMT</pubDate></item><item><title>Helpful Links on Nikola</title><link>https://chowy1026.github.io/links/nikola/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Primary References&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://getnikola.com/" title="Nikola Homepage"&gt;Nikola Homepage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://nikola.readthedocs.io/en/latest/" title="Nikola Documentation"&gt;Nikola Documentation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://groups.google.com/forum/#!forum/nikola-discuss" title="Nikola Google Group"&gt;Nikola Google Group&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/getnikola/nikola" title="Nikola Github"&gt;Nikola Github&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://nikola.readthedocs.io/en/latest/creating-a-theme/" title="Theming Nikola"&gt;Theming Nikola&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://nikola.readthedocs.io/en/latest/manual/#math" title="MathJax on Nikola"&gt;MathJax on Nikola&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://sampathweb.com/posts/blogging-made-easy.html" title="GitHub DEPLOY_COMMANDS in Config.py"&gt;GitHub DEPLOY_COMMANDS in Config.py&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Other Notable References&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://louistiao.me/posts/how-i-customized-my-nikola-powered-site/" title="Louis Tiao's Guide"&gt;Louis Tiao's Guide&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>helpful-links</category><category>Nikola</category><guid>https://chowy1026.github.io/links/nikola/</guid><pubDate>Fri, 12 Aug 2016 02:31:52 GMT</pubDate></item><item><title>Descriptive Statistics - Research Methods</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-1/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 1: Introduction to Research Methods&lt;/h3&gt;
-&lt;h4&gt;Some Definitions&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Constructs&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Contruct&lt;/strong&gt;: Anything that is difficult to measure because it can be defined and measured in very many different ways.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Operational Definition&lt;/strong&gt;: Operational Definitions {of a construct} is a unit of measurement for a construct.  Once an Operational Definitions is defined {for a construct}, it is no longer a construct.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Extraneous Factors&lt;/strong&gt;: Also known as "Lurking Variables", these factors that could impact the outcome of an experiment or test.  Extraneous factors should be held constant as much as possible to maximize accuracy of experiments/tests.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Samples and Populations&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Population Parameter&lt;/strong&gt;: denoted by \(  \mu \) (μ pronounced mu) are values that describe the whole population.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Sample statistics&lt;/strong&gt;: denoted by \( \overline{x} \) (pronounced as X-bar) are values that describe our sample.  Statistics are used to estimate/approximate the population parameter.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Sampling Error&lt;/strong&gt;: The difference of values between true population parameter and sample statistics.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Sample Size&lt;/strong&gt;: The size of the group that we choose to represent population.  The bigger the sample size, the smaller the sampling error generally.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Golden Arches Theory {of Conflict Prevention} by Thomas Friedman&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Correlations doesn't mean causation: Just because two variables are relatable, it doesn't mean once causes the other to occur.  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Experiments vs Observational Studies&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;To show relationships =&amp;gt; Perform observational studies i.e. surveys.&lt;ul&gt;
-&lt;li&gt;(+) Easy way to get information of a population,&lt;/li&gt;
-&lt;li&gt;(+) Relatively inexpensive&lt;/li&gt;
-&lt;li&gt;(+) Can be conducted remotely&lt;/li&gt;
-&lt;li&gt;(+) Anyone could access and analyze survey results&lt;/li&gt;
-&lt;li&gt;(-) Untruthful responses&lt;/li&gt;
-&lt;li&gt;(-) Biased responses&lt;/li&gt;
-&lt;li&gt;(-) Respondents not understanding the questions (Response Bias)&lt;/li&gt;
-&lt;li&gt;(-) Respondents refuse to answer (Non-response Bias)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;To show causation =&amp;gt; Perform controlled experiments i.e.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Other Definitions&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Treatments&lt;/strong&gt;: The manner in which researchers handle subjects.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Observational Studies&lt;/strong&gt;: When an experimenter watches a group of subjects and does not introduce a treatment.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Independent Variables&lt;/strong&gt;: The variable that the experimenter chooses to manipulate, usually plotted along x-axis on a graph.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Dependent Variables&lt;/strong&gt;: The variable that the experimenter chooses to measure, usually plotted along y-axis on a graph.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Treatment Group&lt;/strong&gt;: The group of a study that receives a varying levels of independent variable, used to measure the effect of a treatment.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Control Group&lt;/strong&gt;: The group of study that doesn't receive treatment, used as a baseline when compared to treatment groups.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Placebo&lt;/strong&gt;: Something that is given to the control group so they think they are getting the treatment, when in reality it causes no effect on them.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Blinding&lt;/strong&gt;: A technique used to reduce bias, i.e. placebo is blinding.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Double Blinding&lt;/strong&gt;: A technique to ensure those who administer treatments and those receiving treatments do not know who is actually receiving which treatment.  &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Controlled Factors&lt;/strong&gt;: Factors&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Random Assignments&lt;/strong&gt;: A technique used to minimize impact of the other uncontrolled factors to the results of an experiment. Randomization works best with larger groups.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Within-Subject Design&lt;/strong&gt;: A technique to see how a factor influences the impact we are measuring, for the same study subject, keeping other controlled and uncontrolled factors constant.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><category>descriptive-statistics</category><category>introduction</category><category>research methods</category><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-1/</guid><pubDate>Thu, 11 Aug 2016 13:10:06 GMT</pubDate></item><item><title>Descriptive Statistics - Lesson 2</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-2/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 2: Visualizing Data&lt;/h3&gt;
-&lt;h4&gt;Some Definitions&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Frequencies&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Frequencies&lt;/strong&gt;: The number of times a certain outcome occurs.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Relative Frequencies&lt;/strong&gt;: The probability (0.0 - 1.0) of an outcome happening in comparison to other outcomes.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Proportion&lt;/strong&gt;: A proportion is the fraction of counts over the total sample.A proportion can be turned into a percentage by multiplying the proportion by 100.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Histogram&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Histogram&lt;/strong&gt;: Histogram is a graphical representation of distribution of data.  Discrete intervals (bin size) are decided upon to form widths of our boxes.  &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Bin Size and Number of Rows&lt;/strong&gt;: The two are inter-dependent.  Bin size is the discrete intervals set to accommodate the outcomes that falls within the defined intervals.  Bin size is also the intervals in which one is counting the frequencies of the outcomes.  The number of rows increases when bin size decreases; and vice versa.  Number of rows represent number of bars in a histogram diagram.  &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Histogram and Bar Graphs: Differences between them&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Histogram&lt;/strong&gt;: Data in histogram can be mixed, or distributed differently simply by changing the bin size.  The independent variables (x-axis) is usually numerical and quantitative.  The order of the bars are usually based on the incremental quantitative x-axis, small to big.  The shape of a histogram is very important as it represents the distribution curve.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Bar Graph&lt;/strong&gt;: Columns in bar graphs are spaced out. Each column in a bar graph represents one distinct categories. Distribution of data in a bar chart is less flexible for change because of its distinctive representation.  The x-axis is usually categorical or qualitative.  The order of how the bars are charted is solely dependent on how we want to sort it.  The shape of a bar chart is arbitrary.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;More on Histogram&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Distribution&lt;/strong&gt;: How data falls into the different bin size.  Normal distribution forms a symmetrical bell-shape, with the highest frequencies in the middle.  The bin-size with highest frequencies is mod.  &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Positively Skewed&lt;/strong&gt;: When most data falls onto the left side of the histogram than on the right.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Negatively Skewed&lt;/strong&gt;: When most values falls onto the right side of the histogram then the left.&lt;br&gt;
-5.&lt;strong&gt;Math Symbols&lt;/strong&gt;:&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;\( \mathcal{f}  \)&lt;/strong&gt;: Frequencies&lt;/li&gt;
-&lt;li&gt;\( \sum \): Total sum&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;\( \mathcal{p} \)&lt;/strong&gt;: Proportion (Probability)&lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><category>descriptive-statistics</category><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-2/</guid><pubDate>Thu, 11 Aug 2016 13:04:36 GMT</pubDate></item></channel></rss>
+&lt;/ol&gt;&lt;/div&gt;</description><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-6/</guid><pubDate>Thu, 18 Aug 2016 06:23:03 GMT</pubDate></item></channel></rss>

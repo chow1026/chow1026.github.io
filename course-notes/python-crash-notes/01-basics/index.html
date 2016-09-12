@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" vocab="http://ogp.me/ns" lang="en">
+<head>
+<meta charset="utf-8">
+<base href="https://chowy1026.github.io/course-notes/python-crash-notes/01-basics/">
+<meta name="viewport" content="width=device-width">
+<title> =^..^= MEH · Python Basics and Philosophy </title>
+<link href="../../../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/poole.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/hyde.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/code.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700%7CAbril+Fatface">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://chowy1026.github.io/course-notes/python-crash-notes/01-basics/">
+<link rel="icon" href="../../../images/favicon.png" sizes="64x64">
+<link rel="icon" href="../../../images/icon_512x512.png" sizes="512x512">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+    </script><script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="cHoWy">
+<link rel="prev" href="../../descriptive-statistics/lesson-7/" title="Descriptive Statistics - Sampling Distributions" type="text/html">
+<link rel="next" href="../02-variables-and-simple-data-types/" title="Variables and Simple Data Types" type="text/html">
+<meta property="og:site_name" content=" =^..^= MEH">
+<meta property="og:title" content="Python Basics and Philosophy">
+<meta property="og:url" content="https://chowy1026.github.io/course-notes/python-crash-notes/01-basics/">
+<meta property="og:description" content="The Zen of Python
+by Tim Peters
+:: Type import this in python CLI
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+F">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-08-29T14:15:20+08:00">
+<meta property="article:tag" content="basics">
+<meta property="article:tag" content="python-crash-course">
+<meta property="article:tag" content="zen-of-python">
+</head>
+<body class="test">
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+    <div class="sidebar">
+        <div class="container sidebar-sticky">
+            <div class="sidebar-about">
+              <h1>
+                <a href="https://chowy1026.github.io/">
+                      <h1 id="brand"><a href="https://chowy1026.github.io/" title=" =^..^= MEH" rel="home">
+
+        <span id="blog-title"> =^..^= MEH</span>
+    </a></h1>
+
+                </a>
+              </h1>
+                <p class="lead"></p>
+
+            </div>
+                <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../../posts/index.html">Articles</a>
+        <a class="sidebar-nav-item" href="../../index.html">Course Notes</a>
+        <a class="sidebar-nav-item" href="../../../links/index.html">Links</a>
+        <a class="sidebar-nav-item" href="../../../books/index.html">Books</a>
+        <a class="sidebar-nav-item" href="../../../archives/archives.html">Archives</a>
+        <a class="sidebar-nav-item" href="../../../tags.html">Tags</a>
+    
+    
+    </nav><footer id="footer"><p class="footer">
+              <span class="icon_row">
+
+                <a href="mailto:chowy1026@gmail.com">
+                  <img class="social_icon" src="../../../images/envelope1.png" title="email" width="24"></a> ·
+                <!--<a href="">
+                  <img class="social_icon" src="/images/twitter-black-shape1.png" title="twitter" width="24" /></a> &middot;-->
+                <a href="https://github.com/chowy1026/">
+                  <img class="social_icon" src="../../../images/github-character1.png" title="github" width="24"></a>
+              </span>
+              <br><br><span class="copyright">
+              
+Contents © 2016 by <a href="mailto:chowy1026@gmail.com">cHoWy</a> ·
+Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>
+
+            </span>
+            </p>
+            
+        </footer>
+</div>
+    </div>
+
+    <div class="content container" id="content">
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><h1 class="post-title p-name"><a href="." class="u-url">Python Basics and Philosophy</a></h1>
+
+    <span class="post-date">
+      <time class="published dt-published" datetime="2016-08-29T14:15:20+08:00" itemprop="datePublished" title="2016-08-29 14:15">2016-08-29 14:15</time></span>
+
+    
+    
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<h3>The Zen of Python</h3>
+<h4>by Tim Peters</h4>
+<p>:: Type <code>import this</code> in python CLI</p>
+<ul>
+<li><strong>Beautiful is better than ugly.</strong></li>
+<li><strong>Explicit is better than implicit.</strong></li>
+<li><strong>Simple is better than complex.</strong></li>
+<li>Complex is better than complicated.</li>
+<li>Flat is better than nested.</li>
+<li>Sparse is better than dense.</li>
+<li><strong>Readability counts.</strong></li>
+<li><strong>Special cases aren't special enough to break the rules.</strong></li>
+<li>Although practicality beats purity.</li>
+<li>Errors should never pass silently.</li>
+<li>Unless explicitly silenced.</li>
+<li><strong>In the face of ambiguity, refuse the temptation to guess.</strong></li>
+<li>There should be one -- and preferably only one -- obvious way to do it.  </li>
+<li>Although that way may not be obvious unless you are Dutch.  </li>
+<li>
+<strong>Now is better than never.</strong>  </li>
+<li>Although never is often better than <em>right</em> now</li>
+<li>If the implementation is hard to explain, it's a bad idea.  </li>
+<li>If the implementation is easy to explain, it may be a good idea.</li>
+<li>Namespaces are one honking good idea - let's do more of those!</li>
+</ul>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><p itemprop="keywords" class="tags">
+            <span class="tag"><a class="p-category" href="../../../tags/basics/" rel="tag">basics</a></span>
+            <span class="tag"><a class="p-category" href="../../../tags/python-crash-course/" rel="tag">python-crash-course</a></span>
+            <span class="tag"><a class="p-category" href="../../../tags/zen-of-python/" rel="tag">zen-of-python</a></span>
+      </p>
+
+            <div class="pager hidden-print pagination">
+
+            <span class="previous pagination-item older">
+                <a href="../../descriptive-statistics/lesson-7/" rel="prev" title="Descriptive Statistics - Sampling Distributions">
+                Previous post
+                </a>
+            </span>
+
+
+            <span class="next pagination-item newer">
+                <a href="../02-variables-and-simple-data-types/" rel="next" title="Variables and Simple Data Types">
+Next post
+              </a>
+            </span>
+
+        </div>
+
+    </nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="chowygit",
+            disqus_url="https://chowy1026.github.io/course-notes/python-crash-notes/01-basics/",
+        disqus_title="Python Basics and Philosophy",
+        disqus_identifier="cache/course-notes/python-crash-notes/01-basics.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="chowygit";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73098247-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

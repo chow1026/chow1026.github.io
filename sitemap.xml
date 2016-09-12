@@ -7,15 +7,15 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://chowy1026.github.io/</loc>
-  <lastmod>2016-08-19T02:36:00Z</lastmod>
+  <lastmod>2016-09-06T01:12:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/archives/2016/</loc>
-  <lastmod>2016-08-12T07:15:00Z</lastmod>
+  <lastmod>2016-09-06T01:12:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/archives/2016/08/</loc>
-  <lastmod>2016-08-19T02:36:00Z</lastmod>
+  <lastmod>2016-09-07T07:04:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/archives/2016/08/06/</loc>
@@ -50,8 +50,28 @@
   <lastmod>2016-08-19T02:36:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/archives/2016/08/29/</loc>
+  <lastmod>2016-09-07T07:04:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2016/08/30/</loc>
+  <lastmod>2016-08-30T05:57:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2016/09/</loc>
+  <lastmod>2016-09-07T03:14:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2016/09/06/</loc>
+  <lastmod>2016-09-06T01:12:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2016/09/07/</loc>
+  <lastmod>2016-09-07T03:14:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/archives/archives.html</loc>
-  <lastmod>2016-08-19T02:36:00Z</lastmod>
+  <lastmod>2016-09-07T09:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/books/</loc>
@@ -67,7 +87,7 @@
  </url>
  <url>
   <loc>https://chowy1026.github.io/course-notes/</loc>
-  <lastmod>2016-08-12T07:15:00Z</lastmod>
+  <lastmod>2016-08-30T07:00:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-1/</loc>
@@ -98,12 +118,68 @@
   <lastmod>2016-08-19T02:36:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/course-notes/index-1.html</loc>
+  <lastmod>2016-09-07T08:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/python-crash-notes/01-basics/</loc>
+  <lastmod>2016-08-30T06:15:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/python-crash-notes/02-variables-and-simple-data-types/</loc>
+  <lastmod>2016-08-30T05:58:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/python-crash-notes/03-lists-and-tuples-and-dictionaries/</loc>
+  <lastmod>2016-09-07T01:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/python-crash-notes/03-lists/</loc>
+  <lastmod>2016-08-30T06:29:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/python-crash-notes/04-loops/</loc>
+  <lastmod>2016-08-30T07:00:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/python-crash-notes/04-user-inputs-and-loops/</loc>
+  <lastmod>2016-09-07T03:03:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/python-crash-notes/05-functions-classes/</loc>
+  <lastmod>2016-09-07T03:14:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/python-crash-notes/05-functions-modules/</loc>
+  <lastmod>2016-09-07T05:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/python-crash-notes/06-classes-instances-inheritance/</loc>
+  <lastmod>2016-09-07T05:12:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/python-crash-notes/07-files-and-exceptions-and-storing-data/</loc>
+  <lastmod>2016-09-07T08:44:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/python-crash-notes/07-files-and-exceptions/</loc>
+  <lastmod>2016-09-07T07:05:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/python-crash-notes/08-testing/</loc>
+  <lastmod>2016-09-07T08:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/python-crash-notes/variables-and-simple-data-types/</loc>
+  <lastmod>2016-08-30T05:57:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/galleries/</loc>
   <lastmod>2016-08-12T07:15:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/index-1.html</loc>
-  <lastmod>2016-08-19T02:36:00Z</lastmod>
+  <lastmod>2016-09-07T09:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/links/</loc>
@@ -130,12 +206,20 @@
   <lastmod>2016-08-15T05:29:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/private/</loc>
+  <lastmod>2016-09-06T01:12:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/projects/</loc>
   <lastmod>2016-08-12T07:15:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags.html</loc>
-  <lastmod>2016-08-21T14:14:00Z</lastmod>
+  <lastmod>2016-09-07T09:25:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/basics/</loc>
+  <lastmod>2016-08-30T06:49:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags/book/</loc>
@@ -146,8 +230,24 @@
   <lastmod>2016-08-16T07:11:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/tags/classes/</loc>
+  <lastmod>2016-09-07T04:15:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/tags/descriptive-statistics/</loc>
   <lastmod>2016-08-12T07:15:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/exceptions/</loc>
+  <lastmod>2016-09-07T07:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/files/</loc>
+  <lastmod>2016-09-07T07:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/functions/</loc>
+  <lastmod>2016-09-07T04:15:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags/github-pages/</loc>
@@ -166,12 +266,36 @@
   <lastmod>2016-08-12T07:15:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/tags/inheritance/</loc>
+  <lastmod>2016-09-07T05:18:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/instances/</loc>
+  <lastmod>2016-09-07T05:18:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/tags/introduction/</loc>
   <lastmod>2016-08-16T07:10:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/tags/lists/</loc>
+  <lastmod>2016-08-30T06:49:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/loops/</loc>
+  <lastmod>2016-09-07T03:03:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/modules/</loc>
+  <lastmod>2016-09-07T05:10:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/tags/nikola/</loc>
   <lastmod>2016-08-12T07:15:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/python-crash-course/</loc>
+  <lastmod>2016-08-30T05:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags/research-methods/</loc>
@@ -182,15 +306,59 @@
   <lastmod>2016-08-22T03:19:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/tags/setup-method/</loc>
+  <lastmod>2016-09-07T08:57:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/simple-data-types/</loc>
+  <lastmod>2016-08-30T05:59:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/tags/standardizing/</loc>
   <lastmod>2016-08-18T02:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/storing-data/</loc>
+  <lastmod>2016-09-07T08:44:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/test-cases/</loc>
+  <lastmod>2016-09-07T08:57:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/testing/</loc>
+  <lastmod>2016-09-07T08:57:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/tuples/</loc>
+  <lastmod>2016-08-30T08:39:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/unit-test/</loc>
+  <lastmod>2016-09-07T08:57:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/user-input/</loc>
+  <lastmod>2016-09-07T03:03:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags/variability/</loc>
   <lastmod>2016-08-17T03:33:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/tags/variables/</loc>
+  <lastmod>2016-08-30T05:59:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/visualizing-data/</loc>
+  <lastmod>2016-08-30T05:58:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/tags/vladimir-nabokov/</loc>
   <lastmod>2016-08-12T07:15:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/zen-of-python/</loc>
+  <lastmod>2016-08-30T06:49:00Z</lastmod>
  </url>
 </urlset>

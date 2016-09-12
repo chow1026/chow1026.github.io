@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title> =^..^= MEH (loops)</title><link>https://chowy1026.github.io/</link><description></description><atom:link href="https://chowy1026.github.io/tags/loops.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Wed, 07 Sep 2016 04:29:47 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>User Input and Loops</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/04-user-inputs-and-loops/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Loops&lt;/h3&gt;
+&lt;h4&gt;For Loop&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;for x in {list_name}:&lt;/code&gt; // loop through list_name list&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;for x in range(1, 10):&lt;/code&gt; //  loop from 1 through 9, but NOT 10&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;for ky, val in {dictionary}.items():&lt;/code&gt; // loop through key value pair in dictionary&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;While Loop&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;while {list_name}:&lt;/code&gt; // loop as long as list isn't empty&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;      &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+      &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;something&lt;/span&gt;
+        &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Breaking Loop&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;To exit a while loop immediately without running any remaining code in the loop, regardless of the results of any conditional test, use the break statement.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;      &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+      &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;some&lt;/span&gt; &lt;span class="n"&gt;condition&lt;/span&gt;&lt;span class="p"&gt;}:&lt;/span&gt;
+          &lt;span class="k"&gt;break&lt;/span&gt;
+        &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+          &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;something&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Skip but Continue Looping&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Rather than breaking out of a loop entirely without executing the rest of its code, use the continue statement to go back to the loop&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;      &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+      &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+          &lt;span class="k"&gt;continue&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><category>loops</category><category>python-crash-course</category><category>user-input</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/04-user-inputs-and-loops/</guid><pubDate>Tue, 30 Aug 2016 07:00:52 GMT</pubDate></item></channel></rss>

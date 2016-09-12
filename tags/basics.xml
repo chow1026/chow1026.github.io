@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title> =^..^= MEH (basics)</title><link>https://chowy1026.github.io/</link><description></description><atom:link href="https://chowy1026.github.io/tags/basics.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Wed, 07 Sep 2016 07:04:17 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Python Basics and Philosophy</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/01-basics/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;The Zen of Python&lt;/h3&gt;
+&lt;h4&gt;by Tim Peters&lt;/h4&gt;
+&lt;p&gt;:: Type &lt;code&gt;import this&lt;/code&gt; in python CLI&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Beautiful is better than ugly.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Explicit is better than implicit.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Simple is better than complex.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Complex is better than complicated.&lt;/li&gt;
+&lt;li&gt;Flat is better than nested.&lt;/li&gt;
+&lt;li&gt;Sparse is better than dense.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Readability counts.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Special cases aren't special enough to break the rules.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Although practicality beats purity.&lt;/li&gt;
+&lt;li&gt;Errors should never pass silently.&lt;/li&gt;
+&lt;li&gt;Unless explicitly silenced.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;In the face of ambiguity, refuse the temptation to guess.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;There should be one -- and preferably only one -- obvious way to do it.  &lt;/li&gt;
+&lt;li&gt;Although that way may not be obvious unless you are Dutch.  &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Now is better than never.&lt;/strong&gt;  &lt;/li&gt;
+&lt;li&gt;Although never is often better than &lt;em&gt;right&lt;/em&gt; now&lt;/li&gt;
+&lt;li&gt;If the implementation is hard to explain, it's a bad idea.  &lt;/li&gt;
+&lt;li&gt;If the implementation is easy to explain, it may be a good idea.&lt;/li&gt;
+&lt;li&gt;Namespaces are one honking good idea - let's do more of those!&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><category>basics</category><category>python-crash-course</category><category>zen-of-python</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/01-basics/</guid><pubDate>Mon, 29 Aug 2016 06:15:20 GMT</pubDate></item></channel></rss>

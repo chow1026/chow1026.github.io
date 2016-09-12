@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title> =^..^= MEH (simple-data-types)</title><link>https://chowy1026.github.io/</link><description></description><atom:link href="https://chowy1026.github.io/tags/simple-data-types.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Wed, 07 Sep 2016 01:45:28 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Variables and Simple Data Types</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/02-variables-and-simple-data-types/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;String&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Strings are NOT mutable.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Methods&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;.title() : put string in camel case&lt;/li&gt;
+&lt;li&gt;.upper() : put string in upper case&lt;/li&gt;
+&lt;li&gt;.lower() : put string in lower case&lt;/li&gt;
+&lt;li&gt;.rstrip() : stripping whitespace from the right&lt;/li&gt;
+&lt;li&gt;.lstrip() : stripping whitespace from the left&lt;/li&gt;
+&lt;li&gt;.strip() : stripping whitespace from both left and right&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Other String Manipulations&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;" + " : plus sign is to concatenate strings together&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;print("Hello " + "!!!")&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;" \t " : tabs&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;print("Languages:\n\tPython\n\tC\n\tJavascript")&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;" \n " : new line&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;print("Languages:\nPython\nC\nJavascript")&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Numbers&lt;/h3&gt;
+&lt;h3&gt;Number Types&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Integers&lt;/li&gt;
+&lt;li&gt;Floats&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><category>python-crash-course</category><category>simple-data-types</category><category>variables</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/02-variables-and-simple-data-types/</guid><pubDate>Tue, 30 Aug 2016 05:58:19 GMT</pubDate></item></channel></rss>

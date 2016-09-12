@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" vocab="http://ogp.me/ns" lang="en">
+<head>
+<meta charset="utf-8">
+<base href="https://chowy1026.github.io/course-notes/python-crash-notes/05-functions-modules/">
+<meta name="viewport" content="width=device-width">
+<title> =^..^= MEH · Functions and Modules </title>
+<link href="../../../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/poole.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/hyde.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/code.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700%7CAbril+Fatface">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://chowy1026.github.io/course-notes/python-crash-notes/05-functions-modules/">
+<link rel="icon" href="../../../images/favicon.png" sizes="64x64">
+<link rel="icon" href="../../../images/icon_512x512.png" sizes="512x512">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+    </script><script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="cHoWy">
+<link rel="prev" href="../04-user-inputs-and-loops/" title="User Input and Loops" type="text/html">
+<link rel="next" href="../06-classes-instances-inheritance/" title="Classes, Instances and Inheritance" type="text/html">
+<meta property="og:site_name" content=" =^..^= MEH">
+<meta property="og:title" content="Functions and Modules">
+<meta property="og:url" content="https://chowy1026.github.io/course-notes/python-crash-notes/05-functions-modules/">
+<meta property="og:description" content="Functions
+
+def function_name(): // define a function
+
+Parameters and Arguments
+
+def describe_pet(animal_type, pet_name): // define function describe_pet with parameter animal_type and pet_name
+describ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-09-07T11:14:55+08:00">
+<meta property="article:tag" content="functions">
+<meta property="article:tag" content="modules">
+<meta property="article:tag" content="python-crash-course">
+</head>
+<body class="test">
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+    <div class="sidebar">
+        <div class="container sidebar-sticky">
+            <div class="sidebar-about">
+              <h1>
+                <a href="https://chowy1026.github.io/">
+                      <h1 id="brand"><a href="https://chowy1026.github.io/" title=" =^..^= MEH" rel="home">
+
+        <span id="blog-title"> =^..^= MEH</span>
+    </a></h1>
+
+                </a>
+              </h1>
+                <p class="lead"></p>
+
+            </div>
+                <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../../posts/index.html">Articles</a>
+        <a class="sidebar-nav-item" href="../../index.html">Course Notes</a>
+        <a class="sidebar-nav-item" href="../../../links/index.html">Links</a>
+        <a class="sidebar-nav-item" href="../../../books/index.html">Books</a>
+        <a class="sidebar-nav-item" href="../../../archives/archives.html">Archives</a>
+        <a class="sidebar-nav-item" href="../../../tags.html">Tags</a>
+    
+    
+    </nav><footer id="footer"><p class="footer">
+              <span class="icon_row">
+
+                <a href="mailto:chowy1026@gmail.com">
+                  <img class="social_icon" src="../../../images/envelope1.png" title="email" width="24"></a> ·
+                <!--<a href="">
+                  <img class="social_icon" src="/images/twitter-black-shape1.png" title="twitter" width="24" /></a> &middot;-->
+                <a href="https://github.com/chowy1026/">
+                  <img class="social_icon" src="../../../images/github-character1.png" title="github" width="24"></a>
+              </span>
+              <br><br><span class="copyright">
+              
+Contents © 2016 by <a href="mailto:chowy1026@gmail.com">cHoWy</a> ·
+Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>
+
+            </span>
+            </p>
+            
+        </footer>
+</div>
+    </div>
+
+    <div class="content container" id="content">
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><h1 class="post-title p-name"><a href="." class="u-url">Functions and Modules</a></h1>
+
+    <span class="post-date">
+      <time class="published dt-published" datetime="2016-09-07T11:14:55+08:00" itemprop="datePublished" title="2016-09-07 11:14">2016-09-07 11:14</time></span>
+
+    
+    
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<h3>Functions</h3>
+<ul>
+<li>
+<code>def function_name():</code> // define a function</li>
+</ul>
+<h4>Parameters and Arguments</h4>
+<ul>
+<li>
+<code>def describe_pet(animal_type, pet_name):</code> // define function describe_pet with parameter animal_type and pet_name</li>
+<li>
+<code>describe_pet('dog', 'willie')</code> // calling function describe_pet and passing 'dog' and 'willie' as positional arguments, order matters.</li>
+<li>
+<code>describe_pet(animal_type = 'dog', pet_name = 'willie')</code> or <code>describe_pet(pet_name = 'harry', animal_type = 'hamster', )</code> // calling function describe_pet and passing 'dog' and 'willie' as positional arguments, order doesn't matter.</li>
+<li>
+<code>def describe_pet(pet_name, animal_type = 'dog'):</code> // define function describe_pet with parameter animal_type, its default value 'dog' and pet_name.  Parameter with default value usually listed last.</li>
+<li>
+<code>def get_formatted_name(fname, lname, mname=''):</code> // define function get_formatted_name with parameters fname, lname, and optional mname.  Optional parameter also listed last.</li>
+<li>When a list is passed to a function, the function can modify the list.  Any changes made to the list inside the function's body are permanent.  </li>
+<li>Sometimes, you may decide you want to keep the original list unchanged.  In that case, you may pass the function with a copy of the list.</li>
+<li>
+<code>function_name(list_name[:])</code> // calling function_name and pass a copy of list_name by ' list_name[:] '</li>
+</ul>
+<h4>Passing an Arbitrary Number of Arguments</h4>
+<ul>
+<li>Sometimes you won't know ahead of times how many arguments a function needs to accept.  In this case, we define a function with *parameter to collect as many arguments as the calling line provides.</li>
+<li>
+<code>def make_pizza(*toppings):</code> // the asterisk in the parameter name *toppings tells python to make an empty tuple and pack whatever values it receives into this tuple.  </li>
+<li>Eg: <code>make_pizza('pepperoni')</code> or <code>make_pizza('mushrooms', 'green peppers', 'extra cheese')</code>
+</li>
+<li>
+<code>def make_pizza(size, *toppings):</code> // mix positional and arbitrary arguments</li>
+<li>Eg: <code>make_pizza(16, 'pepperoni')</code> or <code>make_pizza(24, 'mushrooms', 'green peppers', 'extra cheese')</code>
+</li>
+</ul>
+<h4>Using Arbitrary Keyword Arguments</h4>
+<ul>
+<li>Sometimes you'll want to accept an arbitrary number of arguments, but won't know ahead of time what kind of information will be passed to the function.  In this case, you can write functions that accept as many key-value pair as the calling statement provides.</li>
+</ul>
+<pre class="code literal-block"><span></span>    <span class="k">def</span> <span class="nf">build_profile</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">lname</span><span class="p">,</span> <span class="o">**</span><span class="n">user_info</span><span class="p">):</span>
+          <span class="n">profile</span> <span class="o">=</span> <span class="p">{}</span>
+          <span class="n">profile</span><span class="p">[</span><span class="s1">'first_name'</span><span class="p">]</span> <span class="o">=</span> <span class="n">fname</span>
+          <span class="n">profile</span><span class="p">[</span><span class="s1">'last_name'</span><span class="p">]</span> <span class="o">=</span> <span class="n">lname</span>
+          <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">user_info</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+              <span class="n">profile</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+          <span class="k">return</span> <span class="n">profile</span>
+</pre>
+
+
+<ul>
+<li>**user_info represents an arbitrary number of keyword arguments.  </li>
+<li>Eg: <code>user_profile = build_profile('albert', 'einstein', location='princeton', field='physics')</code>
+</li>
+</ul>
+<h3>Modules</h3>
+<ul>
+<li>A module is a file ending in .py that contains the code you want to import to your program.  For example, to make a module that contains the function make_pizza(), move the function make_pizza() to a file pizza.py.  </li>
+<li>pizza.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">def</span> <span class="nf">make_pizza</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="o">*</span><span class="n">toppings</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Making a "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"-inch pizza with the following toppings: "</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">topping</span> <span class="ow">in</span> <span class="n">toppings</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"- "</span> <span class="o">+</span> <span class="n">topping</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>making_pizza.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">pizza</span>
+
+  <span class="n">pizza</span><span class="o">.</span><span class="n">make_pizza</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
+  <span class="n">pizza</span><span class="o">.</span><span class="n">make_pizza</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
+</pre>
+
+
+<h4>Importing Specific Functions</h4>
+<ul>
+<li><code>from module_name import function_name</code></li>
+<li><code>from module_name import function_0, function_1, function_2</code></li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">pizza</span> <span class="kn">import</span> <span class="n">make_pizza</span>
+
+  <span class="n">make_pizza</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
+  <span class="n">make_pizza</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
+</pre>
+
+
+<h4>Use as to Give a Function an Alias</h4>
+<ul>
+<li><code>from module_name import function_name as fn</code></li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">pizza</span> <span class="kn">import</span> <span class="n">make_pizza</span> <span class="k">as</span> <span class="n">mp</span>
+  <span class="n">mp</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
+  <span class="n">mp</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
+</pre>
+
+
+<h4>Use as to Give a Module an Alias</h4>
+<ul>
+<li><code>import module_name as mn</code></li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">pizza</span> <span class="kn">as</span> <span class="nn">p</span>
+  <span class="n">p</span><span class="o">.</span><span class="n">make_pizza</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
+  <span class="n">p</span><span class="o">.</span><span class="n">make_pizza</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
+</pre>
+
+
+<h4>Import All Functions in a Module</h4>
+<ul>
+<li><code>from module_name import *</code></li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">pizza</span> <span class="kn">import</span> <span class="o">*</span>
+  <span class="n">make_pizza</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
+  <span class="n">make_pizza</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>However it is best not to use this approach.  Python may see several functions or variables with the same name, and instead of importing all the functions separately it will overwrite the functions.</li>
+</ul>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><p itemprop="keywords" class="tags">
+            <span class="tag"><a class="p-category" href="../../../tags/functions/" rel="tag">functions</a></span>
+            <span class="tag"><a class="p-category" href="../../../tags/modules/" rel="tag">modules</a></span>
+            <span class="tag"><a class="p-category" href="../../../tags/python-crash-course/" rel="tag">python-crash-course</a></span>
+      </p>
+
+            <div class="pager hidden-print pagination">
+
+            <span class="previous pagination-item older">
+                <a href="../04-user-inputs-and-loops/" rel="prev" title="User Input and Loops">
+                Previous post
+                </a>
+            </span>
+
+
+            <span class="next pagination-item newer">
+                <a href="../06-classes-instances-inheritance/" rel="next" title="Classes, Instances and Inheritance">
+Next post
+              </a>
+            </span>
+
+        </div>
+
+    </nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="chowygit",
+            disqus_url="https://chowy1026.github.io/course-notes/python-crash-notes/05-functions-modules/",
+        disqus_title="Functions and Modules",
+        disqus_identifier="cache/course-notes/python-crash-notes/05-functions-modules.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="chowygit";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73098247-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

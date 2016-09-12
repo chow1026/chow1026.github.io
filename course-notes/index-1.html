@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" vocab="http://ogp.me/ns" lang="en">
+<head>
+<meta charset="utf-8">
+<base href="https://chowy1026.github.io/course-notes/index-1.html">
+<meta name="viewport" content="width=device-width">
+<title> =^..^= MEH · Course Notes (old posts, page 1) </title>
+<link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/poole.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/hyde.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700%7CAbril+Fatface">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="https://chowy1026.github.io/course-notes/index-1.html">
+<link rel="icon" href="../images/favicon.png" sizes="64x64">
+<link rel="icon" href="../images/icon_512x512.png" sizes="512x512">
+<link rel="prev" href="." type="text/html">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+    </script><script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+</head>
+<body class="test">
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+    <div class="sidebar">
+        <div class="container sidebar-sticky">
+            <div class="sidebar-about">
+              <h1>
+                <a href="https://chowy1026.github.io/">
+                      <h1 id="brand"><a href="https://chowy1026.github.io/" title=" =^..^= MEH" rel="home">
+
+        <span id="blog-title"> =^..^= MEH</span>
+    </a></h1>
+
+                </a>
+              </h1>
+                <p class="lead"></p>
+
+            </div>
+                <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../posts/index.html">Articles</a>
+        <a class="sidebar-nav-item" href="index.html">Course Notes</a>
+        <a class="sidebar-nav-item" href="../links/index.html">Links</a>
+        <a class="sidebar-nav-item" href="../books/index.html">Books</a>
+        <a class="sidebar-nav-item" href="../archives/archives.html">Archives</a>
+        <a class="sidebar-nav-item" href="../tags.html">Tags</a>
+    
+    
+    </nav><footer id="footer"><p class="footer">
+              <span class="icon_row">
+
+                <a href="mailto:chowy1026@gmail.com">
+                  <img class="social_icon" src="../images/envelope1.png" title="email" width="24"></a> ·
+                <!--<a href="">
+                  <img class="social_icon" src="/images/twitter-black-shape1.png" title="twitter" width="24" /></a> &middot;-->
+                <a href="https://github.com/chowy1026/">
+                  <img class="social_icon" src="../images/github-character1.png" title="github" width="24"></a>
+              </span>
+              <br><br><span class="copyright">
+              
+Contents © 2016 by <a href="mailto:chowy1026@gmail.com">cHoWy</a> ·
+Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>
+
+            </span>
+            </p>
+            
+        </footer>
+</div>
+    </div>
+
+    <div class="content container" id="content">
+
+<div class="sectionindex">
+    <header><h2><a href=".">Course Notes (old posts, page 1)</a></h2>
+    </header><div class="post">
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="descriptive-statistics/lesson-5/" class="u-url">Descriptive Statistics - Standardizing</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-18T10:09:35+08:00" title="2016-08-18 10:09">2016-08-18 10:09</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Lesson 5: Standardizing</h3>
+<ol>
+<li>If we are concerned about a proportion less than or greater than a certain value on a distribution, we should use RELATIVE FREQUENCIES.</li>
+<li>When a bin-size is too big, we can't tell for sure the detailed values of the bin; when a bin-size is too small, the distribution becomes more and more of a uniform distribution.  A predicament: We want a small bin size to have as much details as possible about the location of data values, relative to the rest of the distribution.  </li>
+<li>We solve this conundrum with a theoretical model of our distribution.</li>
+<li>Z score: how many standard deviation any number, x, is away from the mean.  We can convert any value from a normal distribution to a z score.  When we do this we standardize the distribution.  <ul>
+<li>\[ z = \frac{ x - \mu }{\sigma} \]</li>
+</ul>
+</li>
+<li>A negative z score means:<ul>
+<li>The original value, \( x \) is less than the mean, \( \mu \).</li>
+<li>The original value, \( x \) minus the mean, \( \mu \) is negative.</li>
+</ul>
+</li>
+<li>On a standardized distribution, the mean, \( \mu \) is 0.  </li>
+<li>On a standardized distribution, the standard deviation, \( \sigma \) is 1.</li>
+</ol>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="descriptive-statistics/lesson-4/" class="u-url">Descriptive Statistics - Variability</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-17T11:29:46+08:00" title="2016-08-17 11:29">2016-08-17 11:29</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Lesson 4: Variability</h3>
+<h4>General Ideas of Variability</h4>
+<ol>
+<li>
+<strong>Range</strong>: The maximum data point minus the minimum data point.  </li>
+<li>
+<strong>Wide Spread</strong>: The data set has shorter and wider distribution.</li>
+<li>
+<strong>Consistency</strong>: When a data is more consistent, it forms taller and narrower distribution.  </li>
+<li>Outlier(s) usually widen the range of distribution and INCREASES variability.  Statisticians usually cut off outliers.</li>
+<li>1st Quartile, <strong>\( Q_{1} \)</strong>, is the 25% of the distribution, while 3rd Quartile, <strong>\( Q_{3} \)</strong>, is the 75% of the distribution.  2nd Quartile, also known as Median, is the 50% of the distribution.  </li>
+<li>
+<strong>Interquartile Range</strong>:<ul>
+<li><strong>\(IQR =  Q_{3} - Q_{1} \)</strong></li>
+</ul>
+</li>
+<li>Facts about <strong>\(IQR \)</strong>:<ul>
+<li>About 50% of data lies between IQR.</li>
+<li>IQR may or may not be affected by every value in the dataset.  </li>
+<li>IQR is NOT affected by outliers.</li>
+</ul>
+</li>
+<li>A data point is considered an outlier if any of the below is true:<ul>
+<li>\[ x_{outlier} &lt; Q_{1} - 1.5*IQR \]</li>
+<li>\[ x_{outlier} &gt; Q_{3} - 1.5*IQR \]</li>
+</ul>
+</li>
+</ol>
+<h4>Box Plots</h4>
+<ol>
+<li>Key Elements of Box Plots:<ul>
+<li>Max, Min (two handles of the box)</li>
+<li>\( Q_{1} \), \( Q_{3} \), \( Q_{2} \) (aka Median) forms the box, with Median in the center "splitting" the box.</li>
+<li>Outliers, drawn as dots next to /outside of Max and/or Min.  </li>
+</ul>
+</li>
+<li>Box plots sometimes don't tell about the distribution model of data.  The box plot for normal, bimodal, or uniform distribution are the same.</li>
+<li>Although usually the mean lies between \( Q_{1} \) and \( Q_{3} \), it may lie outside of it, if there are outliers.</li>
+</ol>
+<h4>Measuring Variability</h4>
+<ol>
+<li>To measure variability, we find the average distance between each data value and the mean.</li>
+<li>\[ Deviation, \delta = x_{i} - \bar{x} \]</li>
+<li>Average Deviation, \(\bar{\delta}\):<ul>
+<li>\[ \bar{\delta} = \frac{ \sum_{i=0}^N{  \lvert{x_{i} - \bar{x} } \rvert }}{N}\]</li>
+<li>\[ \bar{\delta} = \frac{ \sum_{i=0}^N{\lvert\bar{x} - x_{i}\rvert}}{N} \]</li>
+<li>\[ \bar{\delta} = \sum_{i=0}^N{\frac{ \lvert \bar{x} - x_{i} \rvert }{N}} \]</li>
+</ul>
+</li>
+<li>Squared Deviation, \( \delta^2 \):<ul>
+<li>\[ \delta^2 = {\lvert{x_{i} - \bar{x} } \rvert}^2 \]</li>
+</ul>
+</li>
+<li>Sum of Squares, \( \sum_{i=0}^N(\delta^2) \), aka \( SS \):<ul>
+<li>\[ SS = \sum_{i=0}^N{({x_{i} - \bar{x}})^2} \]</li>
+</ul>
+</li>
+<li>Variance, \( \sigma^2 \), which is simply the Mean of \( SS \), \( \bar{SS} \) is:<ul>
+<li>\[ \sigma^2 = \frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N} \]</li>
+</ul>
+</li>
+<li>Standard Deviation, \( \sigma \), is the square root of variance.  <ul>
+<li>\[ \sigma = \sqrt{\frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N}} \]</li>
+</ul>
+</li>
+<li>Why Standard Deviation? In a perfectly normal distribution where mean equals to median equals to mode, 68% of the data values would fall between \( -1 \sigma \) and \( +1 \sigma \), 95% of the data values will fall between \( -2 \sigma \) and \( +2 \sigma \)</li>
+<li>When a sample is taken from a population, the sample standard deviation is usually smaller than true standard deviation, \( \sigma \), of the population.  To correct that, we apply Bessel's Correction.  The corrected/estimation sample standard deviation, denoted as \( s \), and corresponding variance, will have the formulas below:<ul>
+<li>\[ s^2 = \frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N -1} \]</li>
+<li>\[ s = \sqrt{\frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N-1}} \]</li>
+</ul>
+</li>
+</ol>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="descriptive-statistics/lesson-3/" class="u-url">Descriptive Statistics - Central Tendency</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-16T15:09:38+08:00" title="2016-08-16 15:09">2016-08-16 15:09</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Lesson 3: Central Tendency</h3>
+<h4>Some Definitions</h4>
+<ol>
+<li>
+<strong>Mode</strong>:<ul>
+<li>Mode is always on x-axis</li>
+<li>Mode can be used to describe any type of data we have, be it numerical or categorical</li>
+<li>All scores in a data set affects the mode.</li>
+<li>Even if we take a lot of samples from the same population, the mode will NOT be the same in each sample.</li>
+<li>There is NO equation for mode.</li>
+</ul>
+</li>
+<li>
+<strong>Mean</strong>:<ul>
+<li>All scores in a distribution affects a mean</li>
+<li>The mean can be describe with a formula.  As notated below:<ul>
+<li>\[ \mu  = \frac{ \sum{x} }{N} \]</li>
+<li>\[ \bar{x} = \frac{ \sum_{i=0}^{n}{x} }{n}\]</li>
+</ul>
+</li>
+<li>Many samples from the same population will have similar means.</li>
+<li>The means of a sample can be used to make inferences of a population it came from.</li>
+<li>The mean will change if we add an extreme value to the data set.  </li>
+</ul>
+</li>
+<li>
+<strong>Median</strong>:<ul>
+<li>Median is the middle of the data.</li>
+<li>When there is an even number of data points, the median is the average of the two middle scores, after arranged in ascending/descending order.  </li>
+<li>Median is generally Robust - Strong and Steady, Doesn't affected much by the outlier data.  </li>
+<li>Median serves as a better measurement for the center of the data when the data distribution is heavily skewed.  </li>
+<li>If dataset has EVEN number, n, of data,<ul>
+<li>\[  \frac{X_{\frac{n}{2}} + X_{\frac{n}{2} + 1}}{2} \]</li>
+</ul>
+</li>
+<li>If dataset has ODD number, n, of data,<ul>
+<li>\[ X_{\frac{n}{2} + 1} \]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<strong>Conclusions of Measures of Center</strong>:<ul>
+<li>Mean, Mode and Median are measure of center for datasets.</li>
+<li>Mean has a simple equation.</li>
+<li>Mean will always change if any data value changes.</li>
+<li>While Mode IS affected by bin size, both Mean and Median are NOT affected by bin size.</li>
+<li>While Mean IS severely affected by outliers, Median and Mode are NOT severely affected by outliers.</li>
+<li>Mode is easy to find on histogram.  </li>
+</ul>
+</li>
+</ol>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="descriptive-statistics/lesson-1/" class="u-url">Descriptive Statistics - Research Methods</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-11T21:10:06+08:00" title="2016-08-11 21:10">2016-08-11 21:10</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Lesson 1: Introduction to Research Methods</h3>
+<h4>Some Definitions</h4>
+<ol>
+<li>
+<p><strong>Constructs</strong></p>
+<ul>
+<li>
+<strong>Contruct</strong>: Anything that is difficult to measure because it can be defined and measured in very many different ways.</li>
+<li>
+<strong>Operational Definition</strong>: Operational Definitions {of a construct} is a unit of measurement for a construct.  Once an Operational Definitions is defined {for a construct}, it is no longer a construct.</li>
+<li>
+<strong>Extraneous Factors</strong>: Also known as "Lurking Variables", these factors that could impact the outcome of an experiment or test.  Extraneous factors should be held constant as much as possible to maximize accuracy of experiments/tests.</li>
+</ul>
+</li>
+<li>
+<p><strong>Samples and Populations</strong></p>
+<ul>
+<li>
+<strong>Population Parameter</strong>: denoted by \(  \mu \) (μ pronounced mu) are values that describe the whole population.</li>
+<li>
+<strong>Sample statistics</strong>: denoted by \( \overline{x} \) (pronounced as X-bar) are values that describe our sample.  Statistics are used to estimate/approximate the population parameter.</li>
+<li>
+<strong>Sampling Error</strong>: The difference of values between true population parameter and sample statistics.</li>
+<li>
+<strong>Sample Size</strong>: The size of the group that we choose to represent population.  The bigger the sample size, the smaller the sampling error generally.</li>
+</ul>
+</li>
+<li>
+<p><strong>Golden Arches Theory {of Conflict Prevention} by Thomas Friedman</strong></p>
+<ul>
+<li>Correlations doesn't mean causation: Just because two variables are relatable, it doesn't mean once causes the other to occur.  </li>
+</ul>
+</li>
+<li>
+<p><strong>Experiments vs Observational Studies</strong></p>
+<ul>
+<li>To show relationships =&gt; Perform observational studies i.e. surveys.<ul>
+<li>(+) Easy way to get information of a population,</li>
+<li>(+) Relatively inexpensive</li>
+<li>(+) Can be conducted remotely</li>
+<li>(+) Anyone could access and analyze survey results</li>
+<li>(-) Untruthful responses</li>
+<li>(-) Biased responses</li>
+<li>(-) Respondents not understanding the questions (Response Bias)</li>
+<li>(-) Respondents refuse to answer (Non-response Bias)</li>
+</ul>
+</li>
+<li>To show causation =&gt; Perform controlled experiments i.e.</li>
+</ul>
+</li>
+<li>
+<p><strong>Other Definitions</strong></p>
+<ul>
+<li>
+<strong>Treatments</strong>: The manner in which researchers handle subjects.</li>
+<li>
+<strong>Observational Studies</strong>: When an experimenter watches a group of subjects and does not introduce a treatment.</li>
+<li>
+<strong>Independent Variables</strong>: The variable that the experimenter chooses to manipulate, usually plotted along x-axis on a graph.</li>
+<li>
+<strong>Dependent Variables</strong>: The variable that the experimenter chooses to measure, usually plotted along y-axis on a graph.</li>
+<li>
+<strong>Treatment Group</strong>: The group of a study that receives a varying levels of independent variable, used to measure the effect of a treatment.</li>
+<li>
+<strong>Control Group</strong>: The group of study that doesn't receive treatment, used as a baseline when compared to treatment groups.</li>
+<li>
+<strong>Placebo</strong>: Something that is given to the control group so they think they are getting the treatment, when in reality it causes no effect on them.</li>
+<li>
+<strong>Blinding</strong>: A technique used to reduce bias, i.e. placebo is blinding.</li>
+<li>
+<strong>Double Blinding</strong>: A technique to ensure those who administer treatments and those receiving treatments do not know who is actually receiving which treatment.  </li>
+<li>
+<strong>Controlled Factors</strong>: Factors</li>
+<li>
+<strong>Random Assignments</strong>: A technique used to minimize impact of the other uncontrolled factors to the results of an experiment. Randomization works best with larger groups.</li>
+<li>
+<strong>Within-Subject Design</strong>: A technique to see how a factor influences the impact we are measuring, for the same study subject, keeping other controlled and uncontrolled factors constant.</li>
+</ul>
+</li>
+</ol>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="descriptive-statistics/lesson-2/" class="u-url">Descriptive Statistics - Visualizing Data</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-11T21:04:36+08:00" title="2016-08-11 21:04">2016-08-11 21:04</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Lesson 2: Visualizing Data</h3>
+<h4>Some Definitions</h4>
+<ol>
+<li><strong>Frequencies</strong></li>
+<li>
+<strong>Frequencies</strong>: The number of times a certain outcome occurs.</li>
+<li>
+<strong>Relative Frequencies</strong>: The probability (0.0 - 1.0) of an outcome happening in comparison to other outcomes.</li>
+<li>
+<strong>Proportion</strong>: A proportion is the fraction of counts over the total sample.A proportion can be turned into a percentage by multiplying the proportion by 100.</li>
+<li><strong>Histogram</strong></li>
+<li>
+<strong>Histogram</strong>: Histogram is a graphical representation of distribution of data.  Discrete intervals (bin size) are decided upon to form widths of our boxes.  </li>
+<li>
+<strong>Bin Size and Number of Rows</strong>: The two are inter-dependent.  Bin size is the discrete intervals set to accommodate the outcomes that falls within the defined intervals.  Bin size is also the intervals in which one is counting the frequencies of the outcomes.  The number of rows increases when bin size decreases; and vice versa.  Number of rows represent number of bars in a histogram diagram.  </li>
+<li><strong>Histogram and Bar Graphs: Differences between them</strong></li>
+<li>
+<strong>Histogram</strong>: Data in histogram can be mixed, or distributed differently simply by changing the bin size.  The independent variables (x-axis) is usually numerical and quantitative.  The order of the bars are usually based on the incremental quantitative x-axis, small to big.  The shape of a histogram is very important as it represents the distribution curve.</li>
+<li>
+<strong>Bar Graph</strong>: Columns in bar graphs are spaced out. Each column in a bar graph represents one distinct categories. Distribution of data in a bar chart is less flexible for change because of its distinctive representation.  The x-axis is usually categorical or qualitative.  The order of how the bars are charted is solely dependent on how we want to sort it.  The shape of a bar chart is arbitrary.</li>
+<li><strong>More on Histogram</strong></li>
+<li>
+<strong>Distribution</strong>: How data falls into the different bin size.  Normal distribution forms a symmetrical bell-shape, with the highest frequencies in the middle.  The bin-size with highest frequencies is mod.  </li>
+<li>
+<strong>Positively Skewed</strong>: When most data falls onto the left side of the histogram than on the right.</li>
+<li>
+<strong>Negatively Skewed</strong>: When most values falls onto the right side of the histogram then the left.<br>
+5.<strong>Math Symbols</strong>:</li>
+<li>
+<strong>\( \mathcal{f}  \)</strong>: Frequencies</li>
+<li>\( \sum \): Total sum</li>
+<li>
+<strong>\( \mathcal{p} \)</strong>: Proportion (Probability)</li>
+</ol>
+</div>
+    </div>
+    </article>
+</div>
+        <nav class="postindexpager"><ul class="pager">
+<li class="previous">
+                <a href="." rel="prev">Newer posts</a>
+            </li>
+        </ul></nav><script>var disqus_shortname="chowygit";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+
+    </div>
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73098247-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

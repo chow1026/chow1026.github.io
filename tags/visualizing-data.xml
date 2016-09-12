@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title> =^..^= MEH (visualizing data)</title><link>https://chowy1026.github.io/</link><description></description><atom:link type="application/rss+xml" rel="self" href="https://chowy1026.github.io/tags/visualizing-data.xml"></atom:link><language>en</language><lastBuildDate>Tue, 30 Aug 2016 05:58:49 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Descriptive Statistics - Visualizing Data</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-2/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 2: Visualizing Data&lt;/h3&gt;
+&lt;h4&gt;Some Definitions&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Frequencies&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Frequencies&lt;/strong&gt;: The number of times a certain outcome occurs.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Relative Frequencies&lt;/strong&gt;: The probability (0.0 - 1.0) of an outcome happening in comparison to other outcomes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Proportion&lt;/strong&gt;: A proportion is the fraction of counts over the total sample.A proportion can be turned into a percentage by multiplying the proportion by 100.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Histogram&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Histogram&lt;/strong&gt;: Histogram is a graphical representation of distribution of data.  Discrete intervals (bin size) are decided upon to form widths of our boxes.  &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bin Size and Number of Rows&lt;/strong&gt;: The two are inter-dependent.  Bin size is the discrete intervals set to accommodate the outcomes that falls within the defined intervals.  Bin size is also the intervals in which one is counting the frequencies of the outcomes.  The number of rows increases when bin size decreases; and vice versa.  Number of rows represent number of bars in a histogram diagram.  &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Histogram and Bar Graphs: Differences between them&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Histogram&lt;/strong&gt;: Data in histogram can be mixed, or distributed differently simply by changing the bin size.  The independent variables (x-axis) is usually numerical and quantitative.  The order of the bars are usually based on the incremental quantitative x-axis, small to big.  The shape of a histogram is very important as it represents the distribution curve.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bar Graph&lt;/strong&gt;: Columns in bar graphs are spaced out. Each column in a bar graph represents one distinct categories. Distribution of data in a bar chart is less flexible for change because of its distinctive representation.  The x-axis is usually categorical or qualitative.  The order of how the bars are charted is solely dependent on how we want to sort it.  The shape of a bar chart is arbitrary.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;More on Histogram&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Distribution&lt;/strong&gt;: How data falls into the different bin size.  Normal distribution forms a symmetrical bell-shape, with the highest frequencies in the middle.  The bin-size with highest frequencies is mod.  &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Positively Skewed&lt;/strong&gt;: When most data falls onto the left side of the histogram than on the right.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Negatively Skewed&lt;/strong&gt;: When most values falls onto the right side of the histogram then the left.&lt;br&gt;
+5.&lt;strong&gt;Math Symbols&lt;/strong&gt;:&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;\( \mathcal{f}  \)&lt;/strong&gt;: Frequencies&lt;/li&gt;
+&lt;li&gt;\( \sum \): Total sum&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;\( \mathcal{p} \)&lt;/strong&gt;: Proportion (Probability)&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;</description><category>descriptive-statistics</category><category>visualizing data</category><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-2/</guid><pubDate>Thu, 11 Aug 2016 13:04:36 GMT</pubDate></item></channel></rss>

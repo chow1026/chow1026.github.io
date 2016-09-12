@@ -93,7 +93,582 @@ Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href
     <div class="content container" id="content">
     
 <div class="post">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/hello-world/" class="u-url">Hello World!</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/descriptive-statistics/lesson-5/" class="u-url">Descriptive Statistics - Standardizing</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-18T10:09:35+08:00" title="2016-08-18 10:09">2016-08-18 10:09</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Lesson 5: Standardizing</h3>
+<ol>
+<li>If we are concerned about a proportion less than or greater than a certain value on a distribution, we should use RELATIVE FREQUENCIES.</li>
+<li>When a bin-size is too big, we can't tell for sure the detailed values of the bin; when a bin-size is too small, the distribution becomes more and more of a uniform distribution.  A predicament: We want a small bin size to have as much details as possible about the location of data values, relative to the rest of the distribution.  </li>
+<li>We solve this conundrum with a theoretical model of our distribution.</li>
+<li>Z score: how many standard deviation any number, x, is away from the mean.  We can convert any value from a normal distribution to a z score.  When we do this we standardize the distribution.  <ul>
+<li>\[ z = \frac{ x - \mu }{\sigma} \]</li>
+</ul>
+</li>
+<li>A negative z score means:<ul>
+<li>The original value, \( x \) is less than the mean, \( \mu \).</li>
+<li>The original value, \( x \) minus the mean, \( \mu \) is negative.</li>
+</ul>
+</li>
+<li>On a standardized distribution, the mean, \( \mu \) is 0.  </li>
+<li>On a standardized distribution, the standard deviation, \( \sigma \) is 1.</li>
+</ol>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/descriptive-statistics/lesson-4/" class="u-url">Descriptive Statistics - Variability</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-17T11:29:46+08:00" title="2016-08-17 11:29">2016-08-17 11:29</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Lesson 4: Variability</h3>
+<h4>General Ideas of Variability</h4>
+<ol>
+<li>
+<strong>Range</strong>: The maximum data point minus the minimum data point.  </li>
+<li>
+<strong>Wide Spread</strong>: The data set has shorter and wider distribution.</li>
+<li>
+<strong>Consistency</strong>: When a data is more consistent, it forms taller and narrower distribution.  </li>
+<li>Outlier(s) usually widen the range of distribution and INCREASES variability.  Statisticians usually cut off outliers.</li>
+<li>1st Quartile, <strong>\( Q_{1} \)</strong>, is the 25% of the distribution, while 3rd Quartile, <strong>\( Q_{3} \)</strong>, is the 75% of the distribution.  2nd Quartile, also known as Median, is the 50% of the distribution.  </li>
+<li>
+<strong>Interquartile Range</strong>:<ul>
+<li><strong>\(IQR =  Q_{3} - Q_{1} \)</strong></li>
+</ul>
+</li>
+<li>Facts about <strong>\(IQR \)</strong>:<ul>
+<li>About 50% of data lies between IQR.</li>
+<li>IQR may or may not be affected by every value in the dataset.  </li>
+<li>IQR is NOT affected by outliers.</li>
+</ul>
+</li>
+<li>A data point is considered an outlier if any of the below is true:<ul>
+<li>\[ x_{outlier} &lt; Q_{1} - 1.5*IQR \]</li>
+<li>\[ x_{outlier} &gt; Q_{3} - 1.5*IQR \]</li>
+</ul>
+</li>
+</ol>
+<h4>Box Plots</h4>
+<ol>
+<li>Key Elements of Box Plots:<ul>
+<li>Max, Min (two handles of the box)</li>
+<li>\( Q_{1} \), \( Q_{3} \), \( Q_{2} \) (aka Median) forms the box, with Median in the center "splitting" the box.</li>
+<li>Outliers, drawn as dots next to /outside of Max and/or Min.  </li>
+</ul>
+</li>
+<li>Box plots sometimes don't tell about the distribution model of data.  The box plot for normal, bimodal, or uniform distribution are the same.</li>
+<li>Although usually the mean lies between \( Q_{1} \) and \( Q_{3} \), it may lie outside of it, if there are outliers.</li>
+</ol>
+<h4>Measuring Variability</h4>
+<ol>
+<li>To measure variability, we find the average distance between each data value and the mean.</li>
+<li>\[ Deviation, \delta = x_{i} - \bar{x} \]</li>
+<li>Average Deviation, \(\bar{\delta}\):<ul>
+<li>\[ \bar{\delta} = \frac{ \sum_{i=0}^N{  \lvert{x_{i} - \bar{x} } \rvert }}{N}\]</li>
+<li>\[ \bar{\delta} = \frac{ \sum_{i=0}^N{\lvert\bar{x} - x_{i}\rvert}}{N} \]</li>
+<li>\[ \bar{\delta} = \sum_{i=0}^N{\frac{ \lvert \bar{x} - x_{i} \rvert }{N}} \]</li>
+</ul>
+</li>
+<li>Squared Deviation, \( \delta^2 \):<ul>
+<li>\[ \delta^2 = {\lvert{x_{i} - \bar{x} } \rvert}^2 \]</li>
+</ul>
+</li>
+<li>Sum of Squares, \( \sum_{i=0}^N(\delta^2) \), aka \( SS \):<ul>
+<li>\[ SS = \sum_{i=0}^N{({x_{i} - \bar{x}})^2} \]</li>
+</ul>
+</li>
+<li>Variance, \( \sigma^2 \), which is simply the Mean of \( SS \), \( \bar{SS} \) is:<ul>
+<li>\[ \sigma^2 = \frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N} \]</li>
+</ul>
+</li>
+<li>Standard Deviation, \( \sigma \), is the square root of variance.  <ul>
+<li>\[ \sigma = \sqrt{\frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N}} \]</li>
+</ul>
+</li>
+<li>Why Standard Deviation? In a perfectly normal distribution where mean equals to median equals to mode, 68% of the data values would fall between \( -1 \sigma \) and \( +1 \sigma \), 95% of the data values will fall between \( -2 \sigma \) and \( +2 \sigma \)</li>
+<li>When a sample is taken from a population, the sample standard deviation is usually smaller than true standard deviation, \( \sigma \), of the population.  To correct that, we apply Bessel's Correction.  The corrected/estimation sample standard deviation, denoted as \( s \), and corresponding variance, will have the formulas below:<ul>
+<li>\[ s^2 = \frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N -1} \]</li>
+<li>\[ s = \sqrt{\frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N-1}} \]</li>
+</ul>
+</li>
+</ol>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/descriptive-statistics/lesson-3/" class="u-url">Descriptive Statistics - Central Tendency</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-16T15:09:38+08:00" title="2016-08-16 15:09">2016-08-16 15:09</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Lesson 3: Central Tendency</h3>
+<h4>Some Definitions</h4>
+<ol>
+<li>
+<strong>Mode</strong>:<ul>
+<li>Mode is always on x-axis</li>
+<li>Mode can be used to describe any type of data we have, be it numerical or categorical</li>
+<li>All scores in a data set affects the mode.</li>
+<li>Even if we take a lot of samples from the same population, the mode will NOT be the same in each sample.</li>
+<li>There is NO equation for mode.</li>
+</ul>
+</li>
+<li>
+<strong>Mean</strong>:<ul>
+<li>All scores in a distribution affects a mean</li>
+<li>The mean can be describe with a formula.  As notated below:<ul>
+<li>\[ \mu  = \frac{ \sum{x} }{N} \]</li>
+<li>\[ \bar{x} = \frac{ \sum_{i=0}^{n}{x} }{n}\]</li>
+</ul>
+</li>
+<li>Many samples from the same population will have similar means.</li>
+<li>The means of a sample can be used to make inferences of a population it came from.</li>
+<li>The mean will change if we add an extreme value to the data set.  </li>
+</ul>
+</li>
+<li>
+<strong>Median</strong>:<ul>
+<li>Median is the middle of the data.</li>
+<li>When there is an even number of data points, the median is the average of the two middle scores, after arranged in ascending/descending order.  </li>
+<li>Median is generally Robust - Strong and Steady, Doesn't affected much by the outlier data.  </li>
+<li>Median serves as a better measurement for the center of the data when the data distribution is heavily skewed.  </li>
+<li>If dataset has EVEN number, n, of data,<ul>
+<li>\[  \frac{X_{\frac{n}{2}} + X_{\frac{n}{2} + 1}}{2} \]</li>
+</ul>
+</li>
+<li>If dataset has ODD number, n, of data,<ul>
+<li>\[ X_{\frac{n}{2} + 1} \]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<strong>Conclusions of Measures of Center</strong>:<ul>
+<li>Mean, Mode and Median are measure of center for datasets.</li>
+<li>Mean has a simple equation.</li>
+<li>Mean will always change if any data value changes.</li>
+<li>While Mode IS affected by bin size, both Mean and Median are NOT affected by bin size.</li>
+<li>While Mean IS severely affected by outliers, Median and Mode are NOT severely affected by outliers.</li>
+<li>Mode is easy to find on histogram.  </li>
+</ul>
+</li>
+</ol>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/nikola-setup/" class="u-url">Setting Up Nikola, a Static Site Generator</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-15T11:32:11+08:00" title="2016-08-15 11:32">2016-08-15 11:32</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>A while back, I started to look into static site generators for building my professional and personal blog site.  I had used <a href="https://wordpress.org/" title="Wordpress">Wordpress</a> long ago, but want to practice programming in Python.  Recently I tried out <a href="https://medium.com/" title="Medium">Medium</a>, but find it rather limiting when it comes to formatting content, and to organizing my posts.   </p>
+<p>I want to use the opportunity to explore what's new out there and get my hands dirty in programming again.  While researching, I stumble upon this site for static site generator - <a href="https://www.staticgen.com/" title="StaticGen">StaticGen</a>.  After testing out briefly with Pelican and Nikola, At last I decided to go with <a href="https://getnikola.com/" title="Nikola">Nikola</a> .</p>
+<p>Nikola is rather lightweight, written with Python, supports contents written in markdown (my preferred way of writing content), and supports <a href="https://www.mathjax.org/" title="MathJax">MathJax</a> with a little tweaking.</p>
+<h4>Installation</h4>
+<p>The initial installation is rather basic.  First I install Nikola using pip.  Note that I install the extras as well, so I don't have to worry about them later.</p>
+<pre class="code literal-block"><span></span>$ pip install --upgrade <span class="s2">"Nikola[extras]"</span>
+</pre>
+
+
+<p>Then, I created a virtual environment and a project for this using  <a href="https://virtualenv.pypa.io/en/stable/" title="Python VirtualEnv"><code>virtualevn</code></a> and <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" title="Python VirtualEnvWrapper"><code>virtualevnwrapper</code></a>:</p>
+<pre class="code literal-block"><span></span>$ mkproject -p /usr/local/bin/python3 nikola
+$ workon nikola
+</pre>
+
+
+<p>Then I was able to initialize a Nikola site.  </p>
+<pre class="code literal-block"><span></span>$ nikola init <span class="o">{</span>site_name<span class="o">}</span>
+</pre>
+
+
+<p>Voila! We have a site!  Nikola has neat built-in commands. Check them out with <code>nikola help</code>.  For example, to create a new post, use the following:</p>
+<pre class="code literal-block"><span></span>$ nikola new_post <span class="o">{</span>post_name<span class="o">}</span>.md
+</pre>
+
+
+<p>I like to keep the nikola server running as I go through the edit/preview cycles, I typed</p>
+<pre class="code literal-block"><span></span>$ nikola auto -b
+</pre>
+
+
+<h4>Configurations</h4>
+<p>I used most of the default settings in the <code>config.py</code>, except for the following:</p>
+<pre class="code literal-block"><span></span># Category Settings #
+CATEGORY_PATH = "categories"
+CATEGORY_PREFIX = ""
+CATEGORY_ALLOW_HIERARCHIES = True
+CATEGORY_OUTPUT_FLAT_HIERARCHY = False
+CATEGORY_PAGES_ARE_INDEXES = False
+
+# Author Page #
+ENABLE_AUTHOR_PAGES = False
+
+# Archives Settings #
+CREATE_MONTHLY_ARCHIVE = True
+CREATE_DAILY_ARCHIVE = True
+ARCHIVE_PATH = "archives"
+ARCHIVE_FILENAME = "archives.html"
+
+# FavIcons #
+FAVICONS = (
+    ("icon", "{path to favicon}", "64x64"),
+    ("icon", "{path to favicon}", "512x512"),
+)
+
+# Hide Source Link #
+SHOW_SOURCELINK = False
+</pre>
+
+
+<h4>Organizing Content</h4>
+<p>Instead the built-in Category and Tag features, I am not quite satisfied with the way it organizes my content.  I prefer to organize my content a certain way.  So, in the <code>config.py</code>, I made the following settings:</p>
+<pre class="code literal-block"><span></span>POSTS = (
+    ("posts/*.md", "posts", "post.tmpl"),
+    ("course-notes/*.md", "course-notes", "post.tmpl"),
+    ("links/*.md", "links", "post.tmpl"),
+    ("books/*.md", "books", "post.tmpl"),
+    ("movies-shows/*.md", "movies-shows", "post.tmpl"),
+    ("music/*.md", "music", "post.tmpl"),
+)
+PAGES = (
+    ("pages/*.md", "pages", "story.tmpl"),
+)
+</pre>
+
+
+<p>Although Nikola offers two content types - post and page, I figure I only use the post type (for now at least).  I am simply keeping <code>PAGES</code> as is.   </p>
+<p>To add the corresponding content type to the navigation links,</p>
+<pre class="code literal-block"><span></span>NAVIGATION_LINKS = {
+    DEFAULT_LANG: (
+        ("/posts/index.html", "Articles"),
+        ("/course-notes/index.html", "Course Notes"),
+        ("/links/index.html", "Links"),
+        ("/books/index.html", "Books"),
+        ("/archives/archives.html", "Archives"),
+        ("/tags.html", "Tags"),
+    ),
+}
+</pre>
+
+
+<h4>Themes</h4>
+<p>Nikola's theme repo doesn't offer too extensive a choice. So I decided to make my own by following this very nicely written guide in <a href="http://nikola.readthedocs.io/en/latest/creating-a-theme/" title="Creating a Nikola Theme">creating your own theme</a>.  You may find <a href="https://github.com/chowy1026/nikola-themes/tree/hyde/v7/hyde" title="Nikola Theme - Hyde">my theme here</a>.  </p>
+<h4>Enabling MathJax</h4>
+<p>The steps to enable MathJax in Nikola are easy. First, add the following line to <code>templates\base_helper.tmpl</code>.</p>
+<pre class="code literal-block"><span></span>&lt;link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface"&gt;
+</pre>
+
+
+<p>Then add</p>
+<pre class="code literal-block"><span></span>MATHJAX_CONFIG = """
+    <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">"text/x-mathjax-config"</span><span class="nt">&gt;</span>
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\\(","\\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ],
+                processEscapes: true
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+    <span class="nt">&lt;/script&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">"text/x-mathjax-config"</span><span class="nt">&gt;</span>
+  MathJax.Hub.Queue(function() {
+    // Fix <span class="nt">&lt;code&gt;</span> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i <span class="nt">&lt; all.length</span><span class="err">;</span> <span class="err">i</span> <span class="err">+=</span> <span class="err">1)</span> <span class="err">{</span>
+        <span class="err">all[i].SourceElement().parentNode.className</span> <span class="err">+=</span> <span class="err">'</span> <span class="err">has-jax';</span>
+    <span class="err">}</span>
+<span class="err">});</span>
+<span class="err">&lt;/script</span><span class="nt">&gt;</span>
+    """
+</pre>
+
+
+<p>and this</p>
+<pre class="code literal-block"><span></span>HIDDEN_TAGS = ['mathjax']
+</pre>
+
+
+<p>to <code>config.py</code>.  All set! In markdown, I can use
+<code>\\( {math expression} \\)</code> for inline math, and</p>
+<pre class="code literal-block"><span></span>\\[ {math expression} \\]
+</pre>
+
+
+<p>for block display.  For other references to <a href="https://www.mathjax.org/" title="MathJax">MathJax</a>, see <a href="https://mechowy.github.io/link/mathjax/" title="MathJax Reference Links">this link</a>.</p>
+<h4>GitHub Deploy</h4>
+<p>Admittedly, Git confuses me sometimes.  And the built-in command that Nikola offers is absolutely godsent.  It nicely push content to the master branch of your userpage repo, which is {github.username}.github.io, and keep source in the source branch.  </p>
+<p>Having had my empty <code>{github.username}.github.io</code> repo ready on github, I have these in my <code>config.py</code>:</p>
+<pre class="code literal-block"><span></span># DEPLOY_COMMANDS = {
+#    'default': [
+#        'git add .',
+#        "git commit -am 'Update'",
+#        'git push origin master',
+#        'git subtree split --prefix output -b gh-pages',
+#        'git push -f origin gh-pages:gh-pages',
+#        'git branch -D gh-pages'
+#    ]
+#}
+
+GITHUB_SOURCE_BRANCH = 'source'
+GITHUB_DEPLOY_BRANCH = 'master'
+
+GITHUB_REMOTE_NAME = 'origin'
+
+GITHUB_COMMIT_SOURCE = True
+</pre>
+
+
+<p><del> I am honestly a little confused whether or not the <code>DEPLOY_COMMANDS</code> is actually needed.  I looked into the github_deploy.py under the hood of Nikola, it seems the deploy commands are already predefined.  I need to further experiment whether the <code>nikola github_deploy</code> would work without a <code>DEPLOY_COMMANDS</code> defined in <code>config.py</code>.  Will update when I am 200% certain. </del></p>
+<p>Update: <code>nikola github_deploy</code> IS indeed GOD-SENT.  Without having to define <code>DEPLOY_COMMANDS</code>, it nicely does everything for us - push <code>output</code> content to master, and source to source.</p>
+<p><del>That said</del> Now, whenever I want to update content to my github page, I simply type:</p>
+<pre class="code literal-block"><span></span>$ nikola github_deploy
+</pre>
+
+
+<h4>Others</h4>
+<p>For additional features, there are <a href="https://github.com/getnikola/plugins" title="Nikola Plugins">plugins</a> that could be installed.  There is also a <a href="https://groups.google.com/forum/#!forum/nikola-discuss" title="Nikola Google Dicussion Group">Google Discussion Group for Nikola</a>.  </p>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="books/lolita/" class="u-url">Lolita - Vladimir Nabokov</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-12T11:10:40+08:00" title="2016-08-12 11:10">2016-08-12 11:10</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Quotes</h3>
+<ul>
+<li>"Human life is but a series of footnotes to a vast obscure unfinished masterpiece"</li>
+<li>"He broke my heart. You merely broke my life."</li>
+<li>"It was love at first sight, at last sight, at ever and ever sight."</li>
+<li>"I knew I had fallen in love with Lolita forever; but I also knew she would not be forever Lolita."</li>
+<li>"You have to be an artist and a madman, a creature of infinite melancholy, with a bubble of hot poison in your loins and a super-voluptuous flame permanently aglow in your subtle spine (oh, how you have to cringe and hide!), in order to discern at once, by ineffable signs―the slightly feline outline of a cheekbone, the slenderness of a downy limbs, and other indices which despair and shame and tears of tenderness forbid me to tabulate―the little deadly demon among the wholesome children; she stands unrecognized by them and unconscious herself of her fantastic power."</li>
+<li>“I recall certain moments, let us call them icebergs in paradise, when after having had my fill of her –after fabulous, insane exertions that left me limp and azure-barred–I would gather her in my arms with, at last, a mute moan of human tenderness (her skin glistening in the neon light coming from the paved court through the slits in the blind, her soot-black lashes matted, her grave gray eyes more vacant than ever–for all the world a little patient still in the confusion of a drug after a major operation)–and the tenderness would deepen to shame and despair, and I would lull and rock my lone light Lolita in my marble arms, and moan in her warm hair, and caress her at random and mutely ask her blessing, and at the peak of this human agonized selfless tenderness (with my soul actually hanging around her naked body and ready to repent), all at once, ironically, horribly, lust would swell again–and 'oh, no,' Lolita would say with a sigh to heaven, and the next moment the tenderness and the azure–all would be shattered.”</li>
+<li>"if a violin string could ache, i would be that string."</li>
+<li>"Lolita, light of my life, fire of my loins. My sin, my soul. Lo-lee-ta: the tip of the tongue taking a trip of three steps down the palate to tap, at three, on the teeth. Lo. Lee. Ta. She was Lo, plain Lo, in the morning, standing four feet ten in one sock. She was Lola in slacks. She was Dolly at school. She was Dolores on the dotted line. But in my arms she was always Lolita. "</li>
+<li>“You know, what's so dreadful about dying is that you are completely on your own. and it struck me, as my automaton knees went up and down, that I simply did not know a thing about my darling's mind and that quite possibly, behind the awful juvenile cliches, there was in her a garden and a twilight, and a palace gate - dim and adorable regions which happened to be lucidly and absolutely forbidden to me, in my polluted rags and miserable convulsions...”</li>
+<li>“Don't touch me; I'll die if you touch me.”  </li>
+<li>“Despite our tiffs, despite her nastiness, despite all the fuss and faces she made, and the vulgarity, and the danger, and the horrible hopelessness of it all, I still dwelled deep in my elected paradise - a paradise whose skies were the color of hell-flames - but still a paradise.”</li>
+<li>“In a nervous and slender-leaved mimosa grove at the back of their villa we found a perch on the ruins of a low stone wall. She trembled and twitched as I kissed the corner of her parted lips and the hot lobe of her ear. A cluster of stars palely glowed above us between the silhouettes of long thin leaves; that vibrant sky seemed as naked as she was under her light frock. I saw her face in the sky, strangely distinct, as if it emitted a faint radiance of its own. Her legs, her lovely live legs, were not too close together, and when my hand located what it sought, a dreamy and eerie expression, half-pleasure, half-pain, came over those childish features. She sat a little higher than I, and whenever in her solitary ecstasy she was led to kiss me, her head would bend with a sleepy, soft, drooping movement that was almost woeful, and her bare knees caught and compressed my wrist, and slackened again; and her quivering mouth, distorted by the acridity of some mysterious potion, with a sibilant intake of breath came near to my face. She would try to relieve the pain of love by first roughly rubbing her dry lips against mine; then my darling would draw away with a nervous toss of her hair, and then again come darkly near and let me feed on her open mouth, while with a generosity that was ready to offer her everything, my heart, my throat, my entrails, I gave her to hold in her awkward fist the scepter of my passion.”</li>
+<li>“”</li>
+</ul>
+<h3>Poem Wanted, Wanted</h3>
+<p>Wanted, wanted: Dolores Haze.
+Hair: brown. Lips: scarlet.
+Age: five thousand three hundred days.
+Profession: none, or "starlet"</p>
+<p>Where are you hiding, Dolores Haze?
+Why are you hiding, darling?
+(I Talk in a daze, I walk in a maze
+I cannot get out, said the starling).</p>
+<p>Where are you riding, Dolores Haze?
+What make is the magic carpet?
+Is a Cream Cougar the present craze?
+And where are you parked, my car pet?</p>
+<p>Who is your hero, Dolores Haze?
+Still one of those blue-capped star-men?
+Oh the balmy days and the palmy bays,
+And the cars, and the bars, my Carmen!</p>
+<p>Oh Dolores, that juke-box hurts!
+Are you still dancin', darlin'?
+(Both in worn levis, both in torn T-shirts,
+And I, in my corner, snarlin').</p>
+<p>Happy, happy is gnarled McFate
+Touring the States with a child wife,
+Plowing his Molly in every State
+Among the protected wild life.</p>
+<p>My Dolly, my folly! Her eyes were vair,
+And never closed when I kissed her.
+Know an old perfume called Soliel Vert?
+Are you from Paris, mister?</p>
+<p>L'autre soir un air froid d'opera m'alita;
+Son fele -- bien fol est qui s'y fie!
+Il neige, le decor s'ecroule, Lolita!
+Lolita, qu'ai-je fait de ta vie?</p>
+<p>Dying, dying, Lolita Haze,
+Of hate and remorse, I'm dying.
+And again my hairy fist I raise,
+And again I hear you crying.</p>
+<p>Officer, officer, there they go--
+In the rain, where that lighted store is!
+And her socks are white, and I love her so,
+And her name is Haze, Dolores.</p>
+<p>Officer, officer, there they are--
+Dolores Haze and her lover!
+Whip out your gun and follow that car.
+Now tumble out and take cover.</p>
+<p>Wanted, wanted: Dolores Haze.
+Her dream-gray gaze never flinches.
+Ninety pounds is all she weighs
+With a height of sixty inches.</p>
+<p>My car is limping, Dolores Haze,
+And the last long lap is the hardest,
+And I shall be dumped where the weed decays,
+And the rest is rust and stardust.</p>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="links/nikola/" class="u-url">Helpful Links on Nikola</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-12T10:31:52+08:00" title="2016-08-12 10:31">2016-08-12 10:31</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Primary References</h3>
+<ul>
+<li><a href="https://getnikola.com/" title="Nikola Homepage">Nikola Homepage</a></li>
+<li><a href="http://nikola.readthedocs.io/en/latest/" title="Nikola Documentation">Nikola Documentation</a></li>
+<li><a href="https://groups.google.com/forum/#!forum/nikola-discuss" title="Nikola Google Group">Nikola Google Group</a></li>
+<li><a href="https://github.com/getnikola/nikola" title="Nikola Github">Nikola Github</a></li>
+<li><a href="http://nikola.readthedocs.io/en/latest/creating-a-theme/" title="Theming Nikola">Theming Nikola</a></li>
+<li><a href="http://nikola.readthedocs.io/en/latest/manual/#math" title="MathJax on Nikola">MathJax on Nikola</a></li>
+<li><a href="http://sampathweb.com/posts/blogging-made-easy.html" title="GitHub DEPLOY_COMMANDS in Config.py">GitHub DEPLOY_COMMANDS in Config.py</a></li>
+</ul>
+<h3>Other Notable References</h3>
+<ul>
+<li><a href="http://louistiao.me/posts/how-i-customized-my-nikola-powered-site/" title="Louis Tiao's Guide">Louis Tiao's Guide</a></li>
+</ul>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/descriptive-statistics/lesson-1/" class="u-url">Descriptive Statistics - Research Methods</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-11T21:10:06+08:00" title="2016-08-11 21:10">2016-08-11 21:10</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Lesson 1: Introduction to Research Methods</h3>
+<h4>Some Definitions</h4>
+<ol>
+<li>
+<p><strong>Constructs</strong></p>
+<ul>
+<li>
+<strong>Contruct</strong>: Anything that is difficult to measure because it can be defined and measured in very many different ways.</li>
+<li>
+<strong>Operational Definition</strong>: Operational Definitions {of a construct} is a unit of measurement for a construct.  Once an Operational Definitions is defined {for a construct}, it is no longer a construct.</li>
+<li>
+<strong>Extraneous Factors</strong>: Also known as "Lurking Variables", these factors that could impact the outcome of an experiment or test.  Extraneous factors should be held constant as much as possible to maximize accuracy of experiments/tests.</li>
+</ul>
+</li>
+<li>
+<p><strong>Samples and Populations</strong></p>
+<ul>
+<li>
+<strong>Population Parameter</strong>: denoted by \(  \mu \) (μ pronounced mu) are values that describe the whole population.</li>
+<li>
+<strong>Sample statistics</strong>: denoted by \( \overline{x} \) (pronounced as X-bar) are values that describe our sample.  Statistics are used to estimate/approximate the population parameter.</li>
+<li>
+<strong>Sampling Error</strong>: The difference of values between true population parameter and sample statistics.</li>
+<li>
+<strong>Sample Size</strong>: The size of the group that we choose to represent population.  The bigger the sample size, the smaller the sampling error generally.</li>
+</ul>
+</li>
+<li>
+<p><strong>Golden Arches Theory {of Conflict Prevention} by Thomas Friedman</strong></p>
+<ul>
+<li>Correlations doesn't mean causation: Just because two variables are relatable, it doesn't mean once causes the other to occur.  </li>
+</ul>
+</li>
+<li>
+<p><strong>Experiments vs Observational Studies</strong></p>
+<ul>
+<li>To show relationships =&gt; Perform observational studies i.e. surveys.<ul>
+<li>(+) Easy way to get information of a population,</li>
+<li>(+) Relatively inexpensive</li>
+<li>(+) Can be conducted remotely</li>
+<li>(+) Anyone could access and analyze survey results</li>
+<li>(-) Untruthful responses</li>
+<li>(-) Biased responses</li>
+<li>(-) Respondents not understanding the questions (Response Bias)</li>
+<li>(-) Respondents refuse to answer (Non-response Bias)</li>
+</ul>
+</li>
+<li>To show causation =&gt; Perform controlled experiments i.e.</li>
+</ul>
+</li>
+<li>
+<p><strong>Other Definitions</strong></p>
+<ul>
+<li>
+<strong>Treatments</strong>: The manner in which researchers handle subjects.</li>
+<li>
+<strong>Observational Studies</strong>: When an experimenter watches a group of subjects and does not introduce a treatment.</li>
+<li>
+<strong>Independent Variables</strong>: The variable that the experimenter chooses to manipulate, usually plotted along x-axis on a graph.</li>
+<li>
+<strong>Dependent Variables</strong>: The variable that the experimenter chooses to measure, usually plotted along y-axis on a graph.</li>
+<li>
+<strong>Treatment Group</strong>: The group of a study that receives a varying levels of independent variable, used to measure the effect of a treatment.</li>
+<li>
+<strong>Control Group</strong>: The group of study that doesn't receive treatment, used as a baseline when compared to treatment groups.</li>
+<li>
+<strong>Placebo</strong>: Something that is given to the control group so they think they are getting the treatment, when in reality it causes no effect on them.</li>
+<li>
+<strong>Blinding</strong>: A technique used to reduce bias, i.e. placebo is blinding.</li>
+<li>
+<strong>Double Blinding</strong>: A technique to ensure those who administer treatments and those receiving treatments do not know who is actually receiving which treatment.  </li>
+<li>
+<strong>Controlled Factors</strong>: Factors</li>
+<li>
+<strong>Random Assignments</strong>: A technique used to minimize impact of the other uncontrolled factors to the results of an experiment. Randomization works best with larger groups.</li>
+<li>
+<strong>Within-Subject Design</strong>: A technique to see how a factor influences the impact we are measuring, for the same study subject, keeping other controlled and uncontrolled factors constant.</li>
+</ul>
+</li>
+</ol>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/descriptive-statistics/lesson-2/" class="u-url">Descriptive Statistics - Visualizing Data</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-11T21:04:36+08:00" title="2016-08-11 21:04">2016-08-11 21:04</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Lesson 2: Visualizing Data</h3>
+<h4>Some Definitions</h4>
+<ol>
+<li><strong>Frequencies</strong></li>
+<li>
+<strong>Frequencies</strong>: The number of times a certain outcome occurs.</li>
+<li>
+<strong>Relative Frequencies</strong>: The probability (0.0 - 1.0) of an outcome happening in comparison to other outcomes.</li>
+<li>
+<strong>Proportion</strong>: A proportion is the fraction of counts over the total sample.A proportion can be turned into a percentage by multiplying the proportion by 100.</li>
+<li><strong>Histogram</strong></li>
+<li>
+<strong>Histogram</strong>: Histogram is a graphical representation of distribution of data.  Discrete intervals (bin size) are decided upon to form widths of our boxes.  </li>
+<li>
+<strong>Bin Size and Number of Rows</strong>: The two are inter-dependent.  Bin size is the discrete intervals set to accommodate the outcomes that falls within the defined intervals.  Bin size is also the intervals in which one is counting the frequencies of the outcomes.  The number of rows increases when bin size decreases; and vice versa.  Number of rows represent number of bars in a histogram diagram.  </li>
+<li><strong>Histogram and Bar Graphs: Differences between them</strong></li>
+<li>
+<strong>Histogram</strong>: Data in histogram can be mixed, or distributed differently simply by changing the bin size.  The independent variables (x-axis) is usually numerical and quantitative.  The order of the bars are usually based on the incremental quantitative x-axis, small to big.  The shape of a histogram is very important as it represents the distribution curve.</li>
+<li>
+<strong>Bar Graph</strong>: Columns in bar graphs are spaced out. Each column in a bar graph represents one distinct categories. Distribution of data in a bar chart is less flexible for change because of its distinctive representation.  The x-axis is usually categorical or qualitative.  The order of how the bars are charted is solely dependent on how we want to sort it.  The shape of a bar chart is arbitrary.</li>
+<li><strong>More on Histogram</strong></li>
+<li>
+<strong>Distribution</strong>: How data falls into the different bin size.  Normal distribution forms a symmetrical bell-shape, with the highest frequencies in the middle.  The bin-size with highest frequencies is mod.  </li>
+<li>
+<strong>Positively Skewed</strong>: When most data falls onto the left side of the histogram than on the right.</li>
+<li>
+<strong>Negatively Skewed</strong>: When most values falls onto the right side of the histogram then the left.<br>
+5.<strong>Math Symbols</strong>:</li>
+<li>
+<strong>\( \mathcal{f}  \)</strong>: Frequencies</li>
+<li>\( \sum \): Total sum</li>
+<li>
+<strong>\( \mathcal{p} \)</strong>: Proportion (Probability)</li>
+</ol>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/hello-world/" class="u-url">Hello World!</a></h1>
         <div class="metadata">
             <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-06T21:36:10+08:00" title="2016-08-06 21:36">2016-08-06 21:36</time></span>
         </div>

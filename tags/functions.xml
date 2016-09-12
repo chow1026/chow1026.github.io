@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title> =^..^= MEH (functions)</title><link>https://chowy1026.github.io/</link><description></description><atom:link href="https://chowy1026.github.io/tags/functions.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Wed, 07 Sep 2016 05:11:12 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Functions and Modules</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/05-functions-modules/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Functions&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;def function_name():&lt;/code&gt; // define a function&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Parameters and Arguments&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;def describe_pet(animal_type, pet_name):&lt;/code&gt; // define function describe_pet with parameter animal_type and pet_name&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;describe_pet('dog', 'willie')&lt;/code&gt; // calling function describe_pet and passing 'dog' and 'willie' as positional arguments, order matters.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;describe_pet(animal_type = 'dog', pet_name = 'willie')&lt;/code&gt; or &lt;code&gt;describe_pet(pet_name = 'harry', animal_type = 'hamster', )&lt;/code&gt; // calling function describe_pet and passing 'dog' and 'willie' as positional arguments, order doesn't matter.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;def describe_pet(pet_name, animal_type = 'dog'):&lt;/code&gt; // define function describe_pet with parameter animal_type, its default value 'dog' and pet_name.  Parameter with default value usually listed last.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;def get_formatted_name(fname, lname, mname=''):&lt;/code&gt; // define function get_formatted_name with parameters fname, lname, and optional mname.  Optional parameter also listed last.&lt;/li&gt;
+&lt;li&gt;When a list is passed to a function, the function can modify the list.  Any changes made to the list inside the function's body are permanent.  &lt;/li&gt;
+&lt;li&gt;Sometimes, you may decide you want to keep the original list unchanged.  In that case, you may pass the function with a copy of the list.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;function_name(list_name[:])&lt;/code&gt; // calling function_name and pass a copy of list_name by ' list_name[:] '&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Passing an Arbitrary Number of Arguments&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Sometimes you won't know ahead of times how many arguments a function needs to accept.  In this case, we define a function with *parameter to collect as many arguments as the calling line provides.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;def make_pizza(*toppings):&lt;/code&gt; // the asterisk in the parameter name *toppings tells python to make an empty tuple and pack whatever values it receives into this tuple.  &lt;/li&gt;
+&lt;li&gt;Eg: &lt;code&gt;make_pizza('pepperoni')&lt;/code&gt; or &lt;code&gt;make_pizza('mushrooms', 'green peppers', 'extra cheese')&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;def make_pizza(size, *toppings):&lt;/code&gt; // mix positional and arbitrary arguments&lt;/li&gt;
+&lt;li&gt;Eg: &lt;code&gt;make_pizza(16, 'pepperoni')&lt;/code&gt; or &lt;code&gt;make_pizza(24, 'mushrooms', 'green peppers', 'extra cheese')&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Using Arbitrary Keyword Arguments&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Sometimes you'll want to accept an arbitrary number of arguments, but won't know ahead of time what kind of information will be passed to the function.  In this case, you can write functions that accept as many key-value pair as the calling statement provides.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;build_profile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;user_info&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+          &lt;span class="n"&gt;profile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
+          &lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'first_name'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fname&lt;/span&gt;
+          &lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'last_name'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;lname&lt;/span&gt;
+          &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;user_info&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+              &lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
+          &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;profile&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;**user_info represents an arbitrary number of keyword arguments.  &lt;/li&gt;
+&lt;li&gt;Eg: &lt;code&gt;user_profile = build_profile('albert', 'einstein', location='princeton', field='physics')&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Modules&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;A module is a file ending in .py that contains the code you want to import to your program.  For example, to make a module that contains the function make_pizza(), move the function make_pizza() to a file pizza.py.  &lt;/li&gt;
+&lt;li&gt;pizza.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;toppings&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;Making a "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;"-inch pizza with the following toppings: "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;topping&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;toppings&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"- "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;topping&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;making_pizza.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pizza&lt;/span&gt;
+
+  &lt;span class="n"&gt;pizza&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'pepperoni'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;pizza&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'mushrooms'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'green peppers'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'extra cheese'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Importing Specific Functions&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;from module_name import function_name&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;from module_name import function_0, function_1, function_2&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pizza&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;make_pizza&lt;/span&gt;
+
+  &lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'pepperoni'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'mushrooms'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'green peppers'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'extra cheese'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Use as to Give a Function an Alias&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;from module_name import function_name as fn&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pizza&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;make_pizza&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;mp&lt;/span&gt;
+  &lt;span class="n"&gt;mp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'pepperoni'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;mp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'mushrooms'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'green peppers'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'extra cheese'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Use as to Give a Module an Alias&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;import module_name as mn&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pizza&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;p&lt;/span&gt;
+  &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'pepperoni'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'mushrooms'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'green peppers'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'extra cheese'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Import All Functions in a Module&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;from module_name import *&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pizza&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+  &lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'pepperoni'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'mushrooms'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'green peppers'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'extra cheese'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;However it is best not to use this approach.  Python may see several functions or variables with the same name, and instead of importing all the functions separately it will overwrite the functions.&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><category>functions</category><category>modules</category><category>python-crash-course</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/05-functions-modules/</guid><pubDate>Wed, 07 Sep 2016 03:14:55 GMT</pubDate></item></channel></rss>

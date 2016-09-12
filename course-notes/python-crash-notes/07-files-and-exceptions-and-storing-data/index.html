@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" vocab="http://ogp.me/ns" lang="en">
+<head>
+<meta charset="utf-8">
+<base href="https://chowy1026.github.io/course-notes/python-crash-notes/07-files-and-exceptions-and-storing-data/">
+<meta name="viewport" content="width=device-width">
+<title> =^..^= MEH · Files and Exceptions and Storing Data </title>
+<link href="../../../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/poole.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/hyde.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/code.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700%7CAbril+Fatface">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://chowy1026.github.io/course-notes/python-crash-notes/07-files-and-exceptions-and-storing-data/">
+<link rel="icon" href="../../../images/favicon.png" sizes="64x64">
+<link rel="icon" href="../../../images/icon_512x512.png" sizes="512x512">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+    </script><script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="cHoWy">
+<link rel="prev" href="../06-classes-instances-inheritance/" title="Classes, Instances and Inheritance" type="text/html">
+<link rel="next" href="../08-testing/" title="Testing Python Code" type="text/html">
+<meta property="og:site_name" content=" =^..^= MEH">
+<meta property="og:title" content="Files and Exceptions and Storing Data">
+<meta property="og:url" content="https://chowy1026.github.io/course-notes/python-crash-notes/07-files-and-exceptions-and-storing-data/">
+<meta property="og:description" content="Files
+Filepath
+
+A relative path is a to look for a given location relative to the directory where the currently running program file is stored.  
+An absolute path is exactly the file location on your ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-09-07T15:05:56+08:00">
+<meta property="article:tag" content="exceptions">
+<meta property="article:tag" content="files">
+<meta property="article:tag" content="python-crash-course">
+<meta property="article:tag" content="storing-data">
+</head>
+<body class="test">
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+    <div class="sidebar">
+        <div class="container sidebar-sticky">
+            <div class="sidebar-about">
+              <h1>
+                <a href="https://chowy1026.github.io/">
+                      <h1 id="brand"><a href="https://chowy1026.github.io/" title=" =^..^= MEH" rel="home">
+
+        <span id="blog-title"> =^..^= MEH</span>
+    </a></h1>
+
+                </a>
+              </h1>
+                <p class="lead"></p>
+
+            </div>
+                <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../../posts/index.html">Articles</a>
+        <a class="sidebar-nav-item" href="../../index.html">Course Notes</a>
+        <a class="sidebar-nav-item" href="../../../links/index.html">Links</a>
+        <a class="sidebar-nav-item" href="../../../books/index.html">Books</a>
+        <a class="sidebar-nav-item" href="../../../archives/archives.html">Archives</a>
+        <a class="sidebar-nav-item" href="../../../tags.html">Tags</a>
+    
+    
+    </nav><footer id="footer"><p class="footer">
+              <span class="icon_row">
+
+                <a href="mailto:chowy1026@gmail.com">
+                  <img class="social_icon" src="../../../images/envelope1.png" title="email" width="24"></a> ·
+                <!--<a href="">
+                  <img class="social_icon" src="/images/twitter-black-shape1.png" title="twitter" width="24" /></a> &middot;-->
+                <a href="https://github.com/chowy1026/">
+                  <img class="social_icon" src="../../../images/github-character1.png" title="github" width="24"></a>
+              </span>
+              <br><br><span class="copyright">
+              
+Contents © 2016 by <a href="mailto:chowy1026@gmail.com">cHoWy</a> ·
+Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>
+
+            </span>
+            </p>
+            
+        </footer>
+</div>
+    </div>
+
+    <div class="content container" id="content">
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><h1 class="post-title p-name"><a href="." class="u-url">Files and Exceptions and Storing Data</a></h1>
+
+    <span class="post-date">
+      <time class="published dt-published" datetime="2016-09-07T15:05:56+08:00" itemprop="datePublished" title="2016-09-07 15:05">2016-09-07 15:05</time></span>
+
+    
+    
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<h3>Files</h3>
+<h4>Filepath</h4>
+<ul>
+<li>A <em>relative path</em> is a to look for a given location relative to the directory where the currently running program file is stored.  </li>
+<li>An <em>absolute path</em> is exactly the file location on your computer, regardless of where the program being executed is stored.  </li>
+<li>
+<code>os.getcwd</code> returns current working directory.  Remember to <code>import os</code>.</li>
+</ul>
+<h4>Reading an Entire File</h4>
+<ul>
+<li>pi_digits.txt</li>
+</ul>
+<pre class="code literal-block"><span></span>3.1415926535
+  8979323846
+  2643383279
+</pre>
+
+
+<ul>
+<li>file_reader.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'pi_digits.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span>
+    <span class="n">contents</span> <span class="o">=</span> <span class="n">file_object</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>output:</li>
+</ul>
+<pre class="code literal-block"><span></span>3.1415926535
+  8979323846
+  2643383279
+</pre>
+
+
+<ul>
+<li>Note that output has an extra blank line, because read() returns an empty string when it reaches the end of the file.  To remove the extra blank line, use rstrip().  --&gt; <code>print(contents.rstrip())</code>
+</li>
+</ul>
+<h4>Reading a File Line by Line</h4>
+<ul>
+<li>file_reader.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'pi_digits.txt'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file_object</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span> <span class="c1"># rstrip() removes the blank lines from .read()</span>
+</pre>
+
+
+<h4>Making a List of Lines from a File</h4>
+<ul>
+<li>file_reader.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'pi_digits.txt'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">file_object</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+  <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span> <span class="c1"># rstrip() removes the blank lines from .read()</span>
+</pre>
+
+
+<h4>Working with a File's Contents</h4>
+<ul>
+<li>file_reader.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'pi_digits.txt'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">file_object</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+  <span class="n">pi_string</span> <span class="o">=</span> <span class="s1">''</span>
+  <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="n">pi_string</span> <span class="o">+=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span> <span class="c1"># rstrip() removes the blank lines from .read()</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="n">pi_string</span><span class="p">)</span> <span class="c1"># prints 3.1415926535  8979323846  2643383279</span>
+  <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pi_string</span><span class="p">))</span> <span class="c1"># prints 36 due to blank spaces for 2nd and 3rd lines</span>
+
+  <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="n">pi_string</span> <span class="o">+=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="c1"># strip all blank spaces and lines</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="n">pi_string</span><span class="p">)</span> <span class="c1"># prints 3.141592653589793238462643383279</span>
+  <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pi_string</span><span class="p">))</span> <span class="c1"># prints 32 due to blank spaces for 2nd and 3rd lines</span>
+</pre>
+
+
+<h4>Writing to a File</h4>
+<ul>
+<li>write_message.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'writing.txt'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span> <span class="c1"># 'w' denote writing mode</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"I test writing."</span><span class="p">)</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"I test writing second line."</span><span class="p">)</span>
+
+  <span class="c1"># Both these sentences will be written in one /same line.  </span>
+</pre>
+
+
+<ul>
+<li>Insert line break.  </li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'writing.txt'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span> <span class="c1"># 'w' denote writing mode</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"I test writing. </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"I test writing second line. </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+  <span class="c1"># Both these sentences will be written in separate line.  </span>
+</pre>
+
+
+<h4>Appending to a File</h4>
+<ul>
+<li>write_message.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'writing.txt'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span> <span class="c1"># 'a' denotes append</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"I test writing more."</span><span class="p">)</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"I test writing the last line."</span><span class="p">)</span>
+
+  <span class="c1"># Both these sentences will be appended to previous file content.  </span>
+</pre>
+
+
+<h3>Exceptions</h3>
+<ul>
+<li>Python uses exceptions to manage errors that arise during a program's execution.  It is advisable to write code that handles exceptions properly so the program continues running.  If not, the program will halt and show a <em>traceback</em>, which includes a report of the exception that was raised.</li>
+<li>A couple of common Python exceptions are ZeroDivisionError and FileNotFound exceptions.</li>
+</ul>
+<h4>try-except-else block</h4>
+<ul>
+<li>division.py (example of try-except block)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">print</span><span class="p">(</span><span class="s2">"Give me two numbers, I will divide them."</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s2">"Enter 'q' to quit."</span><span class="p">)</span>
+
+  <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">first_num</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">First Number: "</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">first_num</span> <span class="o">==</span> <span class="s1">'q'</span><span class="p">:</span>
+      <span class="k">break</span>
+    <span class="n">sec_num</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Second Number: "</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">sec_num</span> <span class="o">==</span> <span class="s1">'q'</span><span class="p">:</span>
+      <span class="k">break</span>
+
+    <span class="k">try</span><span class="p">:</span>
+      <span class="n">answer</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">first_num</span><span class="p">)</span> <span class="o">/</span> <span class="nb">int</span><span class="p">(</span><span class="n">sec_num</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"You can't divide by 0!"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1"># proceed if no ZeroDivisionError exception</span>
+      <span class="k">print</span> <span class="n">answer</span>
+</pre>
+
+
+<ul>
+<li>alice.py (example of handling FileNotFound exception)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'alice.txt'</span>
+
+  <span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">fobj</span><span class="p">:</span>
+      <span class="n">contents</span> <span class="o">=</span> <span class="n">fobj</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+  <span class="k">except</span> <span class="n">FileNotFoundError</span><span class="p">:</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s2">"Sorry, the file "</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">" doesn't exist. "</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">contents</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">word_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"The file "</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">" has about "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">word_count</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" words."</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>word_count.py (example of working with multiple files)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">def</span> <span class="nf">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">""" Count the approximate number of words in a file """</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">fobj</span><span class="p">:</span>
+        <span class="n">contents</span> <span class="o">=</span> <span class="n">fobj</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">FileNotFoundError</span><span class="p">:</span>
+      <span class="n">msg</span> <span class="o">=</span> <span class="s2">"Sorry, the file "</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">" doesn't exist. "</span>
+      <span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">words</span> <span class="o">=</span> <span class="n">contents</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+      <span class="n">word_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"The file "</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">" has about "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">word_count</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" words."</span><span class="p">)</span>
+
+  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'alice.txt'</span>
+  <span class="n">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+  <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'alice.txt'</span><span class="p">,</span> <span class="s1">'siddharta.txt'</span><span class="p">,</span> <span class="s1">'moby_dick.txt'</span><span class="p">,</span> <span class="s1">'little_women.txt'</span><span class="p">]</span>
+  <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+    <span class="n">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</pre>
+
+
+<h4>Failing silently</h4>
+<ul>
+<li>word_count.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">def</span> <span class="nf">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">""" Count the approximate number of words in a file """</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">fobj</span><span class="p">:</span>
+        <span class="n">contents</span> <span class="o">=</span> <span class="n">fobj</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">FileNotFoundError</span><span class="p">:</span>
+      <span class="k">pass</span> <span class="c1"># pass is used to silent the error.  Often times used as a placeholder as well.</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">words</span> <span class="o">=</span> <span class="n">contents</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+      <span class="n">word_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"The file "</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">" has about "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">word_count</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" words."</span><span class="p">)</span>
+
+  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'alice.txt'</span>
+  <span class="n">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+  <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'alice.txt'</span><span class="p">,</span> <span class="s1">'siddharta.txt'</span><span class="p">,</span> <span class="s1">'moby_dick.txt'</span><span class="p">,</span> <span class="s1">'little_women.txt'</span><span class="p">]</span>
+  <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+    <span class="n">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</pre>
+
+
+<h3>Storing Data</h3>
+<h4>json.dump() and json.load()</h4>
+<ul>
+<li>num_write.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">json</span>
+
+  <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">]</span>
+  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'prime.json'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fobj</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">fobj</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>num_read.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">json</span>
+
+  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'prime.json'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">fobj</span><span class="p">:</span>
+    <span class="n">primes</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fobj</span><span class="p">)</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="n">primes</span><span class="p">)</span>
+</pre>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><p itemprop="keywords" class="tags">
+            <span class="tag"><a class="p-category" href="../../../tags/exceptions/" rel="tag">exceptions</a></span>
+            <span class="tag"><a class="p-category" href="../../../tags/files/" rel="tag">files</a></span>
+            <span class="tag"><a class="p-category" href="../../../tags/python-crash-course/" rel="tag">python-crash-course</a></span>
+            <span class="tag"><a class="p-category" href="../../../tags/storing-data/" rel="tag">storing-data</a></span>
+      </p>
+
+            <div class="pager hidden-print pagination">
+
+            <span class="previous pagination-item older">
+                <a href="../06-classes-instances-inheritance/" rel="prev" title="Classes, Instances and Inheritance">
+                Previous post
+                </a>
+            </span>
+
+
+            <span class="next pagination-item newer">
+                <a href="../08-testing/" rel="next" title="Testing Python Code">
+Next post
+              </a>
+            </span>
+
+        </div>
+
+    </nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="chowygit",
+            disqus_url="https://chowy1026.github.io/course-notes/python-crash-notes/07-files-and-exceptions-and-storing-data/",
+        disqus_title="Files and Exceptions and Storing Data",
+        disqus_identifier="cache/course-notes/python-crash-notes/07-files-and-exceptions-and-storing-data.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="chowygit";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73098247-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

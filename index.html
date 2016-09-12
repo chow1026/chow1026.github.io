@@ -40,7 +40,7 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
         all[i].SourceElement().parentNode.className += ' has-jax';
     }
 });
-</script><!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="course-notes/descriptive-statistics/lesson-7/" type="text/html">
+</script><!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="course-notes/python-crash-notes/08-testing/" type="text/html">
 </head>
 <body class="test">
     <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -93,7 +93,1229 @@ Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href
     <div class="content container" id="content">
     
 <div class="post">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/descriptive-statistics/lesson-7/" class="u-url">Descriptive Statistics - Sampling Distributions</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/python-crash-notes/08-testing/" class="u-url">Testing Python Code</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-07T16:55:02+08:00" title="2016-09-07 16:55">2016-09-07 16:55</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Testing a Function</h3>
+<ul>
+<li>name_function.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">def</span> <span class="nf">get_formatted_name</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+    <span class="sd">""" Generated a Neatly formatted full name """</span>
+    <span class="n">full_name</span> <span class="o">=</span> <span class="n">first</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="n">last</span>
+    <span class="k">return</span> <span class="n">full_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+</pre>
+
+
+<ul>
+<li>names.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">name_function</span> <span class="kn">import</span> <span class="n">get_formatted_name</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="s2">"Enter 'q' to quit any time."</span><span class="p">)</span>
+  <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">First Name: "</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">first</span> <span class="o">==</span> <span class="s1">'q'</span><span class="p">:</span>
+      <span class="k">break</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Last Name: "</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'q'</span><span class="p">:</span>
+      <span class="k">break</span>
+    <span class="n">formatted_name</span> <span class="o">=</span> <span class="n">get_formatted_name</span><span class="p">(</span><span class="n">fist</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">Neatly formatted name: "</span> <span class="o">+</span> <span class="n">formatted_name</span> <span class="o">+</span> <span class="s2">"."</span><span class="p">)</span>
+</pre>
+
+
+<h4>Unit Tests and Test Cases</h4>
+<ul>
+<li>A <em>unit test</em> verifies that one specific aspect of a function's behavior is correct.  </li>
+<li>A <em>test case</em> is a collection of unit tests that together prove that a function behaves as it's supposed to, within the full range of situations it is expected to handle.  </li>
+<li>A test case with <em>full coverage</em> includes a full range of unit tests covering all the possible ways you can use a function.  Achieving full coverage on a large project can be daunting.  Aim for full coverage only if project starts to see widespread use.  </li>
+<li>test_name_function.py (an example test case for name_function.py)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">unittest</span>
+  <span class="kn">from</span> <span class="nn">name_function</span> <span class="kn">import</span> <span class="n">get_formatted_name</span>
+
+  <span class="k">class</span> <span class="nc">NamesTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="sd">""" Test for 'name_function.py' """</span>
+
+    <span class="k">def</span> <span class="nf">test_first_last_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Do names like 'Janis Joplin' work? """</span>
+      <span class="n">formatted_name</span> <span class="o">=</span> <span class="n">get_formatted_name</span><span class="p">(</span><span class="s1">'janis'</span><span class="p">,</span> <span class="s1">'joplin'</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">formatted_name</span><span class="p">,</span> <span class="s1">'Janis Joplin'</span><span class="p">)</span>
+
+  <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span> <span class="c1"># tells python to run the test.</span>
+</pre>
+
+
+<ul>
+<li>
+<code>python3 test_name_function.py</code> in CLI to run.  For now, test will pass.  </li>
+<li>name_function.py (modified)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">def</span> <span class="nf">get_formatted_name</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">middle</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+    <span class="sd">""" Generated a Neatly formatted full name """</span>
+    <span class="n">full_name</span> <span class="o">=</span> <span class="n">first</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="n">middle</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="n">last</span>
+    <span class="k">return</span> <span class="n">full_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+</pre>
+
+
+<ul>
+<li>
+<code>python3 test_name_function.py</code> will raise error.</li>
+<li>name_function.py (modified again, to make <code>middle</code> optional)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">def</span> <span class="nf">get_formatted_name</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">middle</span><span class="o">=</span><span class="s1">''</span><span class="p">):</span>
+    <span class="sd">""" Generated a Neatly formatted full name """</span>
+    <span class="k">if</span> <span class="n">middle</span><span class="p">:</span>
+      <span class="n">full_name</span> <span class="o">=</span> <span class="n">first</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="n">middle</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="n">last</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">full_name</span> <span class="o">=</span> <span class="n">first</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="n">last</span>
+    <span class="k">return</span> <span class="n">full_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+</pre>
+
+
+<ul>
+<li>
+<code>python3 test_name_function.py</code> will pass again.</li>
+<li>test_name_function.py (Add new test to test both cases)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">unittest</span>
+  <span class="kn">from</span> <span class="nn">name_function</span> <span class="kn">import</span> <span class="n">get_formatted_name</span>
+
+  <span class="k">class</span> <span class="nc">NamesTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="sd">""" Test for 'name_function.py' """</span>
+
+    <span class="k">def</span> <span class="nf">test_first_last_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Do names like 'Janis Joplin' work? """</span>
+      <span class="n">formatted_name</span> <span class="o">=</span> <span class="n">get_formatted_name</span><span class="p">(</span><span class="s1">'janis'</span><span class="p">,</span> <span class="s1">'joplin'</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">formatted_name</span><span class="p">,</span> <span class="s1">'Janis Joplin'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_first_last_middle_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Do names like 'Wolfgang Amadeus Mozart' work? """</span>
+      <span class="n">formatted_name</span> <span class="o">=</span> <span class="n">get_formatted_name</span><span class="p">(</span><span class="s1">'wolfgang'</span><span class="p">,</span> <span class="s1">'mozart'</span><span class="p">,</span> <span class="s1">'amadeus'</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">formatted_name</span><span class="p">,</span> <span class="s1">'Wolfgang Amadeus Mozart'</span><span class="p">)</span>
+
+  <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span> <span class="c1"># tells python to run the test.</span>
+</pre>
+
+
+<h4>A Variety of Assert Methods</h4>
+<ul>
+<li>assertEqual(a, b) :: Verify if a == b</li>
+<li>assertNotEqual(a, b) :: Verify if a != b</li>
+<li>assertTrue(x) :: Verify if x is True</li>
+<li>assertFalse(x) :: Verify if x is False</li>
+<li>assertIn(<em>item</em>, <em>list</em>) :: Verify that <em>item</em> is in <em>list</em>
+</li>
+<li>assertNotIn(<em>item</em>, <em>list</em>) :: Verify that <em>item</em> is NOT in <em>list</em>
+</li>
+</ul>
+<h4>Testing a Class</h4>
+<ul>
+<li>survey.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">class</span> <span class="nc">AnonymousSurvey</span><span class="p">():</span>
+    <span class="sd">""" Collect anonymous answers to a survey question. """</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">question</span><span class="p">):</span>
+      <span class="sd">""" Store a question, prepare to store responses. """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">question</span> <span class="o">=</span>  <span class="n">question</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">responses</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">show_question</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Show the survey question """</span>
+      <span class="k">print</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">store_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_response</span><span class="p">):</span>
+      <span class="sd">""" Store a single response to the survey. """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">responses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_response</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">show_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Show all responses that had been given """</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"Survey results:"</span><span class="p">)</span>
+      <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="n">responses</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">'- '</span> <span class="o">+</span> <span class="n">response</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>lang_survey.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">survey</span> <span class="kn">import</span> <span class="n">AnonymousSurvey</span>
+
+  <span class="n">question</span> <span class="o">=</span> <span class="s2">"What language did you first learn to speak? "</span> <span class="c1"># define question</span>
+  <span class="n">survey</span> <span class="o">=</span> <span class="n">AnonymousSurvey</span><span class="p">(</span><span class="n">question</span><span class="p">)</span> <span class="c1"># instantiate a survey</span>
+
+  <span class="n">survey</span><span class="o">.</span><span class="n">show_question</span><span class="p">()</span> <span class="c1"># show question</span>
+  <span class="k">print</span><span class="p">(</span><span class="s2">"Enter 'q' any time to quit. </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+  <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Language: "</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">response</span> <span class="o">==</span> <span class="s1">'q'</span><span class="p">:</span>
+      <span class="k">break</span>
+    <span class="n">survey</span><span class="o">.</span><span class="n">store_response</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Thank you for your participation. "</span><span class="p">)</span>
+  <span class="n">survey</span><span class="o">.</span><span class="n">show_results</span><span class="p">()</span>
+</pre>
+
+
+<ul>
+<li>test_survey.py (test case for survey.py)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">unittest</span>
+  <span class="kn">from</span> <span class="nn">survey</span> <span class="kn">import</span> <span class="n">AnonymousSurvey</span>
+
+  <span class="k">class</span> <span class="nc">TestAnonymousSurvey</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="sd">""" Test Case for class AnonymousSurvey """</span>
+
+    <span class="k">def</span> <span class="nf">test_store_single_response</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Test that a single response is stored properly """</span>
+      <span class="n">question</span> <span class="o">=</span> <span class="s2">"What language did you first learn to speak? "</span> <span class="c1"># define question</span>
+      <span class="n">survey</span> <span class="o">=</span> <span class="n">AnonymousSurvey</span><span class="p">(</span><span class="n">question</span><span class="p">)</span> <span class="c1"># instantiate a survey</span>
+      <span class="n">survey</span><span class="o">.</span><span class="n">store_response</span><span class="p">(</span><span class="s1">'English'</span><span class="p">)</span>
+
+      <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">'English'</span><span class="p">,</span> <span class="n">survey</span><span class="o">.</span><span class="n">responses</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_store_three_responses</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Test that a single response is stored properly """</span>
+      <span class="n">question</span> <span class="o">=</span> <span class="s2">"What language did you first learn to speak? "</span> <span class="c1"># define question</span>
+      <span class="n">survey</span> <span class="o">=</span> <span class="n">AnonymousSurvey</span><span class="p">(</span><span class="n">question</span><span class="p">)</span> <span class="c1"># instantiate a survey</span>
+      <span class="n">responses</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'English'</span><span class="p">,</span> <span class="s1">'Spanish'</span><span class="p">,</span> <span class="s1">'Mandarin'</span><span class="p">]</span>
+      <span class="k">for</span> <span class="n">resp</span> <span class="ow">in</span> <span class="n">responses</span><span class="p">:</span>
+        <span class="n">survey</span><span class="o">.</span><span class="n">store_response</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+
+      <span class="k">for</span> <span class="n">resp</span> <span class="ow">in</span> <span class="n">responses</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">survey</span><span class="o">.</span><span class="n">responses</span><span class="p">)</span>
+</pre>
+
+
+<h4>The setUp() Method</h4>
+<ul>
+<li>As shown in the previous test_survey.py, we define question, create new instance of survey and new responses in each test methods.  The unittest.TestCase class has a setUp() method that allows you to reate these objects once and then use them in each of your test methods.  When a setUp() method is included, Python runs the setUp() method before running each method starting with _test__.  Any objects created in the setUp() method will be available in each test method you write.  </li>
+<li>test_survey.py (refactored with setUp() method)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">unittest</span>
+  <span class="kn">from</span> <span class="nn">survey</span> <span class="kn">import</span> <span class="n">AnonymousSurvey</span>
+
+  <span class="k">class</span> <span class="nc">TestAnonymousSurvey</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="sd">""" Test Case for class AnonymousSurvey """</span>
+
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Define question, create survey and a set of responses to be used in all test methods """</span>
+      <span class="n">question</span> <span class="o">=</span> <span class="s2">"What language did you first learn to speak? "</span> <span class="c1"># define question</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">survey</span> <span class="o">=</span> <span class="n">AnonymousSurvey</span><span class="p">(</span><span class="n">question</span><span class="p">)</span> <span class="c1"># instantiate a survey</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">responses</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'English'</span><span class="p">,</span> <span class="s1">'Spanish'</span><span class="p">,</span> <span class="s1">'Mandarin'</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">test_store_single_response</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Test that a single response is stored properly """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">survey</span><span class="o">.</span><span class="n">store_response</span><span class="p">(</span><span class="s1">'English'</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">'English'</span><span class="p">,</span> <span class="n">survey</span><span class="o">.</span><span class="n">responses</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_store_three_responses</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Test that a single response is stored properly """</span>
+      <span class="k">for</span> <span class="n">resp</span> <span class="ow">in</span> <span class="n">responses</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">survey</span><span class="o">.</span><span class="n">store_response</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+      <span class="k">for</span> <span class="n">resp</span> <span class="ow">in</span> <span class="n">responses</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">survey</span><span class="o">.</span><span class="n">responses</span><span class="p">)</span>
+</pre>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/python-crash-notes/07-files-and-exceptions-and-storing-data/" class="u-url">Files and Exceptions and Storing Data</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-07T15:05:56+08:00" title="2016-09-07 15:05">2016-09-07 15:05</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Files</h3>
+<h4>Filepath</h4>
+<ul>
+<li>A <em>relative path</em> is a to look for a given location relative to the directory where the currently running program file is stored.  </li>
+<li>An <em>absolute path</em> is exactly the file location on your computer, regardless of where the program being executed is stored.  </li>
+<li>
+<code>os.getcwd</code> returns current working directory.  Remember to <code>import os</code>.</li>
+</ul>
+<h4>Reading an Entire File</h4>
+<ul>
+<li>pi_digits.txt</li>
+</ul>
+<pre class="code literal-block"><span></span>3.1415926535
+  8979323846
+  2643383279
+</pre>
+
+
+<ul>
+<li>file_reader.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'pi_digits.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span>
+    <span class="n">contents</span> <span class="o">=</span> <span class="n">file_object</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>output:</li>
+</ul>
+<pre class="code literal-block"><span></span>3.1415926535
+  8979323846
+  2643383279
+</pre>
+
+
+<ul>
+<li>Note that output has an extra blank line, because read() returns an empty string when it reaches the end of the file.  To remove the extra blank line, use rstrip().  --&gt; <code>print(contents.rstrip())</code>
+</li>
+</ul>
+<h4>Reading a File Line by Line</h4>
+<ul>
+<li>file_reader.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'pi_digits.txt'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file_object</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span> <span class="c1"># rstrip() removes the blank lines from .read()</span>
+</pre>
+
+
+<h4>Making a List of Lines from a File</h4>
+<ul>
+<li>file_reader.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'pi_digits.txt'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">file_object</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+  <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span> <span class="c1"># rstrip() removes the blank lines from .read()</span>
+</pre>
+
+
+<h4>Working with a File's Contents</h4>
+<ul>
+<li>file_reader.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'pi_digits.txt'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">file_object</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+  <span class="n">pi_string</span> <span class="o">=</span> <span class="s1">''</span>
+  <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="n">pi_string</span> <span class="o">+=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span> <span class="c1"># rstrip() removes the blank lines from .read()</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="n">pi_string</span><span class="p">)</span> <span class="c1"># prints 3.1415926535  8979323846  2643383279</span>
+  <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pi_string</span><span class="p">))</span> <span class="c1"># prints 36 due to blank spaces for 2nd and 3rd lines</span>
+
+  <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="n">pi_string</span> <span class="o">+=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="c1"># strip all blank spaces and lines</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="n">pi_string</span><span class="p">)</span> <span class="c1"># prints 3.141592653589793238462643383279</span>
+  <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pi_string</span><span class="p">))</span> <span class="c1"># prints 32 due to blank spaces for 2nd and 3rd lines</span>
+</pre>
+
+
+<h4>Writing to a File</h4>
+<ul>
+<li>write_message.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'writing.txt'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span> <span class="c1"># 'w' denote writing mode</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"I test writing."</span><span class="p">)</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"I test writing second line."</span><span class="p">)</span>
+
+  <span class="c1"># Both these sentences will be written in one /same line.  </span>
+</pre>
+
+
+<ul>
+<li>Insert line break.  </li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'writing.txt'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span> <span class="c1"># 'w' denote writing mode</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"I test writing. </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"I test writing second line. </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+  <span class="c1"># Both these sentences will be written in separate line.  </span>
+</pre>
+
+
+<h4>Appending to a File</h4>
+<ul>
+<li>write_message.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'writing.txt'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span> <span class="c1"># 'a' denotes append</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"I test writing more."</span><span class="p">)</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"I test writing the last line."</span><span class="p">)</span>
+
+  <span class="c1"># Both these sentences will be appended to previous file content.  </span>
+</pre>
+
+
+<h3>Exceptions</h3>
+<ul>
+<li>Python uses exceptions to manage errors that arise during a program's execution.  It is advisable to write code that handles exceptions properly so the program continues running.  If not, the program will halt and show a <em>traceback</em>, which includes a report of the exception that was raised.</li>
+<li>A couple of common Python exceptions are ZeroDivisionError and FileNotFound exceptions.</li>
+</ul>
+<h4>try-except-else block</h4>
+<ul>
+<li>division.py (example of try-except block)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">print</span><span class="p">(</span><span class="s2">"Give me two numbers, I will divide them."</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s2">"Enter 'q' to quit."</span><span class="p">)</span>
+
+  <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">first_num</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">First Number: "</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">first_num</span> <span class="o">==</span> <span class="s1">'q'</span><span class="p">:</span>
+      <span class="k">break</span>
+    <span class="n">sec_num</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Second Number: "</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">sec_num</span> <span class="o">==</span> <span class="s1">'q'</span><span class="p">:</span>
+      <span class="k">break</span>
+
+    <span class="k">try</span><span class="p">:</span>
+      <span class="n">answer</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">first_num</span><span class="p">)</span> <span class="o">/</span> <span class="nb">int</span><span class="p">(</span><span class="n">sec_num</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"You can't divide by 0!"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1"># proceed if no ZeroDivisionError exception</span>
+      <span class="k">print</span> <span class="n">answer</span>
+</pre>
+
+
+<ul>
+<li>alice.py (example of handling FileNotFound exception)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'alice.txt'</span>
+
+  <span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">fobj</span><span class="p">:</span>
+      <span class="n">contents</span> <span class="o">=</span> <span class="n">fobj</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+  <span class="k">except</span> <span class="n">FileNotFoundError</span><span class="p">:</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s2">"Sorry, the file "</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">" doesn't exist. "</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">contents</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">word_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"The file "</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">" has about "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">word_count</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" words."</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>word_count.py (example of working with multiple files)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">def</span> <span class="nf">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">""" Count the approximate number of words in a file """</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">fobj</span><span class="p">:</span>
+        <span class="n">contents</span> <span class="o">=</span> <span class="n">fobj</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">FileNotFoundError</span><span class="p">:</span>
+      <span class="n">msg</span> <span class="o">=</span> <span class="s2">"Sorry, the file "</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">" doesn't exist. "</span>
+      <span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">words</span> <span class="o">=</span> <span class="n">contents</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+      <span class="n">word_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"The file "</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">" has about "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">word_count</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" words."</span><span class="p">)</span>
+
+  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'alice.txt'</span>
+  <span class="n">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+  <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'alice.txt'</span><span class="p">,</span> <span class="s1">'siddharta.txt'</span><span class="p">,</span> <span class="s1">'moby_dick.txt'</span><span class="p">,</span> <span class="s1">'little_women.txt'</span><span class="p">]</span>
+  <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+    <span class="n">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</pre>
+
+
+<h4>Failing silently</h4>
+<ul>
+<li>word_count.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">def</span> <span class="nf">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">""" Count the approximate number of words in a file """</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">fobj</span><span class="p">:</span>
+        <span class="n">contents</span> <span class="o">=</span> <span class="n">fobj</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">FileNotFoundError</span><span class="p">:</span>
+      <span class="k">pass</span> <span class="c1"># pass is used to silent the error.  Often times used as a placeholder as well.</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">words</span> <span class="o">=</span> <span class="n">contents</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+      <span class="n">word_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"The file "</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">" has about "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">word_count</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" words."</span><span class="p">)</span>
+
+  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'alice.txt'</span>
+  <span class="n">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+  <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'alice.txt'</span><span class="p">,</span> <span class="s1">'siddharta.txt'</span><span class="p">,</span> <span class="s1">'moby_dick.txt'</span><span class="p">,</span> <span class="s1">'little_women.txt'</span><span class="p">]</span>
+  <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+    <span class="n">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</pre>
+
+
+<h3>Storing Data</h3>
+<h4>json.dump() and json.load()</h4>
+<ul>
+<li>num_write.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">json</span>
+
+  <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">]</span>
+  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'prime.json'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fobj</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">fobj</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>num_read.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">json</span>
+
+  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'prime.json'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">fobj</span><span class="p">:</span>
+    <span class="n">primes</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fobj</span><span class="p">)</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="n">primes</span><span class="p">)</span>
+</pre>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/python-crash-notes/06-classes-instances-inheritance/" class="u-url">Classes, Instances and Inheritance</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-07T13:12:46+08:00" title="2016-09-07 13:12">2016-09-07 13:12</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Classes</h3>
+<ul>
+<li>dog.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">class</span> <span class="nc">Dog</span><span class="p">():</span> <span class="c1"># define class with class_name</span>
+    <span class="sd">""" A simple attempt to model a dog """</span> <span class="c1">#docstring describing what this class does.  </span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+      <span class="sd">""" Initialize name and age attributes """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+    <span class="k">def</span> <span class="nf">sit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Simulate a dog sitting in response to command """</span>
+      <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="o">+</span> <span class="s2">" is now sitting."</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">roll_over</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Simulate a dog rolling over in response to a command """</span>
+      <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="o">+</span> <span class="s2">" rolled over!"</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>
+<code>my_dog = Dog('willie', 6)</code> // makes an instance of dog.  </li>
+<li>
+<code>print("My dog's name is " + my_dog.name.title() + ".")</code> // access name of my_dog.</li>
+<li>
+<code>print("My dog is " + str(my_dog.age) + " years old.")</code> // access age of my_dog.</li>
+<li>
+<code>my_dog.sit()</code> // calling sit method</li>
+<li>
+<code>my_dog.roll_over()</code> // calling roll_over method.</li>
+<li>car.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">class</span> <span class="nc">Car</span><span class="p">():</span>
+    <span class="sd">""" A simple attempt to represent a car. """</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+      <span class="sd">""" Initialize attributes to describe a car. """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">make</span> <span class="o">=</span> <span class="n">make</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">year</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># setting default value for an attribute</span>
+
+    <span class="k">def</span> <span class="nf">get_descriptive_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Return a neatly formatted descriptive name."""</span>
+      <span class="n">long_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">make</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
+      <span class="k">return</span> <span class="n">long_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">read_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Print a statement showing the car's mileage."""</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"This car has "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" miles on it."</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mileage</span><span class="p">):</span>
+      <span class="sd">"""</span>
+<span class="sd">      Set the odometer reading to new value.</span>
+<span class="sd">      Rejects if it attempts to roll the odometer back.</span>
+<span class="sd">      """</span>
+      <span class="k">if</span> <span class="n">mileage</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="n">mileage</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"You are not allowed to roll back an odometer"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">increment_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">miles</span><span class="p">):</span>
+      <span class="sd">""" Add the given amount to odometer reading """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">+=</span> <span class="n">miles</span>
+
+    <span class="k">def</span> <span class="nf">fill_gas_tank</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" A function to simulate filing gas tank of a car """</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"Gas tank is filled to full."</span><span class="p">)</span>
+
+  <span class="n">my_car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s1">'audi'</span><span class="p">,</span> <span class="s1">'a4'</span><span class="p">,</span> <span class="mi">2016</span><span class="p">)</span> <span class="c1">#instantiating a car (create an instance of car)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_car</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>  
+  <span class="n">my_car</span><span class="o">.</span><span class="n">read_odometer</span><span class="p">()</span> <span class="c1"># calling method to read odometer value</span>
+  <span class="n">my_car</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="mi">45</span> <span class="c1"># modifying an attribute's value directly</span>
+  <span class="n">my_car</span><span class="o">.</span><span class="n">read_odometer</span><span class="p">()</span> <span class="c1"># calling method to read odometer value again</span>
+  <span class="n">my_car</span><span class="o">.</span><span class="n">update_odometer</span><span class="p">(</span><span class="mi">78</span><span class="p">)</span> <span class="c1"># modifying an attribute's value through a method</span>
+  <span class="n">my_car</span><span class="o">.</span><span class="n">read_odometer</span><span class="p">()</span> <span class="c1"># calling method to read odometer value again</span>
+  <span class="n">my_car</span><span class="o">.</span><span class="n">increment_odometer</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># increment a set amount of miles to odometer</span>
+  <span class="n">my_car</span><span class="o">.</span><span class="n">read_odometer</span><span class="p">()</span> <span class="c1"># calling method to read odometer value again</span>
+
+
+  <span class="k">class</span> <span class="nc">Battery</span><span class="p">():</span>
+    <span class="sd">""" A simple attempt to model a battery for an electric car """</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">battery_size</span> <span class="o">=</span> <span class="mi">70</span><span class="p">):</span>
+      <span class="sd">""" Initialize the battery's attributes. """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">=</span> <span class="n">battery_size</span>
+
+    <span class="k">def</span> <span class="nf">describe_battery</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Print a statement describing the battery size """</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"This car has a "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"-kWh battery."</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_range</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Print a statement about the range this battery provides """</span>
+      <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">==</span> <span class="mi">70</span><span class="p">:</span>
+        <span class="nb">range</span> <span class="o">=</span> <span class="mi">240</span>
+      <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">==</span> <span class="mi">85</span><span class="p">:</span>
+        <span class="nb">range</span> <span class="o">=</span> <span class="mi">270</span>
+      <span class="n">message</span> <span class="o">=</span> <span class="s2">"This car can go approximately "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">range</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" miles on a full charge."</span>
+      <span class="k">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+  <span class="k">class</span> <span class="nc">ElectricCar</span><span class="p">(</span><span class="n">Car</span><span class="p">):</span>
+    <span class="sd">""" Represents aspects of a car, but specific to electric vehicle. """</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+      <span class="sd">""" Initialize attributes of the parent class """</span>
+      <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+      <span class="sd">""" Initialize attributes specific to an electric car """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">=</span> <span class="mi">70</span> <span class="c1"># specifying initial battery size</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">=</span> <span class="n">Battery</span><span class="p">()</span> <span class="c1"># initialize a battery object</span>
+
+    <span class="c1"># Method Moved to Battery Class</span>
+    <span class="c1">#def describe_battery(self):</span>
+    <span class="c1">#  """ Print a statement describing the battery size """</span>
+    <span class="c1">#  print("This car has a " + str(self.battery_size) + "-kWh battery.")</span>
+
+    <span class="k">def</span> <span class="nf">fill_gas_tank</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># overwrite parent class car's method</span>
+      <span class="sd">""" Electric Car has no gas tanks """</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"This car doesn't have a gas tank!"</span><span class="p">)</span>
+
+  <span class="n">my_tesla</span> <span class="o">=</span> <span class="n">ElectricCar</span><span class="p">(</span><span class="s1">'tesla'</span><span class="p">,</span> <span class="s1">'model s'</span><span class="p">,</span> <span class="mi">2016</span><span class="p">)</span> <span class="c1">#instantiating an electric car (create an instance of electric car)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_tesla</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>  
+  <span class="n">my_tesla</span><span class="o">.</span><span class="n">describe_battery</span><span class="p">()</span> <span class="c1"># if battery isn't a separate class.</span>
+  <span class="n">my_tesla</span><span class="o">.</span><span class="n">battery</span><span class="o">.</span><span class="n">describe_battery</span><span class="p">()</span> <span class="c1"># if battery is its separate own class.</span>
+  <span class="n">my_tesla</span><span class="o">.</span><span class="n">battery</span><span class="o">.</span><span class="n">get_range</span><span class="p">()</span>
+</pre>
+
+
+<h4>Importing Class</h4>
+<ul>
+<li>The above examples show classes stored in a same file.  When more functionality added to the classes, the file could get long. Thus it is a good idea to store classes in modules and import the classes as needed.  </li>
+<li>car.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">class</span> <span class="nc">Car</span><span class="p">():</span>
+    <span class="sd">""" A simple attempt to represent a car. """</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+      <span class="sd">""" Initialize attributes to describe a car. """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">make</span> <span class="o">=</span> <span class="n">make</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">year</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># setting default value for an attribute</span>
+
+    <span class="k">def</span> <span class="nf">get_descriptive_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Return a neatly formatted descriptive name."""</span>
+      <span class="n">long_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">make</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
+      <span class="k">return</span> <span class="n">long_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">read_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Print a statement showing the car's mileage."""</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"This car has "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" miles on it."</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mileage</span><span class="p">):</span>
+      <span class="sd">"""</span>
+<span class="sd">      Set the odometer reading to new value.</span>
+<span class="sd">      Rejects if it attempts to roll the odometer back.</span>
+<span class="sd">      """</span>
+      <span class="k">if</span> <span class="n">mileage</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="n">mileage</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"You are not allowed to roll back an odometer"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">increment_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">miles</span><span class="p">):</span>
+      <span class="sd">""" Add the given amount to odometer reading """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">+=</span> <span class="n">miles</span>
+
+    <span class="k">def</span> <span class="nf">fill_gas_tank</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" A function to simulate filing gas tank of a car """</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"Gas tank is filled to full."</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>my_car.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">car</span> <span class="kn">import</span> <span class="n">Car</span>
+  <span class="n">my_car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s1">'audi'</span><span class="p">,</span> <span class="s1">'a4'</span><span class="p">,</span> <span class="mi">2016</span><span class="p">)</span> <span class="c1">#instantiating a car (create an instance of car)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_car</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>  
+  <span class="n">my_car</span><span class="o">.</span><span class="n">read_odometer</span><span class="p">()</span> <span class="c1"># calling method to read odometer value</span>
+  <span class="n">my_car</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="mi">45</span> <span class="c1"># modifying an attribute's value directly</span>
+  <span class="n">my_car</span><span class="o">.</span><span class="n">read_odometer</span><span class="p">()</span> <span class="c1"># calling method to read odometer value again</span>
+</pre>
+
+
+<h4>Multiple Classes in one Module</h4>
+<ul>
+<li>You could store multiple classes in one module, for example keeping both class Car and class ElectricCar in the same file as Car.py, as shown below again.</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">class</span> <span class="nc">Car</span><span class="p">():</span>
+    <span class="sd">""" A simple attempt to represent a car. """</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+      <span class="sd">""" Initialize attributes to describe a car. """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">make</span> <span class="o">=</span> <span class="n">make</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">year</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># setting default value for an attribute</span>
+
+    <span class="k">def</span> <span class="nf">get_descriptive_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Return a neatly formatted descriptive name."""</span>
+      <span class="n">long_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">make</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
+      <span class="k">return</span> <span class="n">long_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">read_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Print a statement showing the car's mileage."""</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"This car has "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" miles on it."</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mileage</span><span class="p">):</span>
+      <span class="sd">"""</span>
+<span class="sd">      Set the odometer reading to new value.</span>
+<span class="sd">      Rejects if it attempts to roll the odometer back.</span>
+<span class="sd">      """</span>
+      <span class="k">if</span> <span class="n">mileage</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="n">mileage</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"You are not allowed to roll back an odometer"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">increment_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">miles</span><span class="p">):</span>
+      <span class="sd">""" Add the given amount to odometer reading """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">+=</span> <span class="n">miles</span>
+
+    <span class="k">def</span> <span class="nf">fill_gas_tank</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" A function to simulate filing gas tank of a car """</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"Gas tank is filled to full."</span><span class="p">)</span>
+
+  <span class="k">class</span> <span class="nc">ElectricCar</span><span class="p">(</span><span class="n">Car</span><span class="p">):</span>
+    <span class="sd">""" Represents aspects of a car, but specific to electric vehicle. """</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+      <span class="sd">""" Initialize attributes of the parent class """</span>
+      <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+      <span class="sd">""" Initialize attributes specific to an electric car """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">=</span> <span class="n">Battery</span><span class="p">()</span> <span class="c1"># initialize a battery object</span>
+
+    <span class="k">def</span> <span class="nf">fill_gas_tank</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># overwrite parent class car's method</span>
+      <span class="sd">""" Electric Car has no gas tanks """</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"This car doesn't have a gas tank!"</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>my_electric_car.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">car</span> <span class="kn">import</span> <span class="n">ElectricCar</span>
+  <span class="n">my_tesla</span> <span class="o">=</span> <span class="n">ElectricCar</span><span class="p">(</span><span class="s1">'tesla'</span><span class="p">,</span> <span class="s1">'model s'</span><span class="p">,</span> <span class="mi">2016</span><span class="p">)</span> <span class="c1">#instantiating an electric car (create an instance of electric car)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_tesla</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>  
+  <span class="n">my_tesla</span><span class="o">.</span><span class="n">describe_battery</span><span class="p">()</span> <span class="c1"># if battery isn't a separate class.</span>
+  <span class="n">my_tesla</span><span class="o">.</span><span class="n">battery</span><span class="o">.</span><span class="n">describe_battery</span><span class="p">()</span> <span class="c1"># if battery is its separate own class.</span>
+  <span class="n">my_tesla</span><span class="o">.</span><span class="n">battery</span><span class="o">.</span><span class="n">get_range</span><span class="p">()</span>
+</pre>
+
+
+<h4>Importing Multiple Classes from a Module</h4>
+<ul>
+<li>my_cars.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">car</span> <span class="kn">import</span> <span class="n">Car</span><span class="p">,</span> <span class="n">ElectricCar</span>
+
+  <span class="n">my_toyota</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s1">'Toyota'</span><span class="p">,</span> <span class="s1">'Corola'</span><span class="p">,</span> <span class="mi">2003</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_toyota</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>
+
+  <span class="n">my_tesla</span> <span class="o">=</span> <span class="n">ElectricCar</span><span class="p">(</span><span class="s1">'tesla'</span><span class="p">,</span> <span class="s1">'roadster'</span><span class="p">,</span> <span class="mi">2016</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_tesla</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>
+</pre>
+
+
+<h4>Importing Entire Module</h4>
+<ul>
+<li>my_cars.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">car</span>
+
+  <span class="n">my_toyota</span> <span class="o">=</span> <span class="n">car</span><span class="o">.</span><span class="n">Car</span><span class="p">(</span><span class="s1">'Toyota'</span><span class="p">,</span> <span class="s1">'Corola'</span><span class="p">,</span> <span class="mi">2003</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_toyota</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>
+
+  <span class="n">my_tesla</span> <span class="o">=</span> <span class="n">car</span><span class="o">.</span><span class="n">ElectricCar</span><span class="p">(</span><span class="s1">'tesla'</span><span class="p">,</span> <span class="s1">'roadster'</span><span class="p">,</span> <span class="mi">2016</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_tesla</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>
+</pre>
+
+
+<h4>Importing a Module into a Module</h4>
+<ul>
+<li>You could also separate Car.py for generic cars properties, and keep all electric car related properties in electric_car.py</li>
+<li>car.py</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="k">class</span> <span class="nc">Car</span><span class="p">():</span>
+  <span class="sd">""" A simple attempt to represent a car. """</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+    <span class="sd">""" Initialize attributes to describe a car. """</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">make</span> <span class="o">=</span> <span class="n">make</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">year</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># setting default value for an attribute</span>
+
+  <span class="k">def</span> <span class="nf">get_descriptive_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">""" Return a neatly formatted descriptive name."""</span>
+    <span class="n">long_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">make</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
+    <span class="k">return</span> <span class="n">long_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">read_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">""" Print a statement showing the car's mileage."""</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"This car has "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" miles on it."</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">update_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mileage</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Set the odometer reading to new value.</span>
+<span class="sd">    Rejects if it attempts to roll the odometer back.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">mileage</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="n">mileage</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"You are not allowed to roll back an odometer"</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">increment_odometer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">miles</span><span class="p">):</span>
+    <span class="sd">""" Add the given amount to odometer reading """</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">+=</span> <span class="n">miles</span>
+
+  <span class="k">def</span> <span class="nf">fill_gas_tank</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">""" A function to simulate filing gas tank of a car """</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Gas tank is filled to full."</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>electric_car.py</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">car</span> <span class="kn">import</span> <span class="n">Car</span>
+
+<span class="k">class</span> <span class="nc">Battery</span><span class="p">():</span>
+  <span class="sd">""" A simple attempt to model a battery for an electric car """</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">battery_size</span> <span class="o">=</span> <span class="mi">70</span><span class="p">):</span>
+    <span class="sd">""" Initialize the battery's attributes. """</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">=</span> <span class="n">battery_size</span>
+
+  <span class="k">def</span> <span class="nf">describe_battery</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">""" Print a statement describing the battery size """</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"This car has a "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"-kWh battery."</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">get_range</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">""" Print a statement about the range this battery provides """</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">==</span> <span class="mi">70</span><span class="p">:</span>
+      <span class="nb">range</span> <span class="o">=</span> <span class="mi">240</span>
+    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">==</span> <span class="mi">85</span><span class="p">:</span>
+      <span class="nb">range</span> <span class="o">=</span> <span class="mi">270</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">"This car can go approximately "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">range</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" miles on a full charge."</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">ElectricCar</span><span class="p">(</span><span class="n">Car</span><span class="p">):</span>
+  <span class="sd">""" Represents aspects of a car, but specific to electric vehicle. """</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+    <span class="sd">""" Initialize attributes of the parent class """</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+    <span class="sd">""" Initialize attributes specific to an electric car """</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">battery_size</span> <span class="o">=</span> <span class="n">Battery</span><span class="p">()</span> <span class="c1"># initialize a battery object</span>
+
+  <span class="k">def</span> <span class="nf">fill_gas_tank</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># overwrite parent class car's method</span>
+    <span class="sd">""" Electric Car has no gas tanks """</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"This car doesn't have a gas tank!"</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>my_cars.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">car</span> <span class="kn">import</span> <span class="n">Car</span>
+  <span class="kn">from</span> <span class="nn">electric_car</span> <span class="kn">import</span> <span class="n">ElectricCar</span>
+
+  <span class="n">my_toyota</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s1">'Toyota'</span><span class="p">,</span> <span class="s1">'Corola'</span><span class="p">,</span> <span class="mi">2003</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_toyota</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>
+
+  <span class="n">my_tesla</span> <span class="o">=</span> <span class="n">ElectricCar</span><span class="p">(</span><span class="s1">'tesla'</span><span class="p">,</span> <span class="s1">'roadster'</span><span class="p">,</span> <span class="mi">2016</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">my_tesla</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>
+</pre>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/python-crash-notes/05-functions-modules/" class="u-url">Functions and Modules</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-07T11:14:55+08:00" title="2016-09-07 11:14">2016-09-07 11:14</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Functions</h3>
+<ul>
+<li>
+<code>def function_name():</code> // define a function</li>
+</ul>
+<h4>Parameters and Arguments</h4>
+<ul>
+<li>
+<code>def describe_pet(animal_type, pet_name):</code> // define function describe_pet with parameter animal_type and pet_name</li>
+<li>
+<code>describe_pet('dog', 'willie')</code> // calling function describe_pet and passing 'dog' and 'willie' as positional arguments, order matters.</li>
+<li>
+<code>describe_pet(animal_type = 'dog', pet_name = 'willie')</code> or <code>describe_pet(pet_name = 'harry', animal_type = 'hamster', )</code> // calling function describe_pet and passing 'dog' and 'willie' as positional arguments, order doesn't matter.</li>
+<li>
+<code>def describe_pet(pet_name, animal_type = 'dog'):</code> // define function describe_pet with parameter animal_type, its default value 'dog' and pet_name.  Parameter with default value usually listed last.</li>
+<li>
+<code>def get_formatted_name(fname, lname, mname=''):</code> // define function get_formatted_name with parameters fname, lname, and optional mname.  Optional parameter also listed last.</li>
+<li>When a list is passed to a function, the function can modify the list.  Any changes made to the list inside the function's body are permanent.  </li>
+<li>Sometimes, you may decide you want to keep the original list unchanged.  In that case, you may pass the function with a copy of the list.</li>
+<li>
+<code>function_name(list_name[:])</code> // calling function_name and pass a copy of list_name by ' list_name[:] '</li>
+</ul>
+<h4>Passing an Arbitrary Number of Arguments</h4>
+<ul>
+<li>Sometimes you won't know ahead of times how many arguments a function needs to accept.  In this case, we define a function with *parameter to collect as many arguments as the calling line provides.</li>
+<li>
+<code>def make_pizza(*toppings):</code> // the asterisk in the parameter name *toppings tells python to make an empty tuple and pack whatever values it receives into this tuple.  </li>
+<li>Eg: <code>make_pizza('pepperoni')</code> or <code>make_pizza('mushrooms', 'green peppers', 'extra cheese')</code>
+</li>
+<li>
+<code>def make_pizza(size, *toppings):</code> // mix positional and arbitrary arguments</li>
+<li>Eg: <code>make_pizza(16, 'pepperoni')</code> or <code>make_pizza(24, 'mushrooms', 'green peppers', 'extra cheese')</code>
+</li>
+</ul>
+<h4>Using Arbitrary Keyword Arguments</h4>
+<ul>
+<li>Sometimes you'll want to accept an arbitrary number of arguments, but won't know ahead of time what kind of information will be passed to the function.  In this case, you can write functions that accept as many key-value pair as the calling statement provides.</li>
+</ul>
+<pre class="code literal-block"><span></span>    <span class="k">def</span> <span class="nf">build_profile</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">lname</span><span class="p">,</span> <span class="o">**</span><span class="n">user_info</span><span class="p">):</span>
+          <span class="n">profile</span> <span class="o">=</span> <span class="p">{}</span>
+          <span class="n">profile</span><span class="p">[</span><span class="s1">'first_name'</span><span class="p">]</span> <span class="o">=</span> <span class="n">fname</span>
+          <span class="n">profile</span><span class="p">[</span><span class="s1">'last_name'</span><span class="p">]</span> <span class="o">=</span> <span class="n">lname</span>
+          <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">user_info</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+              <span class="n">profile</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+          <span class="k">return</span> <span class="n">profile</span>
+</pre>
+
+
+<ul>
+<li>**user_info represents an arbitrary number of keyword arguments.  </li>
+<li>Eg: <code>user_profile = build_profile('albert', 'einstein', location='princeton', field='physics')</code>
+</li>
+</ul>
+<h3>Modules</h3>
+<ul>
+<li>A module is a file ending in .py that contains the code you want to import to your program.  For example, to make a module that contains the function make_pizza(), move the function make_pizza() to a file pizza.py.  </li>
+<li>pizza.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">def</span> <span class="nf">make_pizza</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="o">*</span><span class="n">toppings</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Making a "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"-inch pizza with the following toppings: "</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">topping</span> <span class="ow">in</span> <span class="n">toppings</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"- "</span> <span class="o">+</span> <span class="n">topping</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>making_pizza.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">pizza</span>
+
+  <span class="n">pizza</span><span class="o">.</span><span class="n">make_pizza</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
+  <span class="n">pizza</span><span class="o">.</span><span class="n">make_pizza</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
+</pre>
+
+
+<h4>Importing Specific Functions</h4>
+<ul>
+<li><code>from module_name import function_name</code></li>
+<li><code>from module_name import function_0, function_1, function_2</code></li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">pizza</span> <span class="kn">import</span> <span class="n">make_pizza</span>
+
+  <span class="n">make_pizza</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
+  <span class="n">make_pizza</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
+</pre>
+
+
+<h4>Use as to Give a Function an Alias</h4>
+<ul>
+<li><code>from module_name import function_name as fn</code></li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">pizza</span> <span class="kn">import</span> <span class="n">make_pizza</span> <span class="k">as</span> <span class="n">mp</span>
+  <span class="n">mp</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
+  <span class="n">mp</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
+</pre>
+
+
+<h4>Use as to Give a Module an Alias</h4>
+<ul>
+<li><code>import module_name as mn</code></li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">pizza</span> <span class="kn">as</span> <span class="nn">p</span>
+  <span class="n">p</span><span class="o">.</span><span class="n">make_pizza</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
+  <span class="n">p</span><span class="o">.</span><span class="n">make_pizza</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
+</pre>
+
+
+<h4>Import All Functions in a Module</h4>
+<ul>
+<li><code>from module_name import *</code></li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">pizza</span> <span class="kn">import</span> <span class="o">*</span>
+  <span class="n">make_pizza</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
+  <span class="n">make_pizza</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>However it is best not to use this approach.  Python may see several functions or variables with the same name, and instead of importing all the functions separately it will overwrite the functions.</li>
+</ul>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/python-crash-notes/04-user-inputs-and-loops/" class="u-url">User Input and Loops</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-30T15:00:52+08:00" title="2016-08-30 15:00">2016-08-30 15:00</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Loops</h3>
+<h4>For Loop</h4>
+<ul>
+<li>
+<code>for x in {list_name}:</code> // loop through list_name list</li>
+<li>
+<code>for x in range(1, 10):</code> //  loop from 1 through 9, but NOT 10</li>
+<li>
+<code>for ky, val in {dictionary}.items():</code> // loop through key value pair in dictionary</li>
+</ul>
+<h4>While Loop</h4>
+<ul>
+<li>
+<code>while {list_name}:</code> // loop as long as list isn't empty</li>
+</ul>
+<pre class="code literal-block"><span></span>      <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="o">//</span> <span class="n">do</span> <span class="n">something</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre>
+
+
+<h4>Breaking Loop</h4>
+<ul>
+<li>To exit a while loop immediately without running any remaining code in the loop, regardless of the results of any conditional test, use the break statement.  </li>
+</ul>
+<pre class="code literal-block"><span></span>      <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="p">{</span><span class="n">some</span> <span class="n">condition</span><span class="p">}:</span>
+          <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+          <span class="o">//</span> <span class="n">do</span> <span class="n">something</span>
+</pre>
+
+
+<h4>Skip but Continue Looping</h4>
+<ul>
+<li>Rather than breaking out of a loop entirely without executing the rest of its code, use the continue statement to go back to the loop</li>
+</ul>
+<pre class="code literal-block"><span></span>      <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+          <span class="k">continue</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/python-crash-notes/03-lists-and-tuples-and-dictionaries/" class="u-url">Lists and Tuples and Dictionaries</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-30T14:29:09+08:00" title="2016-08-30 14:29">2016-08-30 14:29</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Lists</h3>
+<ul>
+<li>Lists are mutable.  Lists can be modified throughout the life of a programme.</li>
+<li>Accessing Element in a List<ul>
+<li>
+<code>bicycles[0]</code>, <code>bicycles[-1]</code>, <code>bicycles[3]</code>
+</li>
+</ul>
+</li>
+<li>Adding Elements to a List<ul>
+<li>
+<code>motorcycles.append('ducati')</code> // Add to end of the list</li>
+<li>
+<code>motorcycles.insert(0, 'ducati')</code> // Insert 'ducati' at position 0</li>
+</ul>
+</li>
+<li>Removing Element from a List<ul>
+<li>
+<code>del motorcycles[1]</code> // remove element by index</li>
+<li>
+<code>last_owned = motorcycles.pop()</code> // remove last element in motorcycles list and store as last_owned</li>
+<li>
+<code>most_expensive = motorcycles.pop(2)</code> // remove third element in motorcycles list and store as most_expensive</li>
+<li>
+<code>motorcycles.remove('yamaha')</code> // remove element by value</li>
+</ul>
+</li>
+<li>Organizing a List<ul>
+<li>
+<code>cars.sort()</code> // sorting permanently</li>
+<li>
+<code>cars.sort(reverse=True)</code> // sorting in reverse order, permanently</li>
+<li>
+<code>sorted(cars)</code> // temporarily sort a list</li>
+<li>
+<code>cars.reverse()</code> //simply reverse the order of the list</li>
+</ul>
+</li>
+<li>Length of a List<ul>
+<li>
+<code>len(cars)</code> // returns integer of element count in the list</li>
+</ul>
+</li>
+<li>Copying a List<ul>
+<li>
+<code>b = a[:]</code> // b copies a, and is separate list from a</li>
+</ul>
+</li>
+<li>Aliasing a List<ul>
+<li>
+<code>q = p</code> // q and p refers to same list object.</li>
+</ul>
+</li>
+<li>Looping through lists:<ul>
+<li><code>for x in {list_name}:</code></li>
+<li><code>for x in range(1, 10):</code></li>
+</ul>
+</li>
+</ul>
+<h3>Tuples</h3>
+<ul>
+<li>Just like strings, tuples is IMMUTABLE.</li>
+<li>Values of Tuples can be reassigned, or overwritten.  <ul>
+<li><code>tup = ('alice', 'not in', 'wonderland')</code></li>
+<li>
+<code>tup = ('alice', 'now in', 'wonderland')</code> //final value will be the last assigned value.</li>
+</ul>
+</li>
+<li>Tuples can be looped just like lists.</li>
+</ul>
+<h3>Dictionaries</h3>
+<ul>
+<li>Elements in dictionaries are stored in key-value pairs.</li>
+<li>Value is assessed by key.</li>
+<li>Looping through dictionaries:<ul>
+<li>
+<code>for x, y in dict.items():</code> // looping through x, y {key-value} pairs in dict</li>
+<li>
+<code>for ky in dict.keys():</code> // looping through all keys of dict dictionary</li>
+<li>
+<code>for val in dict.values():</code> // looping through all values of dict dictionary</li>
+<li>
+<code>set(dict.values())</code> // build a set by selecting unique items from dict.values()</li>
+</ul>
+</li>
+</ul>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/python-crash-notes/02-variables-and-simple-data-types/" class="u-url">Variables and Simple Data Types</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-30T13:58:19+08:00" title="2016-08-30 13:58">2016-08-30 13:58</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>String</h3>
+<ul>
+<li>Strings are NOT mutable.  </li>
+</ul>
+<h4>Methods</h4>
+<ul>
+<li>.title() : put string in camel case</li>
+<li>.upper() : put string in upper case</li>
+<li>.lower() : put string in lower case</li>
+<li>.rstrip() : stripping whitespace from the right</li>
+<li>.lstrip() : stripping whitespace from the left</li>
+<li>.strip() : stripping whitespace from both left and right</li>
+</ul>
+<h4>Other String Manipulations</h4>
+<ul>
+<li>" + " : plus sign is to concatenate strings together<ul>
+<li><code>print("Hello " + "!!!")</code></li>
+</ul>
+</li>
+<li>" \t " : tabs<ul>
+<li><code>print("Languages:\n\tPython\n\tC\n\tJavascript")</code></li>
+</ul>
+</li>
+<li>" \n " : new line<ul>
+<li><code>print("Languages:\nPython\nC\nJavascript")</code></li>
+</ul>
+</li>
+</ul>
+<h3>Numbers</h3>
+<h3>Number Types</h3>
+<ul>
+<li>Integers</li>
+<li>Floats</li>
+</ul>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/python-crash-notes/01-basics/" class="u-url">Python Basics and Philosophy</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-29T14:15:20+08:00" title="2016-08-29 14:15">2016-08-29 14:15</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>The Zen of Python</h3>
+<h4>by Tim Peters</h4>
+<p>:: Type <code>import this</code> in python CLI</p>
+<ul>
+<li><strong>Beautiful is better than ugly.</strong></li>
+<li><strong>Explicit is better than implicit.</strong></li>
+<li><strong>Simple is better than complex.</strong></li>
+<li>Complex is better than complicated.</li>
+<li>Flat is better than nested.</li>
+<li>Sparse is better than dense.</li>
+<li><strong>Readability counts.</strong></li>
+<li><strong>Special cases aren't special enough to break the rules.</strong></li>
+<li>Although practicality beats purity.</li>
+<li>Errors should never pass silently.</li>
+<li>Unless explicitly silenced.</li>
+<li><strong>In the face of ambiguity, refuse the temptation to guess.</strong></li>
+<li>There should be one -- and preferably only one -- obvious way to do it.  </li>
+<li>Although that way may not be obvious unless you are Dutch.  </li>
+<li>
+<strong>Now is better than never.</strong>  </li>
+<li>Although never is often better than <em>right</em> now</li>
+<li>If the implementation is hard to explain, it's a bad idea.  </li>
+<li>If the implementation is easy to explain, it may be a good idea.</li>
+<li>Namespaces are one honking good idea - let's do more of those!</li>
+</ul>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/descriptive-statistics/lesson-7/" class="u-url">Descriptive Statistics - Sampling Distributions</a></h1>
         <div class="metadata">
             <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-19T10:36:43+08:00" title="2016-08-19 10:36">2016-08-19 10:36</time></span>
         </div>
@@ -125,581 +1347,6 @@ n, increases.</li>
 </ul>
 </li>
 <li>Referring to the z-table, we can get the probability of a measurement of equal or less than \( x \) occurring.  </li>
-</ol>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/descriptive-statistics/lesson-5/" class="u-url">Descriptive Statistics - Standardizing</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-18T10:09:35+08:00" title="2016-08-18 10:09">2016-08-18 10:09</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h3>Lesson 5: Standardizing</h3>
-<ol>
-<li>If we are concerned about a proportion less than or greater than a certain value on a distribution, we should use RELATIVE FREQUENCIES.</li>
-<li>When a bin-size is too big, we can't tell for sure the detailed values of the bin; when a bin-size is too small, the distribution becomes more and more of a uniform distribution.  A predicament: We want a small bin size to have as much details as possible about the location of data values, relative to the rest of the distribution.  </li>
-<li>We solve this conundrum with a theoretical model of our distribution.</li>
-<li>Z score: how many standard deviation any number, x, is away from the mean.  We can convert any value from a normal distribution to a z score.  When we do this we standardize the distribution.  <ul>
-<li>\[ z = \frac{ x - \mu }{\sigma} \]</li>
-</ul>
-</li>
-<li>A negative z score means:<ul>
-<li>The original value, \( x \) is less than the mean, \( \mu \).</li>
-<li>The original value, \( x \) minus the mean, \( \mu \) is negative.</li>
-</ul>
-</li>
-<li>On a standardized distribution, the mean, \( \mu \) is 0.  </li>
-<li>On a standardized distribution, the standard deviation, \( \sigma \) is 1.</li>
-</ol>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/descriptive-statistics/lesson-4/" class="u-url">Descriptive Statistics - Variability</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-17T11:29:46+08:00" title="2016-08-17 11:29">2016-08-17 11:29</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h3>Lesson 4: Variability</h3>
-<h4>General Ideas of Variability</h4>
-<ol>
-<li>
-<strong>Range</strong>: The maximum data point minus the minimum data point.  </li>
-<li>
-<strong>Wide Spread</strong>: The data set has shorter and wider distribution.</li>
-<li>
-<strong>Consistency</strong>: When a data is more consistent, it forms taller and narrower distribution.  </li>
-<li>Outlier(s) usually widen the range of distribution and INCREASES variability.  Statisticians usually cut off outliers.</li>
-<li>1st Quartile, <strong>\( Q_{1} \)</strong>, is the 25% of the distribution, while 3rd Quartile, <strong>\( Q_{3} \)</strong>, is the 75% of the distribution.  2nd Quartile, also known as Median, is the 50% of the distribution.  </li>
-<li>
-<strong>Interquartile Range</strong>:<ul>
-<li><strong>\(IQR =  Q_{3} - Q_{1} \)</strong></li>
-</ul>
-</li>
-<li>Facts about <strong>\(IQR \)</strong>:<ul>
-<li>About 50% of data lies between IQR.</li>
-<li>IQR may or may not be affected by every value in the dataset.  </li>
-<li>IQR is NOT affected by outliers.</li>
-</ul>
-</li>
-<li>A data point is considered an outlier if any of the below is true:<ul>
-<li>\[ x_{outlier} &lt; Q_{1} - 1.5*IQR \]</li>
-<li>\[ x_{outlier} &gt; Q_{3} - 1.5*IQR \]</li>
-</ul>
-</li>
-</ol>
-<h4>Box Plots</h4>
-<ol>
-<li>Key Elements of Box Plots:<ul>
-<li>Max, Min (two handles of the box)</li>
-<li>\( Q_{1} \), \( Q_{3} \), \( Q_{2} \) (aka Median) forms the box, with Median in the center "splitting" the box.</li>
-<li>Outliers, drawn as dots next to /outside of Max and/or Min.  </li>
-</ul>
-</li>
-<li>Box plots sometimes don't tell about the distribution model of data.  The box plot for normal, bimodal, or uniform distribution are the same.</li>
-<li>Although usually the mean lies between \( Q_{1} \) and \( Q_{3} \), it may lie outside of it, if there are outliers.</li>
-</ol>
-<h4>Measuring Variability</h4>
-<ol>
-<li>To measure variability, we find the average distance between each data value and the mean.</li>
-<li>\[ Deviation, \delta = x_{i} - \bar{x} \]</li>
-<li>Average Deviation, \(\bar{\delta}\):<ul>
-<li>\[ \bar{\delta} = \frac{ \sum_{i=0}^N{  \lvert{x_{i} - \bar{x} } \rvert }}{N}\]</li>
-<li>\[ \bar{\delta} = \frac{ \sum_{i=0}^N{\lvert\bar{x} - x_{i}\rvert}}{N} \]</li>
-<li>\[ \bar{\delta} = \sum_{i=0}^N{\frac{ \lvert \bar{x} - x_{i} \rvert }{N}} \]</li>
-</ul>
-</li>
-<li>Squared Deviation, \( \delta^2 \):<ul>
-<li>\[ \delta^2 = {\lvert{x_{i} - \bar{x} } \rvert}^2 \]</li>
-</ul>
-</li>
-<li>Sum of Squares, \( \sum_{i=0}^N(\delta^2) \), aka \( SS \):<ul>
-<li>\[ SS = \sum_{i=0}^N{({x_{i} - \bar{x}})^2} \]</li>
-</ul>
-</li>
-<li>Variance, \( \sigma^2 \), which is simply the Mean of \( SS \), \( \bar{SS} \) is:<ul>
-<li>\[ \sigma^2 = \frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N} \]</li>
-</ul>
-</li>
-<li>Standard Deviation, \( \sigma \), is the square root of variance.  <ul>
-<li>\[ \sigma = \sqrt{\frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N}} \]</li>
-</ul>
-</li>
-<li>Why Standard Deviation? In a perfectly normal distribution where mean equals to median equals to mode, 68% of the data values would fall between \( -1 \sigma \) and \( +1 \sigma \), 95% of the data values will fall between \( -2 \sigma \) and \( +2 \sigma \)</li>
-<li>When a sample is taken from a population, the sample standard deviation is usually smaller than true standard deviation, \( \sigma \), of the population.  To correct that, we apply Bessel's Correction.  The corrected/estimation sample standard deviation, denoted as \( s \), and corresponding variance, will have the formulas below:<ul>
-<li>\[ s^2 = \frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N -1} \]</li>
-<li>\[ s = \sqrt{\frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N-1}} \]</li>
-</ul>
-</li>
-</ol>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/descriptive-statistics/lesson-3/" class="u-url">Descriptive Statistics - Central Tendency</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-16T15:09:38+08:00" title="2016-08-16 15:09">2016-08-16 15:09</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h3>Lesson 3: Central Tendency</h3>
-<h4>Some Definitions</h4>
-<ol>
-<li>
-<strong>Mode</strong>:<ul>
-<li>Mode is always on x-axis</li>
-<li>Mode can be used to describe any type of data we have, be it numerical or categorical</li>
-<li>All scores in a data set affects the mode.</li>
-<li>Even if we take a lot of samples from the same population, the mode will NOT be the same in each sample.</li>
-<li>There is NO equation for mode.</li>
-</ul>
-</li>
-<li>
-<strong>Mean</strong>:<ul>
-<li>All scores in a distribution affects a mean</li>
-<li>The mean can be describe with a formula.  As notated below:<ul>
-<li>\[ \mu  = \frac{ \sum{x} }{N} \]</li>
-<li>\[ \bar{x} = \frac{ \sum_{i=0}^{n}{x} }{n}\]</li>
-</ul>
-</li>
-<li>Many samples from the same population will have similar means.</li>
-<li>The means of a sample can be used to make inferences of a population it came from.</li>
-<li>The mean will change if we add an extreme value to the data set.  </li>
-</ul>
-</li>
-<li>
-<strong>Median</strong>:<ul>
-<li>Median is the middle of the data.</li>
-<li>When there is an even number of data points, the median is the average of the two middle scores, after arranged in ascending/descending order.  </li>
-<li>Median is generally Robust - Strong and Steady, Doesn't affected much by the outlier data.  </li>
-<li>Median serves as a better measurement for the center of the data when the data distribution is heavily skewed.  </li>
-<li>If dataset has EVEN number, n, of data,<ul>
-<li>\[  \frac{X_{\frac{n}{2}} + X_{\frac{n}{2} + 1}}{2} \]</li>
-</ul>
-</li>
-<li>If dataset has ODD number, n, of data,<ul>
-<li>\[ X_{\frac{n}{2} + 1} \]</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<strong>Conclusions of Measures of Center</strong>:<ul>
-<li>Mean, Mode and Median are measure of center for datasets.</li>
-<li>Mean has a simple equation.</li>
-<li>Mean will always change if any data value changes.</li>
-<li>While Mode IS affected by bin size, both Mean and Median are NOT affected by bin size.</li>
-<li>While Mean IS severely affected by outliers, Median and Mode are NOT severely affected by outliers.</li>
-<li>Mode is easy to find on histogram.  </li>
-</ul>
-</li>
-</ol>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/nikola-setup/" class="u-url">Setting Up Nikola, a Static Site Generator</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-15T11:32:11+08:00" title="2016-08-15 11:32">2016-08-15 11:32</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<p>A while back, I started to look into static site generators for building my professional and personal blog site.  I had used <a href="https://wordpress.org/" title="Wordpress">Wordpress</a> long ago, but want to practice programming in Python.  Recently I tried out <a href="https://medium.com/" title="Medium">Medium</a>, but find it rather limiting when it comes to formatting content, and to organizing my posts.   </p>
-<p>I want to use the opportunity to explore what's new out there and get my hands dirty in programming again.  While researching, I stumble upon this site for static site generator - <a href="https://www.staticgen.com/" title="StaticGen">StaticGen</a>.  After testing out briefly with Pelican and Nikola, At last I decided to go with <a href="https://getnikola.com/" title="Nikola">Nikola</a> .</p>
-<p>Nikola is rather lightweight, written with Python, supports contents written in markdown (my preferred way of writing content), and supports <a href="https://www.mathjax.org/" title="MathJax">MathJax</a> with a little tweaking.</p>
-<h4>Installation</h4>
-<p>The initial installation is rather basic.  First I install Nikola using pip.  Note that I install the extras as well, so I don't have to worry about them later.</p>
-<pre class="code literal-block"><span></span>$ pip install --upgrade <span class="s2">"Nikola[extras]"</span>
-</pre>
-
-
-<p>Then, I created a virtual environment and a project for this using  <a href="https://virtualenv.pypa.io/en/stable/" title="Python VirtualEnv"><code>virtualevn</code></a> and <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" title="Python VirtualEnvWrapper"><code>virtualevnwrapper</code></a>:</p>
-<pre class="code literal-block"><span></span>$ mkproject -p /usr/local/bin/python3 nikola
-$ workon nikola
-</pre>
-
-
-<p>Then I was able to initialize a Nikola site.  </p>
-<pre class="code literal-block"><span></span>$ nikola init <span class="o">{</span>site_name<span class="o">}</span>
-</pre>
-
-
-<p>Voila! We have a site!  Nikola has neat built-in commands. Check them out with <code>nikola help</code>.  For example, to create a new post, use the following:</p>
-<pre class="code literal-block"><span></span>$ nikola new_post <span class="o">{</span>post_name<span class="o">}</span>.md
-</pre>
-
-
-<p>I like to keep the nikola server running as I go through the edit/preview cycles, I typed</p>
-<pre class="code literal-block"><span></span>$ nikola auto -b
-</pre>
-
-
-<h4>Configurations</h4>
-<p>I used most of the default settings in the <code>config.py</code>, except for the following:</p>
-<pre class="code literal-block"><span></span># Category Settings #
-CATEGORY_PATH = "categories"
-CATEGORY_PREFIX = ""
-CATEGORY_ALLOW_HIERARCHIES = True
-CATEGORY_OUTPUT_FLAT_HIERARCHY = False
-CATEGORY_PAGES_ARE_INDEXES = False
-
-# Author Page #
-ENABLE_AUTHOR_PAGES = False
-
-# Archives Settings #
-CREATE_MONTHLY_ARCHIVE = True
-CREATE_DAILY_ARCHIVE = True
-ARCHIVE_PATH = "archives"
-ARCHIVE_FILENAME = "archives.html"
-
-# FavIcons #
-FAVICONS = (
-    ("icon", "{path to favicon}", "64x64"),
-    ("icon", "{path to favicon}", "512x512"),
-)
-
-# Hide Source Link #
-SHOW_SOURCELINK = False
-</pre>
-
-
-<h4>Organizing Content</h4>
-<p>Instead the built-in Category and Tag features, I am not quite satisfied with the way it organizes my content.  I prefer to organize my content a certain way.  So, in the <code>config.py</code>, I made the following settings:</p>
-<pre class="code literal-block"><span></span>POSTS = (
-    ("posts/*.md", "posts", "post.tmpl"),
-    ("course-notes/*.md", "course-notes", "post.tmpl"),
-    ("links/*.md", "links", "post.tmpl"),
-    ("books/*.md", "books", "post.tmpl"),
-    ("movies-shows/*.md", "movies-shows", "post.tmpl"),
-    ("music/*.md", "music", "post.tmpl"),
-)
-PAGES = (
-    ("pages/*.md", "pages", "story.tmpl"),
-)
-</pre>
-
-
-<p>Although Nikola offers two content types - post and page, I figure I only use the post type (for now at least).  I am simply keeping <code>PAGES</code> as is.   </p>
-<p>To add the corresponding content type to the navigation links,</p>
-<pre class="code literal-block"><span></span>NAVIGATION_LINKS = {
-    DEFAULT_LANG: (
-        ("/posts/index.html", "Articles"),
-        ("/course-notes/index.html", "Course Notes"),
-        ("/links/index.html", "Links"),
-        ("/books/index.html", "Books"),
-        ("/archives/archives.html", "Archives"),
-        ("/tags.html", "Tags"),
-    ),
-}
-</pre>
-
-
-<h4>Themes</h4>
-<p>Nikola's theme repo doesn't offer too extensive a choice. So I decided to make my own by following this very nicely written guide in <a href="http://nikola.readthedocs.io/en/latest/creating-a-theme/" title="Creating a Nikola Theme">creating your own theme</a>.  You may find <a href="https://github.com/chowy1026/nikola-themes/tree/hyde/v7/hyde" title="Nikola Theme - Hyde">my theme here</a>.  </p>
-<h4>Enabling MathJax</h4>
-<p>The steps to enable MathJax in Nikola are easy. First, add the following line to <code>templates\base_helper.tmpl</code>.</p>
-<pre class="code literal-block"><span></span>&lt;link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface"&gt;
-</pre>
-
-
-<p>Then add</p>
-<pre class="code literal-block"><span></span>MATHJAX_CONFIG = """
-    <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"</span><span class="nt">&gt;&lt;/script&gt;</span>
-    <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">"text/x-mathjax-config"</span><span class="nt">&gt;</span>
-        MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [ ['$','$'], ["\\\(","\\\)"] ],
-                displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ],
-                processEscapes: true
-            },
-            displayAlign: 'left', // Change this to 'center' to center equations.
-            "HTML-CSS": {
-                styles: {'.MathJax_Display': {"margin": 0}}
-            }
-        });
-    <span class="nt">&lt;/script&gt;</span>
-    <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">"text/x-mathjax-config"</span><span class="nt">&gt;</span>
-  MathJax.Hub.Queue(function() {
-    // Fix <span class="nt">&lt;code&gt;</span> tags after MathJax finishes running. This is a
-    // hack to overcome a shortcoming of Markdown. Discussion at
-    // https://github.com/mojombo/jekyll/issues/199
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i <span class="nt">&lt; all.length</span><span class="err">;</span> <span class="err">i</span> <span class="err">+=</span> <span class="err">1)</span> <span class="err">{</span>
-        <span class="err">all[i].SourceElement().parentNode.className</span> <span class="err">+=</span> <span class="err">'</span> <span class="err">has-jax';</span>
-    <span class="err">}</span>
-<span class="err">});</span>
-<span class="err">&lt;/script</span><span class="nt">&gt;</span>
-    """
-</pre>
-
-
-<p>and this</p>
-<pre class="code literal-block"><span></span>HIDDEN_TAGS = ['mathjax']
-</pre>
-
-
-<p>to <code>config.py</code>.  All set! In markdown, I can use
-<code>\\( {math expression} \\)</code> for inline math, and</p>
-<pre class="code literal-block"><span></span>\\[ {math expression} \\]
-</pre>
-
-
-<p>for block display.  For other references to <a href="https://www.mathjax.org/" title="MathJax">MathJax</a>, see <a href="https://mechowy.github.io/link/mathjax/" title="MathJax Reference Links">this link</a>.</p>
-<h4>GitHub Deploy</h4>
-<p>Admittedly, Git confuses me sometimes.  And the built-in command that Nikola offers is absolutely godsent.  It nicely push content to the master branch of your userpage repo, which is {github.username}.github.io, and keep source in the source branch.  </p>
-<p>Having had my empty <code>{github.username}.github.io</code> repo ready on github, I have these in my <code>config.py</code>:</p>
-<pre class="code literal-block"><span></span># DEPLOY_COMMANDS = {
-#    'default': [
-#        'git add .',
-#        "git commit -am 'Update'",
-#        'git push origin master',
-#        'git subtree split --prefix output -b gh-pages',
-#        'git push -f origin gh-pages:gh-pages',
-#        'git branch -D gh-pages'
-#    ]
-#}
-
-GITHUB_SOURCE_BRANCH = 'source'
-GITHUB_DEPLOY_BRANCH = 'master'
-
-GITHUB_REMOTE_NAME = 'origin'
-
-GITHUB_COMMIT_SOURCE = True
-</pre>
-
-
-<p><del> I am honestly a little confused whether or not the <code>DEPLOY_COMMANDS</code> is actually needed.  I looked into the github_deploy.py under the hood of Nikola, it seems the deploy commands are already predefined.  I need to further experiment whether the <code>nikola github_deploy</code> would work without a <code>DEPLOY_COMMANDS</code> defined in <code>config.py</code>.  Will update when I am 200% certain. </del></p>
-<p>Update: <code>nikola github_deploy</code> IS indeed GOD-SENT.  Without having to define <code>DEPLOY_COMMANDS</code>, it nicely does everything for us - push <code>output</code> content to master, and source to source.</p>
-<p><del>That said</del> Now, whenever I want to update content to my github page, I simply type:</p>
-<pre class="code literal-block"><span></span>$ nikola github_deploy
-</pre>
-
-
-<h4>Others</h4>
-<p>For additional features, there are <a href="https://github.com/getnikola/plugins" title="Nikola Plugins">plugins</a> that could be installed.  There is also a <a href="https://groups.google.com/forum/#!forum/nikola-discuss" title="Nikola Google Dicussion Group">Google Discussion Group for Nikola</a>.  </p>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="books/lolita/" class="u-url">Lolita - Vladimir Nabokov</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-12T11:10:40+08:00" title="2016-08-12 11:10">2016-08-12 11:10</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h3>Quotes</h3>
-<ul>
-<li>"Human life is but a series of footnotes to a vast obscure unfinished masterpiece"</li>
-<li>"He broke my heart. You merely broke my life."</li>
-<li>"It was love at first sight, at last sight, at ever and ever sight."</li>
-<li>"I knew I had fallen in love with Lolita forever; but I also knew she would not be forever Lolita."</li>
-<li>"You have to be an artist and a madman, a creature of infinite melancholy, with a bubble of hot poison in your loins and a super-voluptuous flame permanently aglow in your subtle spine (oh, how you have to cringe and hide!), in order to discern at once, by ineffable signs―the slightly feline outline of a cheekbone, the slenderness of a downy limbs, and other indices which despair and shame and tears of tenderness forbid me to tabulate―the little deadly demon among the wholesome children; she stands unrecognized by them and unconscious herself of her fantastic power."</li>
-<li>“I recall certain moments, let us call them icebergs in paradise, when after having had my fill of her –after fabulous, insane exertions that left me limp and azure-barred–I would gather her in my arms with, at last, a mute moan of human tenderness (her skin glistening in the neon light coming from the paved court through the slits in the blind, her soot-black lashes matted, her grave gray eyes more vacant than ever–for all the world a little patient still in the confusion of a drug after a major operation)–and the tenderness would deepen to shame and despair, and I would lull and rock my lone light Lolita in my marble arms, and moan in her warm hair, and caress her at random and mutely ask her blessing, and at the peak of this human agonized selfless tenderness (with my soul actually hanging around her naked body and ready to repent), all at once, ironically, horribly, lust would swell again–and 'oh, no,' Lolita would say with a sigh to heaven, and the next moment the tenderness and the azure–all would be shattered.”</li>
-<li>"if a violin string could ache, i would be that string."</li>
-<li>"Lolita, light of my life, fire of my loins. My sin, my soul. Lo-lee-ta: the tip of the tongue taking a trip of three steps down the palate to tap, at three, on the teeth. Lo. Lee. Ta. She was Lo, plain Lo, in the morning, standing four feet ten in one sock. She was Lola in slacks. She was Dolly at school. She was Dolores on the dotted line. But in my arms she was always Lolita. "</li>
-<li>“You know, what's so dreadful about dying is that you are completely on your own. and it struck me, as my automaton knees went up and down, that I simply did not know a thing about my darling's mind and that quite possibly, behind the awful juvenile cliches, there was in her a garden and a twilight, and a palace gate - dim and adorable regions which happened to be lucidly and absolutely forbidden to me, in my polluted rags and miserable convulsions...”</li>
-<li>“Don't touch me; I'll die if you touch me.”  </li>
-<li>“Despite our tiffs, despite her nastiness, despite all the fuss and faces she made, and the vulgarity, and the danger, and the horrible hopelessness of it all, I still dwelled deep in my elected paradise - a paradise whose skies were the color of hell-flames - but still a paradise.”</li>
-<li>“In a nervous and slender-leaved mimosa grove at the back of their villa we found a perch on the ruins of a low stone wall. She trembled and twitched as I kissed the corner of her parted lips and the hot lobe of her ear. A cluster of stars palely glowed above us between the silhouettes of long thin leaves; that vibrant sky seemed as naked as she was under her light frock. I saw her face in the sky, strangely distinct, as if it emitted a faint radiance of its own. Her legs, her lovely live legs, were not too close together, and when my hand located what it sought, a dreamy and eerie expression, half-pleasure, half-pain, came over those childish features. She sat a little higher than I, and whenever in her solitary ecstasy she was led to kiss me, her head would bend with a sleepy, soft, drooping movement that was almost woeful, and her bare knees caught and compressed my wrist, and slackened again; and her quivering mouth, distorted by the acridity of some mysterious potion, with a sibilant intake of breath came near to my face. She would try to relieve the pain of love by first roughly rubbing her dry lips against mine; then my darling would draw away with a nervous toss of her hair, and then again come darkly near and let me feed on her open mouth, while with a generosity that was ready to offer her everything, my heart, my throat, my entrails, I gave her to hold in her awkward fist the scepter of my passion.”</li>
-<li>“”</li>
-</ul>
-<h3>Poem Wanted, Wanted</h3>
-<p>Wanted, wanted: Dolores Haze.
-Hair: brown. Lips: scarlet.
-Age: five thousand three hundred days.
-Profession: none, or "starlet"</p>
-<p>Where are you hiding, Dolores Haze?
-Why are you hiding, darling?
-(I Talk in a daze, I walk in a maze
-I cannot get out, said the starling).</p>
-<p>Where are you riding, Dolores Haze?
-What make is the magic carpet?
-Is a Cream Cougar the present craze?
-And where are you parked, my car pet?</p>
-<p>Who is your hero, Dolores Haze?
-Still one of those blue-capped star-men?
-Oh the balmy days and the palmy bays,
-And the cars, and the bars, my Carmen!</p>
-<p>Oh Dolores, that juke-box hurts!
-Are you still dancin', darlin'?
-(Both in worn levis, both in torn T-shirts,
-And I, in my corner, snarlin').</p>
-<p>Happy, happy is gnarled McFate
-Touring the States with a child wife,
-Plowing his Molly in every State
-Among the protected wild life.</p>
-<p>My Dolly, my folly! Her eyes were vair,
-And never closed when I kissed her.
-Know an old perfume called Soliel Vert?
-Are you from Paris, mister?</p>
-<p>L'autre soir un air froid d'opera m'alita;
-Son fele -- bien fol est qui s'y fie!
-Il neige, le decor s'ecroule, Lolita!
-Lolita, qu'ai-je fait de ta vie?</p>
-<p>Dying, dying, Lolita Haze,
-Of hate and remorse, I'm dying.
-And again my hairy fist I raise,
-And again I hear you crying.</p>
-<p>Officer, officer, there they go--
-In the rain, where that lighted store is!
-And her socks are white, and I love her so,
-And her name is Haze, Dolores.</p>
-<p>Officer, officer, there they are--
-Dolores Haze and her lover!
-Whip out your gun and follow that car.
-Now tumble out and take cover.</p>
-<p>Wanted, wanted: Dolores Haze.
-Her dream-gray gaze never flinches.
-Ninety pounds is all she weighs
-With a height of sixty inches.</p>
-<p>My car is limping, Dolores Haze,
-And the last long lap is the hardest,
-And I shall be dumped where the weed decays,
-And the rest is rust and stardust.</p>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="links/nikola/" class="u-url">Helpful Links on Nikola</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-12T10:31:52+08:00" title="2016-08-12 10:31">2016-08-12 10:31</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h3>Primary References</h3>
-<ul>
-<li><a href="https://getnikola.com/" title="Nikola Homepage">Nikola Homepage</a></li>
-<li><a href="http://nikola.readthedocs.io/en/latest/" title="Nikola Documentation">Nikola Documentation</a></li>
-<li><a href="https://groups.google.com/forum/#!forum/nikola-discuss" title="Nikola Google Group">Nikola Google Group</a></li>
-<li><a href="https://github.com/getnikola/nikola" title="Nikola Github">Nikola Github</a></li>
-<li><a href="http://nikola.readthedocs.io/en/latest/creating-a-theme/" title="Theming Nikola">Theming Nikola</a></li>
-<li><a href="http://nikola.readthedocs.io/en/latest/manual/#math" title="MathJax on Nikola">MathJax on Nikola</a></li>
-<li><a href="http://sampathweb.com/posts/blogging-made-easy.html" title="GitHub DEPLOY_COMMANDS in Config.py">GitHub DEPLOY_COMMANDS in Config.py</a></li>
-</ul>
-<h3>Other Notable References</h3>
-<ul>
-<li><a href="http://louistiao.me/posts/how-i-customized-my-nikola-powered-site/" title="Louis Tiao's Guide">Louis Tiao's Guide</a></li>
-</ul>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/descriptive-statistics/lesson-1/" class="u-url">Descriptive Statistics - Research Methods</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-11T21:10:06+08:00" title="2016-08-11 21:10">2016-08-11 21:10</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h3>Lesson 1: Introduction to Research Methods</h3>
-<h4>Some Definitions</h4>
-<ol>
-<li>
-<p><strong>Constructs</strong></p>
-<ul>
-<li>
-<strong>Contruct</strong>: Anything that is difficult to measure because it can be defined and measured in very many different ways.</li>
-<li>
-<strong>Operational Definition</strong>: Operational Definitions {of a construct} is a unit of measurement for a construct.  Once an Operational Definitions is defined {for a construct}, it is no longer a construct.</li>
-<li>
-<strong>Extraneous Factors</strong>: Also known as "Lurking Variables", these factors that could impact the outcome of an experiment or test.  Extraneous factors should be held constant as much as possible to maximize accuracy of experiments/tests.</li>
-</ul>
-</li>
-<li>
-<p><strong>Samples and Populations</strong></p>
-<ul>
-<li>
-<strong>Population Parameter</strong>: denoted by \(  \mu \) (μ pronounced mu) are values that describe the whole population.</li>
-<li>
-<strong>Sample statistics</strong>: denoted by \( \overline{x} \) (pronounced as X-bar) are values that describe our sample.  Statistics are used to estimate/approximate the population parameter.</li>
-<li>
-<strong>Sampling Error</strong>: The difference of values between true population parameter and sample statistics.</li>
-<li>
-<strong>Sample Size</strong>: The size of the group that we choose to represent population.  The bigger the sample size, the smaller the sampling error generally.</li>
-</ul>
-</li>
-<li>
-<p><strong>Golden Arches Theory {of Conflict Prevention} by Thomas Friedman</strong></p>
-<ul>
-<li>Correlations doesn't mean causation: Just because two variables are relatable, it doesn't mean once causes the other to occur.  </li>
-</ul>
-</li>
-<li>
-<p><strong>Experiments vs Observational Studies</strong></p>
-<ul>
-<li>To show relationships =&gt; Perform observational studies i.e. surveys.<ul>
-<li>(+) Easy way to get information of a population,</li>
-<li>(+) Relatively inexpensive</li>
-<li>(+) Can be conducted remotely</li>
-<li>(+) Anyone could access and analyze survey results</li>
-<li>(-) Untruthful responses</li>
-<li>(-) Biased responses</li>
-<li>(-) Respondents not understanding the questions (Response Bias)</li>
-<li>(-) Respondents refuse to answer (Non-response Bias)</li>
-</ul>
-</li>
-<li>To show causation =&gt; Perform controlled experiments i.e.</li>
-</ul>
-</li>
-<li>
-<p><strong>Other Definitions</strong></p>
-<ul>
-<li>
-<strong>Treatments</strong>: The manner in which researchers handle subjects.</li>
-<li>
-<strong>Observational Studies</strong>: When an experimenter watches a group of subjects and does not introduce a treatment.</li>
-<li>
-<strong>Independent Variables</strong>: The variable that the experimenter chooses to manipulate, usually plotted along x-axis on a graph.</li>
-<li>
-<strong>Dependent Variables</strong>: The variable that the experimenter chooses to measure, usually plotted along y-axis on a graph.</li>
-<li>
-<strong>Treatment Group</strong>: The group of a study that receives a varying levels of independent variable, used to measure the effect of a treatment.</li>
-<li>
-<strong>Control Group</strong>: The group of study that doesn't receive treatment, used as a baseline when compared to treatment groups.</li>
-<li>
-<strong>Placebo</strong>: Something that is given to the control group so they think they are getting the treatment, when in reality it causes no effect on them.</li>
-<li>
-<strong>Blinding</strong>: A technique used to reduce bias, i.e. placebo is blinding.</li>
-<li>
-<strong>Double Blinding</strong>: A technique to ensure those who administer treatments and those receiving treatments do not know who is actually receiving which treatment.  </li>
-<li>
-<strong>Controlled Factors</strong>: Factors</li>
-<li>
-<strong>Random Assignments</strong>: A technique used to minimize impact of the other uncontrolled factors to the results of an experiment. Randomization works best with larger groups.</li>
-<li>
-<strong>Within-Subject Design</strong>: A technique to see how a factor influences the impact we are measuring, for the same study subject, keeping other controlled and uncontrolled factors constant.</li>
-</ul>
-</li>
-</ol>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/descriptive-statistics/lesson-2/" class="u-url">Descriptive Statistics - Lesson 2</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-11T21:04:36+08:00" title="2016-08-11 21:04">2016-08-11 21:04</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h3>Lesson 2: Visualizing Data</h3>
-<h4>Some Definitions</h4>
-<ol>
-<li><strong>Frequencies</strong></li>
-<li>
-<strong>Frequencies</strong>: The number of times a certain outcome occurs.</li>
-<li>
-<strong>Relative Frequencies</strong>: The probability (0.0 - 1.0) of an outcome happening in comparison to other outcomes.</li>
-<li>
-<strong>Proportion</strong>: A proportion is the fraction of counts over the total sample.A proportion can be turned into a percentage by multiplying the proportion by 100.</li>
-<li><strong>Histogram</strong></li>
-<li>
-<strong>Histogram</strong>: Histogram is a graphical representation of distribution of data.  Discrete intervals (bin size) are decided upon to form widths of our boxes.  </li>
-<li>
-<strong>Bin Size and Number of Rows</strong>: The two are inter-dependent.  Bin size is the discrete intervals set to accommodate the outcomes that falls within the defined intervals.  Bin size is also the intervals in which one is counting the frequencies of the outcomes.  The number of rows increases when bin size decreases; and vice versa.  Number of rows represent number of bars in a histogram diagram.  </li>
-<li><strong>Histogram and Bar Graphs: Differences between them</strong></li>
-<li>
-<strong>Histogram</strong>: Data in histogram can be mixed, or distributed differently simply by changing the bin size.  The independent variables (x-axis) is usually numerical and quantitative.  The order of the bars are usually based on the incremental quantitative x-axis, small to big.  The shape of a histogram is very important as it represents the distribution curve.</li>
-<li>
-<strong>Bar Graph</strong>: Columns in bar graphs are spaced out. Each column in a bar graph represents one distinct categories. Distribution of data in a bar chart is less flexible for change because of its distinctive representation.  The x-axis is usually categorical or qualitative.  The order of how the bars are charted is solely dependent on how we want to sort it.  The shape of a bar chart is arbitrary.</li>
-<li><strong>More on Histogram</strong></li>
-<li>
-<strong>Distribution</strong>: How data falls into the different bin size.  Normal distribution forms a symmetrical bell-shape, with the highest frequencies in the middle.  The bin-size with highest frequencies is mod.  </li>
-<li>
-<strong>Positively Skewed</strong>: When most data falls onto the left side of the histogram than on the right.</li>
-<li>
-<strong>Negatively Skewed</strong>: When most values falls onto the right side of the histogram then the left.<br>
-5.<strong>Math Symbols</strong>:</li>
-<li>
-<strong>\( \mathcal{f}  \)</strong>: Frequencies</li>
-<li>\( \sum \): Total sum</li>
-<li>
-<strong>\( \mathcal{p} \)</strong>: Proportion (Probability)</li>
 </ol>
 </div>
     </div>
