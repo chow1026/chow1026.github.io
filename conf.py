@@ -567,6 +567,7 @@ REDIRECTIONS = []
 #     "git push",
 #     "git checkout master",
 # ]
+
 # DEPLOY_COMMANDS = {
 #     'default': [
 #         'git add .',
