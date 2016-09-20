@@ -187,6 +187,7 @@ POSTS = (
     ("books/*.md", "books", "post.tmpl"),
     ("movies-shows/*.md", "movies-shows", "post.tmpl"),
     ("music/*.md", "music", "post.tmpl"),
+    ("volunteer/*.md", "volunteer", "post.tmpl"),
 )
 PAGES = (
     ("pages/*.md", "pages", "story.tmpl"),
