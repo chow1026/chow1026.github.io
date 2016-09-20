@@ -15,3 +15,5 @@
 2. Probability: We could use the PDF to find the probability of a specific measurement occurring.  Using the specific value of the measuremnet, \\( x \\), we calculate the  \\( z \\) value.  
     - \\[ z = \frac{ x - \mu }{\sigma} \\]
 3. Referring to the z-table, we can get the probability of a measurement of equal or less than \\( x \\) occurring.  
+4. On any normal distribution, standardized or not, approximately 68% of population falls within \\(\pm 1{\sigma} )\\ of the population mean \\(\mu)\\.
+5. On any normal distribution, standardized or not, approximately 95% of population falls within \\(\pm 2{\sigma} )\\ of the population mean \\(\mu)\\.
