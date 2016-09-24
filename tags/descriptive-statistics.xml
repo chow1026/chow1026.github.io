@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title> =^..^= MEH (descriptive-statistics)</title><link>https://chowy1026.github.io/</link><description></description><atom:link type="application/rss+xml" rel="self" href="https://chowy1026.github.io/tags/descriptive-statistics.xml"></atom:link><language>en</language><lastBuildDate>Tue, 30 Aug 2016 05:58:49 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Descriptive Statistics - Sampling Distributions</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-7/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 7: Central Limit Theorem&lt;/h3&gt;
-&lt;p&gt;The Central Limit Theorem is used to help us understand the following facts regardless of
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title> =^..^= MEH (descriptive-statistics)</title><link>https://chowy1026.github.io/</link><description></description><atom:link type="application/rss+xml" rel="self" href="https://chowy1026.github.io/tags/descriptive-statistics.xml"></atom:link><language>en</language><lastBuildDate>Tue, 20 Sep 2016 07:41:56 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Descriptive Statistics - Sampling Distributions</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-7/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 7: Central Limit Theorem&lt;/h3&gt;
+&lt;p&gt;The Central Limit Theorem allows us to know where any sample mean falls on a distribution of sample means.  The Central Limit Theorem is used to help us understand the following facts regardless of
 whether the population distribution is normal or not:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;the mean of the sample means is the same as the population mean&lt;/li&gt;
-&lt;li&gt;the standard deviation of the sample means is always equal to the standard error (i.e.
+&lt;li&gt;The mean of the sample means is the same as the population mean, i.e.
+\[ M = \mu} \] where M is mean of sample means, \(\mu\) is mean of population&lt;/li&gt;
+&lt;li&gt;The Standard Error, which is the standard deviation of the Sample Means (also known as Sampling Distribution) is estimated by the following formula:
 \[ SE = \frac{\sigma}{ \sqrt{n}} \]&lt;/li&gt;
-&lt;li&gt;the distribution of sample means will become increasingly more normal as the sample size,
-n, increases.&lt;/li&gt;
+&lt;li&gt;The distribution of sample means will become increasingly more normal as the sample size, n,  increases.&lt;/li&gt;
+&lt;li&gt;Sampling Distribution often form a normal distribution.  &lt;/li&gt;
 &lt;/ol&gt;&lt;/div&gt;</description><category>descriptive-statistics</category><category>sampling distribution</category><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-7/</guid><pubDate>Fri, 19 Aug 2016 02:36:43 GMT</pubDate></item><item><title>Descriptive Statistics - Standardizing</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-5/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 5: Standardizing&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;If we are concerned about a proportion less than or greater than a certain value on a distribution, we should use RELATIVE FREQUENCIES.&lt;/li&gt;

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title> =^..^= MEH</title><link>https://chowy1026.github.io/</link><description></description><atom:link type="application/rss+xml" rel="self" href="https://chowy1026.github.io/posts/rss.xml"></atom:link><language>en</language><lastBuildDate>Tue, 20 Sep 2016 05:00:36 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Singapore Animal Shelters and Animal Protection</title><link>https://chowy1026.github.io/posts/singapore_animal_shelters/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;The Search for Animal Shelters to Volunteer&lt;/h3&gt;
+&lt;p&gt;In the Buddhist Dharma class last night, we talked about relationships we have with everything in the world - family we are born in, friends and acquaintances we encounter, animals, trees, and even things we own.  One thing came up in the lesson was how rarely we spent time just to be with ourselves nowadays.  So much so that we can't live without all the distractions - social media website, the TV, the movies, the radio, the cellphones, the excessive indulgence in food...  Anything that we could use to fill the void.&lt;/p&gt;
+&lt;p&gt;One of the take aways from last night, was we should be more aware of our motivations of our actions and/or daily habits.  I realized my movie / tv show binge-watching isn't great.  I need to be more careful of how I spend my time, and whom I spend time with.  While the practice meditation is great, I figured my restless self is not at the level to do that all day.  I personally feel more practical to do something more productive, something that connects me better to the outside world, or humanity.  I used to volunteer at soup kitchen, and I miss it now.  &lt;/p&gt;
+&lt;p&gt;Given that I always have patience and love for animals, I took the time to research for a list of animal shelters in Singapore.  Here is the list:&lt;/p&gt;
+&lt;h4&gt;Cat Welfare Society&lt;/h4&gt;
+&lt;p&gt;Website: http://www.catwelfare.org/volunteer&lt;/p&gt;
+&lt;h4&gt;MettaCat.org&lt;/h4&gt;
+&lt;p&gt;Website: http://www.mettacats.org/&lt;/p&gt;
+&lt;h4&gt;Voices for Animals&lt;/h4&gt;
+&lt;p&gt;Address: 11, Pasir Ris Farmway 2
+Website: https://www.facebook.com/VFASIN/&lt;/p&gt;
+&lt;h4&gt;SPCA (Society for Prevention of Cruelty to Animals)&lt;/h4&gt;
+&lt;p&gt;Address: 50 Sungei Tengah Road, Singapore 699012
+Address: 31 Mount Vernon Road??
+Phone: +65 62875355
+Website: http://www.spca.org.sg/helpus_volunteer.asp&lt;/p&gt;
+&lt;h4&gt;Causes for Animals Singapore&lt;/h4&gt;
+&lt;p&gt;Website: http://www.causesforanimals.com/&lt;/p&gt;
+&lt;h4&gt;Mdm Wong's Shelter and Friends&lt;/h4&gt;
+&lt;p&gt;Address: 18 Pasir Ris Farmway 2, Ericsson Pet Farm Block 14 Shelter
+Email: mdmwongshelterandfriends@hotmail.com
+Website: https://www.facebook.com/Mdmwongsshelterandfriends&lt;/p&gt;
+&lt;h4&gt;Save our Street Dogs&lt;/h4&gt;
+&lt;p&gt;Website: http://sosd.org.sg/join-us-as-volunteers/&lt;/p&gt;
+&lt;h4&gt;MUTTS AND MITTENS&lt;/h4&gt;
+&lt;p&gt;Address: 11 Pasir Ris Farmway 2
+Website: http://www.muttsnmittens.com/volunteer.html#1&lt;/p&gt;
+&lt;h4&gt;ACTION FOR SINGAPORE DOGS&lt;/h4&gt;
+&lt;p&gt;Address: 80 Lim Chu Kang Lane 1
+Website: http://asdsingapore.com/wp/be-a-volunteer/&lt;/p&gt;
+&lt;h4&gt;Animal Lovers League Pets Villa&lt;/h4&gt;
+&lt;p&gt;Address: 61 Pasir Ris Farmway 3
+Website: http://www.animalloversleague.com/volunteer.html&lt;/p&gt;
+&lt;h4&gt;Oasis Second Chance Shelters&lt;/h4&gt;
+&lt;p&gt;Website: http://www.oscas.sg/p/volunteer.html
+Address: 18 Pasir Ris Farmway 2
+Email: oasis2ndchance@gmail.com&lt;/p&gt;&lt;/div&gt;</description><category>animal-lovers</category><category>animal-shelters</category><category>shelters</category><category>singapore</category><category>volunteer</category><guid>https://chowy1026.github.io/posts/singapore_animal_shelters/</guid><pubDate>Tue, 20 Sep 2016 03:41:02 GMT</pubDate></item><item><title>Setting Up Nikola, a Static Site Generator</title><link>https://chowy1026.github.io/posts/nikola-setup/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;A while back, I started to look into static site generators for building my professional and personal blog site.  I had used &lt;a href="https://wordpress.org/" title="Wordpress"&gt;Wordpress&lt;/a&gt; long ago, but want to practice programming in Python.  Recently I tried out &lt;a href="https://medium.com/" title="Medium"&gt;Medium&lt;/a&gt;, but find it rather limiting when it comes to formatting content, and to organizing my posts.   &lt;/p&gt;
+&lt;p&gt;I want to use the opportunity to explore what's new out there and get my hands dirty in programming again.  While researching, I stumble upon this site for static site generator - &lt;a href="https://www.staticgen.com/" title="StaticGen"&gt;StaticGen&lt;/a&gt;.  After testing out briefly with Pelican and Nikola, At last I decided to go with &lt;a href="https://getnikola.com/" title="Nikola"&gt;Nikola&lt;/a&gt; .&lt;/p&gt;
+&lt;p&gt;Nikola is rather lightweight, written with Python, supports contents written in markdown (my preferred way of writing content), and supports &lt;a href="https://www.mathjax.org/" title="MathJax"&gt;MathJax&lt;/a&gt; with a little tweaking.&lt;/p&gt;
+&lt;h4&gt;Installation&lt;/h4&gt;
+&lt;p&gt;The initial installation is rather basic.  First I install Nikola using pip.  Note that I install the extras as well, so I don't have to worry about them later.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ pip install --upgrade &lt;span class="s2"&gt;"Nikola[extras]"&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Then, I created a virtual environment and a project for this using  &lt;a href="https://virtualenv.pypa.io/en/stable/" title="Python VirtualEnv"&gt;&lt;code&gt;virtualevn&lt;/code&gt;&lt;/a&gt; and &lt;a href="https://virtualenvwrapper.readthedocs.io/en/latest/" title="Python VirtualEnvWrapper"&gt;&lt;code&gt;virtualevnwrapper&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ mkproject -p /usr/local/bin/python3 nikola
+$ workon nikola
+&lt;/pre&gt;
+
+
+&lt;p&gt;Then I was able to initialize a Nikola site.  &lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ nikola init &lt;span class="o"&gt;{&lt;/span&gt;site_name&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Voila! We have a site!  Nikola has neat built-in commands. Check them out with &lt;code&gt;nikola help&lt;/code&gt;.  For example, to create a new post, use the following:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ nikola new_post &lt;span class="o"&gt;{&lt;/span&gt;post_name&lt;span class="o"&gt;}&lt;/span&gt;.md
+&lt;/pre&gt;
+
+
+&lt;p&gt;I like to keep the nikola server running as I go through the edit/preview cycles, I typed&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ nikola auto -b
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Configurations&lt;/h4&gt;
+&lt;p&gt;I used most of the default settings in the &lt;code&gt;config.py&lt;/code&gt;, except for the following:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;# Category Settings #
+CATEGORY_PATH = "categories"
+CATEGORY_PREFIX = ""
+CATEGORY_ALLOW_HIERARCHIES = True
+CATEGORY_OUTPUT_FLAT_HIERARCHY = False
+CATEGORY_PAGES_ARE_INDEXES = False
+
+# Author Page #
+ENABLE_AUTHOR_PAGES = False
+
+# Archives Settings #
+CREATE_MONTHLY_ARCHIVE = True
+CREATE_DAILY_ARCHIVE = True
+ARCHIVE_PATH = "archives"
+ARCHIVE_FILENAME = "archives.html"
+
+# FavIcons #
+FAVICONS = (
+    ("icon", "{path to favicon}", "64x64"),
+    ("icon", "{path to favicon}", "512x512"),
+)
+
+# Hide Source Link #
+SHOW_SOURCELINK = False
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Organizing Content&lt;/h4&gt;
+&lt;p&gt;Instead the built-in Category and Tag features, I am not quite satisfied with the way it organizes my content.  I prefer to organize my content a certain way.  So, in the &lt;code&gt;config.py&lt;/code&gt;, I made the following settings:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;POSTS = (
+    ("posts/*.md", "posts", "post.tmpl"),
+    ("course-notes/*.md", "course-notes", "post.tmpl"),
+    ("links/*.md", "links", "post.tmpl"),
+    ("books/*.md", "books", "post.tmpl"),
+    ("movies-shows/*.md", "movies-shows", "post.tmpl"),
+    ("music/*.md", "music", "post.tmpl"),
+)
+PAGES = (
+    ("pages/*.md", "pages", "story.tmpl"),
+)
+&lt;/pre&gt;
+
+
+&lt;p&gt;Although Nikola offers two content types - post and page, I figure I only use the post type (for now at least).  I am simply keeping &lt;code&gt;PAGES&lt;/code&gt; as is.   &lt;/p&gt;
+&lt;p&gt;To add the corresponding content type to the navigation links,&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;NAVIGATION_LINKS = {
+    DEFAULT_LANG: (
+        ("/posts/index.html", "Articles"),
+        ("/course-notes/index.html", "Course Notes"),
+        ("/links/index.html", "Links"),
+        ("/books/index.html", "Books"),
+        ("/archives/archives.html", "Archives"),
+        ("/tags.html", "Tags"),
+    ),
+}
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Themes&lt;/h4&gt;
+&lt;p&gt;Nikola's theme repo doesn't offer too extensive a choice. So I decided to make my own by following this very nicely written guide in &lt;a href="http://nikola.readthedocs.io/en/latest/creating-a-theme/" title="Creating a Nikola Theme"&gt;creating your own theme&lt;/a&gt;.  You may find &lt;a href="https://github.com/chowy1026/nikola-themes/tree/hyde/v7/hyde" title="Nikola Theme - Hyde"&gt;my theme here&lt;/a&gt;.  &lt;/p&gt;
+&lt;h4&gt;Enabling MathJax&lt;/h4&gt;
+&lt;p&gt;The steps to enable MathJax in Nikola are easy. First, add the following line to &lt;code&gt;templates\base_helper.tmpl&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface"&amp;gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Then add&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;MATHJAX_CONFIG = """
+    &lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;"text/javascript"&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;"https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;"text/x-mathjax-config"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\\(","\\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ],
+                processEscapes: true
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+    &lt;span class="nt"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;"text/x-mathjax-config"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  MathJax.Hub.Queue(function() {
+    // Fix &lt;span class="nt"&gt;&amp;lt;code&amp;gt;&lt;/span&gt; tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i &lt;span class="nt"&gt;&amp;lt; all.length&lt;/span&gt;&lt;span class="err"&gt;;&lt;/span&gt; &lt;span class="err"&gt;i&lt;/span&gt; &lt;span class="err"&gt;+=&lt;/span&gt; &lt;span class="err"&gt;1)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="err"&gt;all[i].SourceElement().parentNode.className&lt;/span&gt; &lt;span class="err"&gt;+=&lt;/span&gt; &lt;span class="err"&gt;'&lt;/span&gt; &lt;span class="err"&gt;has-jax';&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;});&lt;/span&gt;
+&lt;span class="err"&gt;&amp;lt;/script&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    """
+&lt;/pre&gt;
+
+
+&lt;p&gt;and this&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;HIDDEN_TAGS = ['mathjax']
+&lt;/pre&gt;
+
+
+&lt;p&gt;to &lt;code&gt;config.py&lt;/code&gt;.  All set! In markdown, I can use
+&lt;code&gt;\\( {math expression} \\)&lt;/code&gt; for inline math, and&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;\\[ {math expression} \\]
+&lt;/pre&gt;
+
+
+&lt;p&gt;for block display.  For other references to &lt;a href="https://www.mathjax.org/" title="MathJax"&gt;MathJax&lt;/a&gt;, see &lt;a href="https://mechowy.github.io/link/mathjax/" title="MathJax Reference Links"&gt;this link&lt;/a&gt;.&lt;/p&gt;
+&lt;h4&gt;GitHub Deploy&lt;/h4&gt;
+&lt;p&gt;Admittedly, Git confuses me sometimes.  And the built-in command that Nikola offers is absolutely godsent.  It nicely push content to the master branch of your userpage repo, which is {github.username}.github.io, and keep source in the source branch.  &lt;/p&gt;
+&lt;p&gt;Having had my empty &lt;code&gt;{github.username}.github.io&lt;/code&gt; repo ready on github, I have these in my &lt;code&gt;config.py&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;# DEPLOY_COMMANDS = {
+#    'default': [
+#        'git add .',
+#        "git commit -am 'Update'",
+#        'git push origin master',
+#        'git subtree split --prefix output -b gh-pages',
+#        'git push -f origin gh-pages:gh-pages',
+#        'git branch -D gh-pages'
+#    ]
+#}
+
+GITHUB_SOURCE_BRANCH = 'source'
+GITHUB_DEPLOY_BRANCH = 'master'
+
+GITHUB_REMOTE_NAME = 'origin'
+
+GITHUB_COMMIT_SOURCE = True
+&lt;/pre&gt;
+
+
+&lt;p&gt;&lt;del&gt; I am honestly a little confused whether or not the &lt;code&gt;DEPLOY_COMMANDS&lt;/code&gt; is actually needed.  I looked into the github_deploy.py under the hood of Nikola, it seems the deploy commands are already predefined.  I need to further experiment whether the &lt;code&gt;nikola github_deploy&lt;/code&gt; would work without a &lt;code&gt;DEPLOY_COMMANDS&lt;/code&gt; defined in &lt;code&gt;config.py&lt;/code&gt;.  Will update when I am 200% certain. &lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;Update: &lt;code&gt;nikola github_deploy&lt;/code&gt; IS indeed GOD-SENT.  Without having to define &lt;code&gt;DEPLOY_COMMANDS&lt;/code&gt;, it nicely does everything for us - push &lt;code&gt;output&lt;/code&gt; content to master, and source to source.&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;That said&lt;/del&gt; Now, whenever I want to update content to my github page, I simply type:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ nikola github_deploy
+&lt;/pre&gt;
+
+
+&lt;h4&gt;Others&lt;/h4&gt;
+&lt;p&gt;For additional features, there are &lt;a href="https://github.com/getnikola/plugins" title="Nikola Plugins"&gt;plugins&lt;/a&gt; that could be installed.  There is also a &lt;a href="https://groups.google.com/forum/#!forum/nikola-discuss" title="Nikola Google Dicussion Group"&gt;Google Discussion Group for Nikola&lt;/a&gt;.  &lt;/p&gt;&lt;/div&gt;</description><category>github</category><category>github pages</category><category>Nikola</category><guid>https://chowy1026.github.io/posts/nikola-setup/</guid><pubDate>Mon, 15 Aug 2016 03:32:11 GMT</pubDate></item><item><title>Hello World!</title><link>https://chowy1026.github.io/posts/hello-world/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;Hello! I am &lt;!--\\[ e^{i\pi} + 1 = 0 \\] --&gt;writing this post &lt;!--\\( e^{i\pi} + 1 = 0 \\) --&gt; we'll see how this works!&lt;/p&gt;
+&lt;!--\\[ e^{i\pi} + 1 = 0 \\]--&gt;&lt;/div&gt;</description><category>hello-world</category><guid>https://chowy1026.github.io/posts/hello-world/</guid><pubDate>Sat, 06 Aug 2016 13:36:10 GMT</pubDate></item></channel></rss>

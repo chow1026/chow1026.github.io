@@ -1,5 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title> =^..^= MEH</title><link>https://chowy1026.github.io/</link><description></description><atom:link href="https://chowy1026.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Mon, 12 Sep 2016 04:58:32 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Testing Python Code</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/08-testing/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Testing a Function&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title> =^..^= MEH</title><link>https://chowy1026.github.io/</link><description></description><atom:link rel="self" type="application/rss+xml" href="https://chowy1026.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Wed, 21 Sep 2016 00:47:06 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Inferential Statistics - Hypothesis Testing</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-9/</link><dc:creator>cHoWy</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><category>hypothsis-testing</category><category>inferential-statistics</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-9/</guid><pubDate>Tue, 20 Sep 2016 09:36:10 GMT</pubDate></item><item><title>Singapore Animal Shelters and Animal Protection</title><link>https://chowy1026.github.io/posts/singapore_animal_shelters/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;The Search for Animal Shelters to Volunteer&lt;/h3&gt;
+&lt;p&gt;In the Buddhist Dharma class last night, we talked about relationships we have with everything in the world - family we are born in, friends and acquaintances we encounter, animals, trees, and even things we own.  One thing came up in the lesson was how rarely we spent time just to be with ourselves nowadays.  So much so that we can't live without all the distractions - social media website, the TV, the movies, the radio, the cellphones, the excessive indulgence in food...  Anything that we could use to fill the void.&lt;/p&gt;
+&lt;p&gt;One of the take aways from last night, was we should be more aware of our motivations of our actions and/or daily habits.  I realized my movie / tv show binge-watching isn't great.  I need to be more careful of how I spend my time, and whom I spend time with.  While the practice meditation is great, I figured my restless self is not at the level to do that all day.  I personally feel more practical to do something more productive, something that connects me better to the outside world, or humanity.  I used to volunteer at soup kitchen, and I miss it now.  &lt;/p&gt;
+&lt;p&gt;Given that I always have patience and love for animals, I took the time to research for a list of animal shelters in Singapore.  Here is the list:&lt;/p&gt;
+&lt;h4&gt;Cat Welfare Society&lt;/h4&gt;
+&lt;p&gt;Website: http://www.catwelfare.org/volunteer&lt;/p&gt;
+&lt;h4&gt;MettaCat.org&lt;/h4&gt;
+&lt;p&gt;Website: http://www.mettacats.org/&lt;/p&gt;
+&lt;h4&gt;Voices for Animals&lt;/h4&gt;
+&lt;p&gt;Address: 11, Pasir Ris Farmway 2
+Website: https://www.facebook.com/VFASIN/&lt;/p&gt;
+&lt;h4&gt;SPCA (Society for Prevention of Cruelty to Animals)&lt;/h4&gt;
+&lt;p&gt;Address: 50 Sungei Tengah Road, Singapore 699012
+Address: 31 Mount Vernon Road??
+Phone: +65 62875355
+Website: http://www.spca.org.sg/helpus_volunteer.asp&lt;/p&gt;
+&lt;h4&gt;Causes for Animals Singapore&lt;/h4&gt;
+&lt;p&gt;Website: http://www.causesforanimals.com/&lt;/p&gt;
+&lt;h4&gt;Mdm Wong's Shelter and Friends&lt;/h4&gt;
+&lt;p&gt;Address: 18 Pasir Ris Farmway 2, Ericsson Pet Farm Block 14 Shelter
+Email: mdmwongshelterandfriends@hotmail.com
+Website: https://www.facebook.com/Mdmwongsshelterandfriends&lt;/p&gt;
+&lt;h4&gt;Save our Street Dogs&lt;/h4&gt;
+&lt;p&gt;Website: http://sosd.org.sg/join-us-as-volunteers/&lt;/p&gt;
+&lt;h4&gt;MUTTS AND MITTENS&lt;/h4&gt;
+&lt;p&gt;Address: 11 Pasir Ris Farmway 2
+Website: http://www.muttsnmittens.com/volunteer.html#1&lt;/p&gt;
+&lt;h4&gt;ACTION FOR SINGAPORE DOGS&lt;/h4&gt;
+&lt;p&gt;Address: 80 Lim Chu Kang Lane 1
+Website: http://asdsingapore.com/wp/be-a-volunteer/&lt;/p&gt;
+&lt;h4&gt;Animal Lovers League Pets Villa&lt;/h4&gt;
+&lt;p&gt;Address: 61 Pasir Ris Farmway 3
+Website: http://www.animalloversleague.com/volunteer.html&lt;/p&gt;
+&lt;h4&gt;Oasis Second Chance Shelters&lt;/h4&gt;
+&lt;p&gt;Website: http://www.oscas.sg/p/volunteer.html
+Address: 18 Pasir Ris Farmway 2
+Email: oasis2ndchance@gmail.com&lt;/p&gt;&lt;/div&gt;</description><category>animal-lovers</category><category>animal-shelters</category><category>shelters</category><category>singapore</category><category>volunteer</category><guid>https://chowy1026.github.io/posts/singapore_animal_shelters/</guid><pubDate>Tue, 20 Sep 2016 03:41:02 GMT</pubDate></item><item><title>Inferential Statistics - Estimation</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-8/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 8: Estimation&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Any sampling distribution is a normal distribution.   &lt;/li&gt;
+&lt;li&gt;The sample mean, \( M \), approximately equal to the population mean, i.e. \( M \approx \mu \).  &lt;/li&gt;
+&lt;li&gt;The standard error of the sample, SE, is approximately equals to:
+    \[ SE = \frac{\sigma}{\sqrt{n}} \] where \( n \) is sample size, and \( \sigma \) is standard deviation of the population.  &lt;/li&gt;
+&lt;li&gt;On any sampling distribution, approximately 68% of population falls within \(\pm 1 \frac{ \sigma }{ \sqrt{n} } \) of the sample mean \( M \).&lt;/li&gt;
+&lt;li&gt;On any sampling distribution, approximately 95% of population falls within \(\pm 2 \frac{ \sigma }{ \sqrt{n} } \) of the sample mean \( M \).&lt;/li&gt;
+&lt;li&gt;The distance, \( Z * \frac{ \sigma }{ \sqrt{n} } \) or is called &lt;strong&gt;Margin of Error&lt;/strong&gt;.  The margin of error is half the width of the confidence interval.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Point estimation&lt;/strong&gt; involves the use of sample data to calculate a single value which is to serve as a "best guess" or "best estimate" of an unknown population parameter.&lt;/li&gt;
+&lt;li&gt;An "intervention" is a factor that we expect will change the population parameters.&lt;/li&gt;
+&lt;li&gt;Given the sample mean of a sample with intervention is \( M \), \( M \) serves as a point estimate of the mean of the whole population if the intervention is applied to the whole population.  However, the exact value of the population mean, \( \mu \), does not exactly equal to \( M \).   &lt;/li&gt;
+&lt;li&gt;With a &lt;strong&gt;95% Confidence Interval&lt;/strong&gt; (2 Standard Error, SE), we estimate the population mean with the same intervention, \( \mu \) falls in a range, based on the following:
+    \[ \mu - 2 \frac{ \sigma }{ \sqrt{n}} \lt M \lt \mu + 2 \frac{ \sigma }{ \sqrt{n} } \]
+    \[ - 2 \frac{ \sigma }{ \sqrt{n}} \lt M - \mu \lt + 2 \frac{ \sigma }{ \sqrt{n} } \]
+    \[ - M - 2 \frac{ \sigma }{ \sqrt{n}} \lt - \mu \lt - M + 2 \frac{ \sigma }{ \sqrt{n} } \]
+    \[ M + 2 \frac{ \sigma }{ \sqrt{n}} \gt \mu \gt M - 2 \frac{ \sigma }{ \sqrt{n} } \]
+    \[  M - 2 \frac{ \sigma }{ \sqrt{n} } \lt \mu \lt M + 2 \frac{ \sigma }{ \sqrt{n}} \]&lt;/li&gt;
+&lt;li&gt;If we apply the above formula with 1 standard error, 1 SE, that gives us an range of which the population mean (with same intervention), with &lt;strong&gt;68% Confidence Interval&lt;/strong&gt;, to be:
+    \[  M - \frac{ \sigma }{ \sqrt{n} } \lt \mu \lt M + \frac{ \sigma }{ \sqrt{n}} \]&lt;/li&gt;
+&lt;li&gt;The Z-value that bounds 95% of the data is &lt;strong&gt;-1.96 through +1.96&lt;/strong&gt;.  That means for a sampling distribution, 95% of the sample means fall within 1.96 standard errors (SE) away from the population mean. It is also the &lt;strong&gt;95% Confidence Interval&lt;/strong&gt;.   &lt;/li&gt;
+&lt;li&gt;A &lt;strong&gt;"treatment effect"&lt;/strong&gt; occurs when the intervention affects the population mean. When the sample mean is far on the tails of the sampling distribution, and therefore unlikely to have occurred by chance, there is evidence for a treatment effect.&lt;/li&gt;
+&lt;li&gt;If we want a higher confidence interval (CI), say, &lt;strong&gt;98% Confidence Interval&lt;/strong&gt;, the z-score should be 2.33.  98% of the sample means fall within 2.33 standard error (SE) away from the population mean.  &lt;/li&gt;
+&lt;li&gt;\( \pm 2.33 \) are the critical values of Z for 98% confidence.  &lt;/li&gt;
+&lt;li&gt;\( \pm 1.96 \) are the critical values of Z for 95% confidence.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;</description><category>estimation</category><category>inferential-statistics</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-8/</guid><pubDate>Wed, 14 Sep 2016 04:33:51 GMT</pubDate></item><item><title>Testing Python Code</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/08-testing/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Testing a Function&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;name_function.py&lt;/li&gt;
 &lt;/ul&gt;
@@ -1077,44 +1138,4 @@
 &lt;ul&gt;
 &lt;li&gt;Integers&lt;/li&gt;
 &lt;li&gt;Floats&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>python-crash-course</category><category>simple-data-types</category><category>variables</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/02-variables-and-simple-data-types/</guid><pubDate>Tue, 30 Aug 2016 05:58:19 GMT</pubDate></item><item><title>Python Basics and Philosophy</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/01-basics/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;The Zen of Python&lt;/h3&gt;
-&lt;h4&gt;by Tim Peters&lt;/h4&gt;
-&lt;p&gt;:: Type &lt;code&gt;import this&lt;/code&gt; in python CLI&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Beautiful is better than ugly.&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Explicit is better than implicit.&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Simple is better than complex.&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Complex is better than complicated.&lt;/li&gt;
-&lt;li&gt;Flat is better than nested.&lt;/li&gt;
-&lt;li&gt;Sparse is better than dense.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Readability counts.&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Special cases aren't special enough to break the rules.&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Although practicality beats purity.&lt;/li&gt;
-&lt;li&gt;Errors should never pass silently.&lt;/li&gt;
-&lt;li&gt;Unless explicitly silenced.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;In the face of ambiguity, refuse the temptation to guess.&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;There should be one -- and preferably only one -- obvious way to do it.  &lt;/li&gt;
-&lt;li&gt;Although that way may not be obvious unless you are Dutch.  &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Now is better than never.&lt;/strong&gt;  &lt;/li&gt;
-&lt;li&gt;Although never is often better than &lt;em&gt;right&lt;/em&gt; now&lt;/li&gt;
-&lt;li&gt;If the implementation is hard to explain, it's a bad idea.  &lt;/li&gt;
-&lt;li&gt;If the implementation is easy to explain, it may be a good idea.&lt;/li&gt;
-&lt;li&gt;Namespaces are one honking good idea - let's do more of those!&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>basics</category><category>python-crash-course</category><category>zen-of-python</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/01-basics/</guid><pubDate>Mon, 29 Aug 2016 06:15:20 GMT</pubDate></item><item><title>Descriptive Statistics - Sampling Distributions</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-7/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 7: Central Limit Theorem&lt;/h3&gt;
-&lt;p&gt;The Central Limit Theorem is used to help us understand the following facts regardless of
-whether the population distribution is normal or not:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;the mean of the sample means is the same as the population mean&lt;/li&gt;
-&lt;li&gt;the standard deviation of the sample means is always equal to the standard error (i.e.
-\[ SE = \frac{\sigma}{ \sqrt{n}} \]&lt;/li&gt;
-&lt;li&gt;the distribution of sample means will become increasingly more normal as the sample size,
-n, increases.&lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><category>descriptive-statistics</category><category>sampling distribution</category><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-7/</guid><pubDate>Fri, 19 Aug 2016 02:36:43 GMT</pubDate></item><item><title>Descriptive Statistics - Normal Distribution</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-6/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 6: Normal Distribution&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Probability Distribution Function (PDF): PDF is a normal curve with an area of 1 beneath it, to represent the cumulative frequency of values.&lt;/li&gt;
-&lt;li&gt;Probability: We could use the PDF to find the probability of a specific measurement occurring.  Using the specific value of the measuremnet, \( x \), we calculate the  \( z \) value.  &lt;ul&gt;
-&lt;li&gt;\[ z = \frac{ x - \mu }{\sigma} \]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Referring to the z-table, we can get the probability of a measurement of equal or less than \( x \) occurring.  &lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-6/</guid><pubDate>Thu, 18 Aug 2016 06:23:03 GMT</pubDate></item></channel></rss>
+&lt;/ul&gt;&lt;/div&gt;</description><category>python-crash-course</category><category>simple-data-types</category><category>variables</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/02-variables-and-simple-data-types/</guid><pubDate>Tue, 30 Aug 2016 05:58:19 GMT</pubDate></item></channel></rss>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" vocab="http://ogp.me/ns" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title> =^..^= MEH · Inferential Statistics - Estimation </title>
+<link href="../../../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/poole.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/hyde.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/code.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700%7CAbril+Fatface">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://chowy1026.github.io/course-notes/inferential-statistics/lesson-8/">
+<link rel="icon" href="../../../images/favicon.png" sizes="64x64">
+<link rel="icon" href="../../../images/icon_512x512.png" sizes="512x512">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+    </script><script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="cHoWy">
+<link rel="prev" href="../../python-crash-notes/08-testing/" title="Testing Python Code" type="text/html">
+<link rel="next" href="../../../posts/singapore_animal_shelters/" title="Singapore Animal Shelters and Animal Protection" type="text/html">
+<meta property="og:site_name" content=" =^..^= MEH">
+<meta property="og:title" content="Inferential Statistics - Estimation">
+<meta property="og:url" content="https://chowy1026.github.io/course-notes/inferential-statistics/lesson-8/">
+<meta property="og:description" content="Lesson 8: Estimation
+
+Any sampling distribution is a normal distribution.   
+The sample mean, \( M \), approximately equal to the population mean, i.e. \( M \approx \mu \).  
+The standard error of the">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-09-14T12:33:51+08:00">
+<meta property="article:tag" content="estimation">
+<meta property="article:tag" content="inferential-statistics">
+</head>
+<body class="test">
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+    <div class="sidebar">
+        <div class="container sidebar-sticky">
+            <div class="sidebar-about">
+              <h1>
+                <a href="https://chowy1026.github.io/">
+                      <h1 id="brand"><a href="https://chowy1026.github.io/" title=" =^..^= MEH" rel="home">
+
+        <span id="blog-title"> =^..^= MEH</span>
+    </a></h1>
+
+                </a>
+              </h1>
+                <p class="lead"></p>
+
+            </div>
+                <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../../posts/index.html">Articles</a>
+        <a class="sidebar-nav-item" href="../../index.html">Course Notes</a>
+        <a class="sidebar-nav-item" href="../../../links/index.html">Links</a>
+        <a class="sidebar-nav-item" href="../../../books/index.html">Books</a>
+        <a class="sidebar-nav-item" href="../../../archives/archives.html">Archives</a>
+        <a class="sidebar-nav-item" href="../../../tags.html">Tags</a>
+    
+    
+    </nav><footer id="footer"><p class="footer">
+              <span class="icon_row">
+
+                <a href="mailto:chowy1026@gmail.com">
+                  <img class="social_icon" src="../../../images/envelope1.png" title="email" width="24"></a> ·
+                <!--<a href="">
+                  <img class="social_icon" src="/images/twitter-black-shape1.png" title="twitter" width="24" /></a> &middot;-->
+                <a href="https://github.com/chowy1026/">
+                  <img class="social_icon" src="../../../images/github-character1.png" title="github" width="24"></a>
+              </span>
+              <br><br><span class="copyright">
+              
+Contents © 2016 by <a href="mailto:chowy1026@gmail.com">cHoWy</a> ·
+Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>
+
+            </span>
+            </p>
+            
+        </footer>
+</div>
+    </div>
+
+    <div class="content container" id="content">
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><h1 class="post-title p-name"><a href="." class="u-url">Inferential Statistics - Estimation</a></h1>
+
+    <span class="post-date">
+      <time class="published dt-published" datetime="2016-09-14T12:33:51+08:00" itemprop="datePublished" title="2016-09-14 12:33">2016-09-14 12:33</time></span>
+
+    
+    
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<h3>Lesson 8: Estimation</h3>
+<ol>
+<li>Any sampling distribution is a normal distribution.   </li>
+<li>The sample mean, \( M \), approximately equal to the population mean, i.e. \( M \approx \mu \).  </li>
+<li>The standard error of the sample, SE, is approximately equals to:
+    \[ SE = \frac{\sigma}{\sqrt{n}} \] where \( n \) is sample size, and \( \sigma \) is standard deviation of the population.  </li>
+<li>On any sampling distribution, approximately 68% of population falls within \(\pm 1 \frac{ \sigma }{ \sqrt{n} } \) of the sample mean \( M \).</li>
+<li>On any sampling distribution, approximately 95% of population falls within \(\pm 2 \frac{ \sigma }{ \sqrt{n} } \) of the sample mean \( M \).</li>
+<li>The distance, \( Z * \frac{ \sigma }{ \sqrt{n} } \) or is called <strong>Margin of Error</strong>.  The margin of error is half the width of the confidence interval.</li>
+<li>
+<strong>Point estimation</strong> involves the use of sample data to calculate a single value which is to serve as a "best guess" or "best estimate" of an unknown population parameter.</li>
+<li>An "intervention" is a factor that we expect will change the population parameters.</li>
+<li>Given the sample mean of a sample with intervention is \( M \), \( M \) serves as a point estimate of the mean of the whole population if the intervention is applied to the whole population.  However, the exact value of the population mean, \( \mu \), does not exactly equal to \( M \).   </li>
+<li>With a <strong>95% Confidence Interval</strong> (2 Standard Error, SE), we estimate the population mean with the same intervention, \( \mu \) falls in a range, based on the following:
+    \[ \mu - 2 \frac{ \sigma }{ \sqrt{n}} \lt M \lt \mu + 2 \frac{ \sigma }{ \sqrt{n} } \]
+    \[ - 2 \frac{ \sigma }{ \sqrt{n}} \lt M - \mu \lt + 2 \frac{ \sigma }{ \sqrt{n} } \]
+    \[ - M - 2 \frac{ \sigma }{ \sqrt{n}} \lt - \mu \lt - M + 2 \frac{ \sigma }{ \sqrt{n} } \]
+    \[ M + 2 \frac{ \sigma }{ \sqrt{n}} \gt \mu \gt M - 2 \frac{ \sigma }{ \sqrt{n} } \]
+    \[  M - 2 \frac{ \sigma }{ \sqrt{n} } \lt \mu \lt M + 2 \frac{ \sigma }{ \sqrt{n}} \]</li>
+<li>If we apply the above formula with 1 standard error, 1 SE, that gives us an range of which the population mean (with same intervention), with <strong>68% Confidence Interval</strong>, to be:
+    \[  M - \frac{ \sigma }{ \sqrt{n} } \lt \mu \lt M + \frac{ \sigma }{ \sqrt{n}} \]</li>
+<li>The Z-value that bounds 95% of the data is <strong>-1.96 through +1.96</strong>.  That means for a sampling distribution, 95% of the sample means fall within 1.96 standard errors (SE) away from the population mean. It is also the <strong>95% Confidence Interval</strong>.   </li>
+<li>A <strong>"treatment effect"</strong> occurs when the intervention affects the population mean. When the sample mean is far on the tails of the sampling distribution, and therefore unlikely to have occurred by chance, there is evidence for a treatment effect.</li>
+<li>If we want a higher confidence interval (CI), say, <strong>98% Confidence Interval</strong>, the z-score should be 2.33.  98% of the sample means fall within 2.33 standard error (SE) away from the population mean.  </li>
+<li>\( \pm 2.33 \) are the critical values of Z for 98% confidence.  </li>
+<li>\( \pm 1.96 \) are the critical values of Z for 95% confidence.</li>
+</ol>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><p itemprop="keywords" class="tags">
+            <span class="tag"><a class="p-category" href="../../../tags/estimation/" rel="tag">estimation</a></span>
+            <span class="tag"><a class="p-category" href="../../../tags/inferential-statistics/" rel="tag">inferential-statistics</a></span>
+      </p>
+
+            <div class="pager hidden-print pagination">
+
+            <span class="previous pagination-item older">
+                <a href="../../python-crash-notes/08-testing/" rel="prev" title="Testing Python Code">
+                Previous post
+                </a>
+            </span>
+
+
+            <span class="next pagination-item newer">
+                <a href="../../../posts/singapore_animal_shelters/" rel="next" title="Singapore Animal Shelters and Animal Protection">
+Next post
+              </a>
+            </span>
+
+        </div>
+
+    </nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="chowygit",
+            disqus_url="https://chowy1026.github.io/course-notes/inferential-statistics/lesson-8/",
+        disqus_title="Inferential Statistics - Estimation",
+        disqus_identifier="cache/course-notes/inferential-statistics/lesson-8.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="chowygit";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73098247-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

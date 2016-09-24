@@ -6,16 +6,44 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>https://chowy1026.github.io/books/rss.xml</loc>
+  <lastmod>2016-09-19T08:57:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chowy1026.github.io/course-notes/rss.xml</loc>
+  <lastmod>2016-09-21T00:47:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://chowy1026.github.io/galleries/rss.xml</loc>
-  <lastmod>2016-08-15T07:25:00Z</lastmod>
+  <lastmod>2016-09-19T08:57:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chowy1026.github.io/links/rss.xml</loc>
+  <lastmod>2016-09-19T08:57:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chowy1026.github.io/music/rss.xml</loc>
+  <lastmod>2016-09-20T04:54:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chowy1026.github.io/posts/rss.xml</loc>
+  <lastmod>2016-09-20T05:00:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/rss.xml</loc>
-  <lastmod>2016-09-12T04:58:00Z</lastmod>
+  <lastmod>2016-09-21T00:47:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/sitemap.xml</loc>
-  <lastmod>2016-09-12T04:58:00Z</lastmod>
+  <lastmod>2016-09-21T00:47:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chowy1026.github.io/tags/animal-lovers.xml</loc>
+  <lastmod>2016-09-20T05:00:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chowy1026.github.io/tags/animal-shelters.xml</loc>
+  <lastmod>2016-09-20T05:00:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/basics.xml</loc>
@@ -35,7 +63,11 @@
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/descriptive-statistics.xml</loc>
-  <lastmod>2016-08-30T05:58:00Z</lastmod>
+  <lastmod>2016-09-20T07:41:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chowy1026.github.io/tags/estimation.xml</loc>
+  <lastmod>2016-09-21T00:47:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/exceptions.xml</loc>
@@ -64,6 +96,14 @@
  <sitemap>
   <loc>https://chowy1026.github.io/tags/helpful-links.xml</loc>
   <lastmod>2016-08-12T07:15:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chowy1026.github.io/tags/hypothsis-testing.xml</loc>
+  <lastmod>2016-09-21T00:47:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chowy1026.github.io/tags/inferential-statistics.xml</loc>
+  <lastmod>2016-09-21T00:47:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/inheritance.xml</loc>
@@ -103,15 +143,23 @@
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/sampling-distribution.xml</loc>
-  <lastmod>2016-08-22T03:19:00Z</lastmod>
+  <lastmod>2016-09-20T07:41:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/setup-method.xml</loc>
   <lastmod>2016-09-07T09:53:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://chowy1026.github.io/tags/shelters.xml</loc>
+  <lastmod>2016-09-20T05:00:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://chowy1026.github.io/tags/simple-data-types.xml</loc>
   <lastmod>2016-09-07T01:45:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chowy1026.github.io/tags/singapore.xml</loc>
+  <lastmod>2016-09-20T05:00:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/standardizing.xml</loc>
@@ -158,7 +206,15 @@
   <lastmod>2016-08-12T07:15:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://chowy1026.github.io/tags/volunteer.xml</loc>
+  <lastmod>2016-09-20T05:00:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://chowy1026.github.io/tags/zen-of-python.xml</loc>
   <lastmod>2016-09-07T07:04:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chowy1026.github.io/volunteer/rss.xml</loc>
+  <lastmod>2016-09-20T04:57:00Z</lastmod>
  </sitemap>
 </sitemapindex>
