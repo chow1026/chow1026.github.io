@@ -1,0 +1,5 @@
+[user]
+	name = chowy1026
+	email = chowy1026@gmail.com
+[remote "origin"]
+	url = git@github.com:chowy1026/chowy1026.github.io.git
