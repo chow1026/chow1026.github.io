@@ -16,7 +16,7 @@
     \\[ SE = \frac{\sigma}{\sqrt{n}} \\] where \\( n \\) is sample size, and \\( \sigma \\) is standard deviation of the population.  
 4. On any sampling distribution, approximately 68% of population falls within \\(\pm 1 \frac{ \sigma }{ \sqrt{n} } \\) of the sample mean \\( M \\).
 5. On any sampling distribution, approximately 95% of population falls within \\(\pm 2 \frac{ \sigma }{ \sqrt{n} } \\) of the sample mean \\( M \\).
-6. The distance, \\( 2 \frac{ \sigma }{ \sqrt{n} } \\) or is called **Margin of Error**.  
+6. The distance, \\( Z * \frac{ \sigma }{ \sqrt{n} } \\) or is called **Margin of Error**.  The margin of error is half the width of the confidence interval.
 7. **Point estimation** involves the use of sample data to calculate a single value which is to serve as a "best guess" or "best estimate" of an unknown population parameter.
 8. An "intervention" is a factor that we expect will change the population parameters.
 9. Given the sample mean of a sample with intervention is \\( M \\), \\( M \\) serves as a point estimate of the mean of the whole population if the intervention is applied to the whole population.  However, the exact value of the population mean, \\( \mu \\), does not exactly equal to \\( M \\).   
