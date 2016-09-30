@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" vocab="http://ogp.me/ns" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title> =^..^= MEH · Inferential Statistics - T-Test, Part 1 </title>
+<link href="../../../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/poole.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/hyde.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/code.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700%7CAbril+Fatface">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10a/">
+<link rel="icon" href="../../../images/favicon.png" sizes="64x64">
+<link rel="icon" href="../../../images/icon_512x512.png" sizes="512x512">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+    </script><script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="cHoWy">
+<link rel="prev" href="../../../books/python-design-patterns/02-singleton-design-pattern/" title="Python Design Patterns - The Singleton Design Pattern" type="text/html">
+<meta property="og:site_name" content=" =^..^= MEH">
+<meta property="og:title" content="Inferential Statistics - T-Test, Part 1">
+<meta property="og:url" content="https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10a/">
+<meta property="og:description" content="T-Test
+Z-test works when we know the population parameters such as \( \mu \) and \( \sigma \).  For any samples drawn from this population, the samples would form a sampling distribution that is a nor">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-09-29T13:09:03+08:00">
+<meta property="article:tag" content="inferential-statistics">
+<meta property="article:tag" content="part 1">
+<meta property="article:tag" content="t-test">
+</head>
+<body class="test">
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+    <div class="sidebar">
+        <div class="container sidebar-sticky">
+            <div class="sidebar-about">
+              <h1>
+                <a href="https://chowy1026.github.io/">
+                      <h1 id="brand"><a href="https://chowy1026.github.io/" title=" =^..^= MEH" rel="home">
+
+        <span id="blog-title"> =^..^= MEH</span>
+    </a></h1>
+
+                </a>
+              </h1>
+                <p class="lead"></p>
+
+            </div>
+                <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../../posts/index.html">Articles</a>
+        <a class="sidebar-nav-item" href="../../index.html">Course Notes</a>
+        <a class="sidebar-nav-item" href="../../../links/index.html">Links</a>
+        <a class="sidebar-nav-item" href="../../../books/index.html">Books</a>
+        <a class="sidebar-nav-item" href="../../../archives/archives.html">Archives</a>
+        <a class="sidebar-nav-item" href="../../../tags.html">Tags</a>
+    
+    
+    </nav><footer id="footer"><p class="footer">
+              <span class="icon_row">
+
+                <a href="mailto:chowy1026@gmail.com">
+                  <img class="social_icon" src="../../../images/envelope1.png" title="email" width="24"></a> ·
+                <!--<a href="">
+                  <img class="social_icon" src="/images/twitter-black-shape1.png" title="twitter" width="24" /></a> &middot;-->
+                <a href="https://github.com/chowy1026/">
+                  <img class="social_icon" src="../../../images/github-character1.png" title="github" width="24"></a>
+              </span>
+              <br><br><span class="copyright">
+              
+Contents © 2016 by <a href="mailto:chowy1026@gmail.com">cHoWy</a> ·
+Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>
+
+            </span>
+            </p>
+            
+        </footer>
+</div>
+    </div>
+
+    <div class="content container" id="content">
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><h1 class="post-title p-name"><a href="." class="u-url">Inferential Statistics - T-Test, Part 1</a></h1>
+
+    <span class="post-date">
+      <time class="published dt-published" datetime="2016-09-29T13:09:03+08:00" itemprop="datePublished" title="2016-09-29 13:09">2016-09-29 13:09</time></span>
+
+    
+    
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<h2>T-Test</h2>
+<p>Z-test works when we know the population parameters such as \( \mu \) and \( \sigma \).  For any samples drawn from this population, the samples would form a sampling distribution that is a normal distribution, with:
+\[
+    mean = \mu  \quad\text{where M is mean of sample means}\\
+    SD = \frac{\sigma}{\sqrt{n}} \quad\text{where n is sample size}
+\]
+\( SD \) is also known as Standard Error \( SE \) which is used for Z score calculation.</p>
+<p>For any sample mean, \( M \), we can determine where it falls on this sampling distribution by standardizing, aka, finding the z-score \( Z \), given its formula below:
+\[
+    Z = \frac{M - \mu}{ SE }
+\]</p>
+<p>However, much of the times, with sample data, we don't know population \( \mu \) and population standard deviation \( \sigma \). We only have samples which we must use to draw all our conclusions.  </p>
+<p>When working with samples, we usually estimate the population standard deviation using the sample standard deviation with Bassel's correction.<br>
+\[
+  S =  \sqrt{ \frac{ \sum_1^n{ (x_{i} - \bar{x}) ^ 2 }} { n-1 } } \\
+  where S is estimated population standard deviation, n is sample size
+\]</p>
+<p>Without population parameters and with only sample data, we end up with a new distribution that is more prone to error, called the t-distribution. The t-distribution is more spread out and thicker in the tails.  </p>
+<p>Same principals applies to t-distribution.  When n increases:</p>
+<ul>
+<li>the t-distribution approaches a normal distribution</li>
+<li>the t-distribution gets skinner tails</li>
+<li>S, the estimated population standard deviation, gets closer to the real population standard deviation \( \mu \).  </li>
+</ul>
+<p>With t-distribution and t-test, we can determine:</p>
+<ol>
+<li>How different a sample mean is from a population mean</li>
+<li>How different two sample means are from each other.  These two samples can be either:<ul>
+<li>dependent</li>
+<li>independent</li>
+</ul>
+</li>
+</ol>
+<h2>Degrees of Freedom</h2>
+<p>t-distribution are defined by degrees of freedom, \(df\), which generally is \( n - 1 \) for single dimension data.  The \(df\) for 2D or 3D sample is \[df = (n-1)^d\;\text{where power d is the number of dimension}\]
+Degrees of freedom are the number of pieces of information that can be freely varied, without violating any given restrictions.  It is pieces of independent information to estimate another piece of information. As the degrees of freedom increases, it better approximates the normal distribution.
+\( n - 1 \) is also known as the effective sample size.  As shown above, it is used to estimate the population standard deviation with Basel's correction.  </p>
+<h2>Hypothesis Testing with t-statistics</h2>
+<p>Like the z-test, if the t-statistic falls far from the mean, where t-statistic is 0, we reject the null. To do so, we compare the sample mean to population mean, by calculating t-statistic.</p>
+<p>For one sample t-test, the t-statistic is:
+\[
+    t = \frac{\bar{x} - \mu_{0}}{S/\sqrt{n}} \text{where:}\\
+    \bar{x}\text{ is sample mean}\\
+    \mu_{0}\text{ is population mean}\\
+    S \text{ is standard error, aka. standard deviation of sample}\\
+    n \text{ is the sample size}
+\]
+The sample mean, \(\bar{x}\) is also the point estimate for the population mean.
+t-statistics increases when:</p>
+<ul>
+<li>a larger difference between \(\bar{x}\) and \(\mu_{0}\)</li>
+<li>larger \( n \)</li>
+</ul>
+<p>For hypothesis testing:</p>
+<ul>
+<li>The <strong>larger</strong> the value of \(\bar{x}\), the stronger the evidence that \(\mu \gt \mu_{0}\).</li>
+<li>The <strong>smaller</strong> the value of \(\bar{x}\), the stronger the evidence that \(\mu \lt \mu_{0}\).</li>
+<li>The further the value of \(\bar{x}\) from \(\mu_{0}\) in either direction, the stronger the evidence that \(\mu \neq \mu_{0}\).</li>
+</ul>
+<p>We reject the null hypothesis if the t-statistic is less than or greater than the t-critical value, at a given \( \alpha \) level.</p>
+<h2>P-Value</h2>
+<p>For one-tailed test, the P-value is the probability above the t-statistic if it is positive, and below the t-statistic if it is negative.  For two tailed test, the p-value will be the sum of probability on both ends.  We reject the null hypothesis when the p-value is less than the \( \alpha \) level.</p>
+<p>After calculating the t-statistic, we go to <a href="http://www.graphpad.com/quickcalcs/pValue1/" title="P-Value with t and DF">GraphPad</a> to get the exact P-value. There are also other calculators on <a href="http://www.graphpad.com/" title="GraphPad Calculators">GraphPad</a> that are worth checking out.  </p>
+<h2>Cohen's d</h2>
+<p>Cohen's d is another common measure of affects size, when comparing means, named after Jacobs Cohen.  It is a standardized mean difference that measures the distance between 2 means in standard deviation units.
+\[
+    Cohen's d = \frac{\bar{x} - \mu_{0}}{S} \\
+    where\;\bar{x}\text{ is sample mean, }\mu_{0}\text{ is population mean, and }S\text{ is sample standard deviation}
+\]</p>
+<h2>Confidence Interval</h2>
+<p>Confidence interval is the interval where the population mean will probably lie.<br>
+At a given confidence level, or alpha level, we first determine the t-critical value.<br>
+Confidence interval for a two-tailed test is:
+\[
+  \begin{align}
+    CI &amp; = M \pm t_{critical} \cdot SE_{sample} \\
+    &amp; = M \pm t_{critical} \cdot \frac{S}{\sqrt{n}}
+  \end{align}
+\]</p>
+<h2>Margin of Error</h2>
+<p>Margin of Error is one-half width of the confidence interval.  CI's upper bound is sample mean, \(M + t_{critical} \cdot \frac{S}{\sqrt{n}} \) plus margin of error; whereas CI's lower bound is sample mean, \( M - t_{critical} \cdot \frac{S}{\sqrt{n}} \).  Therefore:
+\[
+  Margin\;of\;Error = t_{critical} \cdot \frac{S}{\sqrt{n}}
+\]</p>
+<h2>Dependent t-tests</h2>
+<p>Dependent samples are generated when the same subject takes the test twice.  This is a within subject design.  Examples:</p>
+<ul>
+<li>when same subject is applied two conditions</li>
+<li>subject is given a pre-test and post-test</li>
+<li>longitudinal study (development over time)</li>
+</ul>
+<p>The within-subject designs generate paired data.  Then we look at the difference between these two sets of data, \( D_{i} \)</p>
+<h2>Types of Designs</h2>
+<ol>
+<li>Repeated measures design (eg errors on two types of keyboards)
+\[ H_{0}: \mu_{1} = \mu_{2} \]</li>
+<li>Longitudinal design
+\[ H_{0}: \mu_{time1} = \mu_{time2} \]</li>
+<li>Pre-test vs Post-test
+\[ H_{0}: \mu_{pre} = \mu_{post} \]</li>
+</ol>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><p itemprop="keywords" class="tags">
+            <span class="tag"><a class="p-category" href="../../../tags/inferential-statistics/" rel="tag">inferential-statistics</a></span>
+            <span class="tag"><a class="p-category" href="../../../tags/part-1/" rel="tag">part 1</a></span>
+            <span class="tag"><a class="p-category" href="../../../tags/t-test/" rel="tag">t-test</a></span>
+      </p>
+
+            <div class="pager hidden-print pagination">
+
+            <span class="previous pagination-item older">
+                <a href="../../../books/python-design-patterns/02-singleton-design-pattern/" rel="prev" title="Python Design Patterns - The Singleton Design Pattern">
+                Previous post
+                </a>
+            </span>
+
+
+            <span class="next pagination-item newer">
+Next post
+            </span>
+
+        </div>
+
+    </nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="chowygit",
+            disqus_url="https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10a/",
+        disqus_title="Inferential Statistics - T-Test, Part 1",
+        disqus_identifier="cache/course-notes/inferential-statistics/lesson-10a.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="chowygit";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73098247-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

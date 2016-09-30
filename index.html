@@ -39,7 +39,7 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
         all[i].SourceElement().parentNode.className += ' has-jax';
     }
 });
-</script><!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="course-notes/inferential-statistics/lesson-9/" type="text/html">
+</script><!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="course-notes/inferential-statistics/lesson-10a/" type="text/html">
 </head>
 <body class="test">
     <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -92,12 +92,415 @@ Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href
     <div class="content container" id="content">
     
 <div class="post">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/inferential-statistics/lesson-9/" class="u-url">Inferential Statistics - Hypothesis Testing</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/inferential-statistics/lesson-10a/" class="u-url">Inferential Statistics - T-Test, Part 1</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-29T13:09:03+08:00" title="2016-09-29 13:09">2016-09-29 13:09</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h2>T-Test</h2>
+<p>Z-test works when we know the population parameters such as \( \mu \) and \( \sigma \).  For any samples drawn from this population, the samples would form a sampling distribution that is a normal distribution, with:
+\[
+    mean = \mu  \quad\text{where M is mean of sample means}\\
+    SD = \frac{\sigma}{\sqrt{n}} \quad\text{where n is sample size}
+\]
+\( SD \) is also known as Standard Error \( SE \) which is used for Z score calculation.</p>
+<p>For any sample mean, \( M \), we can determine where it falls on this sampling distribution by standardizing, aka, finding the z-score \( Z \), given its formula below:
+\[
+    Z = \frac{M - \mu}{ SE }
+\]</p>
+<p>However, much of the times, with sample data, we don't know population \( \mu \) and population standard deviation \( \sigma \). We only have samples which we must use to draw all our conclusions.  </p>
+<p>When working with samples, we usually estimate the population standard deviation using the sample standard deviation with Bassel's correction.<br>
+\[
+  S =  \sqrt{ \frac{ \sum_1^n{ (x_{i} - \bar{x}) ^ 2 }} { n-1 } } \\
+  where S is estimated population standard deviation, n is sample size
+\]</p>
+<p>Without population parameters and with only sample data, we end up with a new distribution that is more prone to error, called the t-distribution. The t-distribution is more spread out and thicker in the tails.  </p>
+<p>Same principals applies to t-distribution.  When n increases:</p>
+<ul>
+<li>the t-distribution approaches a normal distribution</li>
+<li>the t-distribution gets skinner tails</li>
+<li>S, the estimated population standard deviation, gets closer to the real population standard deviation \( \mu \).  </li>
+</ul>
+<p>With t-distribution and t-test, we can determine:</p>
+<ol>
+<li>How different a sample mean is from a population mean</li>
+<li>How different two sample means are from each other.  These two samples can be either:<ul>
+<li>dependent</li>
+<li>independent</li>
+</ul>
+</li>
+</ol>
+<h2>Degrees of Freedom</h2>
+<p>t-distribution are defined by degrees of freedom, \(df\), which generally is \( n - 1 \) for single dimension data.  The \(df\) for 2D or 3D sample is \[df = (n-1)^d\;\text{where power d is the number of dimension}\]
+Degrees of freedom are the number of pieces of information that can be freely varied, without violating any given restrictions.  It is pieces of independent information to estimate another piece of information. As the degrees of freedom increases, it better approximates the normal distribution.
+\( n - 1 \) is also known as the effective sample size.  As shown above, it is used to estimate the population standard deviation with Basel's correction.  </p>
+<h2>Hypothesis Testing with t-statistics</h2>
+<p>Like the z-test, if the t-statistic falls far from the mean, where t-statistic is 0, we reject the null. To do so, we compare the sample mean to population mean, by calculating t-statistic.</p>
+<p>For one sample t-test, the t-statistic is:
+\[
+    t = \frac{\bar{x} - \mu_{0}}{S/\sqrt{n}} \text{where:}\\
+    \bar{x}\text{ is sample mean}\\
+    \mu_{0}\text{ is population mean}\\
+    S \text{ is standard error, aka. standard deviation of sample}\\
+    n \text{ is the sample size}
+\]
+The sample mean, \(\bar{x}\) is also the point estimate for the population mean.
+t-statistics increases when:</p>
+<ul>
+<li>a larger difference between \(\bar{x}\) and \(\mu_{0}\)</li>
+<li>larger \( n \)</li>
+</ul>
+<p>For hypothesis testing:</p>
+<ul>
+<li>The <strong>larger</strong> the value of \(\bar{x}\), the stronger the evidence that \(\mu \gt \mu_{0}\).</li>
+<li>The <strong>smaller</strong> the value of \(\bar{x}\), the stronger the evidence that \(\mu \lt \mu_{0}\).</li>
+<li>The further the value of \(\bar{x}\) from \(\mu_{0}\) in either direction, the stronger the evidence that \(\mu \neq \mu_{0}\).</li>
+</ul>
+<p>We reject the null hypothesis if the t-statistic is less than or greater than the t-critical value, at a given \( \alpha \) level.</p>
+<h2>P-Value</h2>
+<p>For one-tailed test, the P-value is the probability above the t-statistic if it is positive, and below the t-statistic if it is negative.  For two tailed test, the p-value will be the sum of probability on both ends.  We reject the null hypothesis when the p-value is less than the \( \alpha \) level.</p>
+<p>After calculating the t-statistic, we go to <a href="http://www.graphpad.com/quickcalcs/pValue1/" title="P-Value with t and DF">GraphPad</a> to get the exact P-value. There are also other calculators on <a href="http://www.graphpad.com/" title="GraphPad Calculators">GraphPad</a> that are worth checking out.  </p>
+<h2>Cohen's d</h2>
+<p>Cohen's d is another common measure of affects size, when comparing means, named after Jacobs Cohen.  It is a standardized mean difference that measures the distance between 2 means in standard deviation units.
+\[
+    Cohen's d = \frac{\bar{x} - \mu_{0}}{S} \\
+    where\;\bar{x}\text{ is sample mean, }\mu_{0}\text{ is population mean, and }S\text{ is sample standard deviation}
+\]</p>
+<h2>Confidence Interval</h2>
+<p>Confidence interval is the interval where the population mean will probably lie.<br>
+At a given confidence level, or alpha level, we first determine the t-critical value.<br>
+Confidence interval for a two-tailed test is:
+\[
+  \begin{align}
+    CI &amp; = M \pm t_{critical} \cdot SE_{sample} \\
+    &amp; = M \pm t_{critical} \cdot \frac{S}{\sqrt{n}}
+  \end{align}
+\]</p>
+<h2>Margin of Error</h2>
+<p>Margin of Error is one-half width of the confidence interval.  CI's upper bound is sample mean, \(M + t_{critical} \cdot \frac{S}{\sqrt{n}} \) plus margin of error; whereas CI's lower bound is sample mean, \( M - t_{critical} \cdot \frac{S}{\sqrt{n}} \).  Therefore:
+\[
+  Margin\;of\;Error = t_{critical} \cdot \frac{S}{\sqrt{n}}
+\]</p>
+<h2>Dependent t-tests</h2>
+<p>Dependent samples are generated when the same subject takes the test twice.  This is a within subject design.  Examples:</p>
+<ul>
+<li>when same subject is applied two conditions</li>
+<li>subject is given a pre-test and post-test</li>
+<li>longitudinal study (development over time)</li>
+</ul>
+<p>The within-subject designs generate paired data.  Then we look at the difference between these two sets of data, \( D_{i} \)</p>
+<h2>Types of Designs</h2>
+<ol>
+<li>Repeated measures design (eg errors on two types of keyboards)
+\[ H_{0}: \mu_{1} = \mu_{2} \]</li>
+<li>Longitudinal design
+\[ H_{0}: \mu_{time1} = \mu_{time2} \]</li>
+<li>Pre-test vs Post-test
+\[ H_{0}: \mu_{pre} = \mu_{post} \]</li>
+</ol>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="books/python-design-patterns/02-singleton-design-pattern/" class="u-url">Python Design Patterns - The Singleton Design Pattern</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-27T12:06:02+08:00" title="2016-09-27 12:06">2016-09-27 12:06</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h2>Singleton Design Pattern</h2>
+<h2>Real-World Example of Singleton Pattern</h2>
+<h2>Singleton Pattern Implementation in Python</h2>
+<h2>The Monostate(Borg) Pattern</h2>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="books/python-design-patterns/01-intro/" class="u-url">Python Design Patterns - Introduction</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-26T16:22:03+08:00" title="2016-09-26 16:22">2016-09-26 16:22</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h2>Understanding Object-Oriented Programming</h2>
+<h3>Objects</h3>
+<p>Objects are described as:</p>
+<ul>
+<li>They represent entities in your application under development</li>
+<li>Entities interact among themselves to solve real-world problems</li>
+</ul>
+<h3>Classes</h3>
+<p>Classes help represent real-world entities by:</p>
+<ul>
+<li>Classes define objects in attributes and behaviors. Attributes are data members and behaviors are manifested by the member functions</li>
+<li>Classes consist of constructors that provide the initial state of these objects</li>
+<li>Classes are like templates and hence can be easily reused.</li>
+</ul>
+<h3>Methods</h3>
+<p>Methods are described as following:</p>
+<ul>
+<li>They represent the behavior of the objects.</li>
+<li>Methods work on attributes and also implement the desired functionality.</li>
+</ul>
+<pre class="code literal-block"><span></span>    <span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+      <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+      <span class="k">def</span> <span class="nf">get_person</span><span class="p">(</span><span class="bp">self</span><span class="p">,)</span>
+        <span class="k">return</span> <span class="s2">"&lt;Person (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&gt;"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">"John Doe"</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Type of Object:"</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="s2">"Memory Address:"</span> <span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+</pre>
+
+
+<h2>Major Aspects of Object-Oriented Programming</h2>
+<h3>Encapsulation</h3>
+<p>Key Features are:</p>
+<ul>
+<li>an object's behavior is kept hidden from the outside world or objects kept their state information private.</li>
+<li>Clients can't change the object's internal state by directly acting on them; rather clients request the object by sending messages. Based on the type of requests, objects may respond by changing their internal state using special member functions such as <code>get</code> or <code>set</code>
+</li>
+<li>In Python, the concept of encapsulation isn't implicit, as it doesn't have keywords such as public, private, and protected that are required to support encapsulation. Accessibility is on the other hand made private by prefixing <code>__</code> in the variable or function name.</li>
+</ul>
+<h3>Polymorphism</h3>
+<p>Key Features are:</p>
+<ul>
+<li>There are two types:<ul>
+<li>An object provides different implementations of the method based on input parameters.</li>
+<li>The same interface can be used by objects of different types.</li>
+</ul>
+</li>
+<li>In Python, polymorphism is built in for the language.</li>
+<li>Examples:<ul>
+<li>The + operator can act on two integers to add them or can work with strings to concatenate them.</li>
+<li>Strings, tuples and lists can all be accessed with an integer index. I.E, <code>s(1)</code>, <code>t(2)</code> or <code>l(-1)</code>.</li>
+</ul>
+</li>
+</ul>
+<h3>Inheritance</h3>
+<ul>
+<li>Inheritance indicates that one class derives (most of its) functionality from the parent class.</li>
+<li>Inheritance is described as an option to reuse functionality defined in the base class and allow independent extensions of the original software implementation.</li>
+<li>Inheritance creates hierarchy via the relationships among objects of different classes. Python, unlike Java, supports multiple inheritance (inheriting multiple base classes).</li>
+</ul>
+<h3>Abstraction</h3>
+<p>Key Features are:</p>
+<ul>
+<li>It provides you with a simple interface to the clients, where the client can interact with the class object and call methods defined in the interface.  </li>
+<li>It abstracts the complexity of internal classes with an interface so that the client needs not aware of the internal implementation.  </li>
+</ul>
+<pre class="code literal-block"><span></span>    <span class="k">class</span> <span class="nc">Adder</span><span class="p">:</span>
+      <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sum</span> <span class="o">+=</span> <span class="n">value</span>
+
+    <span class="n">acc</span> <span class="o">=</span> <span class="n">Adder</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">99</span><span class="p">):</span>
+      <span class="n">acc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="n">acc</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
+</pre>
+
+
+<h3>Composition</h3>
+<p>Key Points:</p>
+<ul>
+<li>It is a way to combine objects or classes into more complex data structures or software implementation</li>
+<li>In composition, an object is used to call member functions other modules thereby making base functionality available across modules without inheritance.  </li>
+</ul>
+<pre class="code literal-block"><span></span>    <span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+      <span class="k">def</span> <span class="nf">a1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"a1"</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+      <span class="k">def</span> <span class="nf">b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"b"</span><span class="p">)</span>
+      <span class="n">A</span><span class="p">()</span><span class="o">.</span><span class="n">a1</span><span class="p">()</span>
+
+    <span class="n">objectB</span> <span class="o">=</span> <span class="n">B</span><span class="p">()</span>
+    <span class="n">objectB</span><span class="o">.</span><span class="n">b</span><span class="p">()</span>
+</pre>
+
+
+<h2>Object-Oriented Design Principles</h2>
+<h3>The Open/Close Principle</h3>
+<p>The open/close principle states that <em>classes or objects and methods should be open for extension but closed for modifications.</em>  </p>
+<p>For example, the open/close principle is manifested in a case where a user has to create a class implementation by extending the abstract base class to implement the required behavior instead of changing the abstract class.</p>
+<p>The advantages of this design principle are:</p>
+<ul>
+<li>Existing classes are changed and hence the chances of regression are less.</li>
+<li>It also helps maintain backward compatibility for the previous code.</li>
+</ul>
+<h3>The Inversion of Control Principle</h3>
+<p>The inversion of control principle states that <em>high-level modules shouldn't be dependent on low-level modules; they should both be dependent on abstractions.  Details should depend on abstractions but not the other way around.</em></p>
+<p>The principle suggests that any two modules shouldn't be dependent on each other in a tight way but should be decoupled with an abstraction layer in between.  It also suggests that the details of the class should represent the abstractions. In some cases, where the philosophy gets inverted and implementation details itself decide the abstraction, which should be avoided.  </p>
+<p>Advantages of the inversion of control principles are as follow:</p>
+<ul>
+<li>The tight coupling of modules is more prevalent and hence no complexity/rigidity in the system.  </li>
+<li>As there is a clear abstraction layer between dependent modules (provided by a hook or parameter), it's easy to deal with dependencies across modules in a better way.  </li>
+</ul>
+<h3>The Interface Segregation Principle</h3>
+<p>The interface segregation principle states, <em>clients should not be forced to depend on interfaces they don't use.</em></p>
+<p>It reminds developers to develop methods that relate to the functionality.  If there is any method that is not related to the interface, the class dependent on the interface has to implement it unnecessarily.  For example: a <code>Pizza</code> interface shouldn't have a method called <code>add_chicken()</code>.  The <code>VegePizza</code> class based on <code>Pizza</code> shouldn't be forced to implement this method.  </p>
+<p>Advantages of this design principle are:</p>
+<ul>
+<li>It forces developers to write thin interfaces and have methods that are specific to the interface</li>
+<li>It helps you not to populate by adding unintentional methods</li>
+</ul>
+<h3>The Single Responsibility Principle</h3>
+<p>The single responsibility principle states, <em>a class should have only one reason to change.</em>  </p>
+<p>When a class is developed, it should cater to the given functionality well.  If it is serving two functionalities, it is better to split them.  It refers to functionality as a reason to change.  For example, a class can undergo changes because of the difference in behavior expected in it, but if a class is changed for two reasons (ie changes in two functionalities), then the class should definitely be split.  </p>
+<p>Advantages of this design principle:</p>
+<ul>
+<li>Whenever there is a change in one functionality, this particular class needs to change, and nothing else.</li>
+<li>Additionally, if a class has multiple functionalities, the dependent classes will have to undergo changes for multiple reason, which gets avoided.  </li>
+</ul>
+<h3>The Single Responsibility Principle</h3>
+<p>The substitution principle states that <em>derived classes must be able to completely substitute the base classes.</em>  </p>
+<p>It says when developers write derived classes, they should extend the base classes.  The derived class should be as close to the base class as possible so much so that the derived class itself should replace the base class without any code changes.  </p>
+<h2>The Concept of Design Patterns</h2>
+<p>Design patterns were first introduced by <strong>GoF</strong> (<strong>Gang of Four</strong>), where they mentioned them as being solutions to given problems.  The book, <a href="http://bla" title="Design Patterns by Gang of Four">Design Patterns: Elements of Reusable Object-Oriented Software</a>, covers software engineering solutions to the commonly occurring problems in software design.  There are 23 design patterns first identified, and first implemented to the Java programming language.  <em>Design patterns are discoveries, and not invention in themselves.</em>  </p>
+<p>The key features of design patterns are:</p>
+<ul>
+<li>They are language-neutral and can be implemented across multiple languages</li>
+<li>They are dynamic, as new patterns get introduced every now and then</li>
+<li>They are open for customization and hence useful for developers</li>
+</ul>
+<p>One would also find:</p>
+<ul>
+<li>It is a panacea to all design problemsthat a developer has had so far</li>
+<li>It's an extraordinary, specially clever way to solving a problem</li>
+<li>Many experts in software development world agree to these solutions</li>
+<li>There's something repeatable about the design, hence the word pattern</li>
+</ul>
+<p>Completeness in a software solution refers to many factors such as design, scalability, reuse, memory utilization and etc.  </p>
+<h3>Advantages of Design Patterns</h3>
+<p>The advantages of design patterns are:
+- They are reusable across multiple projects
+- The architectural level of problems can be solved.
+- They are time-tested and well-proven, which is the experience of developers and architects
+- They have reliability and dependence</p>
+<h3>Taxonomy of Design Patterns</h3>
+<p>Not every piece of code/design can be termed as a design patterns.<br>
+- <strong>Snippet</strong>: Some code in some language for a certain purpose, for example, DB connectivity in Python can be a code Snippet
+- <strong>Design</strong>: A better solution to solve a particular problem.
+- <strong>Standard</strong>: A way to solve some kind of problems, which can be very generic and applicable to a situation at hand.
+- <strong>Pattern</strong>: A time-tested, efficient and scalable solution that will resolve entire class of known issues.  </p>
+<h3>Context - The Applicability of Design Patterns</h3>
+<p>To use design patterns efficiently, application developers must be aware of the context where design patterns apply.  Context are classified into the following categories:</p>
+<ul>
+<li>
+<strong>Participants</strong>: They are classes that are used in design patterns.  Classes play different roles to accomplish multiple goals in the pattern.  </li>
+<li>
+<strong>Non-functional Requirements</strong>: Requirements such as memory optimization, usablility and performance fall under this category.  These factors impact the complete software solution and are thus critical.</li>
+<li>
+<strong>Trade-offs</strong>: Not all design patterns fit in (application development) as it is, and trade-offs are necessary.  These are decisions
+that you take while using a design pattern in an application.  </li>
+<li>
+<strong>Results</strong>: Design patterns can have a negative impact on other parts of the code if the context is not appropriate.  Developers should understand the consequences and use of design patterns.  </li>
+</ul>
+<h2>Patterns for Dynamic Languages</h2>
+<p>Python is a dynamic language.  The dynamic nature of Python can be represented as follows:</p>
+<ul>
+<li>Types or classes are objects at runtime.</li>
+<li>Variables can have type as a value and can be modified at runtime.  For example, a = 5 and a = "John", the a variable is assigned at runtime and type also gets changed.</li>
+<li>Dynamic languages have more flexibility in terms of of class restrictions.</li>
+<li>In Python, polymorphism is built into the language, there is no keywords such as <code>private</code> and <code>protected</code> and everything is public by default.  </li>
+<li>Represents a case where design patterns can be easily implemented in dynamic languages.</li>
+</ul>
+<h2>Classifying Patterns</h2>
+<p>The GoF generally classified 23 patterns under three main categories:</p>
+<ul>
+<li>
+<p>Creational Pattern</p>
+<ul>
+<li>They work on the basis of how objects can be created</li>
+<li>They isolate the details of object creation</li>
+<li>Code is independent of the type of object to be created</li>
+<li>An example of a creation pattern is the Singleton pattern.</li>
+</ul>
+</li>
+<li>
+<p>Structural Pattern</p>
+<ul>
+<li>They design the structure of objects and classes so that they can compose to archive larger results</li>
+<li>The focus is on simplifying the structure and identifying the relationship between classes and objects</li>
+<li>They focus on class inheritance and composition</li>
+<li>An example of a behavioral pattern is the Adapter pattern.</li>
+</ul>
+</li>
+<li>
+<p>Behavioral Pattern</p>
+<ul>
+<li>They are concerned with the interaction among objects and responsibility of objects</li>
+<li>Objects should be able to interact and still be loosely coupled.  </li>
+</ul>
+</li>
+</ul>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="books/design-patterns/01-intro/" class="u-url">Introduction</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-26T16:20:47+08:00" title="2016-09-26 16:20">2016-09-26 16:20</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>Write your post here.</p>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/inferential-statistics/lesson-9/" class="u-url">Inferential Statistics - Hypothesis Testing</a></h1>
         <div class="metadata">
             <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-20T17:36:10+08:00" title="2016-09-20 17:36">2016-09-20 17:36</time></span>
         </div>
     </header><div class="e-content entry-content">
-    <p>Write your post here.</p>
+    <div>
+<h2>Hypothesis Test and Alpha Levels</h2>
+<p>A Hypothesis test is used to test a claim that someone has about an observation may be different from the known population parameter.  </p>
+<p><strong>Alpha level</strong> (<strong>\( \alpha \)</strong>) of a hypothesis test helps us determine the critical region of a distribution.  Refer to <a href="course-notes/inferential-statistics/lesson-9/#critical-region">Critical Regions</a> below.</p>
+<p><strong>Null Hypothesis</strong> is always an equality.  It is the claim we are trying to provide evidence <em>against</em>.  We commonly write the null hypothesis as one of the following:
+\[  H_{0} : \mu_{0} = \mu\\  H_{0} : \mu_{0} \ge \mu\\  H_{0} : \mu_{0} \le \mu \]</p>
+<p><strong>Null Hypothesis</strong> is result we are checking against the claim.  This is always some kind of inequality.  We commonly write the alternative hypothesis as one of the following:
+\[  case\;a &gt;&gt; H_{0} : \mu_{0} \neq \mu\\  case\;b &gt;&gt; H_{0} : \mu_{0} \gt \mu\\  case\;c &gt;&gt; H_{0} : \mu_{0} \lt \mu \]</p>
+<p>If we know which direction we are checking against the claim, use case b or case c, else we typically use case a.  Case a is a two tailed test, while case b and case c are one tailed tests.  Read more on this <a href="course-notes/inferential-statistics/lesson-9/#one-tailed-two-tailed">below</a>.  </p>
+<h2>
+<a id="critical-region" name="critical-region"></a>Critical Regions</h2>
+<p>When it comes to constructing a hypothesis test, it is best to choose a significant level before the test is performed.  The results of the test can be reported as significant a certain critical level, but it is important that you are not "fishing" for results before seeing the results in your sample.  For additional readings on Hypothesis Testing, here is an <a href="http://blog.minitab.com/blog/adventures-in-statistics/understanding-hypothesis-tests:-significance-levels-alpha-and-p-values-in-statistics" title="Hypothesis Testing">article</a>.  </p>
+<p>The corresponding Z-critical values, \( Z_{critical} \) at each \( \alpha \) level for one-tailed test and two-tailed test respectively:
+\[
+\begin{array}{c|cc}
+\alpha &amp; \text{one-tailed} &amp; \text{two-tailed} \\
+\hline
+0.05 &amp; 1.67 \; or\; -1.67 &amp; \pm 1.96 \\
+0.01 &amp; 2.32 \; or\; -2.32 &amp; \pm 2.57 \\
+0.001 &amp; 3.08 \; or\; -3.08 &amp; \pm 3.27
+\end{array}
+\]</p>
+<p>If we get a sample mean in the critical region, then we decide that most likely those sample means by chance.  The \( Z_{critical} \) values are the same that we used to calculate confidence intervals.  </p>
+<p>When we do statistical test, we'll set our own criteria for making a decision (in other words, we'll choose an alpha level). Then we decide if the probability of obtaining that sample mean is less than the alpha level (ie. sample means fall in the critical region, and \(Z\) is greater than \(Z_{critical}\)). Then if there is an evidence of an effect (of the intervention).</p>
+<p>Note that we <strong>CANNOT prove</strong> if a hypothesis is true.  We can only obtain evidence to reject the null hypothesis.  </p>
+<p><strong>Example</strong>:
+A null hypothesis says "Most (more than 50%) dogs have four legs." and the alternative hypothesis says "Most dogs have less than four legs."</p>
+<p>In a sample of 10 dogs, there are 6 dogs with less than four legs.  </p>
+<p>In this case we are taking 50% as significance level.  We are able to reject the null hypothesis based on this.  Under a typical statistical test (such as using a 5% significance level), this sample data would be evidence against null hypothesis, but not necessarily enough evidence/information to reject the null hypothesis.  </p>
+<p>However, if the definition of null hypothesis was changed to indicate 70% of dogs have four legs, then our current evidence would be enough to reject the null hypothesis to reject the null hypothesis at a 5% significance level.  </p>
+<h2>
+<a id="one-tailed-two-tailed" name="one-tailed-two-tailed"></a> One Tailed and Two Tailed</h2>
+<p>Take a hypothesis test:
+\[
+    H_{0}:
+    \begin{cases}
+      \mu = \mu_{I},  &amp; \mu_{I} \text{is post intervention}
+    \end{cases} \\
+    H_{A}:
+    \begin{cases}
+      \mu \lt \mu_{I},  &amp; \text{right one-tailed, with } \mu_{I} \text{ greater than } \mu \\
+      \mu \gt \mu_{I},  &amp; \text{left one-tailed, with } \mu_{I} \text{ less than } \mu \\
+      \mu \neq \mu_{I},  &amp; \text{right one-tailed, with } \mu_{I} \text{ greater or less than } \mu
+    \end{cases}
+\]</p>
+<p>We choose a one-tailed, or directional hypothesis test when we predict a direction of the treatment effect.  Alternatively, when we do not predict the direction of the treatment, we choose the two-tailed or non-directional test.  In general we use two-tailed because it is more conservative.  We are less likely to reject the null when it is true.  It also prevents us from mistaking the wrong direction of the effect.  </p>
+<h2>Decision Errors</h2>
+<p>There are two types of Hypothesis Decision Errors:
+<strong>Type I error</strong>: is when you reject the null when the null hypothesis is actually true.<br><strong>Type II error</strong>: is when you fail to reject the null when the null hypothesis is actually false.  </p>
+</div>
     </div>
     </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/singapore_animal_shelters/" class="u-url">Singapore Animal Shelters and Animal Protection</a></h1>
         <div class="metadata">
@@ -1048,324 +1451,6 @@ Email: oasis2ndchance@gmail.com</p>
   <span class="n">my_tesla</span> <span class="o">=</span> <span class="n">ElectricCar</span><span class="p">(</span><span class="s1">'tesla'</span><span class="p">,</span> <span class="s1">'roadster'</span><span class="p">,</span> <span class="mi">2016</span><span class="p">)</span>
   <span class="k">print</span><span class="p">(</span><span class="n">my_tesla</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>
 </pre>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/python-crash-notes/05-functions-modules/" class="u-url">Functions and Modules</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-07T11:14:55+08:00" title="2016-09-07 11:14">2016-09-07 11:14</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h3>Functions</h3>
-<ul>
-<li>
-<code>def function_name():</code> // define a function</li>
-</ul>
-<h4>Parameters and Arguments</h4>
-<ul>
-<li>
-<code>def describe_pet(animal_type, pet_name):</code> // define function describe_pet with parameter animal_type and pet_name</li>
-<li>
-<code>describe_pet('dog', 'willie')</code> // calling function describe_pet and passing 'dog' and 'willie' as positional arguments, order matters.</li>
-<li>
-<code>describe_pet(animal_type = 'dog', pet_name = 'willie')</code> or <code>describe_pet(pet_name = 'harry', animal_type = 'hamster', )</code> // calling function describe_pet and passing 'dog' and 'willie' as positional arguments, order doesn't matter.</li>
-<li>
-<code>def describe_pet(pet_name, animal_type = 'dog'):</code> // define function describe_pet with parameter animal_type, its default value 'dog' and pet_name.  Parameter with default value usually listed last.</li>
-<li>
-<code>def get_formatted_name(fname, lname, mname=''):</code> // define function get_formatted_name with parameters fname, lname, and optional mname.  Optional parameter also listed last.</li>
-<li>When a list is passed to a function, the function can modify the list.  Any changes made to the list inside the function's body are permanent.  </li>
-<li>Sometimes, you may decide you want to keep the original list unchanged.  In that case, you may pass the function with a copy of the list.</li>
-<li>
-<code>function_name(list_name[:])</code> // calling function_name and pass a copy of list_name by ' list_name[:] '</li>
-</ul>
-<h4>Passing an Arbitrary Number of Arguments</h4>
-<ul>
-<li>Sometimes you won't know ahead of times how many arguments a function needs to accept.  In this case, we define a function with *parameter to collect as many arguments as the calling line provides.</li>
-<li>
-<code>def make_pizza(*toppings):</code> // the asterisk in the parameter name *toppings tells python to make an empty tuple and pack whatever values it receives into this tuple.  </li>
-<li>Eg: <code>make_pizza('pepperoni')</code> or <code>make_pizza('mushrooms', 'green peppers', 'extra cheese')</code>
-</li>
-<li>
-<code>def make_pizza(size, *toppings):</code> // mix positional and arbitrary arguments</li>
-<li>Eg: <code>make_pizza(16, 'pepperoni')</code> or <code>make_pizza(24, 'mushrooms', 'green peppers', 'extra cheese')</code>
-</li>
-</ul>
-<h4>Using Arbitrary Keyword Arguments</h4>
-<ul>
-<li>Sometimes you'll want to accept an arbitrary number of arguments, but won't know ahead of time what kind of information will be passed to the function.  In this case, you can write functions that accept as many key-value pair as the calling statement provides.</li>
-</ul>
-<pre class="code literal-block"><span></span>    <span class="k">def</span> <span class="nf">build_profile</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">lname</span><span class="p">,</span> <span class="o">**</span><span class="n">user_info</span><span class="p">):</span>
-          <span class="n">profile</span> <span class="o">=</span> <span class="p">{}</span>
-          <span class="n">profile</span><span class="p">[</span><span class="s1">'first_name'</span><span class="p">]</span> <span class="o">=</span> <span class="n">fname</span>
-          <span class="n">profile</span><span class="p">[</span><span class="s1">'last_name'</span><span class="p">]</span> <span class="o">=</span> <span class="n">lname</span>
-          <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">user_info</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-              <span class="n">profile</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-          <span class="k">return</span> <span class="n">profile</span>
-</pre>
-
-
-<ul>
-<li>**user_info represents an arbitrary number of keyword arguments.  </li>
-<li>Eg: <code>user_profile = build_profile('albert', 'einstein', location='princeton', field='physics')</code>
-</li>
-</ul>
-<h3>Modules</h3>
-<ul>
-<li>A module is a file ending in .py that contains the code you want to import to your program.  For example, to make a module that contains the function make_pizza(), move the function make_pizza() to a file pizza.py.  </li>
-<li>pizza.py</li>
-</ul>
-<pre class="code literal-block"><span></span>  <span class="k">def</span> <span class="nf">make_pizza</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="o">*</span><span class="n">toppings</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Making a "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"-inch pizza with the following toppings: "</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">topping</span> <span class="ow">in</span> <span class="n">toppings</span><span class="p">:</span>
-      <span class="k">print</span><span class="p">(</span><span class="s2">"- "</span> <span class="o">+</span> <span class="n">topping</span><span class="p">)</span>
-</pre>
-
-
-<ul>
-<li>making_pizza.py</li>
-</ul>
-<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">pizza</span>
-
-  <span class="n">pizza</span><span class="o">.</span><span class="n">make_pizza</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
-  <span class="n">pizza</span><span class="o">.</span><span class="n">make_pizza</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
-</pre>
-
-
-<h4>Importing Specific Functions</h4>
-<ul>
-<li><code>from module_name import function_name</code></li>
-<li><code>from module_name import function_0, function_1, function_2</code></li>
-</ul>
-<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">pizza</span> <span class="kn">import</span> <span class="n">make_pizza</span>
-
-  <span class="n">make_pizza</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
-  <span class="n">make_pizza</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
-</pre>
-
-
-<h4>Use as to Give a Function an Alias</h4>
-<ul>
-<li><code>from module_name import function_name as fn</code></li>
-</ul>
-<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">pizza</span> <span class="kn">import</span> <span class="n">make_pizza</span> <span class="k">as</span> <span class="n">mp</span>
-  <span class="n">mp</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
-  <span class="n">mp</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
-</pre>
-
-
-<h4>Use as to Give a Module an Alias</h4>
-<ul>
-<li><code>import module_name as mn</code></li>
-</ul>
-<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">pizza</span> <span class="kn">as</span> <span class="nn">p</span>
-  <span class="n">p</span><span class="o">.</span><span class="n">make_pizza</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
-  <span class="n">p</span><span class="o">.</span><span class="n">make_pizza</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
-</pre>
-
-
-<h4>Import All Functions in a Module</h4>
-<ul>
-<li><code>from module_name import *</code></li>
-</ul>
-<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">pizza</span> <span class="kn">import</span> <span class="o">*</span>
-  <span class="n">make_pizza</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
-  <span class="n">make_pizza</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
-</pre>
-
-
-<ul>
-<li>However it is best not to use this approach.  Python may see several functions or variables with the same name, and instead of importing all the functions separately it will overwrite the functions.</li>
-</ul>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/python-crash-notes/04-user-inputs-and-loops/" class="u-url">User Input and Loops</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-30T15:00:52+08:00" title="2016-08-30 15:00">2016-08-30 15:00</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h3>Loops</h3>
-<h4>For Loop</h4>
-<ul>
-<li>
-<code>for x in {list_name}:</code> // loop through list_name list</li>
-<li>
-<code>for x in range(1, 10):</code> //  loop from 1 through 9, but NOT 10</li>
-<li>
-<code>for ky, val in {dictionary}.items():</code> // loop through key value pair in dictionary</li>
-</ul>
-<h4>While Loop</h4>
-<ul>
-<li>
-<code>while {list_name}:</code> // loop as long as list isn't empty</li>
-</ul>
-<pre class="code literal-block"><span></span>      <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
-        <span class="o">//</span> <span class="n">do</span> <span class="n">something</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-</pre>
-
-
-<h4>Breaking Loop</h4>
-<ul>
-<li>To exit a while loop immediately without running any remaining code in the loop, regardless of the results of any conditional test, use the break statement.  </li>
-</ul>
-<pre class="code literal-block"><span></span>      <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="p">{</span><span class="n">some</span> <span class="n">condition</span><span class="p">}:</span>
-          <span class="k">break</span>
-        <span class="k">else</span><span class="p">:</span>
-          <span class="o">//</span> <span class="n">do</span> <span class="n">something</span>
-</pre>
-
-
-<h4>Skip but Continue Looping</h4>
-<ul>
-<li>Rather than breaking out of a loop entirely without executing the rest of its code, use the continue statement to go back to the loop</li>
-</ul>
-<pre class="code literal-block"><span></span>      <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-          <span class="k">continue</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/python-crash-notes/03-lists-and-tuples-and-dictionaries/" class="u-url">Lists and Tuples and Dictionaries</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-30T14:29:09+08:00" title="2016-08-30 14:29">2016-08-30 14:29</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h3>Lists</h3>
-<ul>
-<li>Lists are mutable.  Lists can be modified throughout the life of a programme.</li>
-<li>Accessing Element in a List<ul>
-<li>
-<code>bicycles[0]</code>, <code>bicycles[-1]</code>, <code>bicycles[3]</code>
-</li>
-</ul>
-</li>
-<li>Adding Elements to a List<ul>
-<li>
-<code>motorcycles.append('ducati')</code> // Add to end of the list</li>
-<li>
-<code>motorcycles.insert(0, 'ducati')</code> // Insert 'ducati' at position 0</li>
-</ul>
-</li>
-<li>Removing Element from a List<ul>
-<li>
-<code>del motorcycles[1]</code> // remove element by index</li>
-<li>
-<code>last_owned = motorcycles.pop()</code> // remove last element in motorcycles list and store as last_owned</li>
-<li>
-<code>most_expensive = motorcycles.pop(2)</code> // remove third element in motorcycles list and store as most_expensive</li>
-<li>
-<code>motorcycles.remove('yamaha')</code> // remove element by value</li>
-</ul>
-</li>
-<li>Organizing a List<ul>
-<li>
-<code>cars.sort()</code> // sorting permanently</li>
-<li>
-<code>cars.sort(reverse=True)</code> // sorting in reverse order, permanently</li>
-<li>
-<code>sorted(cars)</code> // temporarily sort a list</li>
-<li>
-<code>cars.reverse()</code> //simply reverse the order of the list</li>
-</ul>
-</li>
-<li>Length of a List<ul>
-<li>
-<code>len(cars)</code> // returns integer of element count in the list</li>
-</ul>
-</li>
-<li>Copying a List<ul>
-<li>
-<code>b = a[:]</code> // b copies a, and is separate list from a</li>
-</ul>
-</li>
-<li>Aliasing a List<ul>
-<li>
-<code>q = p</code> // q and p refers to same list object.</li>
-</ul>
-</li>
-<li>Looping through lists:<ul>
-<li><code>for x in {list_name}:</code></li>
-<li><code>for x in range(1, 10):</code></li>
-</ul>
-</li>
-</ul>
-<h3>Tuples</h3>
-<ul>
-<li>Just like strings, tuples is IMMUTABLE.</li>
-<li>Values of Tuples can be reassigned, or overwritten.  <ul>
-<li><code>tup = ('alice', 'not in', 'wonderland')</code></li>
-<li>
-<code>tup = ('alice', 'now in', 'wonderland')</code> //final value will be the last assigned value.</li>
-</ul>
-</li>
-<li>Tuples can be looped just like lists.</li>
-</ul>
-<h3>Dictionaries</h3>
-<ul>
-<li>Elements in dictionaries are stored in key-value pairs.</li>
-<li>Value is assessed by key.</li>
-<li>Looping through dictionaries:<ul>
-<li>
-<code>for x, y in dict.items():</code> // looping through x, y {key-value} pairs in dict</li>
-<li>
-<code>for ky in dict.keys():</code> // looping through all keys of dict dictionary</li>
-<li>
-<code>for val in dict.values():</code> // looping through all values of dict dictionary</li>
-<li>
-<code>set(dict.values())</code> // build a set by selecting unique items from dict.values()</li>
-</ul>
-</li>
-</ul>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/python-crash-notes/02-variables-and-simple-data-types/" class="u-url">Variables and Simple Data Types</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-30T13:58:19+08:00" title="2016-08-30 13:58">2016-08-30 13:58</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h3>String</h3>
-<ul>
-<li>Strings are NOT mutable.  </li>
-</ul>
-<h4>Methods</h4>
-<ul>
-<li>.title() : put string in camel case</li>
-<li>.upper() : put string in upper case</li>
-<li>.lower() : put string in lower case</li>
-<li>.rstrip() : stripping whitespace from the right</li>
-<li>.lstrip() : stripping whitespace from the left</li>
-<li>.strip() : stripping whitespace from both left and right</li>
-</ul>
-<h4>Other String Manipulations</h4>
-<ul>
-<li>" + " : plus sign is to concatenate strings together<ul>
-<li><code>print("Hello " + "!!!")</code></li>
-</ul>
-</li>
-<li>" \t " : tabs<ul>
-<li><code>print("Languages:\n\tPython\n\tC\n\tJavascript")</code></li>
-</ul>
-</li>
-<li>" \n " : new line<ul>
-<li><code>print("Languages:\nPython\nC\nJavascript")</code></li>
-</ul>
-</li>
-</ul>
-<h3>Numbers</h3>
-<h3>Number Types</h3>
-<ul>
-<li>Integers</li>
-<li>Floats</li>
-</ul>
 </div>
     </div>
     </article>

@@ -1,5 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title> =^..^= MEH (inferential-statistics)</title><link>https://chowy1026.github.io/</link><description></description><atom:link rel="self" type="application/rss+xml" href="https://chowy1026.github.io/tags/inferential-statistics.xml"></atom:link><language>en</language><lastBuildDate>Wed, 21 Sep 2016 00:47:06 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Inferential Statistics - Hypothesis Testing</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-9/</link><dc:creator>cHoWy</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><category>hypothsis-testing</category><category>inferential-statistics</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-9/</guid><pubDate>Tue, 20 Sep 2016 09:36:10 GMT</pubDate></item><item><title>Inferential Statistics - Estimation</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-8/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 8: Estimation&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title> =^..^= MEH (inferential-statistics)</title><link>https://chowy1026.github.io/</link><description></description><atom:link type="application/rss+xml" href="https://chowy1026.github.io/tags/inferential-statistics.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 30 Sep 2016 10:04:10 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Inferential Statistics - T-Test, Part 1</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10a/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h2&gt;T-Test&lt;/h2&gt;
+&lt;p&gt;Z-test works when we know the population parameters such as \( \mu \) and \( \sigma \).  For any samples drawn from this population, the samples would form a sampling distribution that is a normal distribution, with:
+\[
+    mean = \mu  \quad\text{where M is mean of sample means}\\
+    SD = \frac{\sigma}{\sqrt{n}} \quad\text{where n is sample size}
+\]
+\( SD \) is also known as Standard Error \( SE \) which is used for Z score calculation.&lt;/p&gt;
+&lt;p&gt;For any sample mean, \( M \), we can determine where it falls on this sampling distribution by standardizing, aka, finding the z-score \( Z \), given its formula below:
+\[
+    Z = \frac{M - \mu}{ SE }
+\]&lt;/p&gt;
+&lt;p&gt;However, much of the times, with sample data, we don't know population \( \mu \) and population standard deviation \( \sigma \). We only have samples which we must use to draw all our conclusions.  &lt;/p&gt;
+&lt;p&gt;When working with samples, we usually estimate the population standard deviation using the sample standard deviation with Bassel's correction.&lt;br&gt;
+\[
+  S =  \sqrt{ \frac{ \sum_1^n{ (x_{i} - \bar{x}) ^ 2 }} { n-1 } } \\
+  where S is estimated population standard deviation, n is sample size
+\]&lt;/p&gt;
+&lt;p&gt;Without population parameters and with only sample data, we end up with a new distribution that is more prone to error, called the t-distribution. The t-distribution is more spread out and thicker in the tails.  &lt;/p&gt;
+&lt;p&gt;Same principals applies to t-distribution.  When n increases:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the t-distribution approaches a normal distribution&lt;/li&gt;
+&lt;li&gt;the t-distribution gets skinner tails&lt;/li&gt;
+&lt;li&gt;S, the estimated population standard deviation, gets closer to the real population standard deviation \( \mu \).  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With t-distribution and t-test, we can determine:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;How different a sample mean is from a population mean&lt;/li&gt;
+&lt;li&gt;How different two sample means are from each other.  These two samples can be either:&lt;ul&gt;
+&lt;li&gt;dependent&lt;/li&gt;
+&lt;li&gt;independent&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Degrees of Freedom&lt;/h2&gt;
+&lt;p&gt;t-distribution are defined by degrees of freedom, \(df\), which generally is \( n - 1 \) for single dimension data.  The \(df\) for 2D or 3D sample is \[df = (n-1)^d\;\text{where power d is the number of dimension}\]
+Degrees of freedom are the number of pieces of information that can be freely varied, without violating any given restrictions.  It is pieces of independent information to estimate another piece of information. As the degrees of freedom increases, it better approximates the normal distribution.
+\( n - 1 \) is also known as the effective sample size.  As shown above, it is used to estimate the population standard deviation with Basel's correction.  &lt;/p&gt;
+&lt;h2&gt;Hypothesis Testing with t-statistics&lt;/h2&gt;
+&lt;p&gt;Like the z-test, if the t-statistic falls far from the mean, where t-statistic is 0, we reject the null. To do so, we compare the sample mean to population mean, by calculating t-statistic.&lt;/p&gt;
+&lt;p&gt;For one sample t-test, the t-statistic is:
+\[
+    t = \frac{\bar{x} - \mu_{0}}{S/\sqrt{n}} \text{where:}\\
+    \bar{x}\text{ is sample mean}\\
+    \mu_{0}\text{ is population mean}\\
+    S \text{ is standard error, aka. standard deviation of sample}\\
+    n \text{ is the sample size}
+\]
+The sample mean, \(\bar{x}\) is also the point estimate for the population mean.
+t-statistics increases when:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a larger difference between \(\bar{x}\) and \(\mu_{0}\)&lt;/li&gt;
+&lt;li&gt;larger \( n \)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For hypothesis testing:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;strong&gt;larger&lt;/strong&gt; the value of \(\bar{x}\), the stronger the evidence that \(\mu \gt \mu_{0}\).&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;smaller&lt;/strong&gt; the value of \(\bar{x}\), the stronger the evidence that \(\mu \lt \mu_{0}\).&lt;/li&gt;
+&lt;li&gt;The further the value of \(\bar{x}\) from \(\mu_{0}\) in either direction, the stronger the evidence that \(\mu \neq \mu_{0}\).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We reject the null hypothesis if the t-statistic is less than or greater than the t-critical value, at a given \( \alpha \) level.&lt;/p&gt;
+&lt;h2&gt;P-Value&lt;/h2&gt;
+&lt;p&gt;For one-tailed test, the P-value is the probability above the t-statistic if it is positive, and below the t-statistic if it is negative.  For two tailed test, the p-value will be the sum of probability on both ends.  We reject the null hypothesis when the p-value is less than the \( \alpha \) level.&lt;/p&gt;
+&lt;p&gt;After calculating the t-statistic, we go to &lt;a href="http://www.graphpad.com/quickcalcs/pValue1/" title="P-Value with t and DF"&gt;GraphPad&lt;/a&gt; to get the exact P-value. There are also other calculators on &lt;a href="http://www.graphpad.com/" title="GraphPad Calculators"&gt;GraphPad&lt;/a&gt; that are worth checking out.  &lt;/p&gt;
+&lt;h2&gt;Cohen's d&lt;/h2&gt;
+&lt;p&gt;Cohen's d is another common measure of affects size, when comparing means, named after Jacobs Cohen.  It is a standardized mean difference that measures the distance between 2 means in standard deviation units.
+\[
+    Cohen's d = \frac{\bar{x} - \mu_{0}}{S} \\
+    where\;\bar{x}\text{ is sample mean, }\mu_{0}\text{ is population mean, and }S\text{ is sample standard deviation}
+\]&lt;/p&gt;
+&lt;h2&gt;Confidence Interval&lt;/h2&gt;
+&lt;p&gt;Confidence interval is the interval where the population mean will probably lie.&lt;br&gt;
+At a given confidence level, or alpha level, we first determine the t-critical value.&lt;br&gt;
+Confidence interval for a two-tailed test is:
+\[
+  \begin{align}
+    CI &amp;amp; = M \pm t_{critical} \cdot SE_{sample} \\
+    &amp;amp; = M \pm t_{critical} \cdot \frac{S}{\sqrt{n}}
+  \end{align}
+\]&lt;/p&gt;
+&lt;h2&gt;Margin of Error&lt;/h2&gt;
+&lt;p&gt;Margin of Error is one-half width of the confidence interval.  CI's upper bound is sample mean, \(M + t_{critical} \cdot \frac{S}{\sqrt{n}} \) plus margin of error; whereas CI's lower bound is sample mean, \( M - t_{critical} \cdot \frac{S}{\sqrt{n}} \).  Therefore:
+\[
+  Margin\;of\;Error = t_{critical} \cdot \frac{S}{\sqrt{n}}
+\]&lt;/p&gt;
+&lt;h2&gt;Dependent t-tests&lt;/h2&gt;
+&lt;p&gt;Dependent samples are generated when the same subject takes the test twice.  This is a within subject design.  Examples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;when same subject is applied two conditions&lt;/li&gt;
+&lt;li&gt;subject is given a pre-test and post-test&lt;/li&gt;
+&lt;li&gt;longitudinal study (development over time)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The within-subject designs generate paired data.  Then we look at the difference between these two sets of data, \( D_{i} \)&lt;/p&gt;
+&lt;h2&gt;Types of Designs&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Repeated measures design (eg errors on two types of keyboards)
+\[ H_{0}: \mu_{1} = \mu_{2} \]&lt;/li&gt;
+&lt;li&gt;Longitudinal design
+\[ H_{0}: \mu_{time1} = \mu_{time2} \]&lt;/li&gt;
+&lt;li&gt;Pre-test vs Post-test
+\[ H_{0}: \mu_{pre} = \mu_{post} \]&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;</description><category>inferential-statistics</category><category>part 1</category><category>t-test</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10a/</guid><pubDate>Thu, 29 Sep 2016 05:09:03 GMT</pubDate></item><item><title>Inferential Statistics - Hypothesis Testing</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-9/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h2&gt;Hypothesis Test and Alpha Levels&lt;/h2&gt;
+&lt;p&gt;A Hypothesis test is used to test a claim that someone has about an observation may be different from the known population parameter.  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Alpha level&lt;/strong&gt; (&lt;strong&gt;\( \alpha \)&lt;/strong&gt;) of a hypothesis test helps us determine the critical region of a distribution.  Refer to &lt;a href="https://chowy1026.github.io/course-notes/inferential-statistics/lesson-9/#critical-region"&gt;Critical Regions&lt;/a&gt; below.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Null Hypothesis&lt;/strong&gt; is always an equality.  It is the claim we are trying to provide evidence &lt;em&gt;against&lt;/em&gt;.  We commonly write the null hypothesis as one of the following:
+\[  H_{0} : \mu_{0} = \mu\\  H_{0} : \mu_{0} \ge \mu\\  H_{0} : \mu_{0} \le \mu \]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Null Hypothesis&lt;/strong&gt; is result we are checking against the claim.  This is always some kind of inequality.  We commonly write the alternative hypothesis as one of the following:
+\[  case\;a &amp;gt;&amp;gt; H_{0} : \mu_{0} \neq \mu\\  case\;b &amp;gt;&amp;gt; H_{0} : \mu_{0} \gt \mu\\  case\;c &amp;gt;&amp;gt; H_{0} : \mu_{0} \lt \mu \]&lt;/p&gt;
+&lt;p&gt;If we know which direction we are checking against the claim, use case b or case c, else we typically use case a.  Case a is a two tailed test, while case b and case c are one tailed tests.  Read more on this &lt;a href="https://chowy1026.github.io/course-notes/inferential-statistics/lesson-9/#one-tailed-two-tailed"&gt;below&lt;/a&gt;.  &lt;/p&gt;
+&lt;h2&gt;&lt;a id="critical-region" name="critical-region"&gt;&lt;/a&gt;Critical Regions&lt;/h2&gt;
+&lt;p&gt;When it comes to constructing a hypothesis test, it is best to choose a significant level before the test is performed.  The results of the test can be reported as significant a certain critical level, but it is important that you are not "fishing" for results before seeing the results in your sample.  For additional readings on Hypothesis Testing, here is an &lt;a href="http://blog.minitab.com/blog/adventures-in-statistics/understanding-hypothesis-tests:-significance-levels-alpha-and-p-values-in-statistics" title="Hypothesis Testing"&gt;article&lt;/a&gt;.  &lt;/p&gt;
+&lt;p&gt;The corresponding Z-critical values, \( Z_{critical} \) at each \( \alpha \) level for one-tailed test and two-tailed test respectively:
+\[
+\begin{array}{c|cc}
+\alpha &amp;amp; \text{one-tailed} &amp;amp; \text{two-tailed} \\
+\hline
+0.05 &amp;amp; 1.67 \; or\; -1.67 &amp;amp; \pm 1.96 \\
+0.01 &amp;amp; 2.32 \; or\; -2.32 &amp;amp; \pm 2.57 \\
+0.001 &amp;amp; 3.08 \; or\; -3.08 &amp;amp; \pm 3.27
+\end{array}
+\]&lt;/p&gt;
+&lt;p&gt;If we get a sample mean in the critical region, then we decide that most likely those sample means by chance.  The \( Z_{critical} \) values are the same that we used to calculate confidence intervals.  &lt;/p&gt;
+&lt;p&gt;When we do statistical test, we'll set our own criteria for making a decision (in other words, we'll choose an alpha level). Then we decide if the probability of obtaining that sample mean is less than the alpha level (ie. sample means fall in the critical region, and \(Z\) is greater than \(Z_{critical}\)). Then if there is an evidence of an effect (of the intervention).&lt;/p&gt;
+&lt;p&gt;Note that we &lt;strong&gt;CANNOT prove&lt;/strong&gt; if a hypothesis is true.  We can only obtain evidence to reject the null hypothesis.  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;:
+A null hypothesis says "Most (more than 50%) dogs have four legs." and the alternative hypothesis says "Most dogs have less than four legs."&lt;/p&gt;
+&lt;p&gt;In a sample of 10 dogs, there are 6 dogs with less than four legs.  &lt;/p&gt;
+&lt;p&gt;In this case we are taking 50% as significance level.  We are able to reject the null hypothesis based on this.  Under a typical statistical test (such as using a 5% significance level), this sample data would be evidence against null hypothesis, but not necessarily enough evidence/information to reject the null hypothesis.  &lt;/p&gt;
+&lt;p&gt;However, if the definition of null hypothesis was changed to indicate 70% of dogs have four legs, then our current evidence would be enough to reject the null hypothesis to reject the null hypothesis at a 5% significance level.  &lt;/p&gt;
+&lt;h2&gt;&lt;a id="one-tailed-two-tailed" name="one-tailed-two-tailed"&gt;&lt;/a&gt; One Tailed and Two Tailed&lt;/h2&gt;
+&lt;p&gt;Take a hypothesis test:
+\[
+    H_{0}:
+    \begin{cases}
+      \mu = \mu_{I},  &amp;amp; \mu_{I} \text{is post intervention}
+    \end{cases} \\
+    H_{A}:
+    \begin{cases}
+      \mu \lt \mu_{I},  &amp;amp; \text{right one-tailed, with } \mu_{I} \text{ greater than } \mu \\
+      \mu \gt \mu_{I},  &amp;amp; \text{left one-tailed, with } \mu_{I} \text{ less than } \mu \\
+      \mu \neq \mu_{I},  &amp;amp; \text{right one-tailed, with } \mu_{I} \text{ greater or less than } \mu
+    \end{cases}
+\]&lt;/p&gt;
+&lt;p&gt;We choose a one-tailed, or directional hypothesis test when we predict a direction of the treatment effect.  Alternatively, when we do not predict the direction of the treatment, we choose the two-tailed or non-directional test.  In general we use two-tailed because it is more conservative.  We are less likely to reject the null when it is true.  It also prevents us from mistaking the wrong direction of the effect.  &lt;/p&gt;
+&lt;h2&gt;Decision Errors&lt;/h2&gt;
+&lt;p&gt;There are two types of Hypothesis Decision Errors:
+&lt;strong&gt;Type I error&lt;/strong&gt;: is when you reject the null when the null hypothesis is actually true.&lt;br&gt;
+&lt;strong&gt;Type II error&lt;/strong&gt;: is when you fail to reject the null when the null hypothesis is actually false.  &lt;/p&gt;&lt;/div&gt;</description><category>hypothsis-testing</category><category>inferential-statistics</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-9/</guid><pubDate>Tue, 20 Sep 2016 09:36:10 GMT</pubDate></item><item><title>Inferential Statistics - Estimation</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-8/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 8: Estimation&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;Any sampling distribution is a normal distribution.   &lt;/li&gt;
 &lt;li&gt;The sample mean, \( M \), approximately equal to the population mean, i.e. \( M \approx \mu \).  &lt;/li&gt;

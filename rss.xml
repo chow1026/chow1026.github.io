@@ -1,5 +1,366 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title> =^..^= MEH</title><link>https://chowy1026.github.io/</link><description></description><atom:link rel="self" type="application/rss+xml" href="https://chowy1026.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Wed, 21 Sep 2016 00:47:06 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Inferential Statistics - Hypothesis Testing</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-9/</link><dc:creator>cHoWy</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><category>hypothsis-testing</category><category>inferential-statistics</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-9/</guid><pubDate>Tue, 20 Sep 2016 09:36:10 GMT</pubDate></item><item><title>Singapore Animal Shelters and Animal Protection</title><link>https://chowy1026.github.io/posts/singapore_animal_shelters/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;The Search for Animal Shelters to Volunteer&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title> =^..^= MEH</title><link>https://chowy1026.github.io/</link><description></description><atom:link type="application/rss+xml" href="https://chowy1026.github.io/rss.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 30 Sep 2016 10:04:10 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Inferential Statistics - T-Test, Part 1</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10a/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h2&gt;T-Test&lt;/h2&gt;
+&lt;p&gt;Z-test works when we know the population parameters such as \( \mu \) and \( \sigma \).  For any samples drawn from this population, the samples would form a sampling distribution that is a normal distribution, with:
+\[
+    mean = \mu  \quad\text{where M is mean of sample means}\\
+    SD = \frac{\sigma}{\sqrt{n}} \quad\text{where n is sample size}
+\]
+\( SD \) is also known as Standard Error \( SE \) which is used for Z score calculation.&lt;/p&gt;
+&lt;p&gt;For any sample mean, \( M \), we can determine where it falls on this sampling distribution by standardizing, aka, finding the z-score \( Z \), given its formula below:
+\[
+    Z = \frac{M - \mu}{ SE }
+\]&lt;/p&gt;
+&lt;p&gt;However, much of the times, with sample data, we don't know population \( \mu \) and population standard deviation \( \sigma \). We only have samples which we must use to draw all our conclusions.  &lt;/p&gt;
+&lt;p&gt;When working with samples, we usually estimate the population standard deviation using the sample standard deviation with Bassel's correction.&lt;br&gt;
+\[
+  S =  \sqrt{ \frac{ \sum_1^n{ (x_{i} - \bar{x}) ^ 2 }} { n-1 } } \\
+  where S is estimated population standard deviation, n is sample size
+\]&lt;/p&gt;
+&lt;p&gt;Without population parameters and with only sample data, we end up with a new distribution that is more prone to error, called the t-distribution. The t-distribution is more spread out and thicker in the tails.  &lt;/p&gt;
+&lt;p&gt;Same principals applies to t-distribution.  When n increases:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the t-distribution approaches a normal distribution&lt;/li&gt;
+&lt;li&gt;the t-distribution gets skinner tails&lt;/li&gt;
+&lt;li&gt;S, the estimated population standard deviation, gets closer to the real population standard deviation \( \mu \).  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With t-distribution and t-test, we can determine:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;How different a sample mean is from a population mean&lt;/li&gt;
+&lt;li&gt;How different two sample means are from each other.  These two samples can be either:&lt;ul&gt;
+&lt;li&gt;dependent&lt;/li&gt;
+&lt;li&gt;independent&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Degrees of Freedom&lt;/h2&gt;
+&lt;p&gt;t-distribution are defined by degrees of freedom, \(df\), which generally is \( n - 1 \) for single dimension data.  The \(df\) for 2D or 3D sample is \[df = (n-1)^d\;\text{where power d is the number of dimension}\]
+Degrees of freedom are the number of pieces of information that can be freely varied, without violating any given restrictions.  It is pieces of independent information to estimate another piece of information. As the degrees of freedom increases, it better approximates the normal distribution.
+\( n - 1 \) is also known as the effective sample size.  As shown above, it is used to estimate the population standard deviation with Basel's correction.  &lt;/p&gt;
+&lt;h2&gt;Hypothesis Testing with t-statistics&lt;/h2&gt;
+&lt;p&gt;Like the z-test, if the t-statistic falls far from the mean, where t-statistic is 0, we reject the null. To do so, we compare the sample mean to population mean, by calculating t-statistic.&lt;/p&gt;
+&lt;p&gt;For one sample t-test, the t-statistic is:
+\[
+    t = \frac{\bar{x} - \mu_{0}}{S/\sqrt{n}} \text{where:}\\
+    \bar{x}\text{ is sample mean}\\
+    \mu_{0}\text{ is population mean}\\
+    S \text{ is standard error, aka. standard deviation of sample}\\
+    n \text{ is the sample size}
+\]
+The sample mean, \(\bar{x}\) is also the point estimate for the population mean.
+t-statistics increases when:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a larger difference between \(\bar{x}\) and \(\mu_{0}\)&lt;/li&gt;
+&lt;li&gt;larger \( n \)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For hypothesis testing:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;strong&gt;larger&lt;/strong&gt; the value of \(\bar{x}\), the stronger the evidence that \(\mu \gt \mu_{0}\).&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;smaller&lt;/strong&gt; the value of \(\bar{x}\), the stronger the evidence that \(\mu \lt \mu_{0}\).&lt;/li&gt;
+&lt;li&gt;The further the value of \(\bar{x}\) from \(\mu_{0}\) in either direction, the stronger the evidence that \(\mu \neq \mu_{0}\).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We reject the null hypothesis if the t-statistic is less than or greater than the t-critical value, at a given \( \alpha \) level.&lt;/p&gt;
+&lt;h2&gt;P-Value&lt;/h2&gt;
+&lt;p&gt;For one-tailed test, the P-value is the probability above the t-statistic if it is positive, and below the t-statistic if it is negative.  For two tailed test, the p-value will be the sum of probability on both ends.  We reject the null hypothesis when the p-value is less than the \( \alpha \) level.&lt;/p&gt;
+&lt;p&gt;After calculating the t-statistic, we go to &lt;a href="http://www.graphpad.com/quickcalcs/pValue1/" title="P-Value with t and DF"&gt;GraphPad&lt;/a&gt; to get the exact P-value. There are also other calculators on &lt;a href="http://www.graphpad.com/" title="GraphPad Calculators"&gt;GraphPad&lt;/a&gt; that are worth checking out.  &lt;/p&gt;
+&lt;h2&gt;Cohen's d&lt;/h2&gt;
+&lt;p&gt;Cohen's d is another common measure of affects size, when comparing means, named after Jacobs Cohen.  It is a standardized mean difference that measures the distance between 2 means in standard deviation units.
+\[
+    Cohen's d = \frac{\bar{x} - \mu_{0}}{S} \\
+    where\;\bar{x}\text{ is sample mean, }\mu_{0}\text{ is population mean, and }S\text{ is sample standard deviation}
+\]&lt;/p&gt;
+&lt;h2&gt;Confidence Interval&lt;/h2&gt;
+&lt;p&gt;Confidence interval is the interval where the population mean will probably lie.&lt;br&gt;
+At a given confidence level, or alpha level, we first determine the t-critical value.&lt;br&gt;
+Confidence interval for a two-tailed test is:
+\[
+  \begin{align}
+    CI &amp;amp; = M \pm t_{critical} \cdot SE_{sample} \\
+    &amp;amp; = M \pm t_{critical} \cdot \frac{S}{\sqrt{n}}
+  \end{align}
+\]&lt;/p&gt;
+&lt;h2&gt;Margin of Error&lt;/h2&gt;
+&lt;p&gt;Margin of Error is one-half width of the confidence interval.  CI's upper bound is sample mean, \(M + t_{critical} \cdot \frac{S}{\sqrt{n}} \) plus margin of error; whereas CI's lower bound is sample mean, \( M - t_{critical} \cdot \frac{S}{\sqrt{n}} \).  Therefore:
+\[
+  Margin\;of\;Error = t_{critical} \cdot \frac{S}{\sqrt{n}}
+\]&lt;/p&gt;
+&lt;h2&gt;Dependent t-tests&lt;/h2&gt;
+&lt;p&gt;Dependent samples are generated when the same subject takes the test twice.  This is a within subject design.  Examples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;when same subject is applied two conditions&lt;/li&gt;
+&lt;li&gt;subject is given a pre-test and post-test&lt;/li&gt;
+&lt;li&gt;longitudinal study (development over time)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The within-subject designs generate paired data.  Then we look at the difference between these two sets of data, \( D_{i} \)&lt;/p&gt;
+&lt;h2&gt;Types of Designs&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Repeated measures design (eg errors on two types of keyboards)
+\[ H_{0}: \mu_{1} = \mu_{2} \]&lt;/li&gt;
+&lt;li&gt;Longitudinal design
+\[ H_{0}: \mu_{time1} = \mu_{time2} \]&lt;/li&gt;
+&lt;li&gt;Pre-test vs Post-test
+\[ H_{0}: \mu_{pre} = \mu_{post} \]&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;</description><category>inferential-statistics</category><category>part 1</category><category>t-test</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10a/</guid><pubDate>Thu, 29 Sep 2016 05:09:03 GMT</pubDate></item><item><title>Python Design Patterns - The Singleton Design Pattern</title><link>https://chowy1026.github.io/books/python-design-patterns/02-singleton-design-pattern/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h2&gt;Singleton Design Pattern&lt;/h2&gt;
+&lt;h2&gt;Real-World Example of Singleton Pattern&lt;/h2&gt;
+&lt;h2&gt;Singleton Pattern Implementation in Python&lt;/h2&gt;
+&lt;h2&gt;The Monostate(Borg) Pattern&lt;/h2&gt;&lt;/div&gt;</description><category>book</category><category>Chetan Giridhar</category><category>design-patterns</category><category>python</category><category>singleton</category><guid>https://chowy1026.github.io/books/python-design-patterns/02-singleton-design-pattern/</guid><pubDate>Tue, 27 Sep 2016 04:06:02 GMT</pubDate></item><item><title>Python Design Patterns - Introduction</title><link>https://chowy1026.github.io/books/python-design-patterns/01-intro/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h2&gt;Understanding Object-Oriented Programming&lt;/h2&gt;
+&lt;h3&gt;Objects&lt;/h3&gt;
+&lt;p&gt;Objects are described as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;They represent entities in your application under development&lt;/li&gt;
+&lt;li&gt;Entities interact among themselves to solve real-world problems&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Classes&lt;/h3&gt;
+&lt;p&gt;Classes help represent real-world entities by:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Classes define objects in attributes and behaviors. Attributes are data members and behaviors are manifested by the member functions&lt;/li&gt;
+&lt;li&gt;Classes consist of constructors that provide the initial state of these objects&lt;/li&gt;
+&lt;li&gt;Classes are like templates and hence can be easily reused.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Methods&lt;/h3&gt;
+&lt;p&gt;Methods are described as following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;They represent the behavior of the objects.&lt;/li&gt;
+&lt;li&gt;Methods work on attributes and also implement the desired functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Person&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt;
+
+      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_person&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,)&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;"&amp;lt;Person (&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;, &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;)&amp;gt;"&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Person&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"John Doe"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Type of Object:"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s2"&gt;"Memory Address:"&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;id&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h2&gt;Major Aspects of Object-Oriented Programming&lt;/h2&gt;
+&lt;h3&gt;Encapsulation&lt;/h3&gt;
+&lt;p&gt;Key Features are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;an object's behavior is kept hidden from the outside world or objects kept their state information private.&lt;/li&gt;
+&lt;li&gt;Clients can't change the object's internal state by directly acting on them; rather clients request the object by sending messages. Based on the type of requests, objects may respond by changing their internal state using special member functions such as &lt;code&gt;get&lt;/code&gt; or &lt;code&gt;set&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;In Python, the concept of encapsulation isn't implicit, as it doesn't have keywords such as public, private, and protected that are required to support encapsulation. Accessibility is on the other hand made private by prefixing &lt;code&gt;__&lt;/code&gt; in the variable or function name.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Polymorphism&lt;/h3&gt;
+&lt;p&gt;Key Features are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;There are two types:&lt;ul&gt;
+&lt;li&gt;An object provides different implementations of the method based on input parameters.&lt;/li&gt;
+&lt;li&gt;The same interface can be used by objects of different types.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;In Python, polymorphism is built in for the language.&lt;/li&gt;
+&lt;li&gt;Examples:&lt;ul&gt;
+&lt;li&gt;The + operator can act on two integers to add them or can work with strings to concatenate them.&lt;/li&gt;
+&lt;li&gt;Strings, tuples and lists can all be accessed with an integer index. I.E, &lt;code&gt;s(1)&lt;/code&gt;, &lt;code&gt;t(2)&lt;/code&gt; or &lt;code&gt;l(-1)&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Inheritance&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Inheritance indicates that one class derives (most of its) functionality from the parent class.&lt;/li&gt;
+&lt;li&gt;Inheritance is described as an option to reuse functionality defined in the base class and allow independent extensions of the original software implementation.&lt;/li&gt;
+&lt;li&gt;Inheritance creates hierarchy via the relationships among objects of different classes. Python, unlike Java, supports multiple inheritance (inheriting multiple base classes).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Abstraction&lt;/h3&gt;
+&lt;p&gt;Key Features are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It provides you with a simple interface to the clients, where the client can interact with the class object and call methods defined in the interface.  &lt;/li&gt;
+&lt;li&gt;It abstracts the complexity of internal classes with an interface so that the client needs not aware of the internal implementation.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Adder&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
+
+    &lt;span class="n"&gt;acc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Adder&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;99&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="n"&gt;acc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;acc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h3&gt;Composition&lt;/h3&gt;
+&lt;p&gt;Key Points:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It is a way to combine objects or classes into more complex data structures or software implementation&lt;/li&gt;
+&lt;li&gt;In composition, an object is used to call member functions other modules thereby making base functionality available across modules without inheritance.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;A&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;a1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"a1"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;B&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;b&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"b"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a1&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="n"&gt;objectB&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;objectB&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h2&gt;Object-Oriented Design Principles&lt;/h2&gt;
+&lt;h3&gt;The Open/Close Principle&lt;/h3&gt;
+&lt;p&gt;The open/close principle states that &lt;em&gt;classes or objects and methods should be open for extension but closed for modifications.&lt;/em&gt;  &lt;/p&gt;
+&lt;p&gt;For example, the open/close principle is manifested in a case where a user has to create a class implementation by extending the abstract base class to implement the required behavior instead of changing the abstract class.&lt;/p&gt;
+&lt;p&gt;The advantages of this design principle are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Existing classes are changed and hence the chances of regression are less.&lt;/li&gt;
+&lt;li&gt;It also helps maintain backward compatibility for the previous code.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;The Inversion of Control Principle&lt;/h3&gt;
+&lt;p&gt;The inversion of control principle states that &lt;em&gt;high-level modules shouldn't be dependent on low-level modules; they should both be dependent on abstractions.  Details should depend on abstractions but not the other way around.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The principle suggests that any two modules shouldn't be dependent on each other in a tight way but should be decoupled with an abstraction layer in between.  It also suggests that the details of the class should represent the abstractions. In some cases, where the philosophy gets inverted and implementation details itself decide the abstraction, which should be avoided.  &lt;/p&gt;
+&lt;p&gt;Advantages of the inversion of control principles are as follow:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The tight coupling of modules is more prevalent and hence no complexity/rigidity in the system.  &lt;/li&gt;
+&lt;li&gt;As there is a clear abstraction layer between dependent modules (provided by a hook or parameter), it's easy to deal with dependencies across modules in a better way.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;The Interface Segregation Principle&lt;/h3&gt;
+&lt;p&gt;The interface segregation principle states, &lt;em&gt;clients should not be forced to depend on interfaces they don't use.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;It reminds developers to develop methods that relate to the functionality.  If there is any method that is not related to the interface, the class dependent on the interface has to implement it unnecessarily.  For example: a &lt;code&gt;Pizza&lt;/code&gt; interface shouldn't have a method called &lt;code&gt;add_chicken()&lt;/code&gt;.  The &lt;code&gt;VegePizza&lt;/code&gt; class based on &lt;code&gt;Pizza&lt;/code&gt; shouldn't be forced to implement this method.  &lt;/p&gt;
+&lt;p&gt;Advantages of this design principle are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It forces developers to write thin interfaces and have methods that are specific to the interface&lt;/li&gt;
+&lt;li&gt;It helps you not to populate by adding unintentional methods&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;The Single Responsibility Principle&lt;/h3&gt;
+&lt;p&gt;The single responsibility principle states, &lt;em&gt;a class should have only one reason to change.&lt;/em&gt;  &lt;/p&gt;
+&lt;p&gt;When a class is developed, it should cater to the given functionality well.  If it is serving two functionalities, it is better to split them.  It refers to functionality as a reason to change.  For example, a class can undergo changes because of the difference in behavior expected in it, but if a class is changed for two reasons (ie changes in two functionalities), then the class should definitely be split.  &lt;/p&gt;
+&lt;p&gt;Advantages of this design principle:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Whenever there is a change in one functionality, this particular class needs to change, and nothing else.&lt;/li&gt;
+&lt;li&gt;Additionally, if a class has multiple functionalities, the dependent classes will have to undergo changes for multiple reason, which gets avoided.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;The Single Responsibility Principle&lt;/h3&gt;
+&lt;p&gt;The substitution principle states that &lt;em&gt;derived classes must be able to completely substitute the base classes.&lt;/em&gt;  &lt;/p&gt;
+&lt;p&gt;It says when developers write derived classes, they should extend the base classes.  The derived class should be as close to the base class as possible so much so that the derived class itself should replace the base class without any code changes.  &lt;/p&gt;
+&lt;h2&gt;The Concept of Design Patterns&lt;/h2&gt;
+&lt;p&gt;Design patterns were first introduced by &lt;strong&gt;GoF&lt;/strong&gt; (&lt;strong&gt;Gang of Four&lt;/strong&gt;), where they mentioned them as being solutions to given problems.  The book, &lt;a href="http://bla" title="Design Patterns by Gang of Four"&gt;Design Patterns: Elements of Reusable Object-Oriented Software&lt;/a&gt;, covers software engineering solutions to the commonly occurring problems in software design.  There are 23 design patterns first identified, and first implemented to the Java programming language.  &lt;em&gt;Design patterns are discoveries, and not invention in themselves.&lt;/em&gt;  &lt;/p&gt;
+&lt;p&gt;The key features of design patterns are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;They are language-neutral and can be implemented across multiple languages&lt;/li&gt;
+&lt;li&gt;They are dynamic, as new patterns get introduced every now and then&lt;/li&gt;
+&lt;li&gt;They are open for customization and hence useful for developers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;One would also find:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It is a panacea to all design problemsthat a developer has had so far&lt;/li&gt;
+&lt;li&gt;It's an extraordinary, specially clever way to solving a problem&lt;/li&gt;
+&lt;li&gt;Many experts in software development world agree to these solutions&lt;/li&gt;
+&lt;li&gt;There's something repeatable about the design, hence the word pattern&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Completeness in a software solution refers to many factors such as design, scalability, reuse, memory utilization and etc.  &lt;/p&gt;
+&lt;h3&gt;Advantages of Design Patterns&lt;/h3&gt;
+&lt;p&gt;The advantages of design patterns are:
+- They are reusable across multiple projects
+- The architectural level of problems can be solved.
+- They are time-tested and well-proven, which is the experience of developers and architects
+- They have reliability and dependence&lt;/p&gt;
+&lt;h3&gt;Taxonomy of Design Patterns&lt;/h3&gt;
+&lt;p&gt;Not every piece of code/design can be termed as a design patterns.&lt;br&gt;
+- &lt;strong&gt;Snippet&lt;/strong&gt;: Some code in some language for a certain purpose, for example, DB connectivity in Python can be a code Snippet
+- &lt;strong&gt;Design&lt;/strong&gt;: A better solution to solve a particular problem.
+- &lt;strong&gt;Standard&lt;/strong&gt;: A way to solve some kind of problems, which can be very generic and applicable to a situation at hand.
+- &lt;strong&gt;Pattern&lt;/strong&gt;: A time-tested, efficient and scalable solution that will resolve entire class of known issues.  &lt;/p&gt;
+&lt;h3&gt;Context - The Applicability of Design Patterns&lt;/h3&gt;
+&lt;p&gt;To use design patterns efficiently, application developers must be aware of the context where design patterns apply.  Context are classified into the following categories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Participants&lt;/strong&gt;: They are classes that are used in design patterns.  Classes play different roles to accomplish multiple goals in the pattern.  &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Non-functional Requirements&lt;/strong&gt;: Requirements such as memory optimization, usablility and performance fall under this category.  These factors impact the complete software solution and are thus critical.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Trade-offs&lt;/strong&gt;: Not all design patterns fit in (application development) as it is, and trade-offs are necessary.  These are decisions
+that you take while using a design pattern in an application.  &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Results&lt;/strong&gt;: Design patterns can have a negative impact on other parts of the code if the context is not appropriate.  Developers should understand the consequences and use of design patterns.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Patterns for Dynamic Languages&lt;/h2&gt;
+&lt;p&gt;Python is a dynamic language.  The dynamic nature of Python can be represented as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Types or classes are objects at runtime.&lt;/li&gt;
+&lt;li&gt;Variables can have type as a value and can be modified at runtime.  For example, a = 5 and a = "John", the a variable is assigned at runtime and type also gets changed.&lt;/li&gt;
+&lt;li&gt;Dynamic languages have more flexibility in terms of of class restrictions.&lt;/li&gt;
+&lt;li&gt;In Python, polymorphism is built into the language, there is no keywords such as &lt;code&gt;private&lt;/code&gt; and &lt;code&gt;protected&lt;/code&gt; and everything is public by default.  &lt;/li&gt;
+&lt;li&gt;Represents a case where design patterns can be easily implemented in dynamic languages.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Classifying Patterns&lt;/h2&gt;
+&lt;p&gt;The GoF generally classified 23 patterns under three main categories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Creational Pattern&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;They work on the basis of how objects can be created&lt;/li&gt;
+&lt;li&gt;They isolate the details of object creation&lt;/li&gt;
+&lt;li&gt;Code is independent of the type of object to be created&lt;/li&gt;
+&lt;li&gt;An example of a creation pattern is the Singleton pattern.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Structural Pattern&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;They design the structure of objects and classes so that they can compose to archive larger results&lt;/li&gt;
+&lt;li&gt;The focus is on simplifying the structure and identifying the relationship between classes and objects&lt;/li&gt;
+&lt;li&gt;They focus on class inheritance and composition&lt;/li&gt;
+&lt;li&gt;An example of a behavioral pattern is the Adapter pattern.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Behavioral Pattern&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;They are concerned with the interaction among objects and responsibility of objects&lt;/li&gt;
+&lt;li&gt;Objects should be able to interact and still be loosely coupled.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><category>book</category><category>Chetan Giridhar</category><category>design-patterns</category><category>introduction</category><category>python</category><guid>https://chowy1026.github.io/books/python-design-patterns/01-intro/</guid><pubDate>Mon, 26 Sep 2016 08:22:03 GMT</pubDate></item><item><title>Introduction</title><link>https://chowy1026.github.io/books/design-patterns/01-intro/</link><dc:creator>cHoWy</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><guid>https://chowy1026.github.io/books/design-patterns/01-intro/</guid><pubDate>Mon, 26 Sep 2016 08:20:47 GMT</pubDate></item><item><title>Inferential Statistics - Hypothesis Testing</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-9/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h2&gt;Hypothesis Test and Alpha Levels&lt;/h2&gt;
+&lt;p&gt;A Hypothesis test is used to test a claim that someone has about an observation may be different from the known population parameter.  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Alpha level&lt;/strong&gt; (&lt;strong&gt;\( \alpha \)&lt;/strong&gt;) of a hypothesis test helps us determine the critical region of a distribution.  Refer to &lt;a href="https://chowy1026.github.io/course-notes/inferential-statistics/lesson-9/#critical-region"&gt;Critical Regions&lt;/a&gt; below.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Null Hypothesis&lt;/strong&gt; is always an equality.  It is the claim we are trying to provide evidence &lt;em&gt;against&lt;/em&gt;.  We commonly write the null hypothesis as one of the following:
+\[  H_{0} : \mu_{0} = \mu\\  H_{0} : \mu_{0} \ge \mu\\  H_{0} : \mu_{0} \le \mu \]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Null Hypothesis&lt;/strong&gt; is result we are checking against the claim.  This is always some kind of inequality.  We commonly write the alternative hypothesis as one of the following:
+\[  case\;a &amp;gt;&amp;gt; H_{0} : \mu_{0} \neq \mu\\  case\;b &amp;gt;&amp;gt; H_{0} : \mu_{0} \gt \mu\\  case\;c &amp;gt;&amp;gt; H_{0} : \mu_{0} \lt \mu \]&lt;/p&gt;
+&lt;p&gt;If we know which direction we are checking against the claim, use case b or case c, else we typically use case a.  Case a is a two tailed test, while case b and case c are one tailed tests.  Read more on this &lt;a href="https://chowy1026.github.io/course-notes/inferential-statistics/lesson-9/#one-tailed-two-tailed"&gt;below&lt;/a&gt;.  &lt;/p&gt;
+&lt;h2&gt;&lt;a id="critical-region" name="critical-region"&gt;&lt;/a&gt;Critical Regions&lt;/h2&gt;
+&lt;p&gt;When it comes to constructing a hypothesis test, it is best to choose a significant level before the test is performed.  The results of the test can be reported as significant a certain critical level, but it is important that you are not "fishing" for results before seeing the results in your sample.  For additional readings on Hypothesis Testing, here is an &lt;a href="http://blog.minitab.com/blog/adventures-in-statistics/understanding-hypothesis-tests:-significance-levels-alpha-and-p-values-in-statistics" title="Hypothesis Testing"&gt;article&lt;/a&gt;.  &lt;/p&gt;
+&lt;p&gt;The corresponding Z-critical values, \( Z_{critical} \) at each \( \alpha \) level for one-tailed test and two-tailed test respectively:
+\[
+\begin{array}{c|cc}
+\alpha &amp;amp; \text{one-tailed} &amp;amp; \text{two-tailed} \\
+\hline
+0.05 &amp;amp; 1.67 \; or\; -1.67 &amp;amp; \pm 1.96 \\
+0.01 &amp;amp; 2.32 \; or\; -2.32 &amp;amp; \pm 2.57 \\
+0.001 &amp;amp; 3.08 \; or\; -3.08 &amp;amp; \pm 3.27
+\end{array}
+\]&lt;/p&gt;
+&lt;p&gt;If we get a sample mean in the critical region, then we decide that most likely those sample means by chance.  The \( Z_{critical} \) values are the same that we used to calculate confidence intervals.  &lt;/p&gt;
+&lt;p&gt;When we do statistical test, we'll set our own criteria for making a decision (in other words, we'll choose an alpha level). Then we decide if the probability of obtaining that sample mean is less than the alpha level (ie. sample means fall in the critical region, and \(Z\) is greater than \(Z_{critical}\)). Then if there is an evidence of an effect (of the intervention).&lt;/p&gt;
+&lt;p&gt;Note that we &lt;strong&gt;CANNOT prove&lt;/strong&gt; if a hypothesis is true.  We can only obtain evidence to reject the null hypothesis.  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;:
+A null hypothesis says "Most (more than 50%) dogs have four legs." and the alternative hypothesis says "Most dogs have less than four legs."&lt;/p&gt;
+&lt;p&gt;In a sample of 10 dogs, there are 6 dogs with less than four legs.  &lt;/p&gt;
+&lt;p&gt;In this case we are taking 50% as significance level.  We are able to reject the null hypothesis based on this.  Under a typical statistical test (such as using a 5% significance level), this sample data would be evidence against null hypothesis, but not necessarily enough evidence/information to reject the null hypothesis.  &lt;/p&gt;
+&lt;p&gt;However, if the definition of null hypothesis was changed to indicate 70% of dogs have four legs, then our current evidence would be enough to reject the null hypothesis to reject the null hypothesis at a 5% significance level.  &lt;/p&gt;
+&lt;h2&gt;&lt;a id="one-tailed-two-tailed" name="one-tailed-two-tailed"&gt;&lt;/a&gt; One Tailed and Two Tailed&lt;/h2&gt;
+&lt;p&gt;Take a hypothesis test:
+\[
+    H_{0}:
+    \begin{cases}
+      \mu = \mu_{I},  &amp;amp; \mu_{I} \text{is post intervention}
+    \end{cases} \\
+    H_{A}:
+    \begin{cases}
+      \mu \lt \mu_{I},  &amp;amp; \text{right one-tailed, with } \mu_{I} \text{ greater than } \mu \\
+      \mu \gt \mu_{I},  &amp;amp; \text{left one-tailed, with } \mu_{I} \text{ less than } \mu \\
+      \mu \neq \mu_{I},  &amp;amp; \text{right one-tailed, with } \mu_{I} \text{ greater or less than } \mu
+    \end{cases}
+\]&lt;/p&gt;
+&lt;p&gt;We choose a one-tailed, or directional hypothesis test when we predict a direction of the treatment effect.  Alternatively, when we do not predict the direction of the treatment, we choose the two-tailed or non-directional test.  In general we use two-tailed because it is more conservative.  We are less likely to reject the null when it is true.  It also prevents us from mistaking the wrong direction of the effect.  &lt;/p&gt;
+&lt;h2&gt;Decision Errors&lt;/h2&gt;
+&lt;p&gt;There are two types of Hypothesis Decision Errors:
+&lt;strong&gt;Type I error&lt;/strong&gt;: is when you reject the null when the null hypothesis is actually true.&lt;br&gt;
+&lt;strong&gt;Type II error&lt;/strong&gt;: is when you fail to reject the null when the null hypothesis is actually false.  &lt;/p&gt;&lt;/div&gt;</description><category>hypothsis-testing</category><category>inferential-statistics</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-9/</guid><pubDate>Tue, 20 Sep 2016 09:36:10 GMT</pubDate></item><item><title>Singapore Animal Shelters and Animal Protection</title><link>https://chowy1026.github.io/posts/singapore_animal_shelters/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;The Search for Animal Shelters to Volunteer&lt;/h3&gt;
 &lt;p&gt;In the Buddhist Dharma class last night, we talked about relationships we have with everything in the world - family we are born in, friends and acquaintances we encounter, animals, trees, and even things we own.  One thing came up in the lesson was how rarely we spent time just to be with ourselves nowadays.  So much so that we can't live without all the distractions - social media website, the TV, the movies, the radio, the cellphones, the excessive indulgence in food...  Anything that we could use to fill the void.&lt;/p&gt;
 &lt;p&gt;One of the take aways from last night, was we should be more aware of our motivations of our actions and/or daily habits.  I realized my movie / tv show binge-watching isn't great.  I need to be more careful of how I spend my time, and whom I spend time with.  While the practice meditation is great, I figured my restless self is not at the level to do that all day.  I personally feel more practical to do something more productive, something that connects me better to the outside world, or humanity.  I used to volunteer at soup kitchen, and I miss it now.  &lt;/p&gt;
 &lt;p&gt;Given that I always have patience and love for animals, I took the time to research for a list of animal shelters in Singapore.  Here is the list:&lt;/p&gt;
@@ -892,250 +1253,4 @@ Email: oasis2ndchance@gmail.com&lt;/p&gt;&lt;/div&gt;</description><category>ani
 
   &lt;span class="n"&gt;my_tesla&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ElectricCar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'tesla'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'roadster'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2016&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
   &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_tesla&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_descriptive_name&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><category>classes</category><category>inheritance</category><category>instances</category><category>python-crash-course</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/06-classes-instances-inheritance/</guid><pubDate>Wed, 07 Sep 2016 05:12:46 GMT</pubDate></item><item><title>Functions and Modules</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/05-functions-modules/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Functions&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;def function_name():&lt;/code&gt; // define a function&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Parameters and Arguments&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;def describe_pet(animal_type, pet_name):&lt;/code&gt; // define function describe_pet with parameter animal_type and pet_name&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;describe_pet('dog', 'willie')&lt;/code&gt; // calling function describe_pet and passing 'dog' and 'willie' as positional arguments, order matters.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;describe_pet(animal_type = 'dog', pet_name = 'willie')&lt;/code&gt; or &lt;code&gt;describe_pet(pet_name = 'harry', animal_type = 'hamster', )&lt;/code&gt; // calling function describe_pet and passing 'dog' and 'willie' as positional arguments, order doesn't matter.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;def describe_pet(pet_name, animal_type = 'dog'):&lt;/code&gt; // define function describe_pet with parameter animal_type, its default value 'dog' and pet_name.  Parameter with default value usually listed last.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;def get_formatted_name(fname, lname, mname=''):&lt;/code&gt; // define function get_formatted_name with parameters fname, lname, and optional mname.  Optional parameter also listed last.&lt;/li&gt;
-&lt;li&gt;When a list is passed to a function, the function can modify the list.  Any changes made to the list inside the function's body are permanent.  &lt;/li&gt;
-&lt;li&gt;Sometimes, you may decide you want to keep the original list unchanged.  In that case, you may pass the function with a copy of the list.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;function_name(list_name[:])&lt;/code&gt; // calling function_name and pass a copy of list_name by ' list_name[:] '&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Passing an Arbitrary Number of Arguments&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Sometimes you won't know ahead of times how many arguments a function needs to accept.  In this case, we define a function with *parameter to collect as many arguments as the calling line provides.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;def make_pizza(*toppings):&lt;/code&gt; // the asterisk in the parameter name *toppings tells python to make an empty tuple and pack whatever values it receives into this tuple.  &lt;/li&gt;
-&lt;li&gt;Eg: &lt;code&gt;make_pizza('pepperoni')&lt;/code&gt; or &lt;code&gt;make_pizza('mushrooms', 'green peppers', 'extra cheese')&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;def make_pizza(size, *toppings):&lt;/code&gt; // mix positional and arbitrary arguments&lt;/li&gt;
-&lt;li&gt;Eg: &lt;code&gt;make_pizza(16, 'pepperoni')&lt;/code&gt; or &lt;code&gt;make_pizza(24, 'mushrooms', 'green peppers', 'extra cheese')&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Using Arbitrary Keyword Arguments&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Sometimes you'll want to accept an arbitrary number of arguments, but won't know ahead of time what kind of information will be passed to the function.  In this case, you can write functions that accept as many key-value pair as the calling statement provides.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;build_profile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;user_info&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-          &lt;span class="n"&gt;profile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
-          &lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'first_name'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fname&lt;/span&gt;
-          &lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'last_name'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;lname&lt;/span&gt;
-          &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;user_info&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-              &lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
-          &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;profile&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;**user_info represents an arbitrary number of keyword arguments.  &lt;/li&gt;
-&lt;li&gt;Eg: &lt;code&gt;user_profile = build_profile('albert', 'einstein', location='princeton', field='physics')&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Modules&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;A module is a file ending in .py that contains the code you want to import to your program.  For example, to make a module that contains the function make_pizza(), move the function make_pizza() to a file pizza.py.  &lt;/li&gt;
-&lt;li&gt;pizza.py&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;toppings&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;Making a "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;"-inch pizza with the following toppings: "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;topping&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;toppings&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"- "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;topping&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;making_pizza.py&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pizza&lt;/span&gt;
-
-  &lt;span class="n"&gt;pizza&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'pepperoni'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="n"&gt;pizza&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'mushrooms'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'green peppers'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'extra cheese'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h4&gt;Importing Specific Functions&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;from module_name import function_name&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;from module_name import function_0, function_1, function_2&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pizza&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;make_pizza&lt;/span&gt;
-
-  &lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'pepperoni'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'mushrooms'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'green peppers'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'extra cheese'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h4&gt;Use as to Give a Function an Alias&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;from module_name import function_name as fn&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pizza&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;make_pizza&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;mp&lt;/span&gt;
-  &lt;span class="n"&gt;mp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'pepperoni'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="n"&gt;mp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'mushrooms'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'green peppers'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'extra cheese'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h4&gt;Use as to Give a Module an Alias&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;import module_name as mn&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pizza&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;p&lt;/span&gt;
-  &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'pepperoni'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'mushrooms'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'green peppers'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'extra cheese'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h4&gt;Import All Functions in a Module&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;from module_name import *&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pizza&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
-  &lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'pepperoni'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="n"&gt;make_pizza&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'mushrooms'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'green peppers'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'extra cheese'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;However it is best not to use this approach.  Python may see several functions or variables with the same name, and instead of importing all the functions separately it will overwrite the functions.&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>functions</category><category>modules</category><category>python-crash-course</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/05-functions-modules/</guid><pubDate>Wed, 07 Sep 2016 03:14:55 GMT</pubDate></item><item><title>User Input and Loops</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/04-user-inputs-and-loops/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Loops&lt;/h3&gt;
-&lt;h4&gt;For Loop&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;for x in {list_name}:&lt;/code&gt; // loop through list_name list&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;for x in range(1, 10):&lt;/code&gt; //  loop from 1 through 9, but NOT 10&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;for ky, val in {dictionary}.items():&lt;/code&gt; // loop through key value pair in dictionary&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;While Loop&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;while {list_name}:&lt;/code&gt; // loop as long as list isn't empty&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;      &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-      &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;something&lt;/span&gt;
-        &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h4&gt;Breaking Loop&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;To exit a while loop immediately without running any remaining code in the loop, regardless of the results of any conditional test, use the break statement.  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;      &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-      &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;some&lt;/span&gt; &lt;span class="n"&gt;condition&lt;/span&gt;&lt;span class="p"&gt;}:&lt;/span&gt;
-          &lt;span class="k"&gt;break&lt;/span&gt;
-        &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-          &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;something&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h4&gt;Skip but Continue Looping&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Rather than breaking out of a loop entirely without executing the rest of its code, use the continue statement to go back to the loop&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;      &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-      &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-          &lt;span class="k"&gt;continue&lt;/span&gt;
-        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><category>loops</category><category>python-crash-course</category><category>user-input</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/04-user-inputs-and-loops/</guid><pubDate>Tue, 30 Aug 2016 07:00:52 GMT</pubDate></item><item><title>Lists and Tuples and Dictionaries</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/03-lists-and-tuples-and-dictionaries/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lists&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Lists are mutable.  Lists can be modified throughout the life of a programme.&lt;/li&gt;
-&lt;li&gt;Accessing Element in a List&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;bicycles[0]&lt;/code&gt;, &lt;code&gt;bicycles[-1]&lt;/code&gt;, &lt;code&gt;bicycles[3]&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Adding Elements to a List&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;motorcycles.append('ducati')&lt;/code&gt; // Add to end of the list&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;motorcycles.insert(0, 'ducati')&lt;/code&gt; // Insert 'ducati' at position 0&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Removing Element from a List&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;del motorcycles[1]&lt;/code&gt; // remove element by index&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;last_owned = motorcycles.pop()&lt;/code&gt; // remove last element in motorcycles list and store as last_owned&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;most_expensive = motorcycles.pop(2)&lt;/code&gt; // remove third element in motorcycles list and store as most_expensive&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;motorcycles.remove('yamaha')&lt;/code&gt; // remove element by value&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Organizing a List&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;cars.sort()&lt;/code&gt; // sorting permanently&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cars.sort(reverse=True)&lt;/code&gt; // sorting in reverse order, permanently&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sorted(cars)&lt;/code&gt; // temporarily sort a list&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cars.reverse()&lt;/code&gt; //simply reverse the order of the list&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Length of a List&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;len(cars)&lt;/code&gt; // returns integer of element count in the list&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Copying a List&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;b = a[:]&lt;/code&gt; // b copies a, and is separate list from a&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Aliasing a List&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;q = p&lt;/code&gt; // q and p refers to same list object.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Looping through lists:&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;for x in {list_name}:&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;for x in range(1, 10):&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Tuples&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Just like strings, tuples is IMMUTABLE.&lt;/li&gt;
-&lt;li&gt;Values of Tuples can be reassigned, or overwritten.  &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;tup = ('alice', 'not in', 'wonderland')&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;tup = ('alice', 'now in', 'wonderland')&lt;/code&gt; //final value will be the last assigned value.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tuples can be looped just like lists.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Dictionaries&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Elements in dictionaries are stored in key-value pairs.&lt;/li&gt;
-&lt;li&gt;Value is assessed by key.&lt;/li&gt;
-&lt;li&gt;Looping through dictionaries:&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;for x, y in dict.items():&lt;/code&gt; // looping through x, y {key-value} pairs in dict&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;for ky in dict.keys():&lt;/code&gt; // looping through all keys of dict dictionary&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;for val in dict.values():&lt;/code&gt; // looping through all values of dict dictionary&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;set(dict.values())&lt;/code&gt; // build a set by selecting unique items from dict.values()&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>lists</category><category>python-crash-course</category><category>tuples</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/03-lists-and-tuples-and-dictionaries/</guid><pubDate>Tue, 30 Aug 2016 06:29:09 GMT</pubDate></item><item><title>Variables and Simple Data Types</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/02-variables-and-simple-data-types/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;String&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Strings are NOT mutable.  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Methods&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;.title() : put string in camel case&lt;/li&gt;
-&lt;li&gt;.upper() : put string in upper case&lt;/li&gt;
-&lt;li&gt;.lower() : put string in lower case&lt;/li&gt;
-&lt;li&gt;.rstrip() : stripping whitespace from the right&lt;/li&gt;
-&lt;li&gt;.lstrip() : stripping whitespace from the left&lt;/li&gt;
-&lt;li&gt;.strip() : stripping whitespace from both left and right&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Other String Manipulations&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;" + " : plus sign is to concatenate strings together&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;print("Hello " + "!!!")&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;" \t " : tabs&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;print("Languages:\n\tPython\n\tC\n\tJavascript")&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;" \n " : new line&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;print("Languages:\nPython\nC\nJavascript")&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Numbers&lt;/h3&gt;
-&lt;h3&gt;Number Types&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Integers&lt;/li&gt;
-&lt;li&gt;Floats&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>python-crash-course</category><category>simple-data-types</category><category>variables</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/02-variables-and-simple-data-types/</guid><pubDate>Tue, 30 Aug 2016 05:58:19 GMT</pubDate></item></channel></rss>
+&lt;/pre&gt;&lt;/div&gt;</description><category>classes</category><category>inheritance</category><category>instances</category><category>python-crash-course</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/06-classes-instances-inheritance/</guid><pubDate>Wed, 07 Sep 2016 05:12:46 GMT</pubDate></item></channel></rss>

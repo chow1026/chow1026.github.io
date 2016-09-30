@@ -93,7 +93,325 @@ Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href
     <div class="content container" id="content">
     
 <div class="post">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/python-crash-notes/01-basics/" class="u-url">Python Basics and Philosophy</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/python-crash-notes/05-functions-modules/" class="u-url">Functions and Modules</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-07T11:14:55+08:00" title="2016-09-07 11:14">2016-09-07 11:14</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Functions</h3>
+<ul>
+<li>
+<code>def function_name():</code> // define a function</li>
+</ul>
+<h4>Parameters and Arguments</h4>
+<ul>
+<li>
+<code>def describe_pet(animal_type, pet_name):</code> // define function describe_pet with parameter animal_type and pet_name</li>
+<li>
+<code>describe_pet('dog', 'willie')</code> // calling function describe_pet and passing 'dog' and 'willie' as positional arguments, order matters.</li>
+<li>
+<code>describe_pet(animal_type = 'dog', pet_name = 'willie')</code> or <code>describe_pet(pet_name = 'harry', animal_type = 'hamster', )</code> // calling function describe_pet and passing 'dog' and 'willie' as positional arguments, order doesn't matter.</li>
+<li>
+<code>def describe_pet(pet_name, animal_type = 'dog'):</code> // define function describe_pet with parameter animal_type, its default value 'dog' and pet_name.  Parameter with default value usually listed last.</li>
+<li>
+<code>def get_formatted_name(fname, lname, mname=''):</code> // define function get_formatted_name with parameters fname, lname, and optional mname.  Optional parameter also listed last.</li>
+<li>When a list is passed to a function, the function can modify the list.  Any changes made to the list inside the function's body are permanent.  </li>
+<li>Sometimes, you may decide you want to keep the original list unchanged.  In that case, you may pass the function with a copy of the list.</li>
+<li>
+<code>function_name(list_name[:])</code> // calling function_name and pass a copy of list_name by ' list_name[:] '</li>
+</ul>
+<h4>Passing an Arbitrary Number of Arguments</h4>
+<ul>
+<li>Sometimes you won't know ahead of times how many arguments a function needs to accept.  In this case, we define a function with *parameter to collect as many arguments as the calling line provides.</li>
+<li>
+<code>def make_pizza(*toppings):</code> // the asterisk in the parameter name *toppings tells python to make an empty tuple and pack whatever values it receives into this tuple.  </li>
+<li>Eg: <code>make_pizza('pepperoni')</code> or <code>make_pizza('mushrooms', 'green peppers', 'extra cheese')</code>
+</li>
+<li>
+<code>def make_pizza(size, *toppings):</code> // mix positional and arbitrary arguments</li>
+<li>Eg: <code>make_pizza(16, 'pepperoni')</code> or <code>make_pizza(24, 'mushrooms', 'green peppers', 'extra cheese')</code>
+</li>
+</ul>
+<h4>Using Arbitrary Keyword Arguments</h4>
+<ul>
+<li>Sometimes you'll want to accept an arbitrary number of arguments, but won't know ahead of time what kind of information will be passed to the function.  In this case, you can write functions that accept as many key-value pair as the calling statement provides.</li>
+</ul>
+<pre class="code literal-block"><span></span>    <span class="k">def</span> <span class="nf">build_profile</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">lname</span><span class="p">,</span> <span class="o">**</span><span class="n">user_info</span><span class="p">):</span>
+          <span class="n">profile</span> <span class="o">=</span> <span class="p">{}</span>
+          <span class="n">profile</span><span class="p">[</span><span class="s1">'first_name'</span><span class="p">]</span> <span class="o">=</span> <span class="n">fname</span>
+          <span class="n">profile</span><span class="p">[</span><span class="s1">'last_name'</span><span class="p">]</span> <span class="o">=</span> <span class="n">lname</span>
+          <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">user_info</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+              <span class="n">profile</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+          <span class="k">return</span> <span class="n">profile</span>
+</pre>
+
+
+<ul>
+<li>**user_info represents an arbitrary number of keyword arguments.  </li>
+<li>Eg: <code>user_profile = build_profile('albert', 'einstein', location='princeton', field='physics')</code>
+</li>
+</ul>
+<h3>Modules</h3>
+<ul>
+<li>A module is a file ending in .py that contains the code you want to import to your program.  For example, to make a module that contains the function make_pizza(), move the function make_pizza() to a file pizza.py.  </li>
+<li>pizza.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">def</span> <span class="nf">make_pizza</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="o">*</span><span class="n">toppings</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Making a "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"-inch pizza with the following toppings: "</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">topping</span> <span class="ow">in</span> <span class="n">toppings</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"- "</span> <span class="o">+</span> <span class="n">topping</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>making_pizza.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">pizza</span>
+
+  <span class="n">pizza</span><span class="o">.</span><span class="n">make_pizza</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
+  <span class="n">pizza</span><span class="o">.</span><span class="n">make_pizza</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
+</pre>
+
+
+<h4>Importing Specific Functions</h4>
+<ul>
+<li><code>from module_name import function_name</code></li>
+<li><code>from module_name import function_0, function_1, function_2</code></li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">pizza</span> <span class="kn">import</span> <span class="n">make_pizza</span>
+
+  <span class="n">make_pizza</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
+  <span class="n">make_pizza</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
+</pre>
+
+
+<h4>Use as to Give a Function an Alias</h4>
+<ul>
+<li><code>from module_name import function_name as fn</code></li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">pizza</span> <span class="kn">import</span> <span class="n">make_pizza</span> <span class="k">as</span> <span class="n">mp</span>
+  <span class="n">mp</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
+  <span class="n">mp</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
+</pre>
+
+
+<h4>Use as to Give a Module an Alias</h4>
+<ul>
+<li><code>import module_name as mn</code></li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">pizza</span> <span class="kn">as</span> <span class="nn">p</span>
+  <span class="n">p</span><span class="o">.</span><span class="n">make_pizza</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
+  <span class="n">p</span><span class="o">.</span><span class="n">make_pizza</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
+</pre>
+
+
+<h4>Import All Functions in a Module</h4>
+<ul>
+<li><code>from module_name import *</code></li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">pizza</span> <span class="kn">import</span> <span class="o">*</span>
+  <span class="n">make_pizza</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'pepperoni'</span><span class="p">)</span>
+  <span class="n">make_pizza</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">'mushrooms'</span><span class="p">,</span> <span class="s1">'green peppers'</span><span class="p">,</span> <span class="s1">'extra cheese'</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>However it is best not to use this approach.  Python may see several functions or variables with the same name, and instead of importing all the functions separately it will overwrite the functions.</li>
+</ul>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/python-crash-notes/04-user-inputs-and-loops/" class="u-url">User Input and Loops</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-30T15:00:52+08:00" title="2016-08-30 15:00">2016-08-30 15:00</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Loops</h3>
+<h4>For Loop</h4>
+<ul>
+<li>
+<code>for x in {list_name}:</code> // loop through list_name list</li>
+<li>
+<code>for x in range(1, 10):</code> //  loop from 1 through 9, but NOT 10</li>
+<li>
+<code>for ky, val in {dictionary}.items():</code> // loop through key value pair in dictionary</li>
+</ul>
+<h4>While Loop</h4>
+<ul>
+<li>
+<code>while {list_name}:</code> // loop as long as list isn't empty</li>
+</ul>
+<pre class="code literal-block"><span></span>      <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="o">//</span> <span class="n">do</span> <span class="n">something</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre>
+
+
+<h4>Breaking Loop</h4>
+<ul>
+<li>To exit a while loop immediately without running any remaining code in the loop, regardless of the results of any conditional test, use the break statement.  </li>
+</ul>
+<pre class="code literal-block"><span></span>      <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="p">{</span><span class="n">some</span> <span class="n">condition</span><span class="p">}:</span>
+          <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+          <span class="o">//</span> <span class="n">do</span> <span class="n">something</span>
+</pre>
+
+
+<h4>Skip but Continue Looping</h4>
+<ul>
+<li>Rather than breaking out of a loop entirely without executing the rest of its code, use the continue statement to go back to the loop</li>
+</ul>
+<pre class="code literal-block"><span></span>      <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+          <span class="k">continue</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/python-crash-notes/03-lists-and-tuples-and-dictionaries/" class="u-url">Lists and Tuples and Dictionaries</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-30T14:29:09+08:00" title="2016-08-30 14:29">2016-08-30 14:29</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Lists</h3>
+<ul>
+<li>Lists are mutable.  Lists can be modified throughout the life of a programme.</li>
+<li>Accessing Element in a List<ul>
+<li>
+<code>bicycles[0]</code>, <code>bicycles[-1]</code>, <code>bicycles[3]</code>
+</li>
+</ul>
+</li>
+<li>Adding Elements to a List<ul>
+<li>
+<code>motorcycles.append('ducati')</code> // Add to end of the list</li>
+<li>
+<code>motorcycles.insert(0, 'ducati')</code> // Insert 'ducati' at position 0</li>
+</ul>
+</li>
+<li>Removing Element from a List<ul>
+<li>
+<code>del motorcycles[1]</code> // remove element by index</li>
+<li>
+<code>last_owned = motorcycles.pop()</code> // remove last element in motorcycles list and store as last_owned</li>
+<li>
+<code>most_expensive = motorcycles.pop(2)</code> // remove third element in motorcycles list and store as most_expensive</li>
+<li>
+<code>motorcycles.remove('yamaha')</code> // remove element by value</li>
+</ul>
+</li>
+<li>Organizing a List<ul>
+<li>
+<code>cars.sort()</code> // sorting permanently</li>
+<li>
+<code>cars.sort(reverse=True)</code> // sorting in reverse order, permanently</li>
+<li>
+<code>sorted(cars)</code> // temporarily sort a list</li>
+<li>
+<code>cars.reverse()</code> //simply reverse the order of the list</li>
+</ul>
+</li>
+<li>Length of a List<ul>
+<li>
+<code>len(cars)</code> // returns integer of element count in the list</li>
+</ul>
+</li>
+<li>Copying a List<ul>
+<li>
+<code>b = a[:]</code> // b copies a, and is separate list from a</li>
+</ul>
+</li>
+<li>Aliasing a List<ul>
+<li>
+<code>q = p</code> // q and p refers to same list object.</li>
+</ul>
+</li>
+<li>Looping through lists:<ul>
+<li><code>for x in {list_name}:</code></li>
+<li><code>for x in range(1, 10):</code></li>
+</ul>
+</li>
+</ul>
+<h3>Tuples</h3>
+<ul>
+<li>Just like strings, tuples is IMMUTABLE.</li>
+<li>Values of Tuples can be reassigned, or overwritten.  <ul>
+<li><code>tup = ('alice', 'not in', 'wonderland')</code></li>
+<li>
+<code>tup = ('alice', 'now in', 'wonderland')</code> //final value will be the last assigned value.</li>
+</ul>
+</li>
+<li>Tuples can be looped just like lists.</li>
+</ul>
+<h3>Dictionaries</h3>
+<ul>
+<li>Elements in dictionaries are stored in key-value pairs.</li>
+<li>Value is assessed by key.</li>
+<li>Looping through dictionaries:<ul>
+<li>
+<code>for x, y in dict.items():</code> // looping through x, y {key-value} pairs in dict</li>
+<li>
+<code>for ky in dict.keys():</code> // looping through all keys of dict dictionary</li>
+<li>
+<code>for val in dict.values():</code> // looping through all values of dict dictionary</li>
+<li>
+<code>set(dict.values())</code> // build a set by selecting unique items from dict.values()</li>
+</ul>
+</li>
+</ul>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/python-crash-notes/02-variables-and-simple-data-types/" class="u-url">Variables and Simple Data Types</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-30T13:58:19+08:00" title="2016-08-30 13:58">2016-08-30 13:58</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>String</h3>
+<ul>
+<li>Strings are NOT mutable.  </li>
+</ul>
+<h4>Methods</h4>
+<ul>
+<li>.title() : put string in camel case</li>
+<li>.upper() : put string in upper case</li>
+<li>.lower() : put string in lower case</li>
+<li>.rstrip() : stripping whitespace from the right</li>
+<li>.lstrip() : stripping whitespace from the left</li>
+<li>.strip() : stripping whitespace from both left and right</li>
+</ul>
+<h4>Other String Manipulations</h4>
+<ul>
+<li>" + " : plus sign is to concatenate strings together<ul>
+<li><code>print("Hello " + "!!!")</code></li>
+</ul>
+</li>
+<li>" \t " : tabs<ul>
+<li><code>print("Languages:\n\tPython\n\tC\n\tJavascript")</code></li>
+</ul>
+</li>
+<li>" \n " : new line<ul>
+<li><code>print("Languages:\nPython\nC\nJavascript")</code></li>
+</ul>
+</li>
+</ul>
+<h3>Numbers</h3>
+<h3>Number Types</h3>
+<ul>
+<li>Integers</li>
+<li>Floats</li>
+</ul>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/python-crash-notes/01-basics/" class="u-url">Python Basics and Philosophy</a></h1>
         <div class="metadata">
             <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-29T14:15:20+08:00" title="2016-08-29 14:15">2016-08-29 14:15</time></span>
         </div>

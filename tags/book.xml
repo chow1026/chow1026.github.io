@@ -1,5 +1,220 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title> =^..^= MEH (book)</title><link>https://chowy1026.github.io/</link><description></description><atom:link type="application/rss+xml" href="https://chowy1026.github.io/tags/book.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 12 Aug 2016 07:15:49 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Lolita - Vladimir Nabokov</title><link>https://chowy1026.github.io/books/lolita/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Quotes&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title> =^..^= MEH (book)</title><link>https://chowy1026.github.io/</link><description></description><atom:link href="https://chowy1026.github.io/tags/book.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Thu, 29 Sep 2016 05:24:08 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Python Design Patterns - The Singleton Design Pattern</title><link>https://chowy1026.github.io/books/python-design-patterns/02-singleton-design-pattern/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h2&gt;Singleton Design Pattern&lt;/h2&gt;
+&lt;h2&gt;Real-World Example of Singleton Pattern&lt;/h2&gt;
+&lt;h2&gt;Singleton Pattern Implementation in Python&lt;/h2&gt;
+&lt;h2&gt;The Monostate(Borg) Pattern&lt;/h2&gt;&lt;/div&gt;</description><category>book</category><category>Chetan Giridhar</category><category>design-patterns</category><category>python</category><category>singleton</category><guid>https://chowy1026.github.io/books/python-design-patterns/02-singleton-design-pattern/</guid><pubDate>Tue, 27 Sep 2016 04:06:02 GMT</pubDate></item><item><title>Python Design Patterns - Introduction</title><link>https://chowy1026.github.io/books/python-design-patterns/01-intro/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h2&gt;Understanding Object-Oriented Programming&lt;/h2&gt;
+&lt;h3&gt;Objects&lt;/h3&gt;
+&lt;p&gt;Objects are described as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;They represent entities in your application under development&lt;/li&gt;
+&lt;li&gt;Entities interact among themselves to solve real-world problems&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Classes&lt;/h3&gt;
+&lt;p&gt;Classes help represent real-world entities by:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Classes define objects in attributes and behaviors. Attributes are data members and behaviors are manifested by the member functions&lt;/li&gt;
+&lt;li&gt;Classes consist of constructors that provide the initial state of these objects&lt;/li&gt;
+&lt;li&gt;Classes are like templates and hence can be easily reused.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Methods&lt;/h3&gt;
+&lt;p&gt;Methods are described as following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;They represent the behavior of the objects.&lt;/li&gt;
+&lt;li&gt;Methods work on attributes and also implement the desired functionality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Person&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt;
+
+      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_person&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,)&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;"&amp;lt;Person (&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;, &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;)&amp;gt;"&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Person&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"John Doe"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Type of Object:"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s2"&gt;"Memory Address:"&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;id&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h2&gt;Major Aspects of Object-Oriented Programming&lt;/h2&gt;
+&lt;h3&gt;Encapsulation&lt;/h3&gt;
+&lt;p&gt;Key Features are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;an object's behavior is kept hidden from the outside world or objects kept their state information private.&lt;/li&gt;
+&lt;li&gt;Clients can't change the object's internal state by directly acting on them; rather clients request the object by sending messages. Based on the type of requests, objects may respond by changing their internal state using special member functions such as &lt;code&gt;get&lt;/code&gt; or &lt;code&gt;set&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;In Python, the concept of encapsulation isn't implicit, as it doesn't have keywords such as public, private, and protected that are required to support encapsulation. Accessibility is on the other hand made private by prefixing &lt;code&gt;__&lt;/code&gt; in the variable or function name.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Polymorphism&lt;/h3&gt;
+&lt;p&gt;Key Features are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;There are two types:&lt;ul&gt;
+&lt;li&gt;An object provides different implementations of the method based on input parameters.&lt;/li&gt;
+&lt;li&gt;The same interface can be used by objects of different types.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;In Python, polymorphism is built in for the language.&lt;/li&gt;
+&lt;li&gt;Examples:&lt;ul&gt;
+&lt;li&gt;The + operator can act on two integers to add them or can work with strings to concatenate them.&lt;/li&gt;
+&lt;li&gt;Strings, tuples and lists can all be accessed with an integer index. I.E, &lt;code&gt;s(1)&lt;/code&gt;, &lt;code&gt;t(2)&lt;/code&gt; or &lt;code&gt;l(-1)&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Inheritance&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Inheritance indicates that one class derives (most of its) functionality from the parent class.&lt;/li&gt;
+&lt;li&gt;Inheritance is described as an option to reuse functionality defined in the base class and allow independent extensions of the original software implementation.&lt;/li&gt;
+&lt;li&gt;Inheritance creates hierarchy via the relationships among objects of different classes. Python, unlike Java, supports multiple inheritance (inheriting multiple base classes).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Abstraction&lt;/h3&gt;
+&lt;p&gt;Key Features are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It provides you with a simple interface to the clients, where the client can interact with the class object and call methods defined in the interface.  &lt;/li&gt;
+&lt;li&gt;It abstracts the complexity of internal classes with an interface so that the client needs not aware of the internal implementation.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Adder&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
+
+    &lt;span class="n"&gt;acc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Adder&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;99&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="n"&gt;acc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;acc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h3&gt;Composition&lt;/h3&gt;
+&lt;p&gt;Key Points:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It is a way to combine objects or classes into more complex data structures or software implementation&lt;/li&gt;
+&lt;li&gt;In composition, an object is used to call member functions other modules thereby making base functionality available across modules without inheritance.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;A&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;a1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"a1"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;B&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;b&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"b"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a1&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="n"&gt;objectB&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;objectB&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h2&gt;Object-Oriented Design Principles&lt;/h2&gt;
+&lt;h3&gt;The Open/Close Principle&lt;/h3&gt;
+&lt;p&gt;The open/close principle states that &lt;em&gt;classes or objects and methods should be open for extension but closed for modifications.&lt;/em&gt;  &lt;/p&gt;
+&lt;p&gt;For example, the open/close principle is manifested in a case where a user has to create a class implementation by extending the abstract base class to implement the required behavior instead of changing the abstract class.&lt;/p&gt;
+&lt;p&gt;The advantages of this design principle are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Existing classes are changed and hence the chances of regression are less.&lt;/li&gt;
+&lt;li&gt;It also helps maintain backward compatibility for the previous code.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;The Inversion of Control Principle&lt;/h3&gt;
+&lt;p&gt;The inversion of control principle states that &lt;em&gt;high-level modules shouldn't be dependent on low-level modules; they should both be dependent on abstractions.  Details should depend on abstractions but not the other way around.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The principle suggests that any two modules shouldn't be dependent on each other in a tight way but should be decoupled with an abstraction layer in between.  It also suggests that the details of the class should represent the abstractions. In some cases, where the philosophy gets inverted and implementation details itself decide the abstraction, which should be avoided.  &lt;/p&gt;
+&lt;p&gt;Advantages of the inversion of control principles are as follow:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The tight coupling of modules is more prevalent and hence no complexity/rigidity in the system.  &lt;/li&gt;
+&lt;li&gt;As there is a clear abstraction layer between dependent modules (provided by a hook or parameter), it's easy to deal with dependencies across modules in a better way.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;The Interface Segregation Principle&lt;/h3&gt;
+&lt;p&gt;The interface segregation principle states, &lt;em&gt;clients should not be forced to depend on interfaces they don't use.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;It reminds developers to develop methods that relate to the functionality.  If there is any method that is not related to the interface, the class dependent on the interface has to implement it unnecessarily.  For example: a &lt;code&gt;Pizza&lt;/code&gt; interface shouldn't have a method called &lt;code&gt;add_chicken()&lt;/code&gt;.  The &lt;code&gt;VegePizza&lt;/code&gt; class based on &lt;code&gt;Pizza&lt;/code&gt; shouldn't be forced to implement this method.  &lt;/p&gt;
+&lt;p&gt;Advantages of this design principle are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It forces developers to write thin interfaces and have methods that are specific to the interface&lt;/li&gt;
+&lt;li&gt;It helps you not to populate by adding unintentional methods&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;The Single Responsibility Principle&lt;/h3&gt;
+&lt;p&gt;The single responsibility principle states, &lt;em&gt;a class should have only one reason to change.&lt;/em&gt;  &lt;/p&gt;
+&lt;p&gt;When a class is developed, it should cater to the given functionality well.  If it is serving two functionalities, it is better to split them.  It refers to functionality as a reason to change.  For example, a class can undergo changes because of the difference in behavior expected in it, but if a class is changed for two reasons (ie changes in two functionalities), then the class should definitely be split.  &lt;/p&gt;
+&lt;p&gt;Advantages of this design principle:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Whenever there is a change in one functionality, this particular class needs to change, and nothing else.&lt;/li&gt;
+&lt;li&gt;Additionally, if a class has multiple functionalities, the dependent classes will have to undergo changes for multiple reason, which gets avoided.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;The Single Responsibility Principle&lt;/h3&gt;
+&lt;p&gt;The substitution principle states that &lt;em&gt;derived classes must be able to completely substitute the base classes.&lt;/em&gt;  &lt;/p&gt;
+&lt;p&gt;It says when developers write derived classes, they should extend the base classes.  The derived class should be as close to the base class as possible so much so that the derived class itself should replace the base class without any code changes.  &lt;/p&gt;
+&lt;h2&gt;The Concept of Design Patterns&lt;/h2&gt;
+&lt;p&gt;Design patterns were first introduced by &lt;strong&gt;GoF&lt;/strong&gt; (&lt;strong&gt;Gang of Four&lt;/strong&gt;), where they mentioned them as being solutions to given problems.  The book, &lt;a href="http://bla" title="Design Patterns by Gang of Four"&gt;Design Patterns: Elements of Reusable Object-Oriented Software&lt;/a&gt;, covers software engineering solutions to the commonly occurring problems in software design.  There are 23 design patterns first identified, and first implemented to the Java programming language.  &lt;em&gt;Design patterns are discoveries, and not invention in themselves.&lt;/em&gt;  &lt;/p&gt;
+&lt;p&gt;The key features of design patterns are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;They are language-neutral and can be implemented across multiple languages&lt;/li&gt;
+&lt;li&gt;They are dynamic, as new patterns get introduced every now and then&lt;/li&gt;
+&lt;li&gt;They are open for customization and hence useful for developers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;One would also find:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It is a panacea to all design problemsthat a developer has had so far&lt;/li&gt;
+&lt;li&gt;It's an extraordinary, specially clever way to solving a problem&lt;/li&gt;
+&lt;li&gt;Many experts in software development world agree to these solutions&lt;/li&gt;
+&lt;li&gt;There's something repeatable about the design, hence the word pattern&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Completeness in a software solution refers to many factors such as design, scalability, reuse, memory utilization and etc.  &lt;/p&gt;
+&lt;h3&gt;Advantages of Design Patterns&lt;/h3&gt;
+&lt;p&gt;The advantages of design patterns are:
+- They are reusable across multiple projects
+- The architectural level of problems can be solved.
+- They are time-tested and well-proven, which is the experience of developers and architects
+- They have reliability and dependence&lt;/p&gt;
+&lt;h3&gt;Taxonomy of Design Patterns&lt;/h3&gt;
+&lt;p&gt;Not every piece of code/design can be termed as a design patterns.&lt;br&gt;
+- &lt;strong&gt;Snippet&lt;/strong&gt;: Some code in some language for a certain purpose, for example, DB connectivity in Python can be a code Snippet
+- &lt;strong&gt;Design&lt;/strong&gt;: A better solution to solve a particular problem.
+- &lt;strong&gt;Standard&lt;/strong&gt;: A way to solve some kind of problems, which can be very generic and applicable to a situation at hand.
+- &lt;strong&gt;Pattern&lt;/strong&gt;: A time-tested, efficient and scalable solution that will resolve entire class of known issues.  &lt;/p&gt;
+&lt;h3&gt;Context - The Applicability of Design Patterns&lt;/h3&gt;
+&lt;p&gt;To use design patterns efficiently, application developers must be aware of the context where design patterns apply.  Context are classified into the following categories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Participants&lt;/strong&gt;: They are classes that are used in design patterns.  Classes play different roles to accomplish multiple goals in the pattern.  &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Non-functional Requirements&lt;/strong&gt;: Requirements such as memory optimization, usablility and performance fall under this category.  These factors impact the complete software solution and are thus critical.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Trade-offs&lt;/strong&gt;: Not all design patterns fit in (application development) as it is, and trade-offs are necessary.  These are decisions
+that you take while using a design pattern in an application.  &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Results&lt;/strong&gt;: Design patterns can have a negative impact on other parts of the code if the context is not appropriate.  Developers should understand the consequences and use of design patterns.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Patterns for Dynamic Languages&lt;/h2&gt;
+&lt;p&gt;Python is a dynamic language.  The dynamic nature of Python can be represented as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Types or classes are objects at runtime.&lt;/li&gt;
+&lt;li&gt;Variables can have type as a value and can be modified at runtime.  For example, a = 5 and a = "John", the a variable is assigned at runtime and type also gets changed.&lt;/li&gt;
+&lt;li&gt;Dynamic languages have more flexibility in terms of of class restrictions.&lt;/li&gt;
+&lt;li&gt;In Python, polymorphism is built into the language, there is no keywords such as &lt;code&gt;private&lt;/code&gt; and &lt;code&gt;protected&lt;/code&gt; and everything is public by default.  &lt;/li&gt;
+&lt;li&gt;Represents a case where design patterns can be easily implemented in dynamic languages.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Classifying Patterns&lt;/h2&gt;
+&lt;p&gt;The GoF generally classified 23 patterns under three main categories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Creational Pattern&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;They work on the basis of how objects can be created&lt;/li&gt;
+&lt;li&gt;They isolate the details of object creation&lt;/li&gt;
+&lt;li&gt;Code is independent of the type of object to be created&lt;/li&gt;
+&lt;li&gt;An example of a creation pattern is the Singleton pattern.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Structural Pattern&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;They design the structure of objects and classes so that they can compose to archive larger results&lt;/li&gt;
+&lt;li&gt;The focus is on simplifying the structure and identifying the relationship between classes and objects&lt;/li&gt;
+&lt;li&gt;They focus on class inheritance and composition&lt;/li&gt;
+&lt;li&gt;An example of a behavioral pattern is the Adapter pattern.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Behavioral Pattern&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;They are concerned with the interaction among objects and responsibility of objects&lt;/li&gt;
+&lt;li&gt;Objects should be able to interact and still be loosely coupled.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><category>book</category><category>Chetan Giridhar</category><category>design-patterns</category><category>introduction</category><category>python</category><guid>https://chowy1026.github.io/books/python-design-patterns/01-intro/</guid><pubDate>Mon, 26 Sep 2016 08:22:03 GMT</pubDate></item><item><title>Lolita - Vladimir Nabokov</title><link>https://chowy1026.github.io/books/lolita/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Quotes&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;"Human life is but a series of footnotes to a vast obscure unfinished masterpiece"&lt;/li&gt;
 &lt;li&gt;"He broke my heart. You merely broke my life."&lt;/li&gt;
