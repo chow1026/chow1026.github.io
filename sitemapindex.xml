@@ -11,7 +11,7 @@
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/course-notes/rss.xml</loc>
-  <lastmod>2016-09-29T05:24:00Z</lastmod>
+  <lastmod>2016-09-30T10:04:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/galleries/rss.xml</loc>
@@ -23,15 +23,19 @@
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/posts/rss.xml</loc>
-  <lastmod>2016-09-20T05:00:00Z</lastmod>
+  <lastmod>2016-10-02T03:02:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/rss.xml</loc>
-  <lastmod>2016-09-29T05:24:00Z</lastmod>
+  <lastmod>2016-10-02T03:02:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/sitemap.xml</loc>
-  <lastmod>2016-09-29T05:24:00Z</lastmod>
+  <lastmod>2016-10-02T03:02:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chowy1026.github.io/tags/adult.xml</loc>
+  <lastmod>2016-10-02T03:02:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/animal-lovers.xml</loc>
@@ -44,6 +48,10 @@
  <sitemap>
   <loc>https://chowy1026.github.io/tags/basics.xml</loc>
   <lastmod>2016-09-07T07:04:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chowy1026.github.io/tags/behavior.xml</loc>
+  <lastmod>2016-10-02T03:02:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/book.xml</loc>
@@ -103,11 +111,11 @@
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/hypothsis-testing.xml</loc>
-  <lastmod>2016-09-29T05:24:00Z</lastmod>
+  <lastmod>2016-09-30T07:42:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/inferential-statistics.xml</loc>
-  <lastmod>2016-09-29T05:24:00Z</lastmod>
+  <lastmod>2016-09-30T10:04:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/inheritance.xml</loc>
@@ -120,6 +128,10 @@
  <sitemap>
   <loc>https://chowy1026.github.io/tags/introduction.xml</loc>
   <lastmod>2016-09-27T04:02:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chowy1026.github.io/tags/john-perry-barlow.xml</loc>
+  <lastmod>2016-10-02T03:02:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/lists.xml</loc>
@@ -139,7 +151,11 @@
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/part-1.xml</loc>
-  <lastmod>2016-09-29T05:24:00Z</lastmod>
+  <lastmod>2016-09-30T10:04:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://chowy1026.github.io/tags/principles.xml</loc>
+  <lastmod>2016-10-02T03:02:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/python-crash-course.xml</loc>
@@ -187,7 +203,7 @@
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/t-test.xml</loc>
-  <lastmod>2016-09-29T05:24:00Z</lastmod>
+  <lastmod>2016-09-30T10:04:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://chowy1026.github.io/tags/test-cases.xml</loc>

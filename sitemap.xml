@@ -11,7 +11,7 @@
  </url>
  <url>
   <loc>https://chowy1026.github.io/archives/2016/</loc>
-  <lastmod>2016-09-06T01:12:00Z</lastmod>
+  <lastmod>2016-10-02T03:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/archives/2016/08/</loc>
@@ -86,8 +86,16 @@
   <lastmod>2016-09-29T05:24:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/archives/2016/10/</loc>
+  <lastmod>2016-10-02T03:02:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2016/10/02/</loc>
+  <lastmod>2016-10-02T03:02:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/archives/archives.html</loc>
-  <lastmod>2016-09-29T05:24:00Z</lastmod>
+  <lastmod>2016-10-02T03:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/books/</loc>
@@ -203,7 +211,7 @@
  </url>
  <url>
   <loc>https://chowy1026.github.io/index-2.html</loc>
-  <lastmod>2016-09-29T05:24:00Z</lastmod>
+  <lastmod>2016-10-02T03:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/links/</loc>
@@ -219,7 +227,7 @@
  </url>
  <url>
   <loc>https://chowy1026.github.io/posts/</loc>
-  <lastmod>2016-09-20T05:00:00Z</lastmod>
+  <lastmod>2016-10-02T03:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/posts/hello-world/</loc>
@@ -228,6 +236,10 @@
  <url>
   <loc>https://chowy1026.github.io/posts/nikola-setup/</loc>
   <lastmod>2016-08-15T05:29:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/posts/principles_of_adult_behavior/</loc>
+  <lastmod>2016-10-02T03:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/posts/singapore_animal_shelters/</loc>
@@ -239,7 +251,11 @@
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags.html</loc>
-  <lastmod>2016-09-29T05:24:00Z</lastmod>
+  <lastmod>2016-10-02T03:02:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/adult/</loc>
+  <lastmod>2016-10-02T03:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags/animal-lovers/</loc>
@@ -252,6 +268,10 @@
  <url>
   <loc>https://chowy1026.github.io/tags/basics/</loc>
   <lastmod>2016-08-30T06:49:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/behavior/</loc>
+  <lastmod>2016-10-02T03:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags/book/</loc>
@@ -330,6 +350,10 @@
   <lastmod>2016-08-16T07:10:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/tags/john-perry-barlow/</loc>
+  <lastmod>2016-10-02T03:02:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/tags/lists/</loc>
   <lastmod>2016-08-30T06:49:00Z</lastmod>
  </url>
@@ -348,6 +372,10 @@
  <url>
   <loc>https://chowy1026.github.io/tags/part-1/</loc>
   <lastmod>2016-09-29T05:24:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/principles/</loc>
+  <lastmod>2016-10-02T03:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags/python-crash-course/</loc>
