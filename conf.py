@@ -999,7 +999,7 @@ MATHJAX_CONFIG = """
                 displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ],
                 processEscapes: true
             },
-            displayAlign: 'left', // Change this to 'center' to center equations.
+            displayAlign: 'center', // Change this to 'left' to left equations.
             "HTML-CSS": {
                 styles: {'.MathJax_Display': {"margin": 0}}
             }
