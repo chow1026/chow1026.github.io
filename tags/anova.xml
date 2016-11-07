@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title> =^..^= MEH (ANOVA)</title><link>https://chowy1026.github.io/</link><description></description><atom:link rel="self" type="application/rss+xml" href="https://chowy1026.github.io/tags/anova.xml"></atom:link><language>en</language><lastBuildDate>Mon, 07 Nov 2016 05:35:17 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Inferential Statistics - ANOVA Continued.</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-13/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;One of the popular Multiple Comparison Tests is Tukey's Honestly Significant Differences.    &lt;br&gt;
+&lt;strong&gt;Tukey's Honestly Significant Differences (HSD)&lt;/strong&gt;  &lt;br&gt;
+Tukey's HSD is calculated as the following:
+\[
+\text{Tukey's HSD} = q * \sqrt{\frac{MS_{within}}{n}} \\
+q \text{ is looked up with } df_{within} \text{ and } k \text{, the number of treatments/sample groups}   \\
+n \text{ is the number of samples in one sample group}
+\]   &lt;/p&gt;
+&lt;p&gt;If the mean difference between/among treatments are greater than Tukey's HSD, the difference is significant.    &lt;/p&gt;
+&lt;p&gt;Note this is very similar to Z test and T test. For Z tests, the margin of error is:
+\[
+\text{Margin of Error} = z * \frac{\sigma}{\sqrt{n}}
+\]&lt;/p&gt;
+&lt;p&gt;Whereas for t tests, the margin of error is:
+\[
+\text{Margin of Error} = t * \frac{s}{\sqrt{n}}
+\]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cohen's D for Multiple Comparisons&lt;/strong&gt;  &lt;br&gt;
+For normal comparisons, Cohen's D is calculated by
+\[
+\text{Cohen's D, } d = \frac{\bar{X_1} - \bar{X_2}}{SD_{pooled}}
+\]   &lt;/p&gt;
+&lt;p&gt;In multiple comparisons, Cohen's D is calculated by
+\[
+\text{Cohen's D, } d = \frac{\bar{X_1} - \bar{X_2}}{\sqrt{MS_{within}}}
+\]&lt;/p&gt;
+&lt;p&gt;Cohen's D is calculated per pair comparisons.  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;\( \mathbf{\eta ^ 2} \)&lt;/strong&gt;  &lt;br&gt;
+\( \eta ^2 \) is defined as the proportion of total variance that is due to between-group differences (explained variation).  &lt;/p&gt;
+&lt;p&gt;\[
+\eta ^2 = \frac{SS_{between}}{SS_{total}} \\
+      = \frac{SS_{between}}{SS_{between} + SS_{within}}
+\]    &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Reporting Reports of Anova&lt;/strong&gt;  &lt;br&gt;
+We report the results of F Statistics as the following:   &lt;br&gt;
+\[
+   F(df_{between}, df_{within}) = 27 \quad p &amp;lt; 0.05 \quad \eta ^2 = 0.90 \quad \\
+   \text{p is estimated, by hand} \\
+   F(df_{between}, df_{within}) = 27 \quad p = 0.001 \quad \eta ^2 = 0.90 \quad \\
+   \text{exact p value calculated by software} \\
+\]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ANOVA for Groups with Different Sample Sizes&lt;/strong&gt;  &lt;br&gt;
+Grand mean
+\[
+  \text{Grand mean, } \bar{X_G} = \frac{ \sum_{j=0}^k n_j (\bar{x_j}) }{\sum_{j=0}^k n_j } \\
+  n_j \text{ is sample size for each sample} \\&lt;br&gt;
+  k \text{ is number of sample groups}      \\
+\]    &lt;/p&gt;
+&lt;p&gt;SS (Sum of Squares) Between   &lt;br&gt;
+\[
+  \text{sum of squares, } SS_{between} = \sum_{j=0}^k n_j (\bar{x_j} - \bar{x_G})^2 \\
+  n_j \text{ is sample size for each sample}   \\
+\]    &lt;/p&gt;
+&lt;p&gt;SS (Sum of Squares) Within   &lt;br&gt;
+\[
+  \text{sum of squares, } SS_{within} = \sum_{i=0}^N (x_i - \bar{x_k})^2 \\
+  k \text{ is number of sample groups}      \\
+  N \text{ is total number of all samples of each sample group}     \\
+\]    &lt;/p&gt;
+&lt;p&gt;DF (Degress of Freedom) Between   &lt;br&gt;
+\[
+  \text{degrees of freedom, } df_{between} = k - 1 \\
+  k \text{ is number of sample groups}    \\
+\]    &lt;/p&gt;
+&lt;p&gt;DF (Degress of Freedom) Within   &lt;br&gt;
+\[
+  \text{degrees of freedom, } df_{within} = N - k \\
+  k \text{ is number of sample groups}      \\
+  N \text{ is total number of all samples of each sample group}     \\
+\]    &lt;/p&gt;
+&lt;p&gt;MS (Mean Squares) Between   &lt;br&gt;
+\[
+  \text{Mean square, } MS_{between} = \frac{SS_{between}}{df_{between}}  \\
+  = \frac{\sum_{j=0}^k n_j (\bar{x_j} - \bar{x_G})^2}{k - 1}
+\]    &lt;/p&gt;
+&lt;p&gt;MS (Mean Squares) Within   &lt;br&gt;
+\[
+\text{Mean square, } MS_{within} = \frac{SS_{within}}{df_{within}}  \\
+= \frac{\sum_{i=0}^N (x_i - \bar{x_k})^2}{N - k}
+\]    &lt;/p&gt;
+&lt;p&gt;F Stats
+\[
+\text{F Statistics, } F = \frac{MS_{between}}{MS_{within}}  \\
+= \frac{\sum_{j=0}^k n_j (\bar{x_j} - \bar{x_G})^2 / (k - 1)}{\sum_{i=0}^N (x_i - \bar{x_k})^2 / (N - k)}
+\]   &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;\( \mathbf{\eta ^ 2} \)&lt;/strong&gt;&lt;br&gt;
+\[
+\eta ^2 = \frac{SS_{between}}{SS_{total}} \\
+      = \frac{SS_{between}}{SS_{between} + SS_{within}}
+\]  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ANOVA Power&lt;/strong&gt;  &lt;br&gt;
+Increase POWER in order to avoid Type II statistical error where we fail to reject the null when there is a treatment effect.   &lt;/p&gt;
+&lt;p&gt;In the case of drug testing, we want to:  &lt;br&gt;
+- test &lt;strong&gt;more people&lt;/strong&gt;  &lt;br&gt;
+- give each drug to &lt;strong&gt;very similar&lt;/strong&gt; groups of people  &lt;br&gt;
+- test with a &lt;strong&gt;strong&lt;/strong&gt; dosage    &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ANOVA Assumptions &amp;amp; Conclusions&lt;/strong&gt;   &lt;br&gt;
+We assume:  &lt;br&gt;
+- &lt;strong&gt;Normality&lt;/strong&gt;: the population of which our samples are from are all normally distributed.  &lt;br&gt;
+- &lt;strong&gt;Homogeneity of Variance&lt;/strong&gt;: the samples come from populations that have equal amount of variability.   &lt;br&gt;
+- &lt;strong&gt;Independence of Observations&lt;/strong&gt;: The results found from one samples won't affect the others.   &lt;/p&gt;
+&lt;p&gt;We could have the following exceptions:  &lt;br&gt;
+- violate the normality if the sample is large  &lt;br&gt;
+- violate the homogeneity of variance if:  &lt;br&gt;
+        - almost equal sample sizes  &lt;br&gt;
+        - ratio of any two variances doesn't exceed 4     &lt;br&gt;
+-&lt;/p&gt;&lt;/div&gt;</description><category>ANOVA</category><category>Cohen's D</category><category>inferential-statistics</category><category>one-way ANOVA</category><category>Tukey HSD</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-13/</guid><pubDate>Thu, 03 Nov 2016 13:55:35 GMT</pubDate></item><item><title>Inferential Statistics - One-Way ANOVA</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-12/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;In lesson 11, we learned to perform t-tests for two independent samples.  However, in real statistical studies, there are a lot of times we need to compare more than two independent samples.  When we have \( n \) independent samples, the number of t-tests we need to perform are:
+&lt;!-- {n+1 \choose 2k} == \binom{n+1}{2k} --&gt;
+\[
+  \text{no of t-tests with n samples} = \binom{n}{2} = \frac{n!}{2!(n-2)!}
+\]&lt;/p&gt;
+&lt;p&gt;However, the same concept of t-test applies here.  Remember t is defined by a function of the distance apart from each other and the variability of each sample.
+\[
+  t_{statistic} = \frac{ \bar{X_1} - \bar{X_2}}{ \sqrt{ \frac{ S_p^2 }{ n_1 } + \frac{ S_p^2 }{ n_2 }}}
+\]
+When we compare 3 or more samples, we compare distance/variability between means (as numerator) and some kind of sample error (as the denominator)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Think about this:&lt;/strong&gt; &lt;br&gt;
+Q: How can we compare three or more samples? &lt;br&gt;
+A: Find the average squared deviation of each sample means.&lt;/p&gt;
+&lt;p&gt;Q: Will the &lt;strong&gt;Grand Mean&lt;/strong&gt;, mean of the sample means be the same as the mean of all values in each sample? &lt;br&gt;
+A: Sometimes.  Only when the sample sizes are equal for each sample, that the Grand Mean will be the same.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Between Group Variability&lt;/strong&gt; &lt;br&gt;
+Between group variability is the variability between/among samples.   &lt;br&gt;
+Q: What conclusions can we draw from the deviation of each sample mean from the mean of the means? &lt;br&gt;
+A: The smaller the distance between sample means, the less likely the population means will defer significantly.  Vice versa the greater the distance between sample means, the more likely population means will differ significantly.  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Within Group Variability&lt;/strong&gt; &lt;br&gt;
+Within group variability is the variability of the individual samples within a sample.  &lt;br&gt;
+The greater the variability of each individual sample, the less likely population means will differ significantly.  (thinner, non overlapping normal distribution.) &lt;br&gt;
+The smaller the variability of each individual sample, the more likely population means will differ significantly.  (wider, overlapping normal distribution)&lt;/p&gt;
+&lt;p&gt;Since we are analyzing the variabilities between samples and within samples, we call this Analysis of Variability (ANOVA).  We have one way ANOVA when we have one independent variable (sometimes called a factor)  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;F Statistics&lt;/strong&gt; &lt;br&gt;
+F statistics is the ratio of between group variability (numerator) to the within group variability (denominator)
+If the between group variability is big, it constitutes to big F statistics, which results in rejecting the null hypothesis and accepting the alternative hypothesis.&lt;br&gt;
+Whereas if the within group variability is large, it makes the F statistics small, which results in accepting the null hypothesis and rejecting the alternative hypothesis.&lt;/p&gt;
+&lt;p&gt;\[
+F = \frac{ \text{between group variability}}{ \text{within group variability}} \\&lt;br&gt;
+  = \frac{ \sum_{j=0}^k n_j (\bar{x_j} - \bar{x_G})^2 / (k-1)}{\sum_{i=0}^N  (x_i - \bar{x_k})^2 / (N-k) } \\
+  n_j \text{ is sample size for each sample}   \\
+  = \frac{ n \sum_{j=0}^k (\bar{x_j} - \bar{x_G})^2 / (k-1)}{\sum_{i=0}^N (x_i - \bar{x_k})^2 / (N-k) } \text{when sample size is same for all samples}  \\
+  k \text{ is number of sample groups}      \\
+  N \text{ is total number of all samples of each sample group}     \\
+\]&lt;/p&gt;
+&lt;p&gt;F can also be formulated as
+\[
+F = \frac{SS_{between} / df_{between}}{SS_{within} / df_{within}} \text{ where } SS \text{ stands for Sum of Squares }      \\
+  = \frac{MS_{between}}{MS_{within}} \text{ where } MS \text{ stands for Mean Square }
+\]&lt;/p&gt;
+&lt;p&gt;Note that \(df_{between}\) is \( k - 1 \) while \(df_{within}\) is \( N - k \)&lt;/p&gt;
+&lt;p&gt;If we add \(df_{between}\) and \(df_{within}\) up, we get \( N - 1\) which is the total degree of freedom \(df_{total}\)
+\[
+df_{total} = df_{between} + df_{within} \\
+= N - 1
+\]&lt;/p&gt;
+&lt;p&gt;Similarly, the total variation \(SS_{total}\) is the sum of \(SS_{between}\) and \(SS_{within}\).&lt;br&gt;
+\[
+SS_{total} = SS_{between} + SS_{within} \\
+= \sum{(x_i - \bar{x_G}) ^ 2}
+\]&lt;/p&gt;&lt;/div&gt;</description><category>ANOVA</category><category>inferential-statistics</category><category>one-way ANOVA</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-12/</guid><pubDate>Fri, 14 Oct 2016 02:25:32 GMT</pubDate></item></channel></rss>

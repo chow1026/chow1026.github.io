@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title> =^..^= MEH (Correlations)</title><link>https://chowy1026.github.io/</link><description></description><atom:link href="https://chowy1026.github.io/tags/correlations.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Mon, 07 Nov 2016 07:33:47 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Inferential Statistics - Correlations</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-14/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;strong&gt;Relationships&lt;/strong&gt;   &lt;br&gt;
+How one variable is related to the other?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Variable X and Y&lt;/strong&gt;    &lt;br&gt;
+X is often referred to as the predictor, explanatory, independent variable.      &lt;/p&gt;
+&lt;p&gt;Y is often referred as the outcome, response, dependent variable.  &lt;/p&gt;
+&lt;p&gt;Scatterplot is a popular/ most common way to show relationship of X and Y variables.      &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Strong Relationships&lt;/strong&gt;    &lt;br&gt;
+Strong relationships usually have less scattered plots.  If we draw an eclipse surrounding the data points, the smaller the ratio of minor axis to the major axis, the stronger the relationship is.  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Direction of Relationships&lt;/strong&gt;       &lt;br&gt;
+Positively related - Y responses in the same direction as X changes; Negatively related - Y responses in opposite directions of X changes.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Correlation Coefficient, (r)&lt;/strong&gt;    &lt;br&gt;
+Also known as Pierson's r.  &lt;/p&gt;
+&lt;p&gt;r is a fraction, with the covariance of x and y (how much do they vary together) as the numerator, and the product of standard deviation of x  and standard deviation of y as the denominator.&lt;br&gt;
+\[
+  r = \frac{cov(x,y)}{ S_x * S_y } = \frac{cov_{x,y}}{ S_x * S_y }
+\]  &lt;br&gt;
+r measures the strength of a relationship, by measuring how closely the data falls along a straight line.      &lt;/p&gt;
+&lt;p&gt;Even though r is a ratio, it is not interpreted as a percentage.  However, \(r^2\) is a percentage of the variation in y explained by variation in x.  \(r^2\) is called the coefficient determination.       &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;True Correlation of Population, rho, \( \rho \)&lt;/strong&gt;     &lt;br&gt;
+We usually perform hypothesis testing with t-tests.
+\[
+  H_{0} : \rho = 0 \\
+  H_{1} : \rho \gt 0 \\
+  H_{1} : \rho \lt 0 \\
+  H_{1} : \rho \ne 0
+\]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Causation vs Correlations&lt;/strong&gt;    &lt;br&gt;
+&lt;strong&gt;Causation&lt;/strong&gt; - One variable caused another to happen.     &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Correlation&lt;/strong&gt; - There is a relationship between two variables.  But there are lots of lurking variables.  For example, there are two variables X and Y.  They could have a relationship because both of them are influenced by variable A, or Y is influenced by X &lt;strong&gt;through&lt;/strong&gt; variable A.  In this case, variable A is called the mediating variable.  &lt;/p&gt;
+&lt;p&gt;To make a causal statement: &lt;br&gt;
+     - the independent variable would have to occur BEFORE the dependent variable.&lt;br&gt;
+     - have to rule out other lurking variables too&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Fallacies&lt;/strong&gt;  &lt;br&gt;
+Ambiguous Temporal Precedence - we don't know which variable happens first.   &lt;br&gt;
+Third variable problem    &lt;br&gt;
+Post-hoc fallacy      &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;t value and Correlation Coefficient, (r)&lt;/strong&gt;   &lt;br&gt;
+t value and r:
+\[
+  t = \frac{r  \sqrt{N-2}}{\sqrt{1-r^2}}
+\]
+where \(df\) is \( N - 2 \)&lt;/p&gt;&lt;/div&gt;</description><category>Correlations</category><category>inferential-statistics</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-14/</guid><pubDate>Mon, 07 Nov 2016 05:33:58 GMT</pubDate></item></channel></rss>

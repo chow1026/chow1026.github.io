@@ -1,8 +1,8 @@
 <!--
-.. title: Inferential Statistics - T-Test, Part 1
-.. slug: lesson-10a
+.. title: Inferential Statistics - T-Test, Dependent Samples
+.. slug: lesson-10
 .. date: 2016-09-29 13:09:03 UTC+08:00
-.. tags: inferential-statistics, t-test, part 1
+.. tags: inferential-statistics, t-test, dependent-samples
 .. category:
 .. link:
 .. description:
@@ -90,7 +90,7 @@ After calculating the t-statistic, we go to [GraphPad][4ad9aaf1] to get the exac
 
 
 # Cohen's d
-Cohen's d is another common measure of affects size, when comparing means, named after Jacobs Cohen.  It is a standardized mean difference that measures the distance between 2 means in standard deviation units.
+Cohen's d is another common measure of effect size, when comparing means, named after Jacobs Cohen.  It is a **standardized mean difference** that measures the distance between 2 means in standard deviation units.
 \\[
     Cohen's d = \frac{\bar{x} - \mu_{0}}{S} \\\
     where\;\bar{x}\text{ is sample mean, }\mu_{0}\text{ is population mean, and }S\text{ is sample standard deviation}
@@ -102,8 +102,8 @@ At a given confidence level, or alpha level, we first determine the t-critical v
 Confidence interval for a two-tailed test is:
 \\[
   \\begin{align}
-    CI & = M \pm t_{critical} \cdot SE_{sample} \\\
-    & = M \pm t_{critical} \cdot \frac{S}{\sqrt{n}}
+    CI & = M \pm t_{critical, \alpha} \cdot SE_{sample} \\\
+    & = M \pm t_{critical, \alpha} \cdot \frac{S}{\sqrt{n}}
   \\end{align}
 \\]
 
@@ -129,3 +129,34 @@ The within-subject designs generate paired data.  Then we look at the difference
 \\[ H_{0}: \mu_{time1} = \mu_{time2} \\]
 3. Pre-test vs Post-test
 \\[ H_{0}: \mu_{pre} = \mu_{post} \\]
+
+# Effect Size
+In experimental studies, Effect Size refers to the size of a treatment effect.  In non-experimental studies, Effect Size may refer to the strength of the relationships between the variables.  
+
+In the Z-test or one sample t-test, the mean difference is \\( \bar{x} - \mu \\).  Mean differences is great when we variables with easy to understand meanings.
+
+## Types of Effect Size Measures
+There are many Effect Size measures, but they all fall into two main groups:
+
+1. Difference Measures:
+    - Mean difference
+    - standardized difference
+        - Cohen's d (in SD units)
+
+2. Correlation Measures:
+    - \\( r^2 \\): the proportion (or %) of variation of one variable that is related to ("explained by") another variable.  
+        \\[ r^2 = \frac{ t^2 }{ t^2 + df } \\\
+            where\; t \text{ is t statistics, not } t_{critical} \text{ and } df \text{ is degree of freedom}
+        \\]
+    - \\( r^2 \\) is also known as the coefficient of determination.
+
+# Statistical Significance
+Statistical Significant means:
+- we reject the null
+- results are not likely due to chance (sampling error)
+
+# Meaningfulness of Results
+- What was being measured?  Do/Does the variable(s) has any practical, social, theoretical importance?
+- Effect Size: Small effect size doesn't necessarily mean the results have lower importance, and vice versa, large effect size doesn't necessarily means the results have greater importance.  
+- Can we rule out random chance/sampling errors?
+- Can we rule out alternative explainations? (lurking variables)

@@ -5,7 +5,7 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title> =^..^= MEH · Inferential Statistics - T-Test, Part 1 </title>
+<title> =^..^= MEH · Inferential Statistics - T-Test, Dependent Samples </title>
 <link href="../../../assets/css/rst.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/poole.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/hyde.css" rel="stylesheet" type="text/css">
@@ -13,7 +13,7 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700%7CAbril+Fatface">
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
-<link rel="canonical" href="https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10a/">
+<link rel="canonical" href="https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10/">
 <link rel="icon" href="../../../images/favicon.png" sizes="64x64">
 <link rel="icon" href="../../../images/icon_512x512.png" sizes="512x512">
 <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
@@ -23,7 +23,7 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
                 processEscapes: true
             },
-            displayAlign: 'left', // Change this to 'center' to center equations.
+            displayAlign: 'center', // Change this to 'left' to left equations.
             "HTML-CSS": {
                 styles: {'.MathJax_Display': {"margin": 0}}
             }
@@ -42,14 +42,14 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
 <link rel="prev" href="../../../books/python-design-patterns/02-singleton-design-pattern/" title="Python Design Patterns - The Singleton Design Pattern" type="text/html">
 <link rel="next" href="../../../posts/principles_of_adult_behavior/" title="Principles of Adult Behavior by John Perry Barlow" type="text/html">
 <meta property="og:site_name" content=" =^..^= MEH">
-<meta property="og:title" content="Inferential Statistics - T-Test, Part 1">
-<meta property="og:url" content="https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10a/">
+<meta property="og:title" content="Inferential Statistics - T-Test, Dependent Samples">
+<meta property="og:url" content="https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10/">
 <meta property="og:description" content="T-Test
 Z-test works when we know the population parameters such as \( \mu \) and \( \sigma \).  For any samples drawn from this population, the samples would form a sampling distribution that is a nor">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2016-09-29T13:09:03+08:00">
+<meta property="article:tag" content="dependent-samples">
 <meta property="article:tag" content="inferential-statistics">
-<meta property="article:tag" content="part 1">
 <meta property="article:tag" content="t-test">
 </head>
 <body class="test">
@@ -101,7 +101,7 @@ Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href
     </div>
 
     <div class="content container" id="content">
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><h1 class="post-title p-name"><a href="." class="u-url">Inferential Statistics - T-Test, Part 1</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><h1 class="post-title p-name"><a href="." class="u-url">Inferential Statistics - T-Test, Dependent Samples</a></h1>
 
     <span class="post-date">
       <time class="published dt-published" datetime="2016-09-29T13:09:03+08:00" itemprop="datePublished" title="2016-09-29 13:09">2016-09-29 13:09</time></span>
@@ -175,7 +175,7 @@ t-statistics increases when:</p>
 <p>For one-tailed test, the P-value is the probability above the t-statistic if it is positive, and below the t-statistic if it is negative.  For two tailed test, the p-value will be the sum of probability on both ends.  We reject the null hypothesis when the p-value is less than the \( \alpha \) level.</p>
 <p>After calculating the t-statistic, we go to <a href="http://www.graphpad.com/quickcalcs/pValue1/" title="P-Value with t and DF">GraphPad</a> to get the exact P-value. There are also other calculators on <a href="http://www.graphpad.com/" title="GraphPad Calculators">GraphPad</a> that are worth checking out.  </p>
 <h2>Cohen's d</h2>
-<p>Cohen's d is another common measure of affects size, when comparing means, named after Jacobs Cohen.  It is a standardized mean difference that measures the distance between 2 means in standard deviation units.
+<p>Cohen's d is another common measure of effect size, when comparing means, named after Jacobs Cohen.  It is a <strong>standardized mean difference</strong> that measures the distance between 2 means in standard deviation units.
 \[
     Cohen's d = \frac{\bar{x} - \mu_{0}}{S} \\
     where\;\bar{x}\text{ is sample mean, }\mu_{0}\text{ is population mean, and }S\text{ is sample standard deviation}
@@ -186,8 +186,8 @@ At a given confidence level, or alpha level, we first determine the t-critical v
 Confidence interval for a two-tailed test is:
 \[
   \begin{align}
-    CI &amp; = M \pm t_{critical} \cdot SE_{sample} \\
-    &amp; = M \pm t_{critical} \cdot \frac{S}{\sqrt{n}}
+    CI &amp; = M \pm t_{critical, \alpha} \cdot SE_{sample} \\
+    &amp; = M \pm t_{critical, \alpha} \cdot \frac{S}{\sqrt{n}}
   \end{align}
 \]</p>
 <h2>Margin of Error</h2>
@@ -212,11 +212,49 @@ Confidence interval for a two-tailed test is:
 <li>Pre-test vs Post-test
 \[ H_{0}: \mu_{pre} = \mu_{post} \]</li>
 </ol>
+<h2>Effect Size</h2>
+<p>In experimental studies, Effect Size refers to the size of a treatment effect.  In non-experimental studies, Effect Size may refer to the strength of the relationships between the variables.  </p>
+<p>In the Z-test or one sample t-test, the mean difference is \( \bar{x} - \mu \).  Mean differences is great when we variables with easy to understand meanings.</p>
+<h3>Types of Effect Size Measures</h3>
+<p>There are many Effect Size measures, but they all fall into two main groups:</p>
+<ol>
+<li>
+<p>Difference Measures:</p>
+<ul>
+<li>Mean difference</li>
+<li>standardized difference<ul>
+<li>Cohen's d (in SD units)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Correlation Measures:</p>
+<ul>
+<li>\( r^2 \): the proportion (or %) of variation of one variable that is related to ("explained by") another variable.<br>
+    \[ r^2 = \frac{ t^2 }{ t^2 + df } \\
+        where\; t \text{ is t statistics, not } t_{critical} \text{ and } df \text{ is degree of freedom}
+    \]</li>
+<li>\( r^2 \) is also known as the coefficient of determination.</li>
+</ul>
+</li>
+</ol>
+<h2>Statistical Significance</h2>
+<p>Statistical Significant means:
+- we reject the null
+- results are not likely due to chance (sampling error)</p>
+<h2>Meaningfulness of Results</h2>
+<ul>
+<li>What was being measured?  Do/Does the variable(s) has any practical, social, theoretical importance?</li>
+<li>Effect Size: Small effect size doesn't necessarily mean the results have lower importance, and vice versa, large effect size doesn't necessarily means the results have greater importance.  </li>
+<li>Can we rule out random chance/sampling errors?</li>
+<li>Can we rule out alternative explainations? (lurking variables)</li>
+</ul>
 </div>
     </div>
     <aside class="postpromonav"><nav><p itemprop="keywords" class="tags">
+            <span class="tag"><a class="p-category" href="../../../tags/dependent-samples/" rel="tag">dependent-samples</a></span>
             <span class="tag"><a class="p-category" href="../../../tags/inferential-statistics/" rel="tag">inferential-statistics</a></span>
-            <span class="tag"><a class="p-category" href="../../../tags/part-1/" rel="tag">part 1</a></span>
             <span class="tag"><a class="p-category" href="../../../tags/t-test/" rel="tag">t-test</a></span>
       </p>
 
@@ -241,9 +279,9 @@ Next post
                         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="chowygit",
-            disqus_url="https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10a/",
-        disqus_title="Inferential Statistics - T-Test, Part 1",
-        disqus_identifier="cache/course-notes/inferential-statistics/lesson-10a.html",
+            disqus_url="https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10/",
+        disqus_title="Inferential Statistics - T-Test, Dependent Samples",
+        disqus_identifier="cache/course-notes/inferential-statistics/lesson-10.html",
         disqus_config = function () {
             this.language = "en";
         };

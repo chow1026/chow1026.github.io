@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title> =^..^= MEH (part 1)</title><link>https://chowy1026.github.io/</link><description></description><atom:link type="application/rss+xml" href="https://chowy1026.github.io/tags/part-1.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 30 Sep 2016 10:04:10 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Inferential Statistics - T-Test, Part 1</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10a/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h2&gt;T-Test&lt;/h2&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title> =^..^= MEH (dependent-samples)</title><link>https://chowy1026.github.io/</link><description></description><atom:link rel="self" type="application/rss+xml" href="https://chowy1026.github.io/tags/dependent-samples.xml"></atom:link><language>en</language><lastBuildDate>Tue, 11 Oct 2016 05:48:23 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Inferential Statistics - T-Test, Dependent Samples</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h2&gt;T-Test&lt;/h2&gt;
 &lt;p&gt;Z-test works when we know the population parameters such as \( \mu \) and \( \sigma \).  For any samples drawn from this population, the samples would form a sampling distribution that is a normal distribution, with:
 \[
     mean = \mu  \quad\text{where M is mean of sample means}\\
@@ -63,7 +63,7 @@ t-statistics increases when:&lt;/p&gt;
 &lt;p&gt;For one-tailed test, the P-value is the probability above the t-statistic if it is positive, and below the t-statistic if it is negative.  For two tailed test, the p-value will be the sum of probability on both ends.  We reject the null hypothesis when the p-value is less than the \( \alpha \) level.&lt;/p&gt;
 &lt;p&gt;After calculating the t-statistic, we go to &lt;a href="http://www.graphpad.com/quickcalcs/pValue1/" title="P-Value with t and DF"&gt;GraphPad&lt;/a&gt; to get the exact P-value. There are also other calculators on &lt;a href="http://www.graphpad.com/" title="GraphPad Calculators"&gt;GraphPad&lt;/a&gt; that are worth checking out.  &lt;/p&gt;
 &lt;h2&gt;Cohen's d&lt;/h2&gt;
-&lt;p&gt;Cohen's d is another common measure of affects size, when comparing means, named after Jacobs Cohen.  It is a standardized mean difference that measures the distance between 2 means in standard deviation units.
+&lt;p&gt;Cohen's d is another common measure of effect size, when comparing means, named after Jacobs Cohen.  It is a &lt;strong&gt;standardized mean difference&lt;/strong&gt; that measures the distance between 2 means in standard deviation units.
 \[
     Cohen's d = \frac{\bar{x} - \mu_{0}}{S} \\
     where\;\bar{x}\text{ is sample mean, }\mu_{0}\text{ is population mean, and }S\text{ is sample standard deviation}
@@ -74,8 +74,8 @@ At a given confidence level, or alpha level, we first determine the t-critical v
 Confidence interval for a two-tailed test is:
 \[
   \begin{align}
-    CI &amp;amp; = M \pm t_{critical} \cdot SE_{sample} \\
-    &amp;amp; = M \pm t_{critical} \cdot \frac{S}{\sqrt{n}}
+    CI &amp;amp; = M \pm t_{critical, \alpha} \cdot SE_{sample} \\
+    &amp;amp; = M \pm t_{critical, \alpha} \cdot \frac{S}{\sqrt{n}}
   \end{align}
 \]&lt;/p&gt;
 &lt;h2&gt;Margin of Error&lt;/h2&gt;
@@ -99,4 +99,42 @@ Confidence interval for a two-tailed test is:
 \[ H_{0}: \mu_{time1} = \mu_{time2} \]&lt;/li&gt;
 &lt;li&gt;Pre-test vs Post-test
 \[ H_{0}: \mu_{pre} = \mu_{post} \]&lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><category>inferential-statistics</category><category>part 1</category><category>t-test</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10a/</guid><pubDate>Thu, 29 Sep 2016 05:09:03 GMT</pubDate></item></channel></rss>
+&lt;/ol&gt;
+&lt;h2&gt;Effect Size&lt;/h2&gt;
+&lt;p&gt;In experimental studies, Effect Size refers to the size of a treatment effect.  In non-experimental studies, Effect Size may refer to the strength of the relationships between the variables.  &lt;/p&gt;
+&lt;p&gt;In the Z-test or one sample t-test, the mean difference is \( \bar{x} - \mu \).  Mean differences is great when we variables with easy to understand meanings.&lt;/p&gt;
+&lt;h3&gt;Types of Effect Size Measures&lt;/h3&gt;
+&lt;p&gt;There are many Effect Size measures, but they all fall into two main groups:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Difference Measures:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Mean difference&lt;/li&gt;
+&lt;li&gt;standardized difference&lt;ul&gt;
+&lt;li&gt;Cohen's d (in SD units)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Correlation Measures:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\( r^2 \): the proportion (or %) of variation of one variable that is related to ("explained by") another variable.&lt;br&gt;
+    \[ r^2 = \frac{ t^2 }{ t^2 + df } \\
+        where\; t \text{ is t statistics, not } t_{critical} \text{ and } df \text{ is degree of freedom}
+    \]&lt;/li&gt;
+&lt;li&gt;\( r^2 \) is also known as the coefficient of determination.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Statistical Significance&lt;/h2&gt;
+&lt;p&gt;Statistical Significant means:
+- we reject the null
+- results are not likely due to chance (sampling error)&lt;/p&gt;
+&lt;h2&gt;Meaningfulness of Results&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;What was being measured?  Do/Does the variable(s) has any practical, social, theoretical importance?&lt;/li&gt;
+&lt;li&gt;Effect Size: Small effect size doesn't necessarily mean the results have lower importance, and vice versa, large effect size doesn't necessarily means the results have greater importance.  &lt;/li&gt;
+&lt;li&gt;Can we rule out random chance/sampling errors?&lt;/li&gt;
+&lt;li&gt;Can we rule out alternative explainations? (lurking variables)&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><category>dependent-samples</category><category>inferential-statistics</category><category>t-test</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10/</guid><pubDate>Thu, 29 Sep 2016 05:09:03 GMT</pubDate></item></channel></rss>

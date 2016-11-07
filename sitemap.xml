@@ -7,11 +7,19 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://chowy1026.github.io/</loc>
-  <lastmod>2016-09-20T04:55:00Z</lastmod>
+  <lastmod>2016-10-14T05:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/archives/2016/</loc>
-  <lastmod>2016-10-02T03:02:00Z</lastmod>
+  <lastmod>2016-11-03T13:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2016/07/</loc>
+  <lastmod>2016-10-11T14:46:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2016/07/26/</loc>
+  <lastmod>2016-10-11T14:46:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/archives/2016/08/</loc>
@@ -59,7 +67,7 @@
  </url>
  <url>
   <loc>https://chowy1026.github.io/archives/2016/09/</loc>
-  <lastmod>2016-09-29T05:24:00Z</lastmod>
+  <lastmod>2016-10-13T02:09:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/archives/2016/09/07/</loc>
@@ -72,6 +80,10 @@
  <url>
   <loc>https://chowy1026.github.io/archives/2016/09/20/</loc>
   <lastmod>2016-09-20T04:54:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2016/09/23/</loc>
+  <lastmod>2016-10-13T02:09:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/archives/2016/09/26/</loc>
@@ -87,15 +99,39 @@
  </url>
  <url>
   <loc>https://chowy1026.github.io/archives/2016/10/</loc>
-  <lastmod>2016-10-02T03:02:00Z</lastmod>
+  <lastmod>2016-10-14T02:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/archives/2016/10/02/</loc>
   <lastmod>2016-10-02T03:02:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/archives/2016/10/11/</loc>
+  <lastmod>2016-10-11T04:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2016/10/13/</loc>
+  <lastmod>2016-10-13T02:08:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2016/10/14/</loc>
+  <lastmod>2016-10-14T02:25:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2016/11/</loc>
+  <lastmod>2016-11-07T05:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2016/11/03/</loc>
+  <lastmod>2016-11-03T13:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2016/11/07/</loc>
+  <lastmod>2016-11-07T05:34:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/archives/archives.html</loc>
-  <lastmod>2016-10-02T03:02:00Z</lastmod>
+  <lastmod>2016-11-07T05:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/books/</loc>
@@ -123,7 +159,7 @@
  </url>
  <url>
   <loc>https://chowy1026.github.io/course-notes/</loc>
-  <lastmod>2016-09-19T08:57:00Z</lastmod>
+  <lastmod>2016-10-14T05:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-1/</loc>
@@ -155,11 +191,39 @@
  </url>
  <url>
   <loc>https://chowy1026.github.io/course-notes/index-1.html</loc>
-  <lastmod>2016-09-29T05:24:00Z</lastmod>
+  <lastmod>2016-10-14T05:57:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/index-2.html</loc>
+  <lastmod>2016-11-07T05:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10/</loc>
+  <lastmod>2016-10-11T05:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10a/</loc>
   <lastmod>2016-09-29T05:24:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10b/</loc>
+  <lastmod>2016-10-11T04:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-11/</loc>
+  <lastmod>2016-10-11T05:21:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-12/</loc>
+  <lastmod>2016-10-14T02:25:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-13/</loc>
+  <lastmod>2016-11-03T13:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-14/</loc>
+  <lastmod>2016-11-07T05:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-8/</loc>
@@ -168,6 +232,10 @@
  <url>
   <loc>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-9/</loc>
   <lastmod>2016-09-21T00:47:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/intro-data-analysis/1-data_analysis_process/</loc>
+  <lastmod>2016-10-14T05:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/course-notes/python-crash-notes/01-basics/</loc>
@@ -207,11 +275,15 @@
  </url>
  <url>
   <loc>https://chowy1026.github.io/index-1.html</loc>
-  <lastmod>2016-09-20T07:41:00Z</lastmod>
+  <lastmod>2016-10-13T03:38:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/index-2.html</loc>
-  <lastmod>2016-10-02T03:02:00Z</lastmod>
+  <lastmod>2016-10-14T05:57:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/index-3.html</loc>
+  <lastmod>2016-11-07T05:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/links/</loc>
@@ -227,7 +299,7 @@
  </url>
  <url>
   <loc>https://chowy1026.github.io/posts/</loc>
-  <lastmod>2016-10-02T03:02:00Z</lastmod>
+  <lastmod>2016-10-13T02:08:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/posts/hello-world/</loc>
@@ -238,6 +310,10 @@
   <lastmod>2016-08-15T05:29:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/posts/plum_blossom_tree/</loc>
+  <lastmod>2016-10-13T02:08:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/posts/principles_of_adult_behavior/</loc>
   <lastmod>2016-10-02T03:02:00Z</lastmod>
  </url>
@@ -246,12 +322,16 @@
   <lastmod>2016-09-20T05:00:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/private/</loc>
+  <lastmod>2016-10-11T14:46:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/projects/</loc>
   <lastmod>2016-08-12T07:15:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags.html</loc>
-  <lastmod>2016-10-02T03:02:00Z</lastmod>
+  <lastmod>2016-11-07T05:35:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags/adult/</loc>
@@ -264,6 +344,10 @@
  <url>
   <loc>https://chowy1026.github.io/tags/animal-shelters/</loc>
   <lastmod>2016-09-20T04:54:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/anova/</loc>
+  <lastmod>2016-10-14T02:26:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags/basics/</loc>
@@ -288,6 +372,22 @@
  <url>
   <loc>https://chowy1026.github.io/tags/classes/</loc>
   <lastmod>2016-09-07T04:15:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/cohens-d/</loc>
+  <lastmod>2016-11-07T05:35:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/correlations/</loc>
+  <lastmod>2016-11-07T05:35:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/death-cafe/</loc>
+  <lastmod>2016-10-11T14:46:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/dependent-samples/</loc>
+  <lastmod>2016-10-11T05:46:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags/descriptive-statistics/</loc>
@@ -334,6 +434,10 @@
   <lastmod>2016-09-21T00:47:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/tags/independent-samples/</loc>
+  <lastmod>2016-10-11T05:49:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/tags/inferential-statistics/</loc>
   <lastmod>2016-09-14T04:37:00Z</lastmod>
  </url>
@@ -370,8 +474,28 @@
   <lastmod>2016-08-12T07:15:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/tags/oblivious/</loc>
+  <lastmod>2016-10-13T02:09:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/one-way-anova/</loc>
+  <lastmod>2016-10-14T02:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/painting/</loc>
+  <lastmod>2016-10-13T02:09:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/tags/part-1/</loc>
   <lastmod>2016-09-29T05:24:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/part-2/</loc>
+  <lastmod>2016-10-11T04:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/plum_blossom_tree/</loc>
+  <lastmod>2016-10-13T02:54:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags/principles/</loc>
@@ -432,6 +556,10 @@
  <url>
   <loc>https://chowy1026.github.io/tags/testing/</loc>
   <lastmod>2016-09-07T08:57:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/tags/tukey-hsd/</loc>
+  <lastmod>2016-11-07T05:35:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags/tuples/</loc>

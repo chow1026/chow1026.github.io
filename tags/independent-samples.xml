@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title> =^..^= MEH (independent-samples)</title><link>https://chowy1026.github.io/</link><description></description><atom:link type="application/rss+xml" href="https://chowy1026.github.io/tags/independent-samples.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 14 Oct 2016 02:26:04 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Inferential Statistics - T-Test, Independent Samples</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-11/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;strong&gt;Dependent Samples (Repeated Measures)&lt;/strong&gt; deals with within-subject designs.&lt;br&gt;
+Types of Dependent Samples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Two conditions (a control group and a treatment group, OR two groups with two types of treatment)&lt;/li&gt;
+&lt;li&gt;Longitudinal (same subject group measured two different points in time)&lt;/li&gt;
+&lt;li&gt;Pre-test, Post-test (subject group measure before and after treatment)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pros:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Controls for individual differences:&lt;ul&gt;
+&lt;li&gt;Use fewer subjects&lt;/li&gt;
+&lt;li&gt;More cost-effective&lt;/li&gt;
+&lt;li&gt;Less time-consuming&lt;/li&gt;
+&lt;li&gt;Less expensive&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Cons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Carry-over effect:&lt;ul&gt;
+&lt;li&gt;The second measurement might be affected by the first treatment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;The order in which treatments were given might influence the results&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Independent Samples:&lt;/h2&gt;
+&lt;p&gt;Independent Samples deals with between-subject designs.
+Types of Independent Samples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Experimental&lt;/li&gt;
+&lt;li&gt;Observational&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pros:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Control for carry-over effect:&lt;ul&gt;
+&lt;li&gt;The second measurement less likely be affected by the first treatment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;The order in which treatments no longer influence the results&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Cons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Little/no control for individual differences:&lt;/li&gt;
+&lt;li&gt;Need more subjects&lt;/li&gt;
+&lt;li&gt;Less cost-effective&lt;/li&gt;
+&lt;li&gt;More time-consuming&lt;/li&gt;
+&lt;li&gt;More expensive&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Two-Sample Tests&lt;/h2&gt;
+&lt;p&gt;Considering two independent normally distributed samples collected, when we subtract those two data, we get a new dataset.&lt;br&gt;
+\[
+    N ( \mu_{1}, \sigma_{1} ) - N ( \mu_{2}, \sigma_{2} ) = N ( \mu_{1} - \mu_{2}, \sqrt{ \sigma_{1}^2 + \sigma_{2}^2 } )
+\]&lt;/p&gt;
+&lt;p&gt;The standard deviation, \( SD \) would be:
+\[
+    SD = \sqrt{ SD_{1}^2 + SD_{2}^ 2 }
+\]&lt;/p&gt;
+&lt;p&gt;The standard error, \( SE \) would be:
+\[
+    SE = \sqrt{ \frac{SD_{1}^2}{n_{1}} + \frac{SD_{2}^2}{n_2}}
+\]&lt;/p&gt;
+&lt;p&gt;The t statistic, \( t_{statistic} \) would be:
+\[
+    t_{statistic} = \frac{ (\bar{x_{1}} - \bar{x_{2}} ) - (\mu_{1} - \mu_{2})}{ SE }
+\]&lt;/p&gt;
+&lt;p&gt;The degree of freedom, \( df \) would be:
+\[
+    df = (n_{1} - 1) + (n_{2} - 1) = n_{1} + n_{2} - 2
+\]
+or the smaller value between
+\(
+(n_{1} - 1) \text{ and } (n_{2} - 1)
+\).&lt;/p&gt;
+&lt;h2&gt;Pooled Variance&lt;/h2&gt;
+&lt;p&gt;Pooled variance is a method for estimating variance
+given several different samples taken in different circumstances where the mean may vary
+between samples but the true variance is assumed to remain the same. The pooled variance is
+computed by using
+The Pooled Variance, \( S_{p}^2 \) would be:
+\[
+    S_{p}^2 = \frac{(SS_{x} + SS_{y})}{df_{x} + df_{y}}
+\]
+where \( SS_{x} = \sum (x_{i} - \bar{x})^ 2 \)
+and \( SS_{y} = \sum (y_{i} - \bar{y})^ 2 \)&lt;/p&gt;
+&lt;p&gt;The Standard Error, \( SE_{(\bar{x}-\bar{y})} \), using Pooled Variance is:&lt;/p&gt;
+&lt;p&gt;\[
+    SE_{(\bar{x}-\bar{y})} = \sqrt{ \frac{S_{p}^2}{n_x} + \frac{S_{p}^2}{n_y} }
+\]&lt;/p&gt;
+&lt;p&gt;The full t statistic \( t_{statistic} \) formula would be:
+\[
+    t_{statistic} = \frac{ (\bar{x} - \bar{y}) - \delta }{ SE_{(\bar{x}-\bar{y})} }
+\]
+\(\bar{x} - \bar{y} \) is called the observed difference.
+The \( \delta \)expected_diff is derived from the Null Hypothesis, \( H_0 \), when
+\[
+    H_0: \mu_x - \mu_y = \delta
+\]
+There are lots of cases where \( \delta \) was assumed 0.  &lt;/p&gt;
+&lt;p&gt;When we use Pooled Variance, we hold the following assumptions:
+1. X and Y should be two random samples from two independent populations. &lt;br&gt;
+2. Populations that X and Y come from, should be approximately normal.  This is less important when sample size is really large ( &amp;gt;30).&lt;br&gt;
+3. Sample data can be used to estimate population variances.
+4. Population variances should be roughly equal.&lt;/p&gt;&lt;/div&gt;</description><category>independent-samples</category><category>inferential-statistics</category><category>t-test</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-11/</guid><pubDate>Tue, 11 Oct 2016 04:35:53 GMT</pubDate></item></channel></rss>
