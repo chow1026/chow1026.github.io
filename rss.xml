@@ -1,5 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title> =^..^= MEH</title><link>https://chowy1026.github.io/</link><description></description><atom:link href="https://chowy1026.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Mon, 07 Nov 2016 07:33:47 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Inferential Statistics - Correlations</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-14/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;strong&gt;Relationships&lt;/strong&gt;   &lt;br&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title> =^..^= MEH</title><link>https://chowy1026.github.io/</link><description></description><atom:link href="https://chowy1026.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Tue, 15 Nov 2016 08:32:59 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Setting Up Multiple GitHub User Account on One Machine</title><link>https://chowy1026.github.io/posts/multiple-github-accounts/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;It is not unusual that developers need multiple github accounts on a single machine.  I was looking through the resources on the internet and found &lt;a href="https://gist.github.com/jexchan/2351996/"&gt;this&lt;/a&gt; the most useful.  None the less, I decided to write a post about this, just so for my own references.  &lt;/p&gt;
+&lt;p&gt;Here are the steps:
+- Create the users (however many you need) on &lt;a href="https://github.com/"&gt;github&lt;/a&gt; first.     &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;ssh-keygen&lt;/code&gt; to generate various ssh keys.  When prompted, make sure the keys are named appropriately so they can be identified easily.     &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;ssh-keygen -t rsa -C "{email1@youremail1.com}"
+ssh-keygen -t rsa -C "{email1@youremail1.com}"
+&lt;/pre&gt;
+
+
+&lt;p&gt;Make sure emails used are the ones you used for creating the github accounts.    &lt;/p&gt;
+&lt;p&gt;Usually ssh keys are stored under &lt;code&gt;home/{username}/.ssh&lt;/code&gt; folder (or &lt;code&gt;/Users/{username}/.ssh&lt;/code&gt; if you are on mac).  For example, the following keys are generated:    &lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;~/.ssh/id_rsa_{git_username1}
+~/.ssh/id_rsa_{git_username2}
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Add the keys to SSH to the SSH Agent on the system:     &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;ssh-add ~/.ssh/id_rsa_{git_username1}
+ssh-add ~/.ssh/id_rsa_{git_username2}
+&lt;/pre&gt;
+
+
+&lt;p&gt;To delete ALL previously added keys:    &lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;ssh-add -D
+&lt;/pre&gt;
+
+
+&lt;p&gt;To delete a previously added key:    &lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;ssh-add -d {id_rsa_keyname}
+&lt;/pre&gt;
+
+
+&lt;p&gt;To list ALL previously added keys:    &lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;ssh-add -l
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;The public keys need to be added to the github accounts accordingly.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;pbcopy &amp;lt; ~/.ssh/id_rsa_{git_username1}.pub
+&lt;/pre&gt;
+
+
+&lt;p&gt;Paste the content to corresponding &lt;a href="https://github.com/settings/keys"&gt;github SSH key management&lt;/a&gt;.   &lt;br&gt;
+Repeat for all other keys for other accounts.     &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Configure SSH config&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;cd ~/.ssh/
+nano config
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Add the following lines, modify accordingly:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;# github_{user1} account
+Host github.com-{user1}
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_{git_username1}
+    IdentitiesOnly yes
+
+# github_{user2} account
+Host github.com-{user2}
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_{git_username2}
+    IdentitiesOnly yes
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Manage Global Git Configs.  You may either define those in command line or store them in a .gitconfig_global under     &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[core]&lt;/span&gt;
+       &lt;span class="na"&gt;editor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;atom -n -w&lt;/span&gt;
+&lt;span class="s"&gt;       excludesfile = {filepath}/.gitignore_global&lt;/span&gt;
+&lt;span class="k"&gt;[push]&lt;/span&gt;
+       &lt;span class="na"&gt;default&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;upstream&lt;/span&gt;
+&lt;span class="k"&gt;[merge]&lt;/span&gt;
+       &lt;span class="na"&gt;conflictstyle&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;diff3&lt;/span&gt;
+&lt;span class="k"&gt;[color]&lt;/span&gt;
+       &lt;span class="na"&gt;ui&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;true&lt;/span&gt;
+&lt;span class="k"&gt;[user]&lt;/span&gt;
+       &lt;span class="na"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;{leave null, define this locally}&lt;/span&gt;
+&lt;span class="s"&gt;       email = {leave null, define this locally}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Manage Local Git Configs  &lt;br&gt;
+For example, github user1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[user]&lt;/span&gt;
+        &lt;span class="na"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;{github_username1}&lt;/span&gt;
+&lt;span class="s"&gt;        email = {github_email1}&lt;/span&gt;
+&lt;span class="k"&gt;[remote "origin"]&lt;/span&gt;
+        &lt;span class="na"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;git@github.com-{user1}:{github_username}/{github_repo}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Note that the host in URL has to be the right host defined earlier in the &lt;code&gt;~/.ssh/config&lt;/code&gt; file.   &lt;/p&gt;
+&lt;p&gt;The same precaution has to be taken when cloning.  ie when executing &lt;code&gt;git clone&lt;/code&gt; command, make sure the git host in 'copied and pasted' repo url is edited accordingly to the right user/host.  &lt;/p&gt;&lt;/div&gt;</description><guid>https://chowy1026.github.io/posts/multiple-github-accounts/</guid><pubDate>Tue, 15 Nov 2016 04:39:45 GMT</pubDate></item><item><title>Matplotlib on OSX with VirtualEnv/VirtualEnvWrapper (and Pip)</title><link>https://chowy1026.github.io/posts/matplotlib-on-osx-virtualenv/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;I like keeping my mini projects separate, mostly under its own virtual environment set up.  I use &lt;a href="https://virtualenv.pypa.io/en/stable/"&gt;VirtualEnv&lt;/a&gt; and &lt;a href="https://virtualenvwrapper.readthedocs.io/en/latest/"&gt;VirtualEnvWrapper&lt;/a&gt;.  &lt;/p&gt;
+&lt;p&gt;As I am working on code for data analysis and data visualization, inevitably I need the matplotlib library.  Reading various resources online, I managed to get it to work.  And with this post, I hope to document the steps for future reference.  &lt;/p&gt;
+&lt;p&gt;My environments:    &lt;br&gt;
+- MacBookPro, OS macOS Sierra (10.12.1)   &lt;br&gt;
+- VirtualEnv v.15.0.3   &lt;br&gt;
+- python v.3.5.1  &lt;br&gt;
+- Pip v.9.0.1    &lt;/p&gt;
+&lt;p&gt;Steps:  &lt;br&gt;
+1. Activate the virtual environment: &lt;code&gt;workon {env}&lt;/code&gt;  &lt;br&gt;
+2. Show pip packages: &lt;code&gt;pip3 list&lt;/code&gt;  &lt;br&gt;
+3. Install necessary packages for data analysis and plotting: &lt;code&gt;pip install numpy scipy matplotlib pandas sympy nose&lt;/code&gt;  &lt;br&gt;
+4. Install PyQt5: &lt;code&gt;pip install PyQt5&lt;/code&gt;   &lt;br&gt;
+5. Modify matplotlibrc file: &lt;code&gt;nano {path to env}/lib/{pythonX.X}/site-packages/matplotlib/mpl-data/matplotlibrc&lt;/code&gt;   &lt;br&gt;
+      - At the  top of the configurations, define backend: &lt;code&gt;backend    :   Qt5Agg&lt;/code&gt;  &lt;br&gt;
+      - Then, define backend binding: &lt;code&gt;backend.qt5    :    PyQt5&lt;/code&gt;  &lt;br&gt;
+      - Save file.   &lt;/p&gt;
+&lt;p&gt;You are all set now.&lt;/p&gt;&lt;/div&gt;</description><category>Matplotlib</category><category>OSX</category><category>VirtualEnv</category><category>VirtualEnvWrapper</category><guid>https://chowy1026.github.io/posts/matplotlib-on-osx-virtualenv/</guid><pubDate>Mon, 14 Nov 2016 06:17:26 GMT</pubDate></item><item><title>Descriptive Statistics Final Project - Random Draws of Card Deck</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/final_project/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;Instead of working on this project on a google sheet files, I decided to write my own python script to simulate the experiments.  &lt;/p&gt;
+&lt;p&gt;1) Histogram generated shown as below.   &lt;br&gt;
+&lt;img alt="Original Cards" src="https://chowy1026.github.io/images/descriptive-statistics/original52.png"&gt;  &lt;br&gt;
+Histogram for original card values are negatively skewed (towards right).    &lt;/p&gt;
+&lt;p&gt;2) Randomly Drawing 3 Cards   &lt;br&gt;
+I wrote python scripts with pandas and matplotlib for the rest of the project.  &lt;/p&gt;
+&lt;p&gt;3) Distribution of Sum of 3 Randomly Drawn Cards   &lt;br&gt;
+&lt;strong&gt;30 Samples of Sum of 3 Randomly Drawn Cards&lt;/strong&gt;   &lt;br&gt;
+&lt;img alt="30 Samples of Sum of 3 Randomly Drawn Cards" src="https://chowy1026.github.io/images/descriptive-statistics/sample30.png"&gt;   &lt;/p&gt;
+&lt;p&gt;Statistical Description of this sample with n = 30:  &lt;br&gt;
+count  30.000000  &lt;br&gt;
+mean   19.866667  &lt;br&gt;
+std     5.550603  &lt;br&gt;
+min     9.000000  &lt;br&gt;
+25%    15.000000  &lt;br&gt;
+50%    20.000000  &lt;br&gt;
+75%    24.000000  &lt;br&gt;
+max    30.000000    &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;500 Samples of Sum of 3 Randomly Drawn Cards&lt;/strong&gt;      &lt;br&gt;
+&lt;img alt="500 Samples of Sum of 3 Randomly Drawn Cards" src="https://chowy1026.github.io/images/descriptive-statistics/sample500.png"&gt;&lt;/p&gt;
+&lt;p&gt;Statistical Description of this sample with n = 500:  &lt;br&gt;
+count  500.000000  &lt;br&gt;
+mean    19.542000  &lt;br&gt;
+std      5.337529  &lt;br&gt;
+min      5.000000  &lt;br&gt;
+25%     16.000000  &lt;br&gt;
+50%     20.000000  &lt;br&gt;
+75%     24.000000  &lt;br&gt;
+max     30.000000    &lt;/p&gt;
+&lt;p&gt;4) As sample size increases, the curve gets more normalized (bell-shaped).     &lt;/p&gt;
+&lt;p&gt;5) Q:  Within what range will you expect approximately 90% of your draw values to fall? What is the approximate probability that you will get a draw value of at least 20? Make sure you justify how you obtained your values.    &lt;/p&gt;
+&lt;p&gt;To determine the range where 90% of the values fall, I found the closest corresponding z-value to be 1.28.   Therefore, with the following formula, I determined the range for our sample with 30 draws, and sample with 500 draws.   &lt;/p&gt;
+&lt;p&gt;\[&lt;br&gt;
+  z = \frac{ x - \mu }{\sigma} \\
+  x_{30, 90%} = 26.971442   \\
+  x_{500, 90%} = 26.374   \\
+\]  &lt;/p&gt;
+&lt;p&gt;To draw at least 20 from each of the samples, the corresponding z values are:    &lt;/p&gt;
+&lt;p&gt;\[
+  z_{30, &amp;gt;20} = \frac{20 - 19.866667}{5.550603} = 0.024021
+  \\
+  z_{500, &amp;gt;20} = \frac{20 - 19.542000}{5.337529} = 0.085807 \\
+\]&lt;/p&gt;
+&lt;p&gt;For sample with sample size 30, at z = 0.024021, the probability is 0.51 (51%).  That means the change of drawing 3 cards with sum greater than 20 from this sample is 49%.      &lt;/p&gt;
+&lt;p&gt;For sample with sample size 500, at z = 0.024021, the probability is 0.534 (53.4%).  That means the change of drawing 3 cards with sum greater than 20 from this sample is 46.6%.    &lt;/p&gt;
+&lt;p&gt;Finally, here's a &lt;a href="http://www.stat.ufl.edu/~athienit/Tables/Ztable.pdf"&gt;link to the z-table&lt;/a&gt; for reference.  &lt;/p&gt;&lt;/div&gt;</description><category>final-project</category><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/final_project/</guid><pubDate>Mon, 14 Nov 2016 03:39:38 GMT</pubDate></item><item><title>Inferential Statistics - Chi-Squared Tests</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-16/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Types of Data&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Ordinal Data&lt;/strong&gt; - ranks with no fixed intervals nor zeros   &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interval Data&lt;/strong&gt; - ranks with equal intervals     &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ratio Data&lt;/strong&gt; - ranks with equal intervals and an absolute zero   &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nominal/Categorical Data&lt;/strong&gt; - data with no numerical values (typically yes/no, in/out, successful/unsuccessful)    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Types of Tests&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Parametric&lt;/strong&gt; - hypothesis testing that make assumptions about the parameters of the populations, \( \mu \) and \( \sigma \).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Non-Parametric&lt;/strong&gt; - hypothesis testing that do not require population parameters&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Characteristics of Non-Parametric Testings&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;There is no way to calculate a mean or standard deviation      &lt;/li&gt;
+&lt;li&gt;The data is based on frequencies or proportions    &lt;/li&gt;
+&lt;li&gt;The data is nominal (successful vs unsuccessful, 1 or 0, yes or no, mountain vs beach etc.)    &lt;/li&gt;
+&lt;li&gt;The data are not based on Normal distribution    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;\( \chi^2 \) Goodness of Fit Test&lt;/h3&gt;
+&lt;p&gt;How well our observed frequencies 'fit' our expected frequencies? &lt;br&gt;
+\[
+  \chi ^2 = \sum{ \frac{(f_0 - f_e)^2}{f_e} }
+\]
+\( \chi^2 \) is smaller when the observed value is closer to the expected value.   &lt;br&gt;
+\( \chi^2 \) is NEVER negative and therefore \( \chi^2 \) statistic is one-directional.     &lt;/p&gt;
+&lt;p&gt;For each category, we have one \( \chi^2 \) statistics.  When we have more categories, \( \chi^2 \) statistics get bigger with the number of categories.    &lt;/p&gt;
+&lt;h3&gt;Degrees of Freedom&lt;/h3&gt;
+&lt;p&gt;For n x m, 2 dimensional nominal data:
+\[
+  df = (N_n - 1) * (N_m - 1) \\
+  \text{where } N_n \text{ and }N_m \text{ are number of columns, and number of rows respectively. }
+\]&lt;/p&gt;
+&lt;h3&gt;Cramer's V \( (\phi_c) \)&lt;/h3&gt;
+&lt;p&gt;\[
+  \phi_c = \sqrt{\frac{\chi^2}{n(k-1)}}  \\
+  k \text{ is the smaller number between number of rows or number of columns}\\
+  n \text{ is the total sample size regardless of treatments}
+\]&lt;/p&gt;
+&lt;h3&gt;Assumptions and Restrictions for \(\chi^2\) Tests&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Avoid dependent observations.  Independence will be violated if any participants were given two treatments instead of one.     &lt;/li&gt;
+&lt;li&gt;Avoid small expected frequencies, therefore in general have a larger number of participants.   Sample size should be at least 20, and each expected cell frequencies should be at least 5.    &lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-16/</guid><pubDate>Wed, 09 Nov 2016 05:10:55 GMT</pubDate></item><item><title>Inferential Statistics - Regressions</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-15/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Linear Regressions&lt;/h3&gt;
+&lt;p&gt;Line of best fit forms a line to help us:  &lt;br&gt;
+- describe data  &lt;br&gt;
+- make predictions     &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Observed Y vs Expected Y&lt;/strong&gt;   &lt;br&gt;
+&lt;strong&gt;Expected Y&lt;/strong&gt; \( \hat{y} \) are the ones calculated/predicted based on the best fit regression line.  &lt;br&gt;
+&lt;strong&gt;Observed Y&lt;/strong&gt; \( y \) are collected data or real-life data.  &lt;br&gt;
+&lt;strong&gt;Residual&lt;/strong&gt; is the difference between Observed value and Expected value.  &lt;/p&gt;
+&lt;p&gt;A few ways to find the line of best fit:  &lt;br&gt;
+- Find a line to minimize the sum of residuals.   The problem with this approach is sometimes, negative and positive residuals cancel each other out.     &lt;br&gt;
+- Find a line that minimize the sum of &lt;strong&gt;absolute&lt;/strong&gt; residuals.  &lt;br&gt;
+- Find a line that minimize the sum of squared residuals, \( \sum{(y - \hat{y})} \)&lt;/p&gt;
+&lt;p&gt;When we use calculus to determine the slope, b:&lt;br&gt;
+\[
+  b = \frac{\sum{(y_i - \bar{y})(x_i - \bar{x})}}{\sum{(x_i - \bar{x})^2}} \\
+  = r (\frac{S_y}{S_x}) \\
+  \text{where } r \text{ is Pearson's Correlation Coefficient and }\\
+   S \text{ are standard deviations of } x \text{ and } y.
+\]&lt;/p&gt;
+&lt;p&gt;We have decided to symbolize the regression line by y = bx + a, where b represents the slope and a represents the y-intercept.
+Since \( b = r(\frac{S_y}{S_x}) \), we can also symbolize the regression line like this:  &lt;br&gt;
+\[ y = r(\frac{S_y}{S_x})x + a \]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pearson's Correlation Coefficient \( r \)&lt;/strong&gt;  &lt;br&gt;
+A high \(r\) value indicates a strong correlation. This could contribute to high \(r^2 \) value, which indicates the percentage of differences in Y is due to differences in X.  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Standard Error of Estimates&lt;/strong&gt;  &lt;br&gt;
+Standard error of estimates: &lt;br&gt;
+\[
+SE = \sqrt{ \frac{\sum (y - \hat{y})^2}{N-2}}
+\]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Factors that Affect the Regressions&lt;/strong&gt; &lt;br&gt;
+- outliers affect the value of r, correlation Coefficient
+- outliers also affect the linear regression line
+-&lt;/p&gt;&lt;/div&gt;</description><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-15/</guid><pubDate>Tue, 08 Nov 2016 07:00:58 GMT</pubDate></item><item><title>Inferential Statistics - Correlations</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-14/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;strong&gt;Relationships&lt;/strong&gt;   &lt;br&gt;
 How one variable is related to the other?&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Variable X and Y&lt;/strong&gt;    &lt;br&gt;
 X is often referred to as the predictor, explanatory, independent variable.      &lt;/p&gt;
@@ -331,385 +575,4 @@ There are lots of cases where \( \delta \) was assumed 0.  &lt;/p&gt;
 1. X and Y should be two random samples from two independent populations. &lt;br&gt;
 2. Populations that X and Y come from, should be approximately normal.  This is less important when sample size is really large ( &amp;gt;30).&lt;br&gt;
 3. Sample data can be used to estimate population variances.
-4. Population variances should be roughly equal.&lt;/p&gt;&lt;/div&gt;</description><category>independent-samples</category><category>inferential-statistics</category><category>t-test</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-11/</guid><pubDate>Tue, 11 Oct 2016 04:35:53 GMT</pubDate></item><item><title>Principles of Adult Behavior by John Perry Barlow</title><link>https://chowy1026.github.io/posts/principles_of_adult_behavior/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;I stumbled upon this, a little late.  But better late than never, I hope.  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Principles of Adult Behavior&lt;/strong&gt; by John Perry Barlow&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Be patient. No matter what.&lt;/li&gt;
-&lt;li&gt;Don’t badmouth: Assign responsibility, not blame. Say nothing of another you wouldn’t say to him.&lt;/li&gt;
-&lt;li&gt;Never assume the motives of others are, to them, less noble than yours are to you.&lt;/li&gt;
-&lt;li&gt;Expand your sense of the possible.&lt;/li&gt;
-&lt;li&gt;Don’t trouble yourself with matters you truly cannot change.&lt;/li&gt;
-&lt;li&gt;Expect no more of anyone than you can deliver yourself.&lt;/li&gt;
-&lt;li&gt;Tolerate ambiguity.&lt;/li&gt;
-&lt;li&gt;Laugh at yourself frequently.&lt;/li&gt;
-&lt;li&gt;Concern yourself with what is right rather than who is right.&lt;/li&gt;
-&lt;li&gt;Never forget that, no matter how certain, you might be wrong.&lt;/li&gt;
-&lt;li&gt;Give up blood sports.&lt;/li&gt;
-&lt;li&gt;Remember that your life belongs to others as well. Don’t risk it frivolously.&lt;/li&gt;
-&lt;li&gt;Never lie to anyone for any reason. (Lies of omission are sometimes exempt.)&lt;/li&gt;
-&lt;li&gt;Learn the needs of those around you and respect them.&lt;/li&gt;
-&lt;li&gt;Avoid the pursuit of happiness. Seek to define your mission and pursue that.&lt;/li&gt;
-&lt;li&gt;Reduce your use of the first personal pronoun.&lt;/li&gt;
-&lt;li&gt;Praise at least as often as you disparage.&lt;/li&gt;
-&lt;li&gt;Admit your errors freely and soon.&lt;/li&gt;
-&lt;li&gt;Become less suspicious of joy.&lt;/li&gt;
-&lt;li&gt;Understand humility.&lt;/li&gt;
-&lt;li&gt;Remember that love forgives everything.&lt;/li&gt;
-&lt;li&gt;Foster dignity.&lt;/li&gt;
-&lt;li&gt;Live memorably.&lt;/li&gt;
-&lt;li&gt;Love yourself.&lt;/li&gt;
-&lt;li&gt;Endure.&lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><category>adult</category><category>behavior</category><category>john perry barlow</category><category>principles</category><guid>https://chowy1026.github.io/posts/principles_of_adult_behavior/</guid><pubDate>Sun, 02 Oct 2016 02:57:59 GMT</pubDate></item><item><title>Inferential Statistics - T-Test, Dependent Samples</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h2&gt;T-Test&lt;/h2&gt;
-&lt;p&gt;Z-test works when we know the population parameters such as \( \mu \) and \( \sigma \).  For any samples drawn from this population, the samples would form a sampling distribution that is a normal distribution, with:
-\[
-    mean = \mu  \quad\text{where M is mean of sample means}\\
-    SD = \frac{\sigma}{\sqrt{n}} \quad\text{where n is sample size}
-\]
-\( SD \) is also known as Standard Error \( SE \) which is used for Z score calculation.&lt;/p&gt;
-&lt;p&gt;For any sample mean, \( M \), we can determine where it falls on this sampling distribution by standardizing, aka, finding the z-score \( Z \), given its formula below:
-\[
-    Z = \frac{M - \mu}{ SE }
-\]&lt;/p&gt;
-&lt;p&gt;However, much of the times, with sample data, we don't know population \( \mu \) and population standard deviation \( \sigma \). We only have samples which we must use to draw all our conclusions.  &lt;/p&gt;
-&lt;p&gt;When working with samples, we usually estimate the population standard deviation using the sample standard deviation with Bassel's correction.&lt;br&gt;
-\[
-  S =  \sqrt{ \frac{ \sum_1^n{ (x_{i} - \bar{x}) ^ 2 }} { n-1 } } \\
-  where S is estimated population standard deviation, n is sample size
-\]&lt;/p&gt;
-&lt;p&gt;Without population parameters and with only sample data, we end up with a new distribution that is more prone to error, called the t-distribution. The t-distribution is more spread out and thicker in the tails.  &lt;/p&gt;
-&lt;p&gt;Same principals applies to t-distribution.  When n increases:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;the t-distribution approaches a normal distribution&lt;/li&gt;
-&lt;li&gt;the t-distribution gets skinner tails&lt;/li&gt;
-&lt;li&gt;S, the estimated population standard deviation, gets closer to the real population standard deviation \( \mu \).  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;With t-distribution and t-test, we can determine:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;How different a sample mean is from a population mean&lt;/li&gt;
-&lt;li&gt;How different two sample means are from each other.  These two samples can be either:&lt;ul&gt;
-&lt;li&gt;dependent&lt;/li&gt;
-&lt;li&gt;independent&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;Degrees of Freedom&lt;/h2&gt;
-&lt;p&gt;t-distribution are defined by degrees of freedom, \(df\), which generally is \( n - 1 \) for single dimension data.  The \(df\) for 2D or 3D sample is \[df = (n-1)^d\;\text{where power d is the number of dimension}\]
-Degrees of freedom are the number of pieces of information that can be freely varied, without violating any given restrictions.  It is pieces of independent information to estimate another piece of information. As the degrees of freedom increases, it better approximates the normal distribution.
-\( n - 1 \) is also known as the effective sample size.  As shown above, it is used to estimate the population standard deviation with Basel's correction.  &lt;/p&gt;
-&lt;h2&gt;Hypothesis Testing with t-statistics&lt;/h2&gt;
-&lt;p&gt;Like the z-test, if the t-statistic falls far from the mean, where t-statistic is 0, we reject the null. To do so, we compare the sample mean to population mean, by calculating t-statistic.&lt;/p&gt;
-&lt;p&gt;For one sample t-test, the t-statistic is:
-\[
-    t = \frac{\bar{x} - \mu_{0}}{S/\sqrt{n}} \text{where:}\\
-    \bar{x}\text{ is sample mean}\\
-    \mu_{0}\text{ is population mean}\\
-    S \text{ is standard error, aka. standard deviation of sample}\\
-    n \text{ is the sample size}
-\]
-The sample mean, \(\bar{x}\) is also the point estimate for the population mean.
-t-statistics increases when:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;a larger difference between \(\bar{x}\) and \(\mu_{0}\)&lt;/li&gt;
-&lt;li&gt;larger \( n \)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;For hypothesis testing:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The &lt;strong&gt;larger&lt;/strong&gt; the value of \(\bar{x}\), the stronger the evidence that \(\mu \gt \mu_{0}\).&lt;/li&gt;
-&lt;li&gt;The &lt;strong&gt;smaller&lt;/strong&gt; the value of \(\bar{x}\), the stronger the evidence that \(\mu \lt \mu_{0}\).&lt;/li&gt;
-&lt;li&gt;The further the value of \(\bar{x}\) from \(\mu_{0}\) in either direction, the stronger the evidence that \(\mu \neq \mu_{0}\).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;We reject the null hypothesis if the t-statistic is less than or greater than the t-critical value, at a given \( \alpha \) level.&lt;/p&gt;
-&lt;h2&gt;P-Value&lt;/h2&gt;
-&lt;p&gt;For one-tailed test, the P-value is the probability above the t-statistic if it is positive, and below the t-statistic if it is negative.  For two tailed test, the p-value will be the sum of probability on both ends.  We reject the null hypothesis when the p-value is less than the \( \alpha \) level.&lt;/p&gt;
-&lt;p&gt;After calculating the t-statistic, we go to &lt;a href="http://www.graphpad.com/quickcalcs/pValue1/" title="P-Value with t and DF"&gt;GraphPad&lt;/a&gt; to get the exact P-value. There are also other calculators on &lt;a href="http://www.graphpad.com/" title="GraphPad Calculators"&gt;GraphPad&lt;/a&gt; that are worth checking out.  &lt;/p&gt;
-&lt;h2&gt;Cohen's d&lt;/h2&gt;
-&lt;p&gt;Cohen's d is another common measure of effect size, when comparing means, named after Jacobs Cohen.  It is a &lt;strong&gt;standardized mean difference&lt;/strong&gt; that measures the distance between 2 means in standard deviation units.
-\[
-    Cohen's d = \frac{\bar{x} - \mu_{0}}{S} \\
-    where\;\bar{x}\text{ is sample mean, }\mu_{0}\text{ is population mean, and }S\text{ is sample standard deviation}
-\]&lt;/p&gt;
-&lt;h2&gt;Confidence Interval&lt;/h2&gt;
-&lt;p&gt;Confidence interval is the interval where the population mean will probably lie.&lt;br&gt;
-At a given confidence level, or alpha level, we first determine the t-critical value.&lt;br&gt;
-Confidence interval for a two-tailed test is:
-\[
-  \begin{align}
-    CI &amp;amp; = M \pm t_{critical, \alpha} \cdot SE_{sample} \\
-    &amp;amp; = M \pm t_{critical, \alpha} \cdot \frac{S}{\sqrt{n}}
-  \end{align}
-\]&lt;/p&gt;
-&lt;h2&gt;Margin of Error&lt;/h2&gt;
-&lt;p&gt;Margin of Error is one-half width of the confidence interval.  CI's upper bound is sample mean, \(M + t_{critical} \cdot \frac{S}{\sqrt{n}} \) plus margin of error; whereas CI's lower bound is sample mean, \( M - t_{critical} \cdot \frac{S}{\sqrt{n}} \).  Therefore:
-\[
-  Margin\;of\;Error = t_{critical} \cdot \frac{S}{\sqrt{n}}
-\]&lt;/p&gt;
-&lt;h2&gt;Dependent t-tests&lt;/h2&gt;
-&lt;p&gt;Dependent samples are generated when the same subject takes the test twice.  This is a within subject design.  Examples:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;when same subject is applied two conditions&lt;/li&gt;
-&lt;li&gt;subject is given a pre-test and post-test&lt;/li&gt;
-&lt;li&gt;longitudinal study (development over time)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The within-subject designs generate paired data.  Then we look at the difference between these two sets of data, \( D_{i} \)&lt;/p&gt;
-&lt;h2&gt;Types of Designs&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Repeated measures design (eg errors on two types of keyboards)
-\[ H_{0}: \mu_{1} = \mu_{2} \]&lt;/li&gt;
-&lt;li&gt;Longitudinal design
-\[ H_{0}: \mu_{time1} = \mu_{time2} \]&lt;/li&gt;
-&lt;li&gt;Pre-test vs Post-test
-\[ H_{0}: \mu_{pre} = \mu_{post} \]&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;Effect Size&lt;/h2&gt;
-&lt;p&gt;In experimental studies, Effect Size refers to the size of a treatment effect.  In non-experimental studies, Effect Size may refer to the strength of the relationships between the variables.  &lt;/p&gt;
-&lt;p&gt;In the Z-test or one sample t-test, the mean difference is \( \bar{x} - \mu \).  Mean differences is great when we variables with easy to understand meanings.&lt;/p&gt;
-&lt;h3&gt;Types of Effect Size Measures&lt;/h3&gt;
-&lt;p&gt;There are many Effect Size measures, but they all fall into two main groups:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Difference Measures:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Mean difference&lt;/li&gt;
-&lt;li&gt;standardized difference&lt;ul&gt;
-&lt;li&gt;Cohen's d (in SD units)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Correlation Measures:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;\( r^2 \): the proportion (or %) of variation of one variable that is related to ("explained by") another variable.&lt;br&gt;
-    \[ r^2 = \frac{ t^2 }{ t^2 + df } \\
-        where\; t \text{ is t statistics, not } t_{critical} \text{ and } df \text{ is degree of freedom}
-    \]&lt;/li&gt;
-&lt;li&gt;\( r^2 \) is also known as the coefficient of determination.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;Statistical Significance&lt;/h2&gt;
-&lt;p&gt;Statistical Significant means:
-- we reject the null
-- results are not likely due to chance (sampling error)&lt;/p&gt;
-&lt;h2&gt;Meaningfulness of Results&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;What was being measured?  Do/Does the variable(s) has any practical, social, theoretical importance?&lt;/li&gt;
-&lt;li&gt;Effect Size: Small effect size doesn't necessarily mean the results have lower importance, and vice versa, large effect size doesn't necessarily means the results have greater importance.  &lt;/li&gt;
-&lt;li&gt;Can we rule out random chance/sampling errors?&lt;/li&gt;
-&lt;li&gt;Can we rule out alternative explainations? (lurking variables)&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>dependent-samples</category><category>inferential-statistics</category><category>t-test</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10/</guid><pubDate>Thu, 29 Sep 2016 05:09:03 GMT</pubDate></item><item><title>Python Design Patterns - The Singleton Design Pattern</title><link>https://chowy1026.github.io/books/python-design-patterns/02-singleton-design-pattern/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h2&gt;Singleton Design Pattern&lt;/h2&gt;
-&lt;h2&gt;Real-World Example of Singleton Pattern&lt;/h2&gt;
-&lt;h2&gt;Singleton Pattern Implementation in Python&lt;/h2&gt;
-&lt;h2&gt;The Monostate(Borg) Pattern&lt;/h2&gt;&lt;/div&gt;</description><category>book</category><category>Chetan Giridhar</category><category>design-patterns</category><category>python</category><category>singleton</category><guid>https://chowy1026.github.io/books/python-design-patterns/02-singleton-design-pattern/</guid><pubDate>Tue, 27 Sep 2016 04:06:02 GMT</pubDate></item><item><title>Python Design Patterns - Introduction</title><link>https://chowy1026.github.io/books/python-design-patterns/01-intro/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h2&gt;Understanding Object-Oriented Programming&lt;/h2&gt;
-&lt;h3&gt;Objects&lt;/h3&gt;
-&lt;p&gt;Objects are described as:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;They represent entities in your application under development&lt;/li&gt;
-&lt;li&gt;Entities interact among themselves to solve real-world problems&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Classes&lt;/h3&gt;
-&lt;p&gt;Classes help represent real-world entities by:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Classes define objects in attributes and behaviors. Attributes are data members and behaviors are manifested by the member functions&lt;/li&gt;
-&lt;li&gt;Classes consist of constructors that provide the initial state of these objects&lt;/li&gt;
-&lt;li&gt;Classes are like templates and hence can be easily reused.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Methods&lt;/h3&gt;
-&lt;p&gt;Methods are described as following:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;They represent the behavior of the objects.&lt;/li&gt;
-&lt;li&gt;Methods work on attributes and also implement the desired functionality.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Person&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt;
-
-      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_person&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,)&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;"&amp;lt;Person (&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;, &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;)&amp;gt;"&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-    &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Person&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"John Doe"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Type of Object:"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s2"&gt;"Memory Address:"&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;id&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h2&gt;Major Aspects of Object-Oriented Programming&lt;/h2&gt;
-&lt;h3&gt;Encapsulation&lt;/h3&gt;
-&lt;p&gt;Key Features are:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;an object's behavior is kept hidden from the outside world or objects kept their state information private.&lt;/li&gt;
-&lt;li&gt;Clients can't change the object's internal state by directly acting on them; rather clients request the object by sending messages. Based on the type of requests, objects may respond by changing their internal state using special member functions such as &lt;code&gt;get&lt;/code&gt; or &lt;code&gt;set&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;In Python, the concept of encapsulation isn't implicit, as it doesn't have keywords such as public, private, and protected that are required to support encapsulation. Accessibility is on the other hand made private by prefixing &lt;code&gt;__&lt;/code&gt; in the variable or function name.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Polymorphism&lt;/h3&gt;
-&lt;p&gt;Key Features are:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;There are two types:&lt;ul&gt;
-&lt;li&gt;An object provides different implementations of the method based on input parameters.&lt;/li&gt;
-&lt;li&gt;The same interface can be used by objects of different types.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;In Python, polymorphism is built in for the language.&lt;/li&gt;
-&lt;li&gt;Examples:&lt;ul&gt;
-&lt;li&gt;The + operator can act on two integers to add them or can work with strings to concatenate them.&lt;/li&gt;
-&lt;li&gt;Strings, tuples and lists can all be accessed with an integer index. I.E, &lt;code&gt;s(1)&lt;/code&gt;, &lt;code&gt;t(2)&lt;/code&gt; or &lt;code&gt;l(-1)&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Inheritance&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Inheritance indicates that one class derives (most of its) functionality from the parent class.&lt;/li&gt;
-&lt;li&gt;Inheritance is described as an option to reuse functionality defined in the base class and allow independent extensions of the original software implementation.&lt;/li&gt;
-&lt;li&gt;Inheritance creates hierarchy via the relationships among objects of different classes. Python, unlike Java, supports multiple inheritance (inheriting multiple base classes).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Abstraction&lt;/h3&gt;
-&lt;p&gt;Key Features are:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;It provides you with a simple interface to the clients, where the client can interact with the class object and call methods defined in the interface.  &lt;/li&gt;
-&lt;li&gt;It abstracts the complexity of internal classes with an interface so that the client needs not aware of the internal implementation.  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Adder&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
-
-    &lt;span class="n"&gt;acc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Adder&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;99&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="n"&gt;acc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;acc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h3&gt;Composition&lt;/h3&gt;
-&lt;p&gt;Key Points:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;It is a way to combine objects or classes into more complex data structures or software implementation&lt;/li&gt;
-&lt;li&gt;In composition, an object is used to call member functions other modules thereby making base functionality available across modules without inheritance.  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;A&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;a1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"a1"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;B&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;b&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"b"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-      &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a1&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-
-    &lt;span class="n"&gt;objectB&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="n"&gt;objectB&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h2&gt;Object-Oriented Design Principles&lt;/h2&gt;
-&lt;h3&gt;The Open/Close Principle&lt;/h3&gt;
-&lt;p&gt;The open/close principle states that &lt;em&gt;classes or objects and methods should be open for extension but closed for modifications.&lt;/em&gt;  &lt;/p&gt;
-&lt;p&gt;For example, the open/close principle is manifested in a case where a user has to create a class implementation by extending the abstract base class to implement the required behavior instead of changing the abstract class.&lt;/p&gt;
-&lt;p&gt;The advantages of this design principle are:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Existing classes are changed and hence the chances of regression are less.&lt;/li&gt;
-&lt;li&gt;It also helps maintain backward compatibility for the previous code.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;The Inversion of Control Principle&lt;/h3&gt;
-&lt;p&gt;The inversion of control principle states that &lt;em&gt;high-level modules shouldn't be dependent on low-level modules; they should both be dependent on abstractions.  Details should depend on abstractions but not the other way around.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;The principle suggests that any two modules shouldn't be dependent on each other in a tight way but should be decoupled with an abstraction layer in between.  It also suggests that the details of the class should represent the abstractions. In some cases, where the philosophy gets inverted and implementation details itself decide the abstraction, which should be avoided.  &lt;/p&gt;
-&lt;p&gt;Advantages of the inversion of control principles are as follow:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The tight coupling of modules is more prevalent and hence no complexity/rigidity in the system.  &lt;/li&gt;
-&lt;li&gt;As there is a clear abstraction layer between dependent modules (provided by a hook or parameter), it's easy to deal with dependencies across modules in a better way.  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;The Interface Segregation Principle&lt;/h3&gt;
-&lt;p&gt;The interface segregation principle states, &lt;em&gt;clients should not be forced to depend on interfaces they don't use.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;It reminds developers to develop methods that relate to the functionality.  If there is any method that is not related to the interface, the class dependent on the interface has to implement it unnecessarily.  For example: a &lt;code&gt;Pizza&lt;/code&gt; interface shouldn't have a method called &lt;code&gt;add_chicken()&lt;/code&gt;.  The &lt;code&gt;VegePizza&lt;/code&gt; class based on &lt;code&gt;Pizza&lt;/code&gt; shouldn't be forced to implement this method.  &lt;/p&gt;
-&lt;p&gt;Advantages of this design principle are:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;It forces developers to write thin interfaces and have methods that are specific to the interface&lt;/li&gt;
-&lt;li&gt;It helps you not to populate by adding unintentional methods&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;The Single Responsibility Principle&lt;/h3&gt;
-&lt;p&gt;The single responsibility principle states, &lt;em&gt;a class should have only one reason to change.&lt;/em&gt;  &lt;/p&gt;
-&lt;p&gt;When a class is developed, it should cater to the given functionality well.  If it is serving two functionalities, it is better to split them.  It refers to functionality as a reason to change.  For example, a class can undergo changes because of the difference in behavior expected in it, but if a class is changed for two reasons (ie changes in two functionalities), then the class should definitely be split.  &lt;/p&gt;
-&lt;p&gt;Advantages of this design principle:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Whenever there is a change in one functionality, this particular class needs to change, and nothing else.&lt;/li&gt;
-&lt;li&gt;Additionally, if a class has multiple functionalities, the dependent classes will have to undergo changes for multiple reason, which gets avoided.  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;The Single Responsibility Principle&lt;/h3&gt;
-&lt;p&gt;The substitution principle states that &lt;em&gt;derived classes must be able to completely substitute the base classes.&lt;/em&gt;  &lt;/p&gt;
-&lt;p&gt;It says when developers write derived classes, they should extend the base classes.  The derived class should be as close to the base class as possible so much so that the derived class itself should replace the base class without any code changes.  &lt;/p&gt;
-&lt;h2&gt;The Concept of Design Patterns&lt;/h2&gt;
-&lt;p&gt;Design patterns were first introduced by &lt;strong&gt;GoF&lt;/strong&gt; (&lt;strong&gt;Gang of Four&lt;/strong&gt;), where they mentioned them as being solutions to given problems.  The book, &lt;a href="http://bla" title="Design Patterns by Gang of Four"&gt;Design Patterns: Elements of Reusable Object-Oriented Software&lt;/a&gt;, covers software engineering solutions to the commonly occurring problems in software design.  There are 23 design patterns first identified, and first implemented to the Java programming language.  &lt;em&gt;Design patterns are discoveries, and not invention in themselves.&lt;/em&gt;  &lt;/p&gt;
-&lt;p&gt;The key features of design patterns are:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;They are language-neutral and can be implemented across multiple languages&lt;/li&gt;
-&lt;li&gt;They are dynamic, as new patterns get introduced every now and then&lt;/li&gt;
-&lt;li&gt;They are open for customization and hence useful for developers&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;One would also find:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;It is a panacea to all design problemsthat a developer has had so far&lt;/li&gt;
-&lt;li&gt;It's an extraordinary, specially clever way to solving a problem&lt;/li&gt;
-&lt;li&gt;Many experts in software development world agree to these solutions&lt;/li&gt;
-&lt;li&gt;There's something repeatable about the design, hence the word pattern&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Completeness in a software solution refers to many factors such as design, scalability, reuse, memory utilization and etc.  &lt;/p&gt;
-&lt;h3&gt;Advantages of Design Patterns&lt;/h3&gt;
-&lt;p&gt;The advantages of design patterns are:
-- They are reusable across multiple projects
-- The architectural level of problems can be solved.
-- They are time-tested and well-proven, which is the experience of developers and architects
-- They have reliability and dependence&lt;/p&gt;
-&lt;h3&gt;Taxonomy of Design Patterns&lt;/h3&gt;
-&lt;p&gt;Not every piece of code/design can be termed as a design patterns.&lt;br&gt;
-- &lt;strong&gt;Snippet&lt;/strong&gt;: Some code in some language for a certain purpose, for example, DB connectivity in Python can be a code Snippet
-- &lt;strong&gt;Design&lt;/strong&gt;: A better solution to solve a particular problem.
-- &lt;strong&gt;Standard&lt;/strong&gt;: A way to solve some kind of problems, which can be very generic and applicable to a situation at hand.
-- &lt;strong&gt;Pattern&lt;/strong&gt;: A time-tested, efficient and scalable solution that will resolve entire class of known issues.  &lt;/p&gt;
-&lt;h3&gt;Context - The Applicability of Design Patterns&lt;/h3&gt;
-&lt;p&gt;To use design patterns efficiently, application developers must be aware of the context where design patterns apply.  Context are classified into the following categories:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Participants&lt;/strong&gt;: They are classes that are used in design patterns.  Classes play different roles to accomplish multiple goals in the pattern.  &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Non-functional Requirements&lt;/strong&gt;: Requirements such as memory optimization, usablility and performance fall under this category.  These factors impact the complete software solution and are thus critical.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Trade-offs&lt;/strong&gt;: Not all design patterns fit in (application development) as it is, and trade-offs are necessary.  These are decisions
-that you take while using a design pattern in an application.  &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Results&lt;/strong&gt;: Design patterns can have a negative impact on other parts of the code if the context is not appropriate.  Developers should understand the consequences and use of design patterns.  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Patterns for Dynamic Languages&lt;/h2&gt;
-&lt;p&gt;Python is a dynamic language.  The dynamic nature of Python can be represented as follows:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Types or classes are objects at runtime.&lt;/li&gt;
-&lt;li&gt;Variables can have type as a value and can be modified at runtime.  For example, a = 5 and a = "John", the a variable is assigned at runtime and type also gets changed.&lt;/li&gt;
-&lt;li&gt;Dynamic languages have more flexibility in terms of of class restrictions.&lt;/li&gt;
-&lt;li&gt;In Python, polymorphism is built into the language, there is no keywords such as &lt;code&gt;private&lt;/code&gt; and &lt;code&gt;protected&lt;/code&gt; and everything is public by default.  &lt;/li&gt;
-&lt;li&gt;Represents a case where design patterns can be easily implemented in dynamic languages.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Classifying Patterns&lt;/h2&gt;
-&lt;p&gt;The GoF generally classified 23 patterns under three main categories:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Creational Pattern&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;They work on the basis of how objects can be created&lt;/li&gt;
-&lt;li&gt;They isolate the details of object creation&lt;/li&gt;
-&lt;li&gt;Code is independent of the type of object to be created&lt;/li&gt;
-&lt;li&gt;An example of a creation pattern is the Singleton pattern.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Structural Pattern&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;They design the structure of objects and classes so that they can compose to archive larger results&lt;/li&gt;
-&lt;li&gt;The focus is on simplifying the structure and identifying the relationship between classes and objects&lt;/li&gt;
-&lt;li&gt;They focus on class inheritance and composition&lt;/li&gt;
-&lt;li&gt;An example of a behavioral pattern is the Adapter pattern.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Behavioral Pattern&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;They are concerned with the interaction among objects and responsibility of objects&lt;/li&gt;
-&lt;li&gt;Objects should be able to interact and still be loosely coupled.  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>book</category><category>Chetan Giridhar</category><category>design-patterns</category><category>introduction</category><category>python</category><guid>https://chowy1026.github.io/books/python-design-patterns/01-intro/</guid><pubDate>Mon, 26 Sep 2016 08:22:03 GMT</pubDate></item><item><title>Introduction</title><link>https://chowy1026.github.io/books/design-patterns/01-intro/</link><dc:creator>cHoWy</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><guid>https://chowy1026.github.io/books/design-patterns/01-intro/</guid><pubDate>Mon, 26 Sep 2016 08:20:47 GMT</pubDate></item></channel></rss>
+4. Population variances should be roughly equal.&lt;/p&gt;&lt;/div&gt;</description><category>independent-samples</category><category>inferential-statistics</category><category>t-test</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-11/</guid><pubDate>Tue, 11 Oct 2016 04:35:53 GMT</pubDate></item></channel></rss>

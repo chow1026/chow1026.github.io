@@ -95,7 +95,527 @@ Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href
 <div class="sectionindex">
     <header><h2><a href=".">Course Notes (old posts, page 2)</a></h2>
     </header><div class="post">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="python-crash-notes/06-classes-instances-inheritance/" class="u-url">Classes, Instances and Inheritance</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="inferential-statistics/lesson-8/" class="u-url">Inferential Statistics - Estimation</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-14T12:33:51+08:00" title="2016-09-14 12:33">2016-09-14 12:33</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Lesson 8: Estimation</h3>
+<ol>
+<li>Any sampling distribution is a normal distribution.   </li>
+<li>The sample mean, \( M \), approximately equal to the population mean, i.e. \( M \approx \mu \).  </li>
+<li>The standard error of the sample, SE, is approximately equals to:
+    \[ SE = \frac{\sigma}{\sqrt{n}} \] where \( n \) is sample size, and \( \sigma \) is standard deviation of the population.  </li>
+<li>On any sampling distribution, approximately 68% of population falls within \( \pm 1 \frac{\sigma}{\sqrt{n}} \) of the sample mean \( M \).</li>
+<li>On any sampling distribution, approximately 95% of population falls within \( \pm 2 \frac{ \sigma }{ \sqrt{n} } \) of the sample mean \( M \).</li>
+<li>The distance, \( Z * \frac{ \sigma }{ \sqrt{n} } \) or is called <strong>Margin of Error</strong>.  The margin of error is half the width of the confidence interval.</li>
+<li>
+<strong>Point estimation</strong> involves the use of sample data to calculate a single value which is to serve as a "best guess" or "best estimate" of an unknown population parameter.</li>
+<li>An "intervention" is a factor that we expect will change the population parameters.</li>
+<li>Given the sample mean of a sample with intervention is \( M \), \( M \) serves as a point estimate of the mean of the whole population if the intervention is applied to the whole population.  However, the exact value of the population mean, \( \mu \), does not exactly equal to \( M \).   </li>
+<li>With a <strong>95% Confidence Interval</strong> (2 Standard Error, SE), we estimate the population mean with the same intervention, \( \mu \) falls in a range, based on the following:
+    \[ \mu - 2 \frac{ \sigma }{ \sqrt{n}} \lt M \lt \mu + 2 \frac{ \sigma }{ \sqrt{n} } \]
+    \[ - 2 \frac{ \sigma }{ \sqrt{n}} \lt M - \mu \lt + 2 \frac{ \sigma }{ \sqrt{n} } \]
+    \[ - M - 2 \frac{ \sigma }{ \sqrt{n}} \lt - \mu \lt - M + 2 \frac{ \sigma }{ \sqrt{n} } \]
+    \[ M + 2 \frac{ \sigma }{ \sqrt{n}} \gt \mu \gt M - 2 \frac{ \sigma }{ \sqrt{n} } \]
+    \[  M - 2 \frac{ \sigma }{ \sqrt{n} } \lt \mu \lt M + 2 \frac{ \sigma }{ \sqrt{n}} \]</li>
+<li>If we apply the above formula with 1 standard error, 1 SE, that gives us an range of which the population mean (with same intervention), with <strong>68% Confidence Interval</strong>, to be:
+    \[  M - \frac{ \sigma }{ \sqrt{n} } \lt \mu \lt M + \frac{ \sigma }{ \sqrt{n}} \]</li>
+<li>The Z-value that bounds 95% of the data is <strong>-1.96 through +1.96</strong>.  That means for a sampling distribution, 95% of the sample means fall within 1.96 standard errors (SE) away from the population mean. It is also the <strong>95% Confidence Interval</strong>.   </li>
+<li>A <strong>"treatment effect"</strong> occurs when the intervention affects the population mean. When the sample mean is far on the tails of the sampling distribution, and therefore unlikely to have occurred by chance, there is evidence for a treatment effect.</li>
+<li>If we want a higher confidence interval (CI), say, <strong>98% Confidence Interval</strong>, the z-score should be 2.33.  98% of the sample means fall within 2.33 standard error (SE) away from the population mean.  </li>
+<li>\( \pm 2.33 \) are the critical values of Z for 98% confidence.  </li>
+<li>\( \pm 1.96 \) are the critical values of Z for 95% confidence.</li>
+</ol>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="python-crash-notes/08-testing/" class="u-url">Testing Python Code</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-07T16:55:02+08:00" title="2016-09-07 16:55">2016-09-07 16:55</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Testing a Function</h3>
+<ul>
+<li>name_function.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">def</span> <span class="nf">get_formatted_name</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+    <span class="sd">""" Generated a Neatly formatted full name """</span>
+    <span class="n">full_name</span> <span class="o">=</span> <span class="n">first</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="n">last</span>
+    <span class="k">return</span> <span class="n">full_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+</pre>
+
+
+<ul>
+<li>names.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">name_function</span> <span class="kn">import</span> <span class="n">get_formatted_name</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="s2">"Enter 'q' to quit any time."</span><span class="p">)</span>
+  <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">First Name: "</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">first</span> <span class="o">==</span> <span class="s1">'q'</span><span class="p">:</span>
+      <span class="k">break</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Last Name: "</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'q'</span><span class="p">:</span>
+      <span class="k">break</span>
+    <span class="n">formatted_name</span> <span class="o">=</span> <span class="n">get_formatted_name</span><span class="p">(</span><span class="n">fist</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">Neatly formatted name: "</span> <span class="o">+</span> <span class="n">formatted_name</span> <span class="o">+</span> <span class="s2">"."</span><span class="p">)</span>
+</pre>
+
+
+<h4>Unit Tests and Test Cases</h4>
+<ul>
+<li>A <em>unit test</em> verifies that one specific aspect of a function's behavior is correct.  </li>
+<li>A <em>test case</em> is a collection of unit tests that together prove that a function behaves as it's supposed to, within the full range of situations it is expected to handle.  </li>
+<li>A test case with <em>full coverage</em> includes a full range of unit tests covering all the possible ways you can use a function.  Achieving full coverage on a large project can be daunting.  Aim for full coverage only if project starts to see widespread use.  </li>
+<li>test_name_function.py (an example test case for name_function.py)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">unittest</span>
+  <span class="kn">from</span> <span class="nn">name_function</span> <span class="kn">import</span> <span class="n">get_formatted_name</span>
+
+  <span class="k">class</span> <span class="nc">NamesTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="sd">""" Test for 'name_function.py' """</span>
+
+    <span class="k">def</span> <span class="nf">test_first_last_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Do names like 'Janis Joplin' work? """</span>
+      <span class="n">formatted_name</span> <span class="o">=</span> <span class="n">get_formatted_name</span><span class="p">(</span><span class="s1">'janis'</span><span class="p">,</span> <span class="s1">'joplin'</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">formatted_name</span><span class="p">,</span> <span class="s1">'Janis Joplin'</span><span class="p">)</span>
+
+  <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span> <span class="c1"># tells python to run the test.</span>
+</pre>
+
+
+<ul>
+<li>
+<code>python3 test_name_function.py</code> in CLI to run.  For now, test will pass.  </li>
+<li>name_function.py (modified)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">def</span> <span class="nf">get_formatted_name</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">middle</span><span class="p">,</span> <span class="n">last</span><span class="p">):</span>
+    <span class="sd">""" Generated a Neatly formatted full name """</span>
+    <span class="n">full_name</span> <span class="o">=</span> <span class="n">first</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="n">middle</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="n">last</span>
+    <span class="k">return</span> <span class="n">full_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+</pre>
+
+
+<ul>
+<li>
+<code>python3 test_name_function.py</code> will raise error.</li>
+<li>name_function.py (modified again, to make <code>middle</code> optional)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">def</span> <span class="nf">get_formatted_name</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">middle</span><span class="o">=</span><span class="s1">''</span><span class="p">):</span>
+    <span class="sd">""" Generated a Neatly formatted full name """</span>
+    <span class="k">if</span> <span class="n">middle</span><span class="p">:</span>
+      <span class="n">full_name</span> <span class="o">=</span> <span class="n">first</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="n">middle</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="n">last</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">full_name</span> <span class="o">=</span> <span class="n">first</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="n">last</span>
+    <span class="k">return</span> <span class="n">full_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+</pre>
+
+
+<ul>
+<li>
+<code>python3 test_name_function.py</code> will pass again.</li>
+<li>test_name_function.py (Add new test to test both cases)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">unittest</span>
+  <span class="kn">from</span> <span class="nn">name_function</span> <span class="kn">import</span> <span class="n">get_formatted_name</span>
+
+  <span class="k">class</span> <span class="nc">NamesTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="sd">""" Test for 'name_function.py' """</span>
+
+    <span class="k">def</span> <span class="nf">test_first_last_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Do names like 'Janis Joplin' work? """</span>
+      <span class="n">formatted_name</span> <span class="o">=</span> <span class="n">get_formatted_name</span><span class="p">(</span><span class="s1">'janis'</span><span class="p">,</span> <span class="s1">'joplin'</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">formatted_name</span><span class="p">,</span> <span class="s1">'Janis Joplin'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_first_last_middle_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Do names like 'Wolfgang Amadeus Mozart' work? """</span>
+      <span class="n">formatted_name</span> <span class="o">=</span> <span class="n">get_formatted_name</span><span class="p">(</span><span class="s1">'wolfgang'</span><span class="p">,</span> <span class="s1">'mozart'</span><span class="p">,</span> <span class="s1">'amadeus'</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">formatted_name</span><span class="p">,</span> <span class="s1">'Wolfgang Amadeus Mozart'</span><span class="p">)</span>
+
+  <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span> <span class="c1"># tells python to run the test.</span>
+</pre>
+
+
+<h4>A Variety of Assert Methods</h4>
+<ul>
+<li>assertEqual(a, b) :: Verify if a == b</li>
+<li>assertNotEqual(a, b) :: Verify if a != b</li>
+<li>assertTrue(x) :: Verify if x is True</li>
+<li>assertFalse(x) :: Verify if x is False</li>
+<li>assertIn(<em>item</em>, <em>list</em>) :: Verify that <em>item</em> is in <em>list</em>
+</li>
+<li>assertNotIn(<em>item</em>, <em>list</em>) :: Verify that <em>item</em> is NOT in <em>list</em>
+</li>
+</ul>
+<h4>Testing a Class</h4>
+<ul>
+<li>survey.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">class</span> <span class="nc">AnonymousSurvey</span><span class="p">():</span>
+    <span class="sd">""" Collect anonymous answers to a survey question. """</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">question</span><span class="p">):</span>
+      <span class="sd">""" Store a question, prepare to store responses. """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">question</span> <span class="o">=</span>  <span class="n">question</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">responses</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">show_question</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Show the survey question """</span>
+      <span class="k">print</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">store_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_response</span><span class="p">):</span>
+      <span class="sd">""" Store a single response to the survey. """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">responses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_response</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">show_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Show all responses that had been given """</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"Survey results:"</span><span class="p">)</span>
+      <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="n">responses</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">'- '</span> <span class="o">+</span> <span class="n">response</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>lang_survey.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">from</span> <span class="nn">survey</span> <span class="kn">import</span> <span class="n">AnonymousSurvey</span>
+
+  <span class="n">question</span> <span class="o">=</span> <span class="s2">"What language did you first learn to speak? "</span> <span class="c1"># define question</span>
+  <span class="n">survey</span> <span class="o">=</span> <span class="n">AnonymousSurvey</span><span class="p">(</span><span class="n">question</span><span class="p">)</span> <span class="c1"># instantiate a survey</span>
+
+  <span class="n">survey</span><span class="o">.</span><span class="n">show_question</span><span class="p">()</span> <span class="c1"># show question</span>
+  <span class="k">print</span><span class="p">(</span><span class="s2">"Enter 'q' any time to quit. </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+  <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Language: "</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">response</span> <span class="o">==</span> <span class="s1">'q'</span><span class="p">:</span>
+      <span class="k">break</span>
+    <span class="n">survey</span><span class="o">.</span><span class="n">store_response</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Thank you for your participation. "</span><span class="p">)</span>
+  <span class="n">survey</span><span class="o">.</span><span class="n">show_results</span><span class="p">()</span>
+</pre>
+
+
+<ul>
+<li>test_survey.py (test case for survey.py)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">unittest</span>
+  <span class="kn">from</span> <span class="nn">survey</span> <span class="kn">import</span> <span class="n">AnonymousSurvey</span>
+
+  <span class="k">class</span> <span class="nc">TestAnonymousSurvey</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="sd">""" Test Case for class AnonymousSurvey """</span>
+
+    <span class="k">def</span> <span class="nf">test_store_single_response</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Test that a single response is stored properly """</span>
+      <span class="n">question</span> <span class="o">=</span> <span class="s2">"What language did you first learn to speak? "</span> <span class="c1"># define question</span>
+      <span class="n">survey</span> <span class="o">=</span> <span class="n">AnonymousSurvey</span><span class="p">(</span><span class="n">question</span><span class="p">)</span> <span class="c1"># instantiate a survey</span>
+      <span class="n">survey</span><span class="o">.</span><span class="n">store_response</span><span class="p">(</span><span class="s1">'English'</span><span class="p">)</span>
+
+      <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">'English'</span><span class="p">,</span> <span class="n">survey</span><span class="o">.</span><span class="n">responses</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_store_three_responses</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Test that a single response is stored properly """</span>
+      <span class="n">question</span> <span class="o">=</span> <span class="s2">"What language did you first learn to speak? "</span> <span class="c1"># define question</span>
+      <span class="n">survey</span> <span class="o">=</span> <span class="n">AnonymousSurvey</span><span class="p">(</span><span class="n">question</span><span class="p">)</span> <span class="c1"># instantiate a survey</span>
+      <span class="n">responses</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'English'</span><span class="p">,</span> <span class="s1">'Spanish'</span><span class="p">,</span> <span class="s1">'Mandarin'</span><span class="p">]</span>
+      <span class="k">for</span> <span class="n">resp</span> <span class="ow">in</span> <span class="n">responses</span><span class="p">:</span>
+        <span class="n">survey</span><span class="o">.</span><span class="n">store_response</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+
+      <span class="k">for</span> <span class="n">resp</span> <span class="ow">in</span> <span class="n">responses</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">survey</span><span class="o">.</span><span class="n">responses</span><span class="p">)</span>
+</pre>
+
+
+<h4>The setUp() Method</h4>
+<ul>
+<li>As shown in the previous test_survey.py, we define question, create new instance of survey and new responses in each test methods.  The unittest.TestCase class has a setUp() method that allows you to reate these objects once and then use them in each of your test methods.  When a setUp() method is included, Python runs the setUp() method before running each method starting with _test__.  Any objects created in the setUp() method will be available in each test method you write.  </li>
+<li>test_survey.py (refactored with setUp() method)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">unittest</span>
+  <span class="kn">from</span> <span class="nn">survey</span> <span class="kn">import</span> <span class="n">AnonymousSurvey</span>
+
+  <span class="k">class</span> <span class="nc">TestAnonymousSurvey</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="sd">""" Test Case for class AnonymousSurvey """</span>
+
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Define question, create survey and a set of responses to be used in all test methods """</span>
+      <span class="n">question</span> <span class="o">=</span> <span class="s2">"What language did you first learn to speak? "</span> <span class="c1"># define question</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">survey</span> <span class="o">=</span> <span class="n">AnonymousSurvey</span><span class="p">(</span><span class="n">question</span><span class="p">)</span> <span class="c1"># instantiate a survey</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">responses</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'English'</span><span class="p">,</span> <span class="s1">'Spanish'</span><span class="p">,</span> <span class="s1">'Mandarin'</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">test_store_single_response</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Test that a single response is stored properly """</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">survey</span><span class="o">.</span><span class="n">store_response</span><span class="p">(</span><span class="s1">'English'</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">'English'</span><span class="p">,</span> <span class="n">survey</span><span class="o">.</span><span class="n">responses</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_store_three_responses</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="sd">""" Test that a single response is stored properly """</span>
+      <span class="k">for</span> <span class="n">resp</span> <span class="ow">in</span> <span class="n">responses</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">survey</span><span class="o">.</span><span class="n">store_response</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+      <span class="k">for</span> <span class="n">resp</span> <span class="ow">in</span> <span class="n">responses</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">survey</span><span class="o">.</span><span class="n">responses</span><span class="p">)</span>
+</pre>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="python-crash-notes/07-files-and-exceptions-and-storing-data/" class="u-url">Files and Exceptions and Storing Data</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-07T15:05:56+08:00" title="2016-09-07 15:05">2016-09-07 15:05</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Files</h3>
+<h4>Filepath</h4>
+<ul>
+<li>A <em>relative path</em> is a to look for a given location relative to the directory where the currently running program file is stored.  </li>
+<li>An <em>absolute path</em> is exactly the file location on your computer, regardless of where the program being executed is stored.  </li>
+<li>
+<code>os.getcwd</code> returns current working directory.  Remember to <code>import os</code>.</li>
+</ul>
+<h4>Reading an Entire File</h4>
+<ul>
+<li>pi_digits.txt</li>
+</ul>
+<pre class="code literal-block"><span></span>3.1415926535
+  8979323846
+  2643383279
+</pre>
+
+
+<ul>
+<li>file_reader.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'pi_digits.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span>
+    <span class="n">contents</span> <span class="o">=</span> <span class="n">file_object</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>output:</li>
+</ul>
+<pre class="code literal-block"><span></span>3.1415926535
+  8979323846
+  2643383279
+</pre>
+
+
+<ul>
+<li>Note that output has an extra blank line, because read() returns an empty string when it reaches the end of the file.  To remove the extra blank line, use rstrip().  --&gt; <code>print(contents.rstrip())</code>
+</li>
+</ul>
+<h4>Reading a File Line by Line</h4>
+<ul>
+<li>file_reader.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'pi_digits.txt'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file_object</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span> <span class="c1"># rstrip() removes the blank lines from .read()</span>
+</pre>
+
+
+<h4>Making a List of Lines from a File</h4>
+<ul>
+<li>file_reader.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'pi_digits.txt'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">file_object</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+  <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span> <span class="c1"># rstrip() removes the blank lines from .read()</span>
+</pre>
+
+
+<h4>Working with a File's Contents</h4>
+<ul>
+<li>file_reader.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'pi_digits.txt'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">file_object</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+  <span class="n">pi_string</span> <span class="o">=</span> <span class="s1">''</span>
+  <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="n">pi_string</span> <span class="o">+=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span> <span class="c1"># rstrip() removes the blank lines from .read()</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="n">pi_string</span><span class="p">)</span> <span class="c1"># prints 3.1415926535  8979323846  2643383279</span>
+  <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pi_string</span><span class="p">))</span> <span class="c1"># prints 36 due to blank spaces for 2nd and 3rd lines</span>
+
+  <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="n">pi_string</span> <span class="o">+=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="c1"># strip all blank spaces and lines</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="n">pi_string</span><span class="p">)</span> <span class="c1"># prints 3.141592653589793238462643383279</span>
+  <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pi_string</span><span class="p">))</span> <span class="c1"># prints 32 due to blank spaces for 2nd and 3rd lines</span>
+</pre>
+
+
+<h4>Writing to a File</h4>
+<ul>
+<li>write_message.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'writing.txt'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span> <span class="c1"># 'w' denote writing mode</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"I test writing."</span><span class="p">)</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"I test writing second line."</span><span class="p">)</span>
+
+  <span class="c1"># Both these sentences will be written in one /same line.  </span>
+</pre>
+
+
+<ul>
+<li>Insert line break.  </li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'writing.txt'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span> <span class="c1"># 'w' denote writing mode</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"I test writing. </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"I test writing second line. </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+  <span class="c1"># Both these sentences will be written in separate line.  </span>
+</pre>
+
+
+<h4>Appending to a File</h4>
+<ul>
+<li>write_message.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'writing.txt'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_object</span><span class="p">:</span> <span class="c1"># 'a' denotes append</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"I test writing more."</span><span class="p">)</span>
+    <span class="n">file_object</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"I test writing the last line."</span><span class="p">)</span>
+
+  <span class="c1"># Both these sentences will be appended to previous file content.  </span>
+</pre>
+
+
+<h3>Exceptions</h3>
+<ul>
+<li>Python uses exceptions to manage errors that arise during a program's execution.  It is advisable to write code that handles exceptions properly so the program continues running.  If not, the program will halt and show a <em>traceback</em>, which includes a report of the exception that was raised.</li>
+<li>A couple of common Python exceptions are ZeroDivisionError and FileNotFound exceptions.</li>
+</ul>
+<h4>try-except-else block</h4>
+<ul>
+<li>division.py (example of try-except block)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">print</span><span class="p">(</span><span class="s2">"Give me two numbers, I will divide them."</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s2">"Enter 'q' to quit."</span><span class="p">)</span>
+
+  <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">first_num</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">First Number: "</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">first_num</span> <span class="o">==</span> <span class="s1">'q'</span><span class="p">:</span>
+      <span class="k">break</span>
+    <span class="n">sec_num</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Second Number: "</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">sec_num</span> <span class="o">==</span> <span class="s1">'q'</span><span class="p">:</span>
+      <span class="k">break</span>
+
+    <span class="k">try</span><span class="p">:</span>
+      <span class="n">answer</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">first_num</span><span class="p">)</span> <span class="o">/</span> <span class="nb">int</span><span class="p">(</span><span class="n">sec_num</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"You can't divide by 0!"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1"># proceed if no ZeroDivisionError exception</span>
+      <span class="k">print</span> <span class="n">answer</span>
+</pre>
+
+
+<ul>
+<li>alice.py (example of handling FileNotFound exception)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'alice.txt'</span>
+
+  <span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">fobj</span><span class="p">:</span>
+      <span class="n">contents</span> <span class="o">=</span> <span class="n">fobj</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+  <span class="k">except</span> <span class="n">FileNotFoundError</span><span class="p">:</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s2">"Sorry, the file "</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">" doesn't exist. "</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">contents</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">word_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"The file "</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">" has about "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">word_count</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" words."</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>word_count.py (example of working with multiple files)</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">def</span> <span class="nf">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">""" Count the approximate number of words in a file """</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">fobj</span><span class="p">:</span>
+        <span class="n">contents</span> <span class="o">=</span> <span class="n">fobj</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">FileNotFoundError</span><span class="p">:</span>
+      <span class="n">msg</span> <span class="o">=</span> <span class="s2">"Sorry, the file "</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">" doesn't exist. "</span>
+      <span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">words</span> <span class="o">=</span> <span class="n">contents</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+      <span class="n">word_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"The file "</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">" has about "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">word_count</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" words."</span><span class="p">)</span>
+
+  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'alice.txt'</span>
+  <span class="n">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+  <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'alice.txt'</span><span class="p">,</span> <span class="s1">'siddharta.txt'</span><span class="p">,</span> <span class="s1">'moby_dick.txt'</span><span class="p">,</span> <span class="s1">'little_women.txt'</span><span class="p">]</span>
+  <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+    <span class="n">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</pre>
+
+
+<h4>Failing silently</h4>
+<ul>
+<li>word_count.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="k">def</span> <span class="nf">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">""" Count the approximate number of words in a file """</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">fobj</span><span class="p">:</span>
+        <span class="n">contents</span> <span class="o">=</span> <span class="n">fobj</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">FileNotFoundError</span><span class="p">:</span>
+      <span class="k">pass</span> <span class="c1"># pass is used to silent the error.  Often times used as a placeholder as well.</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">words</span> <span class="o">=</span> <span class="n">contents</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+      <span class="n">word_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">"The file "</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">" has about "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">word_count</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" words."</span><span class="p">)</span>
+
+  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'alice.txt'</span>
+  <span class="n">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+  <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'alice.txt'</span><span class="p">,</span> <span class="s1">'siddharta.txt'</span><span class="p">,</span> <span class="s1">'moby_dick.txt'</span><span class="p">,</span> <span class="s1">'little_women.txt'</span><span class="p">]</span>
+  <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+    <span class="n">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</pre>
+
+
+<h3>Storing Data</h3>
+<h4>json.dump() and json.load()</h4>
+<ul>
+<li>num_write.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">json</span>
+
+  <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">]</span>
+  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'prime.json'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fobj</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">fobj</span><span class="p">)</span>
+</pre>
+
+
+<ul>
+<li>num_read.py</li>
+</ul>
+<pre class="code literal-block"><span></span>  <span class="kn">import</span> <span class="nn">json</span>
+
+  <span class="n">filename</span> <span class="o">=</span> <span class="s1">'prime.json'</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">fobj</span><span class="p">:</span>
+    <span class="n">primes</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fobj</span><span class="p">)</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="n">primes</span><span class="p">)</span>
+</pre>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="python-crash-notes/06-classes-instances-inheritance/" class="u-url">Classes, Instances and Inheritance</a></h1>
         <div class="metadata">
             <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-07T13:12:46+08:00" title="2016-09-07 13:12">2016-09-07 13:12</time></span>
         </div>

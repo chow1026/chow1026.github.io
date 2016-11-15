@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" vocab="http://ogp.me/ns" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title> =^..^= MEH · Setting Up Multiple GitHub User Account on One Machine </title>
+<link href="../../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/poole.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/hyde.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/code.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700%7CAbril+Fatface">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://chowy1026.github.io/posts/multiple-github-accounts/">
+<link rel="icon" href="../../images/favicon.png" sizes="64x64">
+<link rel="icon" href="../../images/icon_512x512.png" sizes="512x512">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+            },
+            displayAlign: 'center', // Change this to 'left' to left equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+    </script><script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script><!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="cHoWy">
+<link rel="prev" href="../matplotlib-on-osx-virtualenv/" title="Matplotlib on OSX with VirtualEnv/VirtualEnvWrapper (and Pip)" type="text/html">
+<meta property="og:site_name" content=" =^..^= MEH">
+<meta property="og:title" content="Setting Up Multiple GitHub User Account on One Machine">
+<meta property="og:url" content="https://chowy1026.github.io/posts/multiple-github-accounts/">
+<meta property="og:description" content="It is not unusual that developers need multiple github accounts on a single machine.  I was looking through the resources on the internet and found this the most useful.  None the less, I decided to w">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-11-15T12:39:45+08:00">
+</head>
+<body class="test">
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+    <div class="sidebar">
+        <div class="container sidebar-sticky">
+            <div class="sidebar-about">
+              <h1>
+                <a href="https://chowy1026.github.io/">
+                      <h1 id="brand"><a href="https://chowy1026.github.io/" title=" =^..^= MEH" rel="home">
+
+        <span id="blog-title"> =^..^= MEH</span>
+    </a></h1>
+
+                </a>
+              </h1>
+                <p class="lead"></p>
+
+            </div>
+                <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../index.html">Articles</a>
+        <a class="sidebar-nav-item" href="../../course-notes/index.html">Course Notes</a>
+        <a class="sidebar-nav-item" href="../../links/index.html">Links</a>
+        <a class="sidebar-nav-item" href="../../books/index.html">Books</a>
+        <a class="sidebar-nav-item" href="../../archives/archives.html">Archives</a>
+        <a class="sidebar-nav-item" href="../../tags.html">Tags</a>
+    
+    
+    </nav><footer id="footer"><p class="footer">
+              <span class="icon_row">
+
+                <a href="mailto:chowy1026@gmail.com">
+                  <img class="social_icon" src="../../images/envelope1.png" title="email" width="24"></a> ·
+                <!--<a href="">
+                  <img class="social_icon" src="/images/twitter-black-shape1.png" title="twitter" width="24" /></a> &middot;-->
+                <a href="https://github.com/chowy1026/">
+                  <img class="social_icon" src="../../images/github-character1.png" title="github" width="24"></a>
+              </span>
+              <br><br><span class="copyright">
+              
+Contents © 2016 by <a href="mailto:chowy1026@gmail.com">cHoWy</a> ·
+Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>
+
+            </span>
+            </p>
+            
+        </footer>
+</div>
+    </div>
+
+    <div class="content container" id="content">
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><h1 class="post-title p-name"><a href="." class="u-url">Setting Up Multiple GitHub User Account on One Machine</a></h1>
+
+    <span class="post-date">
+      <time class="published dt-published" datetime="2016-11-15T12:39:45+08:00" itemprop="datePublished" title="2016-11-15 12:39">2016-11-15 12:39</time></span>
+
+    
+    
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>It is not unusual that developers need multiple github accounts on a single machine.  I was looking through the resources on the internet and found <a href="https://gist.github.com/jexchan/2351996/">this</a> the most useful.  None the less, I decided to write a post about this, just so for my own references.  </p>
+<p>Here are the steps:
+- Create the users (however many you need) on <a href="https://github.com/">github</a> first.     </p>
+<ul>
+<li>Use <code>ssh-keygen</code> to generate various ssh keys.  When prompted, make sure the keys are named appropriately so they can be identified easily.     </li>
+</ul>
+<pre class="code literal-block"><span></span>ssh-keygen -t rsa -C "{email1@youremail1.com}"
+ssh-keygen -t rsa -C "{email1@youremail1.com}"
+</pre>
+
+
+<p>Make sure emails used are the ones you used for creating the github accounts.    </p>
+<p>Usually ssh keys are stored under <code>home/{username}/.ssh</code> folder (or <code>/Users/{username}/.ssh</code> if you are on mac).  For example, the following keys are generated:    </p>
+<pre class="code literal-block"><span></span>~/.ssh/id_rsa_{git_username1}
+~/.ssh/id_rsa_{git_username2}
+</pre>
+
+
+<ul>
+<li>Add the keys to SSH to the SSH Agent on the system:     </li>
+</ul>
+<pre class="code literal-block"><span></span>ssh-add ~/.ssh/id_rsa_{git_username1}
+ssh-add ~/.ssh/id_rsa_{git_username2}
+</pre>
+
+
+<p>To delete ALL previously added keys:    </p>
+<pre class="code literal-block"><span></span>ssh-add -D
+</pre>
+
+
+<p>To delete a previously added key:    </p>
+<pre class="code literal-block"><span></span>ssh-add -d {id_rsa_keyname}
+</pre>
+
+
+<p>To list ALL previously added keys:    </p>
+<pre class="code literal-block"><span></span>ssh-add -l
+</pre>
+
+
+<ul>
+<li>The public keys need to be added to the github accounts accordingly.  </li>
+</ul>
+<pre class="code literal-block"><span></span>pbcopy &lt; ~/.ssh/id_rsa_{git_username1}.pub
+</pre>
+
+
+<p>Paste the content to corresponding <a href="https://github.com/settings/keys">github SSH key management</a>.   <br>
+Repeat for all other keys for other accounts.     </p>
+<ul>
+<li>Configure SSH config</li>
+</ul>
+<pre class="code literal-block"><span></span>cd ~/.ssh/
+nano config
+</pre>
+
+
+<ul>
+<li>Add the following lines, modify accordingly:</li>
+</ul>
+<pre class="code literal-block"><span></span># github_{user1} account
+Host github.com-{user1}
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_{git_username1}
+    IdentitiesOnly yes
+
+# github_{user2} account
+Host github.com-{user2}
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_{git_username2}
+    IdentitiesOnly yes
+</pre>
+
+
+<ul>
+<li>Manage Global Git Configs.  You may either define those in command line or store them in a .gitconfig_global under     </li>
+</ul>
+<pre class="code literal-block"><span></span><span class="k">[core]</span>
+       <span class="na">editor</span> <span class="o">=</span> <span class="s">atom -n -w</span>
+<span class="s">       excludesfile = {filepath}/.gitignore_global</span>
+<span class="k">[push]</span>
+       <span class="na">default</span> <span class="o">=</span> <span class="s">upstream</span>
+<span class="k">[merge]</span>
+       <span class="na">conflictstyle</span> <span class="o">=</span> <span class="s">diff3</span>
+<span class="k">[color]</span>
+       <span class="na">ui</span> <span class="o">=</span> <span class="s">true</span>
+<span class="k">[user]</span>
+       <span class="na">name</span> <span class="o">=</span> <span class="s">{leave null, define this locally}</span>
+<span class="s">       email = {leave null, define this locally}</span>
+</pre>
+
+
+<ul>
+<li>Manage Local Git Configs  <br>
+For example, github user1</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="k">[user]</span>
+        <span class="na">name</span> <span class="o">=</span> <span class="s">{github_username1}</span>
+<span class="s">        email = {github_email1}</span>
+<span class="k">[remote "origin"]</span>
+        <span class="na">url</span> <span class="o">=</span> <span class="s">git@github.com-{user1}:{github_username}/{github_repo}</span>
+</pre>
+
+
+<p>Note that the host in URL has to be the right host defined earlier in the <code>~/.ssh/config</code> file.   </p>
+<p>The same precaution has to be taken when cloning.  ie when executing <code>git clone</code> command, make sure the git host in 'copied and pasted' repo url is edited accordingly to the right user/host.  </p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><div class="pager hidden-print pagination">
+
+            <span class="previous pagination-item older">
+                <a href="../matplotlib-on-osx-virtualenv/" rel="prev" title="Matplotlib on OSX with VirtualEnv/VirtualEnvWrapper (and Pip)">
+                Previous post
+                </a>
+            </span>
+
+
+            <span class="next pagination-item newer">
+Next post
+            </span>
+
+        </div>
+
+    </nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="chowygit",
+            disqus_url="https://chowy1026.github.io/posts/multiple-github-accounts/",
+        disqus_title="Setting Up Multiple GitHub User Account on One Machine",
+        disqus_identifier="cache/posts/multiple-github-accounts.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="chowygit";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73098247-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

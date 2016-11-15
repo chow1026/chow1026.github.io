@@ -1,5 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title> =^..^= MEH</title><link>https://chowy1026.github.io/</link><description></description><atom:link href="https://chowy1026.github.io/course-notes/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Mon, 07 Nov 2016 07:33:47 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Inferential Statistics - Correlations</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-14/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;strong&gt;Relationships&lt;/strong&gt;   &lt;br&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title> =^..^= MEH</title><link>https://chowy1026.github.io/</link><description></description><atom:link rel="self" type="application/rss+xml" href="https://chowy1026.github.io/course-notes/rss.xml"></atom:link><language>en</language><lastBuildDate>Tue, 15 Nov 2016 07:58:40 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Descriptive Statistics Final Project - Random Draws of Card Deck</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/final_project/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;Instead of working on this project on a google sheet files, I decided to write my own python script to simulate the experiments.  &lt;/p&gt;
+&lt;p&gt;1) Histogram generated shown as below.   &lt;br&gt;
+&lt;img alt="Original Cards" src="https://chowy1026.github.io/images/descriptive-statistics/original52.png"&gt;  &lt;br&gt;
+Histogram for original card values are negatively skewed (towards right).    &lt;/p&gt;
+&lt;p&gt;2) Randomly Drawing 3 Cards   &lt;br&gt;
+I wrote python scripts with pandas and matplotlib for the rest of the project.  &lt;/p&gt;
+&lt;p&gt;3) Distribution of Sum of 3 Randomly Drawn Cards   &lt;br&gt;
+&lt;strong&gt;30 Samples of Sum of 3 Randomly Drawn Cards&lt;/strong&gt;   &lt;br&gt;
+&lt;img alt="30 Samples of Sum of 3 Randomly Drawn Cards" src="https://chowy1026.github.io/images/descriptive-statistics/sample30.png"&gt;   &lt;/p&gt;
+&lt;p&gt;Statistical Description of this sample with n = 30:  &lt;br&gt;
+count  30.000000  &lt;br&gt;
+mean   19.866667  &lt;br&gt;
+std     5.550603  &lt;br&gt;
+min     9.000000  &lt;br&gt;
+25%    15.000000  &lt;br&gt;
+50%    20.000000  &lt;br&gt;
+75%    24.000000  &lt;br&gt;
+max    30.000000    &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;500 Samples of Sum of 3 Randomly Drawn Cards&lt;/strong&gt;      &lt;br&gt;
+&lt;img alt="500 Samples of Sum of 3 Randomly Drawn Cards" src="https://chowy1026.github.io/images/descriptive-statistics/sample500.png"&gt;&lt;/p&gt;
+&lt;p&gt;Statistical Description of this sample with n = 500:  &lt;br&gt;
+count  500.000000  &lt;br&gt;
+mean    19.542000  &lt;br&gt;
+std      5.337529  &lt;br&gt;
+min      5.000000  &lt;br&gt;
+25%     16.000000  &lt;br&gt;
+50%     20.000000  &lt;br&gt;
+75%     24.000000  &lt;br&gt;
+max     30.000000    &lt;/p&gt;
+&lt;p&gt;4) As sample size increases, the curve gets more normalized (bell-shaped).     &lt;/p&gt;
+&lt;p&gt;5) Q:  Within what range will you expect approximately 90% of your draw values to fall? What is the approximate probability that you will get a draw value of at least 20? Make sure you justify how you obtained your values.    &lt;/p&gt;
+&lt;p&gt;To determine the range where 90% of the values fall, I found the closest corresponding z-value to be 1.28.   Therefore, with the following formula, I determined the range for our sample with 30 draws, and sample with 500 draws.   &lt;/p&gt;
+&lt;p&gt;\[&lt;br&gt;
+  z = \frac{ x - \mu }{\sigma} \\
+  x_{30, 90%} = 26.971442   \\
+  x_{500, 90%} = 26.374   \\
+\]  &lt;/p&gt;
+&lt;p&gt;To draw at least 20 from each of the samples, the corresponding z values are:    &lt;/p&gt;
+&lt;p&gt;\[
+  z_{30, &amp;gt;20} = \frac{20 - 19.866667}{5.550603} = 0.024021
+  \\
+  z_{500, &amp;gt;20} = \frac{20 - 19.542000}{5.337529} = 0.085807 \\
+\]&lt;/p&gt;
+&lt;p&gt;For sample with sample size 30, at z = 0.024021, the probability is 0.51 (51%).  That means the change of drawing 3 cards with sum greater than 20 from this sample is 49%.      &lt;/p&gt;
+&lt;p&gt;For sample with sample size 500, at z = 0.024021, the probability is 0.534 (53.4%).  That means the change of drawing 3 cards with sum greater than 20 from this sample is 46.6%.    &lt;/p&gt;
+&lt;p&gt;Finally, here's a &lt;a href="http://www.stat.ufl.edu/~athienit/Tables/Ztable.pdf"&gt;link to the z-table&lt;/a&gt; for reference.  &lt;/p&gt;&lt;/div&gt;</description><category>final-project</category><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/final_project/</guid><pubDate>Mon, 14 Nov 2016 03:39:38 GMT</pubDate></item><item><title>Inferential Statistics - Chi-Squared Tests</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-16/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Types of Data&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Ordinal Data&lt;/strong&gt; - ranks with no fixed intervals nor zeros   &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interval Data&lt;/strong&gt; - ranks with equal intervals     &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ratio Data&lt;/strong&gt; - ranks with equal intervals and an absolute zero   &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nominal/Categorical Data&lt;/strong&gt; - data with no numerical values (typically yes/no, in/out, successful/unsuccessful)    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Types of Tests&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Parametric&lt;/strong&gt; - hypothesis testing that make assumptions about the parameters of the populations, \( \mu \) and \( \sigma \).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Non-Parametric&lt;/strong&gt; - hypothesis testing that do not require population parameters&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Characteristics of Non-Parametric Testings&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;There is no way to calculate a mean or standard deviation      &lt;/li&gt;
+&lt;li&gt;The data is based on frequencies or proportions    &lt;/li&gt;
+&lt;li&gt;The data is nominal (successful vs unsuccessful, 1 or 0, yes or no, mountain vs beach etc.)    &lt;/li&gt;
+&lt;li&gt;The data are not based on Normal distribution    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;\( \chi^2 \) Goodness of Fit Test&lt;/h3&gt;
+&lt;p&gt;How well our observed frequencies 'fit' our expected frequencies? &lt;br&gt;
+\[
+  \chi ^2 = \sum{ \frac{(f_0 - f_e)^2}{f_e} }
+\]
+\( \chi^2 \) is smaller when the observed value is closer to the expected value.   &lt;br&gt;
+\( \chi^2 \) is NEVER negative and therefore \( \chi^2 \) statistic is one-directional.     &lt;/p&gt;
+&lt;p&gt;For each category, we have one \( \chi^2 \) statistics.  When we have more categories, \( \chi^2 \) statistics get bigger with the number of categories.    &lt;/p&gt;
+&lt;h3&gt;Degrees of Freedom&lt;/h3&gt;
+&lt;p&gt;For n x m, 2 dimensional nominal data:
+\[
+  df = (N_n - 1) * (N_m - 1) \\
+  \text{where } N_n \text{ and }N_m \text{ are number of columns, and number of rows respectively. }
+\]&lt;/p&gt;
+&lt;h3&gt;Cramer's V \( (\phi_c) \)&lt;/h3&gt;
+&lt;p&gt;\[
+  \phi_c = \sqrt{\frac{\chi^2}{n(k-1)}}  \\
+  k \text{ is the smaller number between number of rows or number of columns}\\
+  n \text{ is the total sample size regardless of treatments}
+\]&lt;/p&gt;
+&lt;h3&gt;Assumptions and Restrictions for \(\chi^2\) Tests&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Avoid dependent observations.  Independence will be violated if any participants were given two treatments instead of one.     &lt;/li&gt;
+&lt;li&gt;Avoid small expected frequencies, therefore in general have a larger number of participants.   Sample size should be at least 20, and each expected cell frequencies should be at least 5.    &lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-16/</guid><pubDate>Wed, 09 Nov 2016 05:10:55 GMT</pubDate></item><item><title>Inferential Statistics - Regressions</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-15/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Linear Regressions&lt;/h3&gt;
+&lt;p&gt;Line of best fit forms a line to help us:  &lt;br&gt;
+- describe data  &lt;br&gt;
+- make predictions     &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Observed Y vs Expected Y&lt;/strong&gt;   &lt;br&gt;
+&lt;strong&gt;Expected Y&lt;/strong&gt; \( \hat{y} \) are the ones calculated/predicted based on the best fit regression line.  &lt;br&gt;
+&lt;strong&gt;Observed Y&lt;/strong&gt; \( y \) are collected data or real-life data.  &lt;br&gt;
+&lt;strong&gt;Residual&lt;/strong&gt; is the difference between Observed value and Expected value.  &lt;/p&gt;
+&lt;p&gt;A few ways to find the line of best fit:  &lt;br&gt;
+- Find a line to minimize the sum of residuals.   The problem with this approach is sometimes, negative and positive residuals cancel each other out.     &lt;br&gt;
+- Find a line that minimize the sum of &lt;strong&gt;absolute&lt;/strong&gt; residuals.  &lt;br&gt;
+- Find a line that minimize the sum of squared residuals, \( \sum{(y - \hat{y})} \)&lt;/p&gt;
+&lt;p&gt;When we use calculus to determine the slope, b:&lt;br&gt;
+\[
+  b = \frac{\sum{(y_i - \bar{y})(x_i - \bar{x})}}{\sum{(x_i - \bar{x})^2}} \\
+  = r (\frac{S_y}{S_x}) \\
+  \text{where } r \text{ is Pearson's Correlation Coefficient and }\\
+   S \text{ are standard deviations of } x \text{ and } y.
+\]&lt;/p&gt;
+&lt;p&gt;We have decided to symbolize the regression line by y = bx + a, where b represents the slope and a represents the y-intercept.
+Since \( b = r(\frac{S_y}{S_x}) \), we can also symbolize the regression line like this:  &lt;br&gt;
+\[ y = r(\frac{S_y}{S_x})x + a \]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pearson's Correlation Coefficient \( r \)&lt;/strong&gt;  &lt;br&gt;
+A high \(r\) value indicates a strong correlation. This could contribute to high \(r^2 \) value, which indicates the percentage of differences in Y is due to differences in X.  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Standard Error of Estimates&lt;/strong&gt;  &lt;br&gt;
+Standard error of estimates: &lt;br&gt;
+\[
+SE = \sqrt{ \frac{\sum (y - \hat{y})^2}{N-2}}
+\]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Factors that Affect the Regressions&lt;/strong&gt; &lt;br&gt;
+- outliers affect the value of r, correlation Coefficient
+- outliers also affect the linear regression line
+-&lt;/p&gt;&lt;/div&gt;</description><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-15/</guid><pubDate>Tue, 08 Nov 2016 07:00:58 GMT</pubDate></item><item><title>Inferential Statistics - Correlations</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-14/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;strong&gt;Relationships&lt;/strong&gt;   &lt;br&gt;
 How one variable is related to the other?&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Variable X and Y&lt;/strong&gt;    &lt;br&gt;
 X is often referred to as the predictor, explanatory, independent variable.      &lt;/p&gt;
@@ -515,489 +635,4 @@ A null hypothesis says "Most (more than 50%) dogs have four legs." and the alter
 &lt;h2&gt;Decision Errors&lt;/h2&gt;
 &lt;p&gt;There are two types of Hypothesis Decision Errors:
 &lt;strong&gt;Type I error&lt;/strong&gt;: is when you reject the null when the null hypothesis is actually true.&lt;br&gt;
-&lt;strong&gt;Type II error&lt;/strong&gt;: is when you fail to reject the null when the null hypothesis is actually false.  &lt;/p&gt;&lt;/div&gt;</description><category>hypothsis-testing</category><category>inferential-statistics</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-9/</guid><pubDate>Tue, 20 Sep 2016 09:36:10 GMT</pubDate></item><item><title>Inferential Statistics - Estimation</title><link>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-8/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 8: Estimation&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Any sampling distribution is a normal distribution.   &lt;/li&gt;
-&lt;li&gt;The sample mean, \( M \), approximately equal to the population mean, i.e. \( M \approx \mu \).  &lt;/li&gt;
-&lt;li&gt;The standard error of the sample, SE, is approximately equals to:
-    \[ SE = \frac{\sigma}{\sqrt{n}} \] where \( n \) is sample size, and \( \sigma \) is standard deviation of the population.  &lt;/li&gt;
-&lt;li&gt;On any sampling distribution, approximately 68% of population falls within \(\pm 1 \frac{ \sigma }{ \sqrt{n} } \) of the sample mean \( M \).&lt;/li&gt;
-&lt;li&gt;On any sampling distribution, approximately 95% of population falls within \(\pm 2 \frac{ \sigma }{ \sqrt{n} } \) of the sample mean \( M \).&lt;/li&gt;
-&lt;li&gt;The distance, \( Z * \frac{ \sigma }{ \sqrt{n} } \) or is called &lt;strong&gt;Margin of Error&lt;/strong&gt;.  The margin of error is half the width of the confidence interval.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Point estimation&lt;/strong&gt; involves the use of sample data to calculate a single value which is to serve as a "best guess" or "best estimate" of an unknown population parameter.&lt;/li&gt;
-&lt;li&gt;An "intervention" is a factor that we expect will change the population parameters.&lt;/li&gt;
-&lt;li&gt;Given the sample mean of a sample with intervention is \( M \), \( M \) serves as a point estimate of the mean of the whole population if the intervention is applied to the whole population.  However, the exact value of the population mean, \( \mu \), does not exactly equal to \( M \).   &lt;/li&gt;
-&lt;li&gt;With a &lt;strong&gt;95% Confidence Interval&lt;/strong&gt; (2 Standard Error, SE), we estimate the population mean with the same intervention, \( \mu \) falls in a range, based on the following:
-    \[ \mu - 2 \frac{ \sigma }{ \sqrt{n}} \lt M \lt \mu + 2 \frac{ \sigma }{ \sqrt{n} } \]
-    \[ - 2 \frac{ \sigma }{ \sqrt{n}} \lt M - \mu \lt + 2 \frac{ \sigma }{ \sqrt{n} } \]
-    \[ - M - 2 \frac{ \sigma }{ \sqrt{n}} \lt - \mu \lt - M + 2 \frac{ \sigma }{ \sqrt{n} } \]
-    \[ M + 2 \frac{ \sigma }{ \sqrt{n}} \gt \mu \gt M - 2 \frac{ \sigma }{ \sqrt{n} } \]
-    \[  M - 2 \frac{ \sigma }{ \sqrt{n} } \lt \mu \lt M + 2 \frac{ \sigma }{ \sqrt{n}} \]&lt;/li&gt;
-&lt;li&gt;If we apply the above formula with 1 standard error, 1 SE, that gives us an range of which the population mean (with same intervention), with &lt;strong&gt;68% Confidence Interval&lt;/strong&gt;, to be:
-    \[  M - \frac{ \sigma }{ \sqrt{n} } \lt \mu \lt M + \frac{ \sigma }{ \sqrt{n}} \]&lt;/li&gt;
-&lt;li&gt;The Z-value that bounds 95% of the data is &lt;strong&gt;-1.96 through +1.96&lt;/strong&gt;.  That means for a sampling distribution, 95% of the sample means fall within 1.96 standard errors (SE) away from the population mean. It is also the &lt;strong&gt;95% Confidence Interval&lt;/strong&gt;.   &lt;/li&gt;
-&lt;li&gt;A &lt;strong&gt;"treatment effect"&lt;/strong&gt; occurs when the intervention affects the population mean. When the sample mean is far on the tails of the sampling distribution, and therefore unlikely to have occurred by chance, there is evidence for a treatment effect.&lt;/li&gt;
-&lt;li&gt;If we want a higher confidence interval (CI), say, &lt;strong&gt;98% Confidence Interval&lt;/strong&gt;, the z-score should be 2.33.  98% of the sample means fall within 2.33 standard error (SE) away from the population mean.  &lt;/li&gt;
-&lt;li&gt;\( \pm 2.33 \) are the critical values of Z for 98% confidence.  &lt;/li&gt;
-&lt;li&gt;\( \pm 1.96 \) are the critical values of Z for 95% confidence.&lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><category>estimation</category><category>inferential-statistics</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-8/</guid><pubDate>Wed, 14 Sep 2016 04:33:51 GMT</pubDate></item><item><title>Testing Python Code</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/08-testing/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Testing a Function&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;name_function.py&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_formatted_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="sd"&gt;""" Generated a Neatly formatted full name """&lt;/span&gt;
-    &lt;span class="n"&gt;full_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;full_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;names.py&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;name_function&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_formatted_name&lt;/span&gt;
-
-  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Enter 'q' to quit any time."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;First Name: "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;'q'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="k"&gt;break&lt;/span&gt;
-    &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;Last Name: "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;'q'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="k"&gt;break&lt;/span&gt;
-    &lt;span class="n"&gt;formatted_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_formatted_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fist&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\t&lt;/span&gt;&lt;span class="s2"&gt;Neatly formatted name: "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;formatted_name&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;"."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h4&gt;Unit Tests and Test Cases&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;A &lt;em&gt;unit test&lt;/em&gt; verifies that one specific aspect of a function's behavior is correct.  &lt;/li&gt;
-&lt;li&gt;A &lt;em&gt;test case&lt;/em&gt; is a collection of unit tests that together prove that a function behaves as it's supposed to, within the full range of situations it is expected to handle.  &lt;/li&gt;
-&lt;li&gt;A test case with &lt;em&gt;full coverage&lt;/em&gt; includes a full range of unit tests covering all the possible ways you can use a function.  Achieving full coverage on a large project can be daunting.  Aim for full coverage only if project starts to see widespread use.  &lt;/li&gt;
-&lt;li&gt;test_name_function.py (an example test case for name_function.py)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt;
-  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;name_function&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_formatted_name&lt;/span&gt;
-
-  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;NamesTestCase&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;unittest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TestCase&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="sd"&gt;""" Test for 'name_function.py' """&lt;/span&gt;
-
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_first_last_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="sd"&gt;""" Do names like 'Janis Joplin' work? """&lt;/span&gt;
-      &lt;span class="n"&gt;formatted_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_formatted_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'janis'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'joplin'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;formatted_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Janis Joplin'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-  &lt;span class="n"&gt;unittest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# tells python to run the test.&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;python3 test_name_function.py&lt;/code&gt; in CLI to run.  For now, test will pass.  &lt;/li&gt;
-&lt;li&gt;name_function.py (modified)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_formatted_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;middle&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="sd"&gt;""" Generated a Neatly formatted full name """&lt;/span&gt;
-    &lt;span class="n"&gt;full_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;middle&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;full_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;python3 test_name_function.py&lt;/code&gt; will raise error.&lt;/li&gt;
-&lt;li&gt;name_function.py (modified again, to make &lt;code&gt;middle&lt;/code&gt; optional)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_formatted_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;middle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;''&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="sd"&gt;""" Generated a Neatly formatted full name """&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;middle&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="n"&gt;full_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;middle&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;
-    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="n"&gt;full_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;full_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;python3 test_name_function.py&lt;/code&gt; will pass again.&lt;/li&gt;
-&lt;li&gt;test_name_function.py (Add new test to test both cases)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt;
-  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;name_function&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_formatted_name&lt;/span&gt;
-
-  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;NamesTestCase&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;unittest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TestCase&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="sd"&gt;""" Test for 'name_function.py' """&lt;/span&gt;
-
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_first_last_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="sd"&gt;""" Do names like 'Janis Joplin' work? """&lt;/span&gt;
-      &lt;span class="n"&gt;formatted_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_formatted_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'janis'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'joplin'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;formatted_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Janis Joplin'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_first_last_middle_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="sd"&gt;""" Do names like 'Wolfgang Amadeus Mozart' work? """&lt;/span&gt;
-      &lt;span class="n"&gt;formatted_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_formatted_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'wolfgang'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'mozart'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'amadeus'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;formatted_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Wolfgang Amadeus Mozart'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-  &lt;span class="n"&gt;unittest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# tells python to run the test.&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h4&gt;A Variety of Assert Methods&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;assertEqual(a, b) :: Verify if a == b&lt;/li&gt;
-&lt;li&gt;assertNotEqual(a, b) :: Verify if a != b&lt;/li&gt;
-&lt;li&gt;assertTrue(x) :: Verify if x is True&lt;/li&gt;
-&lt;li&gt;assertFalse(x) :: Verify if x is False&lt;/li&gt;
-&lt;li&gt;assertIn(&lt;em&gt;item&lt;/em&gt;, &lt;em&gt;list&lt;/em&gt;) :: Verify that &lt;em&gt;item&lt;/em&gt; is in &lt;em&gt;list&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;assertNotIn(&lt;em&gt;item&lt;/em&gt;, &lt;em&gt;list&lt;/em&gt;) :: Verify that &lt;em&gt;item&lt;/em&gt; is NOT in &lt;em&gt;list&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Testing a Class&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;survey.py&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;AnonymousSurvey&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="sd"&gt;""" Collect anonymous answers to a survey question. """&lt;/span&gt;
-
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;question&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="sd"&gt;""" Store a question, prepare to store responses. """&lt;/span&gt;
-      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;question&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="n"&gt;question&lt;/span&gt;
-      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;responses&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
-
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;show_question&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="sd"&gt;""" Show the survey question """&lt;/span&gt;
-      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;question&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;store_response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;new_response&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="sd"&gt;""" Store a single response to the survey. """&lt;/span&gt;
-      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;new_response&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;show_results&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="sd"&gt;""" Show all responses that had been given """&lt;/span&gt;
-      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Survey results:"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-      &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'- '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;lang_survey.py&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;survey&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;AnonymousSurvey&lt;/span&gt;
-
-  &lt;span class="n"&gt;question&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"What language did you first learn to speak? "&lt;/span&gt; &lt;span class="c1"&gt;# define question&lt;/span&gt;
-  &lt;span class="n"&gt;survey&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;AnonymousSurvey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;question&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# instantiate a survey&lt;/span&gt;
-
-  &lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show_question&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# show question&lt;/span&gt;
-  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Enter 'q' any time to quit. &lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Language: "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;'q'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="k"&gt;break&lt;/span&gt;
-    &lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store_response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;Thank you for your participation. "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show_results&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;test_survey.py (test case for survey.py)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt;
-  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;survey&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;AnonymousSurvey&lt;/span&gt;
-
-  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;TestAnonymousSurvey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;unittest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TestCase&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="sd"&gt;""" Test Case for class AnonymousSurvey """&lt;/span&gt;
-
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_store_single_response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="sd"&gt;""" Test that a single response is stored properly """&lt;/span&gt;
-      &lt;span class="n"&gt;question&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"What language did you first learn to speak? "&lt;/span&gt; &lt;span class="c1"&gt;# define question&lt;/span&gt;
-      &lt;span class="n"&gt;survey&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;AnonymousSurvey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;question&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# instantiate a survey&lt;/span&gt;
-      &lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store_response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'English'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertIn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'English'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_store_three_responses&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="sd"&gt;""" Test that a single response is stored properly """&lt;/span&gt;
-      &lt;span class="n"&gt;question&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"What language did you first learn to speak? "&lt;/span&gt; &lt;span class="c1"&gt;# define question&lt;/span&gt;
-      &lt;span class="n"&gt;survey&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;AnonymousSurvey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;question&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# instantiate a survey&lt;/span&gt;
-      &lt;span class="n"&gt;responses&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'English'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Spanish'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Mandarin'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-      &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;resp&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store_response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;resp&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-      &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;resp&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertIn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;resp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h4&gt;The setUp() Method&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;As shown in the previous test_survey.py, we define question, create new instance of survey and new responses in each test methods.  The unittest.TestCase class has a setUp() method that allows you to reate these objects once and then use them in each of your test methods.  When a setUp() method is included, Python runs the setUp() method before running each method starting with _test__.  Any objects created in the setUp() method will be available in each test method you write.  &lt;/li&gt;
-&lt;li&gt;test_survey.py (refactored with setUp() method)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt;
-  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;survey&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;AnonymousSurvey&lt;/span&gt;
-
-  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;TestAnonymousSurvey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;unittest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TestCase&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="sd"&gt;""" Test Case for class AnonymousSurvey """&lt;/span&gt;
-
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;setUp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="sd"&gt;""" Define question, create survey and a set of responses to be used in all test methods """&lt;/span&gt;
-      &lt;span class="n"&gt;question&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"What language did you first learn to speak? "&lt;/span&gt; &lt;span class="c1"&gt;# define question&lt;/span&gt;
-      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;survey&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;AnonymousSurvey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;question&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# instantiate a survey&lt;/span&gt;
-      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;responses&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'English'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Spanish'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Mandarin'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_store_single_response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="sd"&gt;""" Test that a single response is stored properly """&lt;/span&gt;
-      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store_response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'English'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-      &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertIn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'English'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_store_three_responses&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="sd"&gt;""" Test that a single response is stored properly """&lt;/span&gt;
-      &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;resp&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store_response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;resp&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-      &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;resp&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertIn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;resp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><category>python-crash-course</category><category>setUp()-method</category><category>test-cases</category><category>testing</category><category>unit-test</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/08-testing/</guid><pubDate>Wed, 07 Sep 2016 08:55:02 GMT</pubDate></item><item><title>Files and Exceptions and Storing Data</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/07-files-and-exceptions-and-storing-data/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Files&lt;/h3&gt;
-&lt;h4&gt;Filepath&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;A &lt;em&gt;relative path&lt;/em&gt; is a to look for a given location relative to the directory where the currently running program file is stored.  &lt;/li&gt;
-&lt;li&gt;An &lt;em&gt;absolute path&lt;/em&gt; is exactly the file location on your computer, regardless of where the program being executed is stored.  &lt;/li&gt;
-&lt;li&gt;&lt;code&gt;os.getcwd&lt;/code&gt; returns current working directory.  Remember to &lt;code&gt;import os&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Reading an Entire File&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;pi_digits.txt&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;3.1415926535
-  8979323846
-  2643383279
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;file_reader.py&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'pi_digits.txt'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;contents&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;contents&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;output:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;3.1415926535
-  8979323846
-  2643383279
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Note that output has an extra blank line, because read() returns an empty string when it reaches the end of the file.  To remove the extra blank line, use rstrip().  --&amp;gt; &lt;code&gt;print(contents.rstrip())&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Reading a File Line by Line&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;file_reader.py&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'pi_digits.txt'&lt;/span&gt;
-  &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rstrip&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="c1"&gt;# rstrip() removes the blank lines from .read()&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h4&gt;Making a List of Lines from a File&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;file_reader.py&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'pi_digits.txt'&lt;/span&gt;
-  &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;lines&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readlines&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-
-  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rstrip&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="c1"&gt;# rstrip() removes the blank lines from .read()&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h4&gt;Working with a File's Contents&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;file_reader.py&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'pi_digits.txt'&lt;/span&gt;
-  &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;lines&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readlines&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-
-  &lt;span class="n"&gt;pi_string&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;''&lt;/span&gt;
-  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;pi_string&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rstrip&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# rstrip() removes the blank lines from .read()&lt;/span&gt;
-
-  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pi_string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# prints 3.1415926535  8979323846  2643383279&lt;/span&gt;
-  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pi_string&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="c1"&gt;# prints 36 due to blank spaces for 2nd and 3rd lines&lt;/span&gt;
-
-  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;pi_string&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# strip all blank spaces and lines&lt;/span&gt;
-
-  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pi_string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# prints 3.141592653589793238462643383279&lt;/span&gt;
-  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pi_string&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="c1"&gt;# prints 32 due to blank spaces for 2nd and 3rd lines&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h4&gt;Writing to a File&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;write_message.py&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'writing.txt'&lt;/span&gt;
-  &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="c1"&gt;# 'w' denote writing mode&lt;/span&gt;
-    &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"I test writing."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"I test writing second line."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-  &lt;span class="c1"&gt;# Both these sentences will be written in one /same line.  &lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Insert line break.  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'writing.txt'&lt;/span&gt;
-  &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="c1"&gt;# 'w' denote writing mode&lt;/span&gt;
-    &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"I test writing. &lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"I test writing second line. &lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-  &lt;span class="c1"&gt;# Both these sentences will be written in separate line.  &lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h4&gt;Appending to a File&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;write_message.py&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'writing.txt'&lt;/span&gt;
-  &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'a'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="c1"&gt;# 'a' denotes append&lt;/span&gt;
-    &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"I test writing more."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;file_object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"I test writing the last line."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-  &lt;span class="c1"&gt;# Both these sentences will be appended to previous file content.  &lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h3&gt;Exceptions&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Python uses exceptions to manage errors that arise during a program's execution.  It is advisable to write code that handles exceptions properly so the program continues running.  If not, the program will halt and show a &lt;em&gt;traceback&lt;/em&gt;, which includes a report of the exception that was raised.&lt;/li&gt;
-&lt;li&gt;A couple of common Python exceptions are ZeroDivisionError and FileNotFound exceptions.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;try-except-else block&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;division.py (example of try-except block)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Give me two numbers, I will divide them."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Enter 'q' to quit."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-  &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;first_num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;First Number: "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;first_num&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;'q'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="k"&gt;break&lt;/span&gt;
-    &lt;span class="n"&gt;sec_num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;Second Number: "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;sec_num&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;'q'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="k"&gt;break&lt;/span&gt;
-
-    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="n"&gt;answer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first_num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sec_num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;ZeroDivisionError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"You can't divide by 0!"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="c1"&gt;# proceed if no ZeroDivisionError exception&lt;/span&gt;
-      &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;answer&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;alice.py (example of handling FileNotFound exception)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'alice.txt'&lt;/span&gt;
-
-  &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="n"&gt;contents&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-  &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="n"&gt;FileNotFoundError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;msg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"Sorry, the file "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" doesn't exist. "&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;words&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;contents&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="n"&gt;word_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;words&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"The file "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" has about "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;word_count&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" words."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;word_count.py (example of working with multiple files)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;count_words&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="sd"&gt;""" Count the approximate number of words in a file """&lt;/span&gt;
-    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;contents&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="n"&gt;FileNotFoundError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="n"&gt;msg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"Sorry, the file "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" doesn't exist. "&lt;/span&gt;
-      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="n"&gt;words&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;contents&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-      &lt;span class="n"&gt;word_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;words&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"The file "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" has about "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;word_count&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" words."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'alice.txt'&lt;/span&gt;
-  &lt;span class="n"&gt;count_words&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-  &lt;span class="n"&gt;filenames&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'alice.txt'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'siddharta.txt'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'moby_dick.txt'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'little_women.txt'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;filenames&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;count_words&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h4&gt;Failing silently&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;word_count.py&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;count_words&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="sd"&gt;""" Count the approximate number of words in a file """&lt;/span&gt;
-    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;contents&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="n"&gt;FileNotFoundError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="k"&gt;pass&lt;/span&gt; &lt;span class="c1"&gt;# pass is used to silent the error.  Often times used as a placeholder as well.&lt;/span&gt;
-    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="n"&gt;words&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;contents&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-      &lt;span class="n"&gt;word_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;words&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-      &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"The file "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" has about "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;word_count&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;" words."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'alice.txt'&lt;/span&gt;
-  &lt;span class="n"&gt;count_words&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-  &lt;span class="n"&gt;filenames&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'alice.txt'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'siddharta.txt'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'moby_dick.txt'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'little_women.txt'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;filenames&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;count_words&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;h3&gt;Storing Data&lt;/h3&gt;
-&lt;h4&gt;json.dump() and json.load()&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;num_write.py&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
-
-  &lt;span class="n"&gt;nums&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;13&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'prime.json'&lt;/span&gt;
-  &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dump&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nums&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;num_read.py&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
-
-  &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'prime.json'&lt;/span&gt;
-  &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;primes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;primes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><category>exceptions</category><category>files</category><category>python-crash-course</category><category>storing-data</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/07-files-and-exceptions-and-storing-data/</guid><pubDate>Wed, 07 Sep 2016 07:05:56 GMT</pubDate></item></channel></rss>
+&lt;strong&gt;Type II error&lt;/strong&gt;: is when you fail to reject the null when the null hypothesis is actually false.  &lt;/p&gt;&lt;/div&gt;</description><category>hypothsis-testing</category><category>inferential-statistics</category><guid>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-9/</guid><pubDate>Tue, 20 Sep 2016 09:36:10 GMT</pubDate></item></channel></rss>

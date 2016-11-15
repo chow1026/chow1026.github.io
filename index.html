@@ -39,7 +39,7 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
         all[i].SourceElement().parentNode.className += ' has-jax';
     }
 });
-</script><!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="course-notes/inferential-statistics/lesson-14/" type="text/html">
+</script><!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/multiple-github-accounts/" type="text/html">
 </head>
 <body class="test">
     <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -92,7 +92,295 @@ Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href
     <div class="content container" id="content">
     
 <div class="post">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/inferential-statistics/lesson-14/" class="u-url">Inferential Statistics - Correlations</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/multiple-github-accounts/" class="u-url">Setting Up Multiple GitHub User Account on One Machine</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-11-15T12:39:45+08:00" title="2016-11-15 12:39">2016-11-15 12:39</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>It is not unusual that developers need multiple github accounts on a single machine.  I was looking through the resources on the internet and found <a href="https://gist.github.com/jexchan/2351996/">this</a> the most useful.  None the less, I decided to write a post about this, just so for my own references.  </p>
+<p>Here are the steps:
+- Create the users (however many you need) on <a href="https://github.com/">github</a> first.     </p>
+<ul>
+<li>Use <code>ssh-keygen</code> to generate various ssh keys.  When prompted, make sure the keys are named appropriately so they can be identified easily.     </li>
+</ul>
+<pre class="code literal-block"><span></span>ssh-keygen -t rsa -C "{email1@youremail1.com}"
+ssh-keygen -t rsa -C "{email1@youremail1.com}"
+</pre>
+
+
+<p>Make sure emails used are the ones you used for creating the github accounts.    </p>
+<p>Usually ssh keys are stored under <code>home/{username}/.ssh</code> folder (or <code>/Users/{username}/.ssh</code> if you are on mac).  For example, the following keys are generated:    </p>
+<pre class="code literal-block"><span></span>~/.ssh/id_rsa_{git_username1}
+~/.ssh/id_rsa_{git_username2}
+</pre>
+
+
+<ul>
+<li>Add the keys to SSH to the SSH Agent on the system:     </li>
+</ul>
+<pre class="code literal-block"><span></span>ssh-add ~/.ssh/id_rsa_{git_username1}
+ssh-add ~/.ssh/id_rsa_{git_username2}
+</pre>
+
+
+<p>To delete ALL previously added keys:    </p>
+<pre class="code literal-block"><span></span>ssh-add -D
+</pre>
+
+
+<p>To delete a previously added key:    </p>
+<pre class="code literal-block"><span></span>ssh-add -d {id_rsa_keyname}
+</pre>
+
+
+<p>To list ALL previously added keys:    </p>
+<pre class="code literal-block"><span></span>ssh-add -l
+</pre>
+
+
+<ul>
+<li>The public keys need to be added to the github accounts accordingly.  </li>
+</ul>
+<pre class="code literal-block"><span></span>pbcopy &lt; ~/.ssh/id_rsa_{git_username1}.pub
+</pre>
+
+
+<p>Paste the content to corresponding <a href="https://github.com/settings/keys">github SSH key management</a>.   <br>
+Repeat for all other keys for other accounts.     </p>
+<ul>
+<li>Configure SSH config</li>
+</ul>
+<pre class="code literal-block"><span></span>cd ~/.ssh/
+nano config
+</pre>
+
+
+<ul>
+<li>Add the following lines, modify accordingly:</li>
+</ul>
+<pre class="code literal-block"><span></span># github_{user1} account
+Host github.com-{user1}
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_{git_username1}
+    IdentitiesOnly yes
+
+# github_{user2} account
+Host github.com-{user2}
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_{git_username2}
+    IdentitiesOnly yes
+</pre>
+
+
+<ul>
+<li>Manage Global Git Configs.  You may either define those in command line or store them in a .gitconfig_global under     </li>
+</ul>
+<pre class="code literal-block"><span></span><span class="k">[core]</span>
+       <span class="na">editor</span> <span class="o">=</span> <span class="s">atom -n -w</span>
+<span class="s">       excludesfile = {filepath}/.gitignore_global</span>
+<span class="k">[push]</span>
+       <span class="na">default</span> <span class="o">=</span> <span class="s">upstream</span>
+<span class="k">[merge]</span>
+       <span class="na">conflictstyle</span> <span class="o">=</span> <span class="s">diff3</span>
+<span class="k">[color]</span>
+       <span class="na">ui</span> <span class="o">=</span> <span class="s">true</span>
+<span class="k">[user]</span>
+       <span class="na">name</span> <span class="o">=</span> <span class="s">{leave null, define this locally}</span>
+<span class="s">       email = {leave null, define this locally}</span>
+</pre>
+
+
+<ul>
+<li>Manage Local Git Configs  <br>
+For example, github user1</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="k">[user]</span>
+        <span class="na">name</span> <span class="o">=</span> <span class="s">{github_username1}</span>
+<span class="s">        email = {github_email1}</span>
+<span class="k">[remote "origin"]</span>
+        <span class="na">url</span> <span class="o">=</span> <span class="s">git@github.com-{user1}:{github_username}/{github_repo}</span>
+</pre>
+
+
+<p>Note that the host in URL has to be the right host defined earlier in the <code>~/.ssh/config</code> file.   </p>
+<p>The same precaution has to be taken when cloning.  ie when executing <code>git clone</code> command, make sure the git host in 'copied and pasted' repo url is edited accordingly to the right user/host.  </p>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/matplotlib-on-osx-virtualenv/" class="u-url">Matplotlib on OSX with VirtualEnv/VirtualEnvWrapper (and Pip)</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-11-14T14:17:26+08:00" title="2016-11-14 14:17">2016-11-14 14:17</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>I like keeping my mini projects separate, mostly under its own virtual environment set up.  I use <a href="https://virtualenv.pypa.io/en/stable/">VirtualEnv</a> and <a href="https://virtualenvwrapper.readthedocs.io/en/latest/">VirtualEnvWrapper</a>.  </p>
+<p>As I am working on code for data analysis and data visualization, inevitably I need the matplotlib library.  Reading various resources online, I managed to get it to work.  And with this post, I hope to document the steps for future reference.  </p>
+<p>My environments:    <br>
+- MacBookPro, OS macOS Sierra (10.12.1)   <br>
+- VirtualEnv v.15.0.3   <br>
+- python v.3.5.1  <br>
+- Pip v.9.0.1    </p>
+<p>Steps:  <br>
+1. Activate the virtual environment: <code>workon {env}</code>  <br>
+2. Show pip packages: <code>pip3 list</code>  <br>
+3. Install necessary packages for data analysis and plotting: <code>pip install numpy scipy matplotlib pandas sympy nose</code>  <br>
+4. Install PyQt5: <code>pip install PyQt5</code>   <br>
+5. Modify matplotlibrc file: <code>nano {path to env}/lib/{pythonX.X}/site-packages/matplotlib/mpl-data/matplotlibrc</code>   <br>
+      - At the  top of the configurations, define backend: <code>backend    :   Qt5Agg</code>  <br>
+      - Then, define backend binding: <code>backend.qt5    :    PyQt5</code>  <br>
+      - Save file.   </p>
+<p>You are all set now.</p>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/descriptive-statistics/final_project/" class="u-url">Descriptive Statistics Final Project - Random Draws of Card Deck</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-11-14T11:39:38+08:00" title="2016-11-14 11:39">2016-11-14 11:39</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Instead of working on this project on a google sheet files, I decided to write my own python script to simulate the experiments.  </p>
+<p>1) Histogram generated shown as below.   <br><img alt="Original Cards" src="images/descriptive-statistics/original52.png"><br>
+Histogram for original card values are negatively skewed (towards right).    </p>
+<p>2) Randomly Drawing 3 Cards   <br>
+I wrote python scripts with pandas and matplotlib for the rest of the project.  </p>
+<p>3) Distribution of Sum of 3 Randomly Drawn Cards   <br><strong>30 Samples of Sum of 3 Randomly Drawn Cards</strong>   <br><img alt="30 Samples of Sum of 3 Randomly Drawn Cards" src="images/descriptive-statistics/sample30.png"></p>
+<p>Statistical Description of this sample with n = 30:  <br>
+count  30.000000  <br>
+mean   19.866667  <br>
+std     5.550603  <br>
+min     9.000000  <br>
+25%    15.000000  <br>
+50%    20.000000  <br>
+75%    24.000000  <br>
+max    30.000000    </p>
+<p><strong>500 Samples of Sum of 3 Randomly Drawn Cards</strong>      <br><img alt="500 Samples of Sum of 3 Randomly Drawn Cards" src="images/descriptive-statistics/sample500.png"></p>
+<p>Statistical Description of this sample with n = 500:  <br>
+count  500.000000  <br>
+mean    19.542000  <br>
+std      5.337529  <br>
+min      5.000000  <br>
+25%     16.000000  <br>
+50%     20.000000  <br>
+75%     24.000000  <br>
+max     30.000000    </p>
+<p>4) As sample size increases, the curve gets more normalized (bell-shaped).     </p>
+<p>5) Q:  Within what range will you expect approximately 90% of your draw values to fall? What is the approximate probability that you will get a draw value of at least 20? Make sure you justify how you obtained your values.    </p>
+<p>To determine the range where 90% of the values fall, I found the closest corresponding z-value to be 1.28.   Therefore, with the following formula, I determined the range for our sample with 30 draws, and sample with 500 draws.   </p>
+<p>\[<br>
+  z = \frac{ x - \mu }{\sigma} \\
+  x_{30, 90%} = 26.971442   \\
+  x_{500, 90%} = 26.374   \\
+\]  </p>
+<p>To draw at least 20 from each of the samples, the corresponding z values are:    </p>
+<p>\[
+  z_{30, &gt;20} = \frac{20 - 19.866667}{5.550603} = 0.024021
+  \\
+  z_{500, &gt;20} = \frac{20 - 19.542000}{5.337529} = 0.085807 \\
+\]</p>
+<p>For sample with sample size 30, at z = 0.024021, the probability is 0.51 (51%).  That means the change of drawing 3 cards with sum greater than 20 from this sample is 49%.      </p>
+<p>For sample with sample size 500, at z = 0.024021, the probability is 0.534 (53.4%).  That means the change of drawing 3 cards with sum greater than 20 from this sample is 46.6%.    </p>
+<p>Finally, here's a <a href="http://www.stat.ufl.edu/~athienit/Tables/Ztable.pdf">link to the z-table</a> for reference.  </p>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/inferential-statistics/lesson-16/" class="u-url">Inferential Statistics - Chi-Squared Tests</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-11-09T13:10:55+08:00" title="2016-11-09 13:10">2016-11-09 13:10</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Types of Data</h3>
+<ul>
+<li>
+<strong>Ordinal Data</strong> - ranks with no fixed intervals nor zeros   </li>
+<li>
+<strong>Interval Data</strong> - ranks with equal intervals     </li>
+<li>
+<strong>Ratio Data</strong> - ranks with equal intervals and an absolute zero   </li>
+<li>
+<strong>Nominal/Categorical Data</strong> - data with no numerical values (typically yes/no, in/out, successful/unsuccessful)    </li>
+</ul>
+<h3>Types of Tests</h3>
+<ul>
+<li>
+<strong>Parametric</strong> - hypothesis testing that make assumptions about the parameters of the populations, \( \mu \) and \( \sigma \).</li>
+<li>
+<strong>Non-Parametric</strong> - hypothesis testing that do not require population parameters</li>
+</ul>
+<h3>Characteristics of Non-Parametric Testings</h3>
+<ul>
+<li>There is no way to calculate a mean or standard deviation      </li>
+<li>The data is based on frequencies or proportions    </li>
+<li>The data is nominal (successful vs unsuccessful, 1 or 0, yes or no, mountain vs beach etc.)    </li>
+<li>The data are not based on Normal distribution    </li>
+</ul>
+<h3>\( \chi^2 \) Goodness of Fit Test</h3>
+<p>How well our observed frequencies 'fit' our expected frequencies? <br>
+\[
+  \chi ^2 = \sum{ \frac{(f_0 - f_e)^2}{f_e} }
+\]
+\( \chi^2 \) is smaller when the observed value is closer to the expected value.   <br>
+\( \chi^2 \) is NEVER negative and therefore \( \chi^2 \) statistic is one-directional.     </p>
+<p>For each category, we have one \( \chi^2 \) statistics.  When we have more categories, \( \chi^2 \) statistics get bigger with the number of categories.    </p>
+<h3>Degrees of Freedom</h3>
+<p>For n x m, 2 dimensional nominal data:
+\[
+  df = (N_n - 1) * (N_m - 1) \\
+  \text{where } N_n \text{ and }N_m \text{ are number of columns, and number of rows respectively. }
+\]</p>
+<h3>Cramer's V \( (\phi_c) \)</h3>
+<p>\[
+  \phi_c = \sqrt{\frac{\chi^2}{n(k-1)}}  \\
+  k \text{ is the smaller number between number of rows or number of columns}\\
+  n \text{ is the total sample size regardless of treatments}
+\]</p>
+<h3>Assumptions and Restrictions for \(\chi^2\) Tests</h3>
+<ul>
+<li>Avoid dependent observations.  Independence will be violated if any participants were given two treatments instead of one.     </li>
+<li>Avoid small expected frequencies, therefore in general have a larger number of participants.   Sample size should be at least 20, and each expected cell frequencies should be at least 5.    </li>
+</ul>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/inferential-statistics/lesson-15/" class="u-url">Inferential Statistics - Regressions</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-11-08T15:00:58+08:00" title="2016-11-08 15:00">2016-11-08 15:00</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Linear Regressions</h3>
+<p>Line of best fit forms a line to help us:  <br>
+- describe data  <br>
+- make predictions     </p>
+<p><strong>Observed Y vs Expected Y</strong>   <br><strong>Expected Y</strong> \( \hat{y} \) are the ones calculated/predicted based on the best fit regression line.  <br><strong>Observed Y</strong> \( y \) are collected data or real-life data.  <br><strong>Residual</strong> is the difference between Observed value and Expected value.  </p>
+<p>A few ways to find the line of best fit:  <br>
+- Find a line to minimize the sum of residuals.   The problem with this approach is sometimes, negative and positive residuals cancel each other out.     <br>
+- Find a line that minimize the sum of <strong>absolute</strong> residuals.  <br>
+- Find a line that minimize the sum of squared residuals, \( \sum{(y - \hat{y})} \)</p>
+<p>When we use calculus to determine the slope, b:<br>
+\[
+  b = \frac{\sum{(y_i - \bar{y})(x_i - \bar{x})}}{\sum{(x_i - \bar{x})^2}} \\
+  = r (\frac{S_y}{S_x}) \\
+  \text{where } r \text{ is Pearson's Correlation Coefficient and }\\
+   S \text{ are standard deviations of } x \text{ and } y.
+\]</p>
+<p>We have decided to symbolize the regression line by y = bx + a, where b represents the slope and a represents the y-intercept.
+Since \( b = r(\frac{S_y}{S_x}) \), we can also symbolize the regression line like this:  <br>
+\[ y = r(\frac{S_y}{S_x})x + a \]</p>
+<p><strong>Pearson's Correlation Coefficient \( r \)</strong>  <br>
+A high \(r\) value indicates a strong correlation. This could contribute to high \(r^2 \) value, which indicates the percentage of differences in Y is due to differences in X.  </p>
+<p><strong>Standard Error of Estimates</strong>  <br>
+Standard error of estimates: <br>
+\[
+SE = \sqrt{ \frac{\sum (y - \hat{y})^2}{N-2}}
+\]</p>
+<p><strong>Factors that Affect the Regressions</strong> <br>
+- outliers affect the value of r, correlation Coefficient
+- outliers also affect the linear regression line
+-</p>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/inferential-statistics/lesson-14/" class="u-url">Inferential Statistics - Correlations</a></h1>
         <div class="metadata">
             <span class="post-date dateline"><time class="published dt-published" datetime="2016-11-07T13:33:58+08:00" title="2016-11-07 13:33">2016-11-07 13:33</time></span>
         </div>
@@ -471,435 +759,6 @@ There are lots of cases where \( \delta \) was assumed 0.  </p>
 3. Sample data can be used to estimate population variances.
 4. Population variances should be roughly equal.</p>
 </div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/principles_of_adult_behavior/" class="u-url">Principles of Adult Behavior by John Perry Barlow</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-10-02T10:57:59+08:00" title="2016-10-02 10:57">2016-10-02 10:57</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<p>I stumbled upon this, a little late.  But better late than never, I hope.  </p>
-<p><strong>Principles of Adult Behavior</strong> by John Perry Barlow</p>
-<ol>
-<li>Be patient. No matter what.</li>
-<li>Don’t badmouth: Assign responsibility, not blame. Say nothing of another you wouldn’t say to him.</li>
-<li>Never assume the motives of others are, to them, less noble than yours are to you.</li>
-<li>Expand your sense of the possible.</li>
-<li>Don’t trouble yourself with matters you truly cannot change.</li>
-<li>Expect no more of anyone than you can deliver yourself.</li>
-<li>Tolerate ambiguity.</li>
-<li>Laugh at yourself frequently.</li>
-<li>Concern yourself with what is right rather than who is right.</li>
-<li>Never forget that, no matter how certain, you might be wrong.</li>
-<li>Give up blood sports.</li>
-<li>Remember that your life belongs to others as well. Don’t risk it frivolously.</li>
-<li>Never lie to anyone for any reason. (Lies of omission are sometimes exempt.)</li>
-<li>Learn the needs of those around you and respect them.</li>
-<li>Avoid the pursuit of happiness. Seek to define your mission and pursue that.</li>
-<li>Reduce your use of the first personal pronoun.</li>
-<li>Praise at least as often as you disparage.</li>
-<li>Admit your errors freely and soon.</li>
-<li>Become less suspicious of joy.</li>
-<li>Understand humility.</li>
-<li>Remember that love forgives everything.</li>
-<li>Foster dignity.</li>
-<li>Live memorably.</li>
-<li>Love yourself.</li>
-<li>Endure.</li>
-</ol>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/inferential-statistics/lesson-10/" class="u-url">Inferential Statistics - T-Test, Dependent Samples</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-29T13:09:03+08:00" title="2016-09-29 13:09">2016-09-29 13:09</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h2>T-Test</h2>
-<p>Z-test works when we know the population parameters such as \( \mu \) and \( \sigma \).  For any samples drawn from this population, the samples would form a sampling distribution that is a normal distribution, with:
-\[
-    mean = \mu  \quad\text{where M is mean of sample means}\\
-    SD = \frac{\sigma}{\sqrt{n}} \quad\text{where n is sample size}
-\]
-\( SD \) is also known as Standard Error \( SE \) which is used for Z score calculation.</p>
-<p>For any sample mean, \( M \), we can determine where it falls on this sampling distribution by standardizing, aka, finding the z-score \( Z \), given its formula below:
-\[
-    Z = \frac{M - \mu}{ SE }
-\]</p>
-<p>However, much of the times, with sample data, we don't know population \( \mu \) and population standard deviation \( \sigma \). We only have samples which we must use to draw all our conclusions.  </p>
-<p>When working with samples, we usually estimate the population standard deviation using the sample standard deviation with Bassel's correction.<br>
-\[
-  S =  \sqrt{ \frac{ \sum_1^n{ (x_{i} - \bar{x}) ^ 2 }} { n-1 } } \\
-  where S is estimated population standard deviation, n is sample size
-\]</p>
-<p>Without population parameters and with only sample data, we end up with a new distribution that is more prone to error, called the t-distribution. The t-distribution is more spread out and thicker in the tails.  </p>
-<p>Same principals applies to t-distribution.  When n increases:</p>
-<ul>
-<li>the t-distribution approaches a normal distribution</li>
-<li>the t-distribution gets skinner tails</li>
-<li>S, the estimated population standard deviation, gets closer to the real population standard deviation \( \mu \).  </li>
-</ul>
-<p>With t-distribution and t-test, we can determine:</p>
-<ol>
-<li>How different a sample mean is from a population mean</li>
-<li>How different two sample means are from each other.  These two samples can be either:<ul>
-<li>dependent</li>
-<li>independent</li>
-</ul>
-</li>
-</ol>
-<h2>Degrees of Freedom</h2>
-<p>t-distribution are defined by degrees of freedom, \(df\), which generally is \( n - 1 \) for single dimension data.  The \(df\) for 2D or 3D sample is \[df = (n-1)^d\;\text{where power d is the number of dimension}\]
-Degrees of freedom are the number of pieces of information that can be freely varied, without violating any given restrictions.  It is pieces of independent information to estimate another piece of information. As the degrees of freedom increases, it better approximates the normal distribution.
-\( n - 1 \) is also known as the effective sample size.  As shown above, it is used to estimate the population standard deviation with Basel's correction.  </p>
-<h2>Hypothesis Testing with t-statistics</h2>
-<p>Like the z-test, if the t-statistic falls far from the mean, where t-statistic is 0, we reject the null. To do so, we compare the sample mean to population mean, by calculating t-statistic.</p>
-<p>For one sample t-test, the t-statistic is:
-\[
-    t = \frac{\bar{x} - \mu_{0}}{S/\sqrt{n}} \text{where:}\\
-    \bar{x}\text{ is sample mean}\\
-    \mu_{0}\text{ is population mean}\\
-    S \text{ is standard error, aka. standard deviation of sample}\\
-    n \text{ is the sample size}
-\]
-The sample mean, \(\bar{x}\) is also the point estimate for the population mean.
-t-statistics increases when:</p>
-<ul>
-<li>a larger difference between \(\bar{x}\) and \(\mu_{0}\)</li>
-<li>larger \( n \)</li>
-</ul>
-<p>For hypothesis testing:</p>
-<ul>
-<li>The <strong>larger</strong> the value of \(\bar{x}\), the stronger the evidence that \(\mu \gt \mu_{0}\).</li>
-<li>The <strong>smaller</strong> the value of \(\bar{x}\), the stronger the evidence that \(\mu \lt \mu_{0}\).</li>
-<li>The further the value of \(\bar{x}\) from \(\mu_{0}\) in either direction, the stronger the evidence that \(\mu \neq \mu_{0}\).</li>
-</ul>
-<p>We reject the null hypothesis if the t-statistic is less than or greater than the t-critical value, at a given \( \alpha \) level.</p>
-<h2>P-Value</h2>
-<p>For one-tailed test, the P-value is the probability above the t-statistic if it is positive, and below the t-statistic if it is negative.  For two tailed test, the p-value will be the sum of probability on both ends.  We reject the null hypothesis when the p-value is less than the \( \alpha \) level.</p>
-<p>After calculating the t-statistic, we go to <a href="http://www.graphpad.com/quickcalcs/pValue1/" title="P-Value with t and DF">GraphPad</a> to get the exact P-value. There are also other calculators on <a href="http://www.graphpad.com/" title="GraphPad Calculators">GraphPad</a> that are worth checking out.  </p>
-<h2>Cohen's d</h2>
-<p>Cohen's d is another common measure of effect size, when comparing means, named after Jacobs Cohen.  It is a <strong>standardized mean difference</strong> that measures the distance between 2 means in standard deviation units.
-\[
-    Cohen's d = \frac{\bar{x} - \mu_{0}}{S} \\
-    where\;\bar{x}\text{ is sample mean, }\mu_{0}\text{ is population mean, and }S\text{ is sample standard deviation}
-\]</p>
-<h2>Confidence Interval</h2>
-<p>Confidence interval is the interval where the population mean will probably lie.<br>
-At a given confidence level, or alpha level, we first determine the t-critical value.<br>
-Confidence interval for a two-tailed test is:
-\[
-  \begin{align}
-    CI &amp; = M \pm t_{critical, \alpha} \cdot SE_{sample} \\
-    &amp; = M \pm t_{critical, \alpha} \cdot \frac{S}{\sqrt{n}}
-  \end{align}
-\]</p>
-<h2>Margin of Error</h2>
-<p>Margin of Error is one-half width of the confidence interval.  CI's upper bound is sample mean, \(M + t_{critical} \cdot \frac{S}{\sqrt{n}} \) plus margin of error; whereas CI's lower bound is sample mean, \( M - t_{critical} \cdot \frac{S}{\sqrt{n}} \).  Therefore:
-\[
-  Margin\;of\;Error = t_{critical} \cdot \frac{S}{\sqrt{n}}
-\]</p>
-<h2>Dependent t-tests</h2>
-<p>Dependent samples are generated when the same subject takes the test twice.  This is a within subject design.  Examples:</p>
-<ul>
-<li>when same subject is applied two conditions</li>
-<li>subject is given a pre-test and post-test</li>
-<li>longitudinal study (development over time)</li>
-</ul>
-<p>The within-subject designs generate paired data.  Then we look at the difference between these two sets of data, \( D_{i} \)</p>
-<h2>Types of Designs</h2>
-<ol>
-<li>Repeated measures design (eg errors on two types of keyboards)
-\[ H_{0}: \mu_{1} = \mu_{2} \]</li>
-<li>Longitudinal design
-\[ H_{0}: \mu_{time1} = \mu_{time2} \]</li>
-<li>Pre-test vs Post-test
-\[ H_{0}: \mu_{pre} = \mu_{post} \]</li>
-</ol>
-<h2>Effect Size</h2>
-<p>In experimental studies, Effect Size refers to the size of a treatment effect.  In non-experimental studies, Effect Size may refer to the strength of the relationships between the variables.  </p>
-<p>In the Z-test or one sample t-test, the mean difference is \( \bar{x} - \mu \).  Mean differences is great when we variables with easy to understand meanings.</p>
-<h3>Types of Effect Size Measures</h3>
-<p>There are many Effect Size measures, but they all fall into two main groups:</p>
-<ol>
-<li>
-<p>Difference Measures:</p>
-<ul>
-<li>Mean difference</li>
-<li>standardized difference<ul>
-<li>Cohen's d (in SD units)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>Correlation Measures:</p>
-<ul>
-<li>\( r^2 \): the proportion (or %) of variation of one variable that is related to ("explained by") another variable.<br>
-    \[ r^2 = \frac{ t^2 }{ t^2 + df } \\
-        where\; t \text{ is t statistics, not } t_{critical} \text{ and } df \text{ is degree of freedom}
-    \]</li>
-<li>\( r^2 \) is also known as the coefficient of determination.</li>
-</ul>
-</li>
-</ol>
-<h2>Statistical Significance</h2>
-<p>Statistical Significant means:
-- we reject the null
-- results are not likely due to chance (sampling error)</p>
-<h2>Meaningfulness of Results</h2>
-<ul>
-<li>What was being measured?  Do/Does the variable(s) has any practical, social, theoretical importance?</li>
-<li>Effect Size: Small effect size doesn't necessarily mean the results have lower importance, and vice versa, large effect size doesn't necessarily means the results have greater importance.  </li>
-<li>Can we rule out random chance/sampling errors?</li>
-<li>Can we rule out alternative explainations? (lurking variables)</li>
-</ul>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="books/python-design-patterns/02-singleton-design-pattern/" class="u-url">Python Design Patterns - The Singleton Design Pattern</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-27T12:06:02+08:00" title="2016-09-27 12:06">2016-09-27 12:06</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h2>Singleton Design Pattern</h2>
-<h2>Real-World Example of Singleton Pattern</h2>
-<h2>Singleton Pattern Implementation in Python</h2>
-<h2>The Monostate(Borg) Pattern</h2>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="books/python-design-patterns/01-intro/" class="u-url">Python Design Patterns - Introduction</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-26T16:22:03+08:00" title="2016-09-26 16:22">2016-09-26 16:22</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h2>Understanding Object-Oriented Programming</h2>
-<h3>Objects</h3>
-<p>Objects are described as:</p>
-<ul>
-<li>They represent entities in your application under development</li>
-<li>Entities interact among themselves to solve real-world problems</li>
-</ul>
-<h3>Classes</h3>
-<p>Classes help represent real-world entities by:</p>
-<ul>
-<li>Classes define objects in attributes and behaviors. Attributes are data members and behaviors are manifested by the member functions</li>
-<li>Classes consist of constructors that provide the initial state of these objects</li>
-<li>Classes are like templates and hence can be easily reused.</li>
-</ul>
-<h3>Methods</h3>
-<p>Methods are described as following:</p>
-<ul>
-<li>They represent the behavior of the objects.</li>
-<li>Methods work on attributes and also implement the desired functionality.</li>
-</ul>
-<pre class="code literal-block"><span></span>    <span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-      <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
-
-      <span class="k">def</span> <span class="nf">get_person</span><span class="p">(</span><span class="bp">self</span><span class="p">,)</span>
-        <span class="k">return</span> <span class="s2">"&lt;Person (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&gt;"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
-
-    <span class="n">p</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">"John Doe"</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Type of Object:"</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="s2">"Memory Address:"</span> <span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
-</pre>
-
-
-<h2>Major Aspects of Object-Oriented Programming</h2>
-<h3>Encapsulation</h3>
-<p>Key Features are:</p>
-<ul>
-<li>an object's behavior is kept hidden from the outside world or objects kept their state information private.</li>
-<li>Clients can't change the object's internal state by directly acting on them; rather clients request the object by sending messages. Based on the type of requests, objects may respond by changing their internal state using special member functions such as <code>get</code> or <code>set</code>
-</li>
-<li>In Python, the concept of encapsulation isn't implicit, as it doesn't have keywords such as public, private, and protected that are required to support encapsulation. Accessibility is on the other hand made private by prefixing <code>__</code> in the variable or function name.</li>
-</ul>
-<h3>Polymorphism</h3>
-<p>Key Features are:</p>
-<ul>
-<li>There are two types:<ul>
-<li>An object provides different implementations of the method based on input parameters.</li>
-<li>The same interface can be used by objects of different types.</li>
-</ul>
-</li>
-<li>In Python, polymorphism is built in for the language.</li>
-<li>Examples:<ul>
-<li>The + operator can act on two integers to add them or can work with strings to concatenate them.</li>
-<li>Strings, tuples and lists can all be accessed with an integer index. I.E, <code>s(1)</code>, <code>t(2)</code> or <code>l(-1)</code>.</li>
-</ul>
-</li>
-</ul>
-<h3>Inheritance</h3>
-<ul>
-<li>Inheritance indicates that one class derives (most of its) functionality from the parent class.</li>
-<li>Inheritance is described as an option to reuse functionality defined in the base class and allow independent extensions of the original software implementation.</li>
-<li>Inheritance creates hierarchy via the relationships among objects of different classes. Python, unlike Java, supports multiple inheritance (inheriting multiple base classes).</li>
-</ul>
-<h3>Abstraction</h3>
-<p>Key Features are:</p>
-<ul>
-<li>It provides you with a simple interface to the clients, where the client can interact with the class object and call methods defined in the interface.  </li>
-<li>It abstracts the complexity of internal classes with an interface so that the client needs not aware of the internal implementation.  </li>
-</ul>
-<pre class="code literal-block"><span></span>    <span class="k">class</span> <span class="nc">Adder</span><span class="p">:</span>
-      <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sum</span> <span class="o">+=</span> <span class="n">value</span>
-
-    <span class="n">acc</span> <span class="o">=</span> <span class="n">Adder</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">99</span><span class="p">):</span>
-      <span class="n">acc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-
-    <span class="k">print</span><span class="p">(</span><span class="n">acc</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
-</pre>
-
-
-<h3>Composition</h3>
-<p>Key Points:</p>
-<ul>
-<li>It is a way to combine objects or classes into more complex data structures or software implementation</li>
-<li>In composition, an object is used to call member functions other modules thereby making base functionality available across modules without inheritance.  </li>
-</ul>
-<pre class="code literal-block"><span></span>    <span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-      <span class="k">def</span> <span class="nf">a1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-      <span class="k">print</span><span class="p">(</span><span class="s2">"a1"</span><span class="p">)</span>
-
-    <span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-      <span class="k">def</span> <span class="nf">b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-      <span class="k">print</span><span class="p">(</span><span class="s2">"b"</span><span class="p">)</span>
-      <span class="n">A</span><span class="p">()</span><span class="o">.</span><span class="n">a1</span><span class="p">()</span>
-
-    <span class="n">objectB</span> <span class="o">=</span> <span class="n">B</span><span class="p">()</span>
-    <span class="n">objectB</span><span class="o">.</span><span class="n">b</span><span class="p">()</span>
-</pre>
-
-
-<h2>Object-Oriented Design Principles</h2>
-<h3>The Open/Close Principle</h3>
-<p>The open/close principle states that <em>classes or objects and methods should be open for extension but closed for modifications.</em>  </p>
-<p>For example, the open/close principle is manifested in a case where a user has to create a class implementation by extending the abstract base class to implement the required behavior instead of changing the abstract class.</p>
-<p>The advantages of this design principle are:</p>
-<ul>
-<li>Existing classes are changed and hence the chances of regression are less.</li>
-<li>It also helps maintain backward compatibility for the previous code.</li>
-</ul>
-<h3>The Inversion of Control Principle</h3>
-<p>The inversion of control principle states that <em>high-level modules shouldn't be dependent on low-level modules; they should both be dependent on abstractions.  Details should depend on abstractions but not the other way around.</em></p>
-<p>The principle suggests that any two modules shouldn't be dependent on each other in a tight way but should be decoupled with an abstraction layer in between.  It also suggests that the details of the class should represent the abstractions. In some cases, where the philosophy gets inverted and implementation details itself decide the abstraction, which should be avoided.  </p>
-<p>Advantages of the inversion of control principles are as follow:</p>
-<ul>
-<li>The tight coupling of modules is more prevalent and hence no complexity/rigidity in the system.  </li>
-<li>As there is a clear abstraction layer between dependent modules (provided by a hook or parameter), it's easy to deal with dependencies across modules in a better way.  </li>
-</ul>
-<h3>The Interface Segregation Principle</h3>
-<p>The interface segregation principle states, <em>clients should not be forced to depend on interfaces they don't use.</em></p>
-<p>It reminds developers to develop methods that relate to the functionality.  If there is any method that is not related to the interface, the class dependent on the interface has to implement it unnecessarily.  For example: a <code>Pizza</code> interface shouldn't have a method called <code>add_chicken()</code>.  The <code>VegePizza</code> class based on <code>Pizza</code> shouldn't be forced to implement this method.  </p>
-<p>Advantages of this design principle are:</p>
-<ul>
-<li>It forces developers to write thin interfaces and have methods that are specific to the interface</li>
-<li>It helps you not to populate by adding unintentional methods</li>
-</ul>
-<h3>The Single Responsibility Principle</h3>
-<p>The single responsibility principle states, <em>a class should have only one reason to change.</em>  </p>
-<p>When a class is developed, it should cater to the given functionality well.  If it is serving two functionalities, it is better to split them.  It refers to functionality as a reason to change.  For example, a class can undergo changes because of the difference in behavior expected in it, but if a class is changed for two reasons (ie changes in two functionalities), then the class should definitely be split.  </p>
-<p>Advantages of this design principle:</p>
-<ul>
-<li>Whenever there is a change in one functionality, this particular class needs to change, and nothing else.</li>
-<li>Additionally, if a class has multiple functionalities, the dependent classes will have to undergo changes for multiple reason, which gets avoided.  </li>
-</ul>
-<h3>The Single Responsibility Principle</h3>
-<p>The substitution principle states that <em>derived classes must be able to completely substitute the base classes.</em>  </p>
-<p>It says when developers write derived classes, they should extend the base classes.  The derived class should be as close to the base class as possible so much so that the derived class itself should replace the base class without any code changes.  </p>
-<h2>The Concept of Design Patterns</h2>
-<p>Design patterns were first introduced by <strong>GoF</strong> (<strong>Gang of Four</strong>), where they mentioned them as being solutions to given problems.  The book, <a href="http://bla" title="Design Patterns by Gang of Four">Design Patterns: Elements of Reusable Object-Oriented Software</a>, covers software engineering solutions to the commonly occurring problems in software design.  There are 23 design patterns first identified, and first implemented to the Java programming language.  <em>Design patterns are discoveries, and not invention in themselves.</em>  </p>
-<p>The key features of design patterns are:</p>
-<ul>
-<li>They are language-neutral and can be implemented across multiple languages</li>
-<li>They are dynamic, as new patterns get introduced every now and then</li>
-<li>They are open for customization and hence useful for developers</li>
-</ul>
-<p>One would also find:</p>
-<ul>
-<li>It is a panacea to all design problemsthat a developer has had so far</li>
-<li>It's an extraordinary, specially clever way to solving a problem</li>
-<li>Many experts in software development world agree to these solutions</li>
-<li>There's something repeatable about the design, hence the word pattern</li>
-</ul>
-<p>Completeness in a software solution refers to many factors such as design, scalability, reuse, memory utilization and etc.  </p>
-<h3>Advantages of Design Patterns</h3>
-<p>The advantages of design patterns are:
-- They are reusable across multiple projects
-- The architectural level of problems can be solved.
-- They are time-tested and well-proven, which is the experience of developers and architects
-- They have reliability and dependence</p>
-<h3>Taxonomy of Design Patterns</h3>
-<p>Not every piece of code/design can be termed as a design patterns.<br>
-- <strong>Snippet</strong>: Some code in some language for a certain purpose, for example, DB connectivity in Python can be a code Snippet
-- <strong>Design</strong>: A better solution to solve a particular problem.
-- <strong>Standard</strong>: A way to solve some kind of problems, which can be very generic and applicable to a situation at hand.
-- <strong>Pattern</strong>: A time-tested, efficient and scalable solution that will resolve entire class of known issues.  </p>
-<h3>Context - The Applicability of Design Patterns</h3>
-<p>To use design patterns efficiently, application developers must be aware of the context where design patterns apply.  Context are classified into the following categories:</p>
-<ul>
-<li>
-<strong>Participants</strong>: They are classes that are used in design patterns.  Classes play different roles to accomplish multiple goals in the pattern.  </li>
-<li>
-<strong>Non-functional Requirements</strong>: Requirements such as memory optimization, usablility and performance fall under this category.  These factors impact the complete software solution and are thus critical.</li>
-<li>
-<strong>Trade-offs</strong>: Not all design patterns fit in (application development) as it is, and trade-offs are necessary.  These are decisions
-that you take while using a design pattern in an application.  </li>
-<li>
-<strong>Results</strong>: Design patterns can have a negative impact on other parts of the code if the context is not appropriate.  Developers should understand the consequences and use of design patterns.  </li>
-</ul>
-<h2>Patterns for Dynamic Languages</h2>
-<p>Python is a dynamic language.  The dynamic nature of Python can be represented as follows:</p>
-<ul>
-<li>Types or classes are objects at runtime.</li>
-<li>Variables can have type as a value and can be modified at runtime.  For example, a = 5 and a = "John", the a variable is assigned at runtime and type also gets changed.</li>
-<li>Dynamic languages have more flexibility in terms of of class restrictions.</li>
-<li>In Python, polymorphism is built into the language, there is no keywords such as <code>private</code> and <code>protected</code> and everything is public by default.  </li>
-<li>Represents a case where design patterns can be easily implemented in dynamic languages.</li>
-</ul>
-<h2>Classifying Patterns</h2>
-<p>The GoF generally classified 23 patterns under three main categories:</p>
-<ul>
-<li>
-<p>Creational Pattern</p>
-<ul>
-<li>They work on the basis of how objects can be created</li>
-<li>They isolate the details of object creation</li>
-<li>Code is independent of the type of object to be created</li>
-<li>An example of a creation pattern is the Singleton pattern.</li>
-</ul>
-</li>
-<li>
-<p>Structural Pattern</p>
-<ul>
-<li>They design the structure of objects and classes so that they can compose to archive larger results</li>
-<li>The focus is on simplifying the structure and identifying the relationship between classes and objects</li>
-<li>They focus on class inheritance and composition</li>
-<li>An example of a behavioral pattern is the Adapter pattern.</li>
-</ul>
-</li>
-<li>
-<p>Behavioral Pattern</p>
-<ul>
-<li>They are concerned with the interaction among objects and responsibility of objects</li>
-<li>Objects should be able to interact and still be loosely coupled.  </li>
-</ul>
-</li>
-</ul>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="books/design-patterns/01-intro/" class="u-url">Introduction</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-26T16:20:47+08:00" title="2016-09-26 16:20">2016-09-26 16:20</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <p>Write your post here.</p>
     </div>
     </article>
 </div>

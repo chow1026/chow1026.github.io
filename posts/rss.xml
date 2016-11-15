@@ -1,5 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title> =^..^= MEH</title><link>https://chowy1026.github.io/</link><description></description><atom:link type="application/rss+xml" rel="self" href="https://chowy1026.github.io/posts/rss.xml"></atom:link><language>en</language><lastBuildDate>Thu, 13 Oct 2016 02:54:01 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Principles of Adult Behavior by John Perry Barlow</title><link>https://chowy1026.github.io/posts/principles_of_adult_behavior/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;I stumbled upon this, a little late.  But better late than never, I hope.  &lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title> =^..^= MEH</title><link>https://chowy1026.github.io/</link><description></description><atom:link href="https://chowy1026.github.io/posts/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Tue, 15 Nov 2016 08:32:58 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Setting Up Multiple GitHub User Account on One Machine</title><link>https://chowy1026.github.io/posts/multiple-github-accounts/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;It is not unusual that developers need multiple github accounts on a single machine.  I was looking through the resources on the internet and found &lt;a href="https://gist.github.com/jexchan/2351996/"&gt;this&lt;/a&gt; the most useful.  None the less, I decided to write a post about this, just so for my own references.  &lt;/p&gt;
+&lt;p&gt;Here are the steps:
+- Create the users (however many you need) on &lt;a href="https://github.com/"&gt;github&lt;/a&gt; first.     &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;ssh-keygen&lt;/code&gt; to generate various ssh keys.  When prompted, make sure the keys are named appropriately so they can be identified easily.     &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;ssh-keygen -t rsa -C "{email1@youremail1.com}"
+ssh-keygen -t rsa -C "{email1@youremail1.com}"
+&lt;/pre&gt;
+
+
+&lt;p&gt;Make sure emails used are the ones you used for creating the github accounts.    &lt;/p&gt;
+&lt;p&gt;Usually ssh keys are stored under &lt;code&gt;home/{username}/.ssh&lt;/code&gt; folder (or &lt;code&gt;/Users/{username}/.ssh&lt;/code&gt; if you are on mac).  For example, the following keys are generated:    &lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;~/.ssh/id_rsa_{git_username1}
+~/.ssh/id_rsa_{git_username2}
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Add the keys to SSH to the SSH Agent on the system:     &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;ssh-add ~/.ssh/id_rsa_{git_username1}
+ssh-add ~/.ssh/id_rsa_{git_username2}
+&lt;/pre&gt;
+
+
+&lt;p&gt;To delete ALL previously added keys:    &lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;ssh-add -D
+&lt;/pre&gt;
+
+
+&lt;p&gt;To delete a previously added key:    &lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;ssh-add -d {id_rsa_keyname}
+&lt;/pre&gt;
+
+
+&lt;p&gt;To list ALL previously added keys:    &lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;ssh-add -l
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;The public keys need to be added to the github accounts accordingly.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;pbcopy &amp;lt; ~/.ssh/id_rsa_{git_username1}.pub
+&lt;/pre&gt;
+
+
+&lt;p&gt;Paste the content to corresponding &lt;a href="https://github.com/settings/keys"&gt;github SSH key management&lt;/a&gt;.   &lt;br&gt;
+Repeat for all other keys for other accounts.     &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Configure SSH config&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;cd ~/.ssh/
+nano config
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Add the following lines, modify accordingly:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;# github_{user1} account
+Host github.com-{user1}
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_{git_username1}
+    IdentitiesOnly yes
+
+# github_{user2} account
+Host github.com-{user2}
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_{git_username2}
+    IdentitiesOnly yes
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Manage Global Git Configs.  You may either define those in command line or store them in a .gitconfig_global under     &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[core]&lt;/span&gt;
+       &lt;span class="na"&gt;editor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;atom -n -w&lt;/span&gt;
+&lt;span class="s"&gt;       excludesfile = {filepath}/.gitignore_global&lt;/span&gt;
+&lt;span class="k"&gt;[push]&lt;/span&gt;
+       &lt;span class="na"&gt;default&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;upstream&lt;/span&gt;
+&lt;span class="k"&gt;[merge]&lt;/span&gt;
+       &lt;span class="na"&gt;conflictstyle&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;diff3&lt;/span&gt;
+&lt;span class="k"&gt;[color]&lt;/span&gt;
+       &lt;span class="na"&gt;ui&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;true&lt;/span&gt;
+&lt;span class="k"&gt;[user]&lt;/span&gt;
+       &lt;span class="na"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;{leave null, define this locally}&lt;/span&gt;
+&lt;span class="s"&gt;       email = {leave null, define this locally}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Manage Local Git Configs  &lt;br&gt;
+For example, github user1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[user]&lt;/span&gt;
+        &lt;span class="na"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;{github_username1}&lt;/span&gt;
+&lt;span class="s"&gt;        email = {github_email1}&lt;/span&gt;
+&lt;span class="k"&gt;[remote "origin"]&lt;/span&gt;
+        &lt;span class="na"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;git@github.com-{user1}:{github_username}/{github_repo}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Note that the host in URL has to be the right host defined earlier in the &lt;code&gt;~/.ssh/config&lt;/code&gt; file.   &lt;/p&gt;
+&lt;p&gt;The same precaution has to be taken when cloning.  ie when executing &lt;code&gt;git clone&lt;/code&gt; command, make sure the git host in 'copied and pasted' repo url is edited accordingly to the right user/host.  &lt;/p&gt;&lt;/div&gt;</description><guid>https://chowy1026.github.io/posts/multiple-github-accounts/</guid><pubDate>Tue, 15 Nov 2016 04:39:45 GMT</pubDate></item><item><title>Matplotlib on OSX with VirtualEnv/VirtualEnvWrapper (and Pip)</title><link>https://chowy1026.github.io/posts/matplotlib-on-osx-virtualenv/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;I like keeping my mini projects separate, mostly under its own virtual environment set up.  I use &lt;a href="https://virtualenv.pypa.io/en/stable/"&gt;VirtualEnv&lt;/a&gt; and &lt;a href="https://virtualenvwrapper.readthedocs.io/en/latest/"&gt;VirtualEnvWrapper&lt;/a&gt;.  &lt;/p&gt;
+&lt;p&gt;As I am working on code for data analysis and data visualization, inevitably I need the matplotlib library.  Reading various resources online, I managed to get it to work.  And with this post, I hope to document the steps for future reference.  &lt;/p&gt;
+&lt;p&gt;My environments:    &lt;br&gt;
+- MacBookPro, OS macOS Sierra (10.12.1)   &lt;br&gt;
+- VirtualEnv v.15.0.3   &lt;br&gt;
+- python v.3.5.1  &lt;br&gt;
+- Pip v.9.0.1    &lt;/p&gt;
+&lt;p&gt;Steps:  &lt;br&gt;
+1. Activate the virtual environment: &lt;code&gt;workon {env}&lt;/code&gt;  &lt;br&gt;
+2. Show pip packages: &lt;code&gt;pip3 list&lt;/code&gt;  &lt;br&gt;
+3. Install necessary packages for data analysis and plotting: &lt;code&gt;pip install numpy scipy matplotlib pandas sympy nose&lt;/code&gt;  &lt;br&gt;
+4. Install PyQt5: &lt;code&gt;pip install PyQt5&lt;/code&gt;   &lt;br&gt;
+5. Modify matplotlibrc file: &lt;code&gt;nano {path to env}/lib/{pythonX.X}/site-packages/matplotlib/mpl-data/matplotlibrc&lt;/code&gt;   &lt;br&gt;
+      - At the  top of the configurations, define backend: &lt;code&gt;backend    :   Qt5Agg&lt;/code&gt;  &lt;br&gt;
+      - Then, define backend binding: &lt;code&gt;backend.qt5    :    PyQt5&lt;/code&gt;  &lt;br&gt;
+      - Save file.   &lt;/p&gt;
+&lt;p&gt;You are all set now.&lt;/p&gt;&lt;/div&gt;</description><category>Matplotlib</category><category>OSX</category><category>VirtualEnv</category><category>VirtualEnvWrapper</category><guid>https://chowy1026.github.io/posts/matplotlib-on-osx-virtualenv/</guid><pubDate>Mon, 14 Nov 2016 06:17:26 GMT</pubDate></item><item><title>Principles of Adult Behavior by John Perry Barlow</title><link>https://chowy1026.github.io/posts/principles_of_adult_behavior/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;I stumbled upon this, a little late.  But better late than never, I hope.  &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Principles of Adult Behavior&lt;/strong&gt; by John Perry Barlow&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Be patient. No matter what.&lt;/li&gt;

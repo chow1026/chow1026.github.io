@@ -93,7 +93,149 @@ Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href
 <div class="sectionindex">
     <header><h2><a href=".">Posts</a></h2>
     </header><div class="post">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="principles_of_adult_behavior/" class="u-url">Principles of Adult Behavior by John Perry Barlow</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="multiple-github-accounts/" class="u-url">Setting Up Multiple GitHub User Account on One Machine</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-11-15T12:39:45+08:00" title="2016-11-15 12:39">2016-11-15 12:39</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>It is not unusual that developers need multiple github accounts on a single machine.  I was looking through the resources on the internet and found <a href="https://gist.github.com/jexchan/2351996/">this</a> the most useful.  None the less, I decided to write a post about this, just so for my own references.  </p>
+<p>Here are the steps:
+- Create the users (however many you need) on <a href="https://github.com/">github</a> first.     </p>
+<ul>
+<li>Use <code>ssh-keygen</code> to generate various ssh keys.  When prompted, make sure the keys are named appropriately so they can be identified easily.     </li>
+</ul>
+<pre class="code literal-block"><span></span>ssh-keygen -t rsa -C "{email1@youremail1.com}"
+ssh-keygen -t rsa -C "{email1@youremail1.com}"
+</pre>
+
+
+<p>Make sure emails used are the ones you used for creating the github accounts.    </p>
+<p>Usually ssh keys are stored under <code>home/{username}/.ssh</code> folder (or <code>/Users/{username}/.ssh</code> if you are on mac).  For example, the following keys are generated:    </p>
+<pre class="code literal-block"><span></span>~/.ssh/id_rsa_{git_username1}
+~/.ssh/id_rsa_{git_username2}
+</pre>
+
+
+<ul>
+<li>Add the keys to SSH to the SSH Agent on the system:     </li>
+</ul>
+<pre class="code literal-block"><span></span>ssh-add ~/.ssh/id_rsa_{git_username1}
+ssh-add ~/.ssh/id_rsa_{git_username2}
+</pre>
+
+
+<p>To delete ALL previously added keys:    </p>
+<pre class="code literal-block"><span></span>ssh-add -D
+</pre>
+
+
+<p>To delete a previously added key:    </p>
+<pre class="code literal-block"><span></span>ssh-add -d {id_rsa_keyname}
+</pre>
+
+
+<p>To list ALL previously added keys:    </p>
+<pre class="code literal-block"><span></span>ssh-add -l
+</pre>
+
+
+<ul>
+<li>The public keys need to be added to the github accounts accordingly.  </li>
+</ul>
+<pre class="code literal-block"><span></span>pbcopy &lt; ~/.ssh/id_rsa_{git_username1}.pub
+</pre>
+
+
+<p>Paste the content to corresponding <a href="https://github.com/settings/keys">github SSH key management</a>.   <br>
+Repeat for all other keys for other accounts.     </p>
+<ul>
+<li>Configure SSH config</li>
+</ul>
+<pre class="code literal-block"><span></span>cd ~/.ssh/
+nano config
+</pre>
+
+
+<ul>
+<li>Add the following lines, modify accordingly:</li>
+</ul>
+<pre class="code literal-block"><span></span># github_{user1} account
+Host github.com-{user1}
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_{git_username1}
+    IdentitiesOnly yes
+
+# github_{user2} account
+Host github.com-{user2}
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_{git_username2}
+    IdentitiesOnly yes
+</pre>
+
+
+<ul>
+<li>Manage Global Git Configs.  You may either define those in command line or store them in a .gitconfig_global under     </li>
+</ul>
+<pre class="code literal-block"><span></span><span class="k">[core]</span>
+       <span class="na">editor</span> <span class="o">=</span> <span class="s">atom -n -w</span>
+<span class="s">       excludesfile = {filepath}/.gitignore_global</span>
+<span class="k">[push]</span>
+       <span class="na">default</span> <span class="o">=</span> <span class="s">upstream</span>
+<span class="k">[merge]</span>
+       <span class="na">conflictstyle</span> <span class="o">=</span> <span class="s">diff3</span>
+<span class="k">[color]</span>
+       <span class="na">ui</span> <span class="o">=</span> <span class="s">true</span>
+<span class="k">[user]</span>
+       <span class="na">name</span> <span class="o">=</span> <span class="s">{leave null, define this locally}</span>
+<span class="s">       email = {leave null, define this locally}</span>
+</pre>
+
+
+<ul>
+<li>Manage Local Git Configs  <br>
+For example, github user1</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="k">[user]</span>
+        <span class="na">name</span> <span class="o">=</span> <span class="s">{github_username1}</span>
+<span class="s">        email = {github_email1}</span>
+<span class="k">[remote "origin"]</span>
+        <span class="na">url</span> <span class="o">=</span> <span class="s">git@github.com-{user1}:{github_username}/{github_repo}</span>
+</pre>
+
+
+<p>Note that the host in URL has to be the right host defined earlier in the <code>~/.ssh/config</code> file.   </p>
+<p>The same precaution has to be taken when cloning.  ie when executing <code>git clone</code> command, make sure the git host in 'copied and pasted' repo url is edited accordingly to the right user/host.  </p>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="matplotlib-on-osx-virtualenv/" class="u-url">Matplotlib on OSX with VirtualEnv/VirtualEnvWrapper (and Pip)</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-11-14T14:17:26+08:00" title="2016-11-14 14:17">2016-11-14 14:17</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>I like keeping my mini projects separate, mostly under its own virtual environment set up.  I use <a href="https://virtualenv.pypa.io/en/stable/">VirtualEnv</a> and <a href="https://virtualenvwrapper.readthedocs.io/en/latest/">VirtualEnvWrapper</a>.  </p>
+<p>As I am working on code for data analysis and data visualization, inevitably I need the matplotlib library.  Reading various resources online, I managed to get it to work.  And with this post, I hope to document the steps for future reference.  </p>
+<p>My environments:    <br>
+- MacBookPro, OS macOS Sierra (10.12.1)   <br>
+- VirtualEnv v.15.0.3   <br>
+- python v.3.5.1  <br>
+- Pip v.9.0.1    </p>
+<p>Steps:  <br>
+1. Activate the virtual environment: <code>workon {env}</code>  <br>
+2. Show pip packages: <code>pip3 list</code>  <br>
+3. Install necessary packages for data analysis and plotting: <code>pip install numpy scipy matplotlib pandas sympy nose</code>  <br>
+4. Install PyQt5: <code>pip install PyQt5</code>   <br>
+5. Modify matplotlibrc file: <code>nano {path to env}/lib/{pythonX.X}/site-packages/matplotlib/mpl-data/matplotlibrc</code>   <br>
+      - At the  top of the configurations, define backend: <code>backend    :   Qt5Agg</code>  <br>
+      - Then, define backend binding: <code>backend.qt5    :    PyQt5</code>  <br>
+      - Save file.   </p>
+<p>You are all set now.</p>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="principles_of_adult_behavior/" class="u-url">Principles of Adult Behavior by John Perry Barlow</a></h1>
         <div class="metadata">
             <span class="post-date dateline"><time class="published dt-published" datetime="2016-10-02T10:57:59+08:00" title="2016-10-02 10:57">2016-10-02 10:57</time></span>
         </div>

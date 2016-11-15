@@ -15,7 +15,7 @@ The Central Limit Theorem allows us to know where any sample mean falls on a dis
 whether the population distribution is normal or not:
 
 1. The mean of the sample means is the same as the population mean, i.e.
-\\[ M = \mu} \\] where M is mean of sample means, \\(\mu\\) is mean of population
+\\[ M = \mu \\] where M is mean of sample means, \\(\mu\\) is mean of population
 2. The Standard Error, which is the standard deviation of the Sample Means (also known as Sampling Distribution) is estimated by the following formula:
 \\[ SE = \frac{\sigma}{ \sqrt{n}} \\]
 3. The distribution of sample means will become increasingly more normal as the sample size, n,  increases.
