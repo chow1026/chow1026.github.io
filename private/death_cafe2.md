@@ -23,8 +23,8 @@ If I were sick in bed, dying, what would I like others, those next to me, to do 
 
 Can death be beautiful?
 
-I don't need anyone to fix my lightbulb.  I just need someone who could fix me.  
+I don't need a boyfriend to fix my lightbulb.  I just need someone who could fix me.  
 
 I crave for someone to ask me: "Are you ok? "
 
-I need help healing... 
+I need help healing...
