@@ -1,6 +1,6 @@
 <!--
-.. title: Supervised Learning - Decision Trees
-.. slug: 03-supervised_learning-decision_trees
+.. title: Supervised Learning - Decision Tree
+.. slug: 03-supervised_learning-decision_tree
 .. date: 2017-04-03 17:14:29 UTC+08:00
 .. tags:
 .. category:
