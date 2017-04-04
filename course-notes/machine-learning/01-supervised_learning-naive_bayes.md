@@ -109,3 +109,12 @@ Naive Bayes is a pretty good algorithm for text learning.  Naive Bayes is called
 
 ## Cons:
 - It could break when phrases that encompasses multiple words that have distinctive meanings don't really work well.  For example Chicago Bulls will be interpreted as "Chicago" and "Bulls", but that's not what Chicago Bulls is.
+
+
+# Other references:
+- [Scikit-Learn Naive Bayes][f41fca45]
+- [Scikit-Learn Gaussian Naive Bayes][ec9c7610]    
+
+
+  [ec9c7610]: http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html "Scikit-Learn Gaussian Naive Bayes"
+  [f41fca45]: http://scikit-learn.org/stable/modules/classes.html#module-sklearn.naive_bayes "Scikit-Learn Naive Bayes"

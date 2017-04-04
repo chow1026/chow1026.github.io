@@ -69,3 +69,15 @@ SVMs can be used to solve various real world problems:
 The original SVM algorithm was invented by Vladimir N. Vapnik and Alexey Ya. Chervonenkis in 1963. In 1992, Bernhard E. Boser, Isabelle M. Guyon and Vladimir N. Vapnik suggested a way to create nonlinear classifiers by applying the [kernel trick][8620456d] to maximum-margin hyperplanes.  The current standard incarnation (soft margin) was proposed by Corinna Cortes and Vapnik in 1993 and published in 1995.    
 
   [8620456d]: https://en.wikipedia.org/wiki/Kernel_method "Kernel Trick"
+
+
+# Other Useful Resources     
+- [Scikit-Learn Support Vector Machine][d33eddac]     
+- [Scikit-Learn Support Vector Classifier][eb0e4792]
+- [Scikit-Learn SVC User Guide][10a01979]
+- [Scikit-Learn Kernel Functions][1b26a16a]
+
+  [d33eddac]: http://scikit-learn.org/stable/modules/svm.html "Scikit-Learn SVM"
+  [1b26a16a]: http://scikit-learn.org/stable/modules/svm.html#svm-kernels "SVM Kernels"
+  [eb0e4792]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC "Scikit-Learn Support Vector Classifier"
+  [10a01979]: http://scikit-learn.org/stable/modules/svm.html#svm-classification "SVC User Guide"

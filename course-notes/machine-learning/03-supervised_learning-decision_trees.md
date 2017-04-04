@@ -44,7 +44,7 @@ Decision trees are commonly used in operations research and [operations manageme
   [3662240d]: https://en.wikipedia.org/wiki/Utility#Utility_functions "Utility Functions"
 
 
-## Data Impurity and Entropy      
+# Data Impurity and Entropy      
 A decision tree is built top-down from a root node and involves partitioning the data into subsets that contain instances with similar values (homogenous). ID3 algorithm uses entropy to calculate the homogeneity of a sample. If the sample is completely homogeneous the entropy is zero and if the sample is an equally divided it has entropy of one.
 \begin{aligned}
 p &= 0.5\\\\
@@ -69,11 +69,10 @@ E(T,X) = - \sum_{c\in X}\;P(c)\,E(c)
 \\]
 
 
-## Information Gain    
+# Information Gain    
 The information gain is based on the decrease in entropy after a dataset is split on an attribute. Constructing a decision tree is all about finding attribute that returns the highest information gain (i.e., the most homogeneous branches).    
 
 Step 1: Calculate entropy of the target.    
-
 
 Step 2: The dataset is then split on the different attributes. The entropy for each branch is calculated. Then it is added proportionally, to get total entropy for the split. The resulting entropy is subtracted from the entropy before the split. The result is the Information Gain, or decrease in entropy.      
 \begin{aligned}
@@ -83,13 +82,31 @@ Gain(T, X) &= Entropy(T) - Entropy(T,X)\\\\
 
 Step 3: Choose attribute with the largest information gain as the decision node, divide the dataset by its branches and repeat the same process on every branch.     
 
-
-
-
 Step 4a: A branch with entropy of 0 is a leaf node.     
-
 
 Step 4b: A branch with entropy more than 0 needs further splitting.     
 
-
 Step 5: The ID3 algorithm is run recursively on the non-leaf branches, until all data is classified.      
+
+# Decision Tree Strengths and Weaknesses    
+## Strengths    
+- Easy to use,
+- Beautiful to draw/grow
+- Graphically describes the data
+- Bigger, custom classifiers can be built out of decision tree via ensemble methods.
+
+## Weaknesses    
+- Prone to overfitting, esp too many features
+- Needs to pay attention to tuning parameters, stop the growth of the tree (by tuning min samples split) at the appropriate time
+-
+
+# Other useful references:
+- [[Gini vs Entropy][644efd5f]]     
+- [Decision Tree][b595f9c8] by Saed Sayad     
+- [Scikit-Learn Decision Tree][cbbaaad2]     
+- [Scikit-Learn DT Classifier][56939f3e]     
+
+  [b595f9c8]: http://www.saedsayad.com/decision_tree.htm "Decision Tree"
+  [644efd5f]: https://www.garysieling.com/blog/sklearn-gini-vs-entropy-criteria "Gini vs Entropy"
+  [cbbaaad2]: http://scikit-learn.org/stable/modules/tree.html#tree "Scikit-Learn Decision Tree"
+  [56939f3e]: http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html#sklearn.tree.DecisionTreeClassifier "Scikit-Learn Decision Tree Classifier"
