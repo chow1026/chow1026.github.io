@@ -1,7 +1,7 @@
 <!--
 .. title: Supervised Learning - Introduction
 .. slug: 00-supervised_learning-introduction
-.. date: 2017-04-03 14:25:23 UTC+08:00
+.. date: 2017-03-26 14:25:23 UTC+08:00
 .. tags:
 .. category:
 .. link:
@@ -31,7 +31,7 @@ In order to solve a given problem of supervised learning, one has to perform the
 5. Complete the design. Run the learning algorithm on the gathered training set. Some supervised learning algorithms require the user to determine certain control parameters. These parameters may be adjusted by optimizing performance on a subset (called a validation set) of the training set, or via [cross-validation][376db099].          
 6. Evaluate the accuracy of the learned function. After parameter adjustment and learning, the performance of the resulting function should be measured on a test set that is separate from the training set.          
 7. A wide range of supervised learning algorithms are available, each with its strengths and weaknesses. There is no single learning algorithm that works best on all supervised learning problems (see the [No free lunch theorem][6f02ac4a]).     
-8.
+
 
   [cfa655ec]: https://en.wikipedia.org/wiki/Curse_of_dimensionality "Curse of Dimensionality"
   [b692aeef]: https://en.wikipedia.org/wiki/Support_vector_machine "Support Vector Machine (SVM)"
@@ -43,7 +43,7 @@ There are four major issues to consider in supervised learning:
 
 ### Bias-variance tradeoff       
 
-        _Main article: [Bias-variance dilemma][0b76054f]_     
+_Main article: [Bias-variance dilemma][0b76054f]_     
 
 A first issue is the tradeoff between bias and variance. Imagine that we have available several different, but equally good, training data sets. A learning algorithm is biased for a particular input \\( x \\) if, when trained on each of these data sets, it is systematically incorrect when predicting the correct output for \\( x \\) . A learning algorithm has high variance for a particular input \\( x \\) if it predicts different output values when trained on different training sets. The prediction error of a learned classifier is related to the sum of the bias and the variance of the learning algorithm. Generally, there is a tradeoff between bias and variance. A learning algorithm with low bias must be "flexible" so that it can fit the data well. But if the learning algorithm is too flexible, it will fit each training data set differently, and hence have high variance. A key aspect of many supervised learning methods is that they are able to adjust this tradeoff between bias and variance (either automatically or by providing a bias/variance parameter that the user can adjust).
 
@@ -71,7 +71,7 @@ Other factors to consider when choosing and applying a learning algorithm includ
 2. Redundancy in the data. If the input features contain redundant information (e.g., highly correlated features), some learning algorithms (e.g., linear regression, logistic regression, and distance based methods) will perform poorly because of numerical instabilities. These problems can often be solved by imposing some form of regularization.       
 3. Presence of interactions and non-linearities. If each of the features makes an independent contribution to the output, then algorithms based on linear functions (e.g., linear regression, logistic regression, Support Vector Machines, naive Bayes) and distance functions (e.g., nearest neighbor methods, support vector machines with Gaussian kernels) generally perform well. However, if there are complex interactions among features, then algorithms such as decision trees and neural networks work better, because they are specifically designed to discover these interactions. Linear methods can also be applied, but the engineer must manually specify the interactions when using them.     
 4. When considering a new application, the engineer can compare multiple learning algorithms and experimentally determine which one works best on the problem at hand (see cross validation). Tuning the performance of a learning algorithm can be very time-consuming. Given fixed resources, it is often better to spend more time collecting additional training data and more informative features than it is to spend extra time tuning the learning algorithms.       
-5.
+
 
 The most widely used learning algorithms are [Support Vector Machines][b692aeef], [linear regression][2cc2fe71], [logistic regression][377b1b10], [naive Bayes][3224e296], [linear discriminant analysis][eea42f1c], [decision trees][9297532d], [k-nearest neighbor algorithm][ddd94e19], and [Neural Networks][7f732413] ([Multilayer perceptron][c702143f]).
 

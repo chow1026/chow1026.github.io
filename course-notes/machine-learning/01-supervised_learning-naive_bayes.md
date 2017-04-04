@@ -40,38 +40,62 @@ An advantage of naive Bayes is that it only requires a small number of training 
 
 Prior Probability * Test Evidence (in Probability) = Posterior Probability
 
-Cancer Example:     
-Prior Probabilities:
-P(C) = 0.01  {Prior Cancer Probability is 1%}
-\therefore P(NC) = 1 - P(C) = 0.99
+**Cancer Example:**         
+Prior Probabilities {Prior Cancer Probability is 1%}:   
+\begin{aligned}
+P(C) &= 0.01\\\\
+\therefore\; P(NC) &= 1 - P(C)\\\\
+&= 0.99
+\end{aligned}
 
 
-Test Evidence, Sensitivity and Specificity Probabilities
-Test Sensitivity, P(Pos|C) = 0.9
-\therefore, P(Neg|C) = 1 - 0.9 = 0.1
-Test specificity, P(Neg|NC) = 0.9
-\therefore, P(Pos|NC) = 1 - 0.9 = 0.1
+Test Evidence, Sensitivity and Specificity Probabilities:      
+_Test Sensitivity_
+\begin{aligned}
+P(Pos|C) &= 0.9\\\\
+\therefore\; P(Neg|C) &= 1 - 0.9\\\\
+&= 0.1   
+\end{aligned}
 
-Joint Probability
-P(C, Pos) = P(C) * P(Pos|C) = 0.009
-P(NC, Pos) = P(NC) * P(Pos|NC) = 0.099
+_Test specificity_
+\begin{aligned}
+P(Neg|NC) &= 0.9\\\\  
+\therefore\; P(Pos|NC) &= 1 - 0.9\\\\
+&= 0.1  
+\end{aligned}
 
-P(Pos) = P(C|Pos) + P(NC|Pos) = 0.009 + 0.099 = 0.108
+Joint Probability:     
+\begin{aligned}
+P(C, Pos) &= P(C) * P(Pos|C)\\\\
+&= 0.009\\\\\\\\
+P(NC, Pos) &= P(NC) * P(Pos|NC)\\\\
+&= 0.099\\\\\\\\
+P(Pos) &= P(C|Pos) + P(NC|Pos)\\\\
+&= 0.009 + 0.099 \\\\
+&= 0.108
+\end{aligned}
 
-Normalized Posterior Probability
-P(C|Pos) = P(C, Pos) / P(Pos) =  0.009 / 0.108 = 0.0833
-P(NC|Pos) = P(NC, Pos) / P(Pos) =  0.099 / 0.108 = 0.9167
 
+Normalized Posterior Probability:
+\begin{aligned}
+P(C|Pos) &= P(C, Pos) / P(Pos)\\\\
+&=  0.009 / 0.108\\\\
+&= 0.0833
+\\\\\\\\
+P(NC|Pos) &= P(NC, Pos) / P(Pos)\\\\
+&=  0.099 / 0.108\\\\
+&= 0.9167
+\end{aligned}
 
-Legends:
-P(C) = Prior Cancer Probability, in this case 1%
-P(NC) = Prior non-Cancer Probability, 1-P(C), in this case 99%
-P(C, Pos) = Joint probability that one having cancer AND tested positive
-P(NC, Pos) = Joint probability that one does not have cancer AND tested positive
-P(C|Pos) => Posterior probability of having cancer given one is tested positive
-P(NC|Pos) => Posterior probability of NOT having cancer given one is tested positive
-P(Pos|C) => Test sensitivity, Probability of tested positive if one has cancer
-P(Neg|NC) => Test specificity, Probability of tested negative if one has NO cancer.
+Legends:     
+- \\(P(C)\\): Prior Cancer Probability, in this case 1%
+- \\(P(NC)\\): Prior non-Cancer Probability, 1-P(C), in this case 99%    
+- \\(P(C, Pos)\\): Joint probability that one having cancer AND tested positive     
+- \\(P(NC, Pos)\\): Joint probability that one does not have cancer AND tested positive      
+- \\(P(C|Pos)\\): Posterior probability of having cancer given one is tested positive     
+- \\(P(NC|Pos)\\): Posterior probability of NOT having cancer given one is tested positive     
+- \\(P(Pos|C)\\): Test sensitivity, Probability of tested positive if one has cancer     
+- \\(P(Neg|NC)\\): Test specificity, Probability of tested negative if one has NO cancer.
 
 ## Common Usage     
 
