@@ -1,6 +1,6 @@
 <!--
 .. title: Supervised Learning - Random Forest
-.. slug: 04-supervised_learning-random_forest
+.. slug: 05-supervised_learning-random_forest
 .. date: 2017-04-04 14:22:30 UTC+08:00
 .. tags:
 .. category:
