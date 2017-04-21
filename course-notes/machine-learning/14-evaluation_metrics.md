@@ -76,6 +76,11 @@ It is a special kind of [contingency table][11df1c45], with two dimensions ("act
 
   [11df1c45]: https://en.wikipedia.org/wiki/Contingency_table "Contingency Table"
 
+### NOTES FROM UDACITY CLASS:     
+**Recall**: True Positive / (True Positive + False Negative). Out of all the items that are truly positive, how many were correctly classified as positive. Or simply, how many positive items were 'recalled' from the dataset.      
+
+**Precision**: True Positive / (True Positive + False Positive). Out of all the items labeled as positive, how many truly belong to the positive class.      
+
 ### Terminology and derivations from a confusion matrix
 
 **condition positive (P)** :: the number of real positive cases in the data      
