@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title> =^..^= MEH</title><link>https://chowy1026.github.io/</link><description></description><atom:link href="https://chowy1026.github.io/posts/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Tue, 15 Nov 2016 08:32:58 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Setting Up Multiple GitHub User Account on One Machine</title><link>https://chowy1026.github.io/posts/multiple-github-accounts/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;It is not unusual that developers need multiple github accounts on a single machine.  I was looking through the resources on the internet and found &lt;a href="https://gist.github.com/jexchan/2351996/"&gt;this&lt;/a&gt; the most useful.  None the less, I decided to write a post about this, just so for my own references.  &lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title> =^..^= MEH</title><link>https://chowy1026.github.io/</link><description></description><atom:link type="application/rss+xml" href="https://chowy1026.github.io/posts/rss.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Tue, 04 Apr 2017 03:48:42 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Setting Up Multiple GitHub User Account on One Machine</title><link>https://chowy1026.github.io/posts/multiple-github-accounts/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;It is not unusual that developers need multiple github accounts on a single machine.  I was looking through the resources on the internet and found &lt;a href="https://gist.github.com/jexchan/2351996/"&gt;this&lt;/a&gt; the most useful.  None the less, I decided to write a post about this, just so for my own references.  &lt;/p&gt;
 &lt;p&gt;Here are the steps:
 - Create the users (however many you need) on &lt;a href="https://github.com/"&gt;github&lt;/a&gt; first.     &lt;/p&gt;
 &lt;ul&gt;
@@ -123,76 +123,7 @@ For example, github user1&lt;/li&gt;
       - At the  top of the configurations, define backend: &lt;code&gt;backend    :   Qt5Agg&lt;/code&gt;  &lt;br&gt;
       - Then, define backend binding: &lt;code&gt;backend.qt5    :    PyQt5&lt;/code&gt;  &lt;br&gt;
       - Save file.   &lt;/p&gt;
-&lt;p&gt;You are all set now.&lt;/p&gt;&lt;/div&gt;</description><category>Matplotlib</category><category>OSX</category><category>VirtualEnv</category><category>VirtualEnvWrapper</category><guid>https://chowy1026.github.io/posts/matplotlib-on-osx-virtualenv/</guid><pubDate>Mon, 14 Nov 2016 06:17:26 GMT</pubDate></item><item><title>Principles of Adult Behavior by John Perry Barlow</title><link>https://chowy1026.github.io/posts/principles_of_adult_behavior/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;I stumbled upon this, a little late.  But better late than never, I hope.  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Principles of Adult Behavior&lt;/strong&gt; by John Perry Barlow&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Be patient. No matter what.&lt;/li&gt;
-&lt;li&gt;Don’t badmouth: Assign responsibility, not blame. Say nothing of another you wouldn’t say to him.&lt;/li&gt;
-&lt;li&gt;Never assume the motives of others are, to them, less noble than yours are to you.&lt;/li&gt;
-&lt;li&gt;Expand your sense of the possible.&lt;/li&gt;
-&lt;li&gt;Don’t trouble yourself with matters you truly cannot change.&lt;/li&gt;
-&lt;li&gt;Expect no more of anyone than you can deliver yourself.&lt;/li&gt;
-&lt;li&gt;Tolerate ambiguity.&lt;/li&gt;
-&lt;li&gt;Laugh at yourself frequently.&lt;/li&gt;
-&lt;li&gt;Concern yourself with what is right rather than who is right.&lt;/li&gt;
-&lt;li&gt;Never forget that, no matter how certain, you might be wrong.&lt;/li&gt;
-&lt;li&gt;Give up blood sports.&lt;/li&gt;
-&lt;li&gt;Remember that your life belongs to others as well. Don’t risk it frivolously.&lt;/li&gt;
-&lt;li&gt;Never lie to anyone for any reason. (Lies of omission are sometimes exempt.)&lt;/li&gt;
-&lt;li&gt;Learn the needs of those around you and respect them.&lt;/li&gt;
-&lt;li&gt;Avoid the pursuit of happiness. Seek to define your mission and pursue that.&lt;/li&gt;
-&lt;li&gt;Reduce your use of the first personal pronoun.&lt;/li&gt;
-&lt;li&gt;Praise at least as often as you disparage.&lt;/li&gt;
-&lt;li&gt;Admit your errors freely and soon.&lt;/li&gt;
-&lt;li&gt;Become less suspicious of joy.&lt;/li&gt;
-&lt;li&gt;Understand humility.&lt;/li&gt;
-&lt;li&gt;Remember that love forgives everything.&lt;/li&gt;
-&lt;li&gt;Foster dignity.&lt;/li&gt;
-&lt;li&gt;Live memorably.&lt;/li&gt;
-&lt;li&gt;Love yourself.&lt;/li&gt;
-&lt;li&gt;Endure.&lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><category>adult</category><category>behavior</category><category>john perry barlow</category><category>principles</category><guid>https://chowy1026.github.io/posts/principles_of_adult_behavior/</guid><pubDate>Sun, 02 Oct 2016 02:57:59 GMT</pubDate></item><item><title>Being Oblivious</title><link>https://chowy1026.github.io/posts/plum_blossom_tree/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;A random story.  &lt;/p&gt;
-&lt;p&gt;In one of the trips I went home, I was cleaning my parents' house and noticed a framed painting of plum blossom tree left laying flat on a nightstand.  It is a gift from my eldest nephew for my dad's birthday.  The drawing was quite well painted, and I felt it's such a shame to let it lay flat.  So, I decided to hang it up.  I spent a couple moments admiring it after I did that, cause I was quite impressed by my nephew's painting.&lt;br&gt;
-A couple days later, my brother, the painter nephew's dad, came visit.  He too noticed the painting was hung up.  He asked "who hung the painting".  I proudly and promptly said "I did.".  "I couldn't stand letting it lay flat on a nightstand," I added.  &lt;/p&gt;
-&lt;p&gt;He then said, "You've hung the picture upside down."  Then he spent 15 min conversation on how to tell the correct orientation of the painting by looking at the twigs in the painting.  &lt;/p&gt;
-&lt;p&gt;I was totally embarrassed, but was grateful that my brother corrected my mistake.  It also reminded me how oblivious I am about the little (good) things that I take for granted.  I have completely forgotten that a plant, or a tree, big or small, their twigs and branches always grow up, even sometimes extending sideways.  &lt;/p&gt;
-&lt;p&gt;As I was hanging the painting up, I was thinking "Luckily my nephew did see his painting just left laying around, it would have broken his heart."  Now, I wonder, would he be more upset to see the painting laying around or to see the painting was hung upside down.&lt;/p&gt;&lt;/div&gt;</description><category>oblivious</category><category>painting</category><category>plum_blossom_tree</category><guid>https://chowy1026.github.io/posts/plum_blossom_tree/</guid><pubDate>Fri, 23 Sep 2016 02:08:32 GMT</pubDate></item><item><title>Singapore Animal Shelters and Animal Protection</title><link>https://chowy1026.github.io/posts/singapore_animal_shelters/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;The Search for Animal Shelters to Volunteer&lt;/h3&gt;
-&lt;p&gt;In the Buddhist Dharma class last night, we talked about relationships we have with everything in the world - family we are born in, friends and acquaintances we encounter, animals, trees, and even things we own.  One thing came up in the lesson was how rarely we spent time just to be with ourselves nowadays.  So much so that we can't live without all the distractions - social media website, the TV, the movies, the radio, the cellphones, the excessive indulgence in food...  Anything that we could use to fill the void.&lt;/p&gt;
-&lt;p&gt;One of the take aways from last night, was we should be more aware of our motivations of our actions and/or daily habits.  I realized my movie / tv show binge-watching isn't great.  I need to be more careful of how I spend my time, and whom I spend time with.  While the practice meditation is great, I figured my restless self is not at the level to do that all day.  I personally feel more practical to do something more productive, something that connects me better to the outside world, or humanity.  I used to volunteer at soup kitchen, and I miss it now.  &lt;/p&gt;
-&lt;p&gt;Given that I always have patience and love for animals, I took the time to research for a list of animal shelters in Singapore.  Here is the list:&lt;/p&gt;
-&lt;h4&gt;Cat Welfare Society&lt;/h4&gt;
-&lt;p&gt;Website: http://www.catwelfare.org/volunteer&lt;/p&gt;
-&lt;h4&gt;MettaCat.org&lt;/h4&gt;
-&lt;p&gt;Website: http://www.mettacats.org/&lt;/p&gt;
-&lt;h4&gt;Voices for Animals&lt;/h4&gt;
-&lt;p&gt;Address: 11, Pasir Ris Farmway 2
-Website: https://www.facebook.com/VFASIN/&lt;/p&gt;
-&lt;h4&gt;SPCA (Society for Prevention of Cruelty to Animals)&lt;/h4&gt;
-&lt;p&gt;Address: 50 Sungei Tengah Road, Singapore 699012
-Address: 31 Mount Vernon Road??
-Phone: +65 62875355
-Website: http://www.spca.org.sg/helpus_volunteer.asp&lt;/p&gt;
-&lt;h4&gt;Causes for Animals Singapore&lt;/h4&gt;
-&lt;p&gt;Website: http://www.causesforanimals.com/&lt;/p&gt;
-&lt;h4&gt;Mdm Wong's Shelter and Friends&lt;/h4&gt;
-&lt;p&gt;Address: 18 Pasir Ris Farmway 2, Ericsson Pet Farm Block 14 Shelter
-Email: mdmwongshelterandfriends@hotmail.com
-Website: https://www.facebook.com/Mdmwongsshelterandfriends&lt;/p&gt;
-&lt;h4&gt;Save our Street Dogs&lt;/h4&gt;
-&lt;p&gt;Website: http://sosd.org.sg/join-us-as-volunteers/&lt;/p&gt;
-&lt;h4&gt;MUTTS AND MITTENS&lt;/h4&gt;
-&lt;p&gt;Address: 11 Pasir Ris Farmway 2
-Website: http://www.muttsnmittens.com/volunteer.html#1&lt;/p&gt;
-&lt;h4&gt;ACTION FOR SINGAPORE DOGS&lt;/h4&gt;
-&lt;p&gt;Address: 80 Lim Chu Kang Lane 1
-Website: http://asdsingapore.com/wp/be-a-volunteer/&lt;/p&gt;
-&lt;h4&gt;Animal Lovers League Pets Villa&lt;/h4&gt;
-&lt;p&gt;Address: 61 Pasir Ris Farmway 3
-Website: http://www.animalloversleague.com/volunteer.html&lt;/p&gt;
-&lt;h4&gt;Oasis Second Chance Shelters&lt;/h4&gt;
-&lt;p&gt;Website: http://www.oscas.sg/p/volunteer.html
-Address: 18 Pasir Ris Farmway 2
-Email: oasis2ndchance@gmail.com&lt;/p&gt;&lt;/div&gt;</description><category>animal-lovers</category><category>animal-shelters</category><category>shelters</category><category>singapore</category><category>volunteer</category><guid>https://chowy1026.github.io/posts/singapore_animal_shelters/</guid><pubDate>Tue, 20 Sep 2016 03:41:02 GMT</pubDate></item><item><title>Setting Up Nikola, a Static Site Generator</title><link>https://chowy1026.github.io/posts/nikola-setup/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;A while back, I started to look into static site generators for building my professional and personal blog site.  I had used &lt;a href="https://wordpress.org/" title="Wordpress"&gt;Wordpress&lt;/a&gt; long ago, but want to practice programming in Python.  Recently I tried out &lt;a href="https://medium.com/" title="Medium"&gt;Medium&lt;/a&gt;, but find it rather limiting when it comes to formatting content, and to organizing my posts.   &lt;/p&gt;
+&lt;p&gt;You are all set now.&lt;/p&gt;&lt;/div&gt;</description><category>Matplotlib</category><category>OSX</category><category>VirtualEnv</category><category>VirtualEnvWrapper</category><guid>https://chowy1026.github.io/posts/matplotlib-on-osx-virtualenv/</guid><pubDate>Mon, 14 Nov 2016 06:17:26 GMT</pubDate></item><item><title>Setting Up Nikola, a Static Site Generator</title><link>https://chowy1026.github.io/posts/nikola-setup/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;A while back, I started to look into static site generators for building my professional and personal blog site.  I had used &lt;a href="https://wordpress.org/" title="Wordpress"&gt;Wordpress&lt;/a&gt; long ago, but want to practice programming in Python.  Recently I tried out &lt;a href="https://medium.com/" title="Medium"&gt;Medium&lt;/a&gt;, but find it rather limiting when it comes to formatting content, and to organizing my posts.   &lt;/p&gt;
 &lt;p&gt;I want to use the opportunity to explore what's new out there and get my hands dirty in programming again.  While researching, I stumble upon this site for static site generator - &lt;a href="https://www.staticgen.com/" title="StaticGen"&gt;StaticGen&lt;/a&gt;.  After testing out briefly with Pelican and Nikola, At last I decided to go with &lt;a href="https://getnikola.com/" title="Nikola"&gt;Nikola&lt;/a&gt; .&lt;/p&gt;
 &lt;p&gt;Nikola is rather lightweight, written with Python, supports contents written in markdown (my preferred way of writing content), and supports &lt;a href="https://www.mathjax.org/" title="MathJax"&gt;MathJax&lt;/a&gt; with a little tweaking.&lt;/p&gt;
 &lt;h4&gt;Installation&lt;/h4&gt;

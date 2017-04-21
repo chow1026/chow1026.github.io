@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" vocab="http://ogp.me/ns" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title> =^..^= MEH · Supervised Learning - Regression </title>
+<link href="../../../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/poole.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/hyde.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/code.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700%7CAbril+Fatface">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://chowy1026.github.io/course-notes/machine-learning/06-supervised_learning-regression/">
+<link rel="icon" href="../../../images/favicon.png" sizes="64x64">
+<link rel="icon" href="../../../images/icon_512x512.png" sizes="512x512">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+            },
+            displayAlign: 'center', // Change this to 'left' to left equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+    </script><script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="cHoWy">
+<link rel="prev" href="../04-supervised_learning-k_nearest_neighbors/" title="Supervised Learning - K Nearest Neighbors (KNN)" type="text/html">
+<link rel="next" href="../05-datasets_and_questions/" title="Datasets and Questions" type="text/html">
+<meta property="og:site_name" content=" =^..^= MEH">
+<meta property="og:title" content="Supervised Learning - Regression">
+<meta property="og:url" content="https://chowy1026.github.io/course-notes/machine-learning/06-supervised_learning-regression/">
+<meta property="og:description" content="In statistical modeling, regression analysis is a statistical process for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when t">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-04-20T06:19:50+08:00">
+</head>
+<body class="test">
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+    <div class="sidebar">
+        <div class="container sidebar-sticky">
+            <div class="sidebar-about">
+              <h1>
+                <a href="https://chowy1026.github.io/">
+                      <h1 id="brand"><a href="https://chowy1026.github.io/" title=" =^..^= MEH" rel="home">
+
+        <span id="blog-title"> =^..^= MEH</span>
+    </a></h1>
+
+                </a>
+              </h1>
+                <p class="lead"></p>
+
+            </div>
+                <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../../posts/index.html">Articles</a>
+        <a class="sidebar-nav-item" href="../../index.html">Course Notes</a>
+        <a class="sidebar-nav-item" href="../../../links/index.html">Links</a>
+        <a class="sidebar-nav-item" href="../../../books/index.html">Books</a>
+        <a class="sidebar-nav-item" href="../../../archives/archives.html">Archives</a>
+        <a class="sidebar-nav-item" href="../../../tags.html">Tags</a>
+    
+    
+    </nav><footer id="footer"><p class="footer">
+              <span class="icon_row">
+
+                <a href="mailto:chowy1026@gmail.com">
+                  <img class="social_icon" src="../../../images/envelope1.png" title="email" width="24"></a> ·
+                <!--<a href="">
+                  <img class="social_icon" src="/images/twitter-black-shape1.png" title="twitter" width="24" /></a> &middot;-->
+                <a href="https://github.com/chowy1026/">
+                  <img class="social_icon" src="../../../images/github-character1.png" title="github" width="24"></a>
+              </span>
+              <br><br><span class="copyright">
+              
+Contents © 2017 by <a href="mailto:chowy1026@gmail.com">cHoWy</a> ·
+Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>
+
+            </span>
+            </p>
+            
+        </footer>
+</div>
+    </div>
+
+    <div class="content container" id="content">
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><h1 class="post-title p-name"><a href="." class="u-url">Supervised Learning - Regression</a></h1>
+
+    <span class="post-date">
+      <time class="published dt-published" datetime="2017-04-20T06:19:50+08:00" itemprop="datePublished" title="2017-04-20 06:19">2017-04-20 06:19</time></span>
+
+    
+    
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>In <a href="https://en.wikipedia.org/wiki/Statistical_model" title="Statistical Model">statistical modeling</a>, <strong>regression analysis</strong> is a statistical process for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when the focus is on the relationship between a <a href="https://en.wikipedia.org/wiki/Dependent_variable" title="Dependent Variable">dependent variable</a> and one or more <a href="https://en.wikipedia.org/wiki/Independent_variable" title="Independent Variable">independent variables</a> (or 'predictors'). More specifically, regression analysis helps one understand how the typical value of the dependent variable (or 'criterion variable') changes when any one of the independent variables is varied, while the other independent variables are held fixed. Most commonly, regression analysis estimates the <a href="https://en.wikipedia.org/wiki/Conditional_expectation" title="Conditional Expectation">conditional expectation</a> of the dependent variable given the independent variables – that is, the <a href="https://en.wikipedia.org/wiki/Average_value" title="Average Value">average value</a> of the dependent variable when the independent variables are fixed. Less commonly, the focus is on a <a href="https://en.wikipedia.org/wiki/Quantile" title="Quantile">quantile</a>, or other <a href="https://en.wikipedia.org/wiki/Location_parameter" title="Location Parameter">location parameter</a> of the conditional distribution of the dependent variable given the independent variables. In all cases, the estimation target is a function of the independent variables called the <strong>regression function</strong>. In regression analysis, it is also of interest to characterize the variation of the dependent variable around the regression function which can be described by a <a href="https://en.wikipedia.org/wiki/Probability_distribution" title="Probability Distribution">probability distribution</a>. A related but distinct approach is necessary condition analysis (NCA), which estimates the maximum (rather than average) value of the dependent variable for a given value of the independent variable (ceiling line rather than central line) in order to identify what value of the independent variable is necessary but not sufficient for a given value of the dependent variable.</p>
+<p>Regression analysis is widely used for <a href="https://en.wikipedia.org/wiki/Prediction" title="Prediction">prediction</a> and <a href="https://en.wikipedia.org/wiki/Forecasting" title="Forecasting">forecasting</a>, where its use has substantial overlap with the field of machine learning. Regression analysis is also used to understand which among the independent variables are related to the dependent variable, and to explore the forms of these relationships. In restricted circumstances, regression analysis can be used to infer <a href="https://en.wikipedia.org/wiki/Causality" title="Casual Relationships">causal relationships</a> between the independent and dependent variables. However this can lead to illusions or false relationships, so caution is advisable;[2] for example, <a href="https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation" title="Correlation is Not Causation">correlation does not imply causation</a>.</p>
+<p>Many techniques for carrying out regression analysis have been developed. Familiar methods such as <a href="https://en.wikipedia.org/wiki/Linear_regression" title="Linear Regression">linear regression</a> and <a href="https://en.wikipedia.org/wiki/Ordinary_least_squares" title="Ordinary Least Squares">ordinary least squares</a> regression are <a href="https://en.wikipedia.org/wiki/Parametric_statistics" title="Parametric Statistics">parametric</a>, in that the regression function is defined in terms of a finite number of unknown parameters that are estimated from the data. <a href="https://en.wikipedia.org/wiki/Nonparametric_regression" title="Non-Parametric Regression">Nonparametric regression</a> refers to techniques that allow the regression function to lie in a specified set of functions, which may be infinite-dimensional.</p>
+<p>The performance of regression analysis methods in practice depends on the form of the data generating process, and how it relates to the regression approach being used. Since the true form of the data-generating process is generally not known, regression analysis often depends to some extent on making assumptions about this process. These assumptions are sometimes testable if a sufficient quantity of data is available. Regression models for prediction are often useful even when the assumptions are moderately violated, although they may not perform optimally. However, in many applications, especially with small effects or questions of causality based on observational data, regression methods can give misleading results.</p>
+<p>In a narrower sense, regression may refer specifically to the estimation of continuous response variables, as opposed to the discrete response variables used in <a href="https://en.wikipedia.org/wiki/Statistical_classification" title="Statistical Classification">classification</a>. The case of a continuous output variable may be more specifically referred to as <strong>metric regression</strong> to distinguish it from related problems.</p>
+<h3>Linear Regression</h3>
+<p>In statistics, linear regression is an approach for modeling the relationship between a scalar dependent variable \(y\) and one or more explanatory variables (or independent variables) denoted \(X\). The case of one explanatory variable is called <a href="https://en.wikipedia.org/wiki/Simple_linear_regression" title="Simple Linear Regression">simple linear regression</a>. For more than one explanatory variable, the process is called <em>multiple linear regression</em>. (This term is distinct from <a href="https://en.wikipedia.org/wiki/General_linear_model" title="Multivariate Regression">multivariate linear regression</a>, where multiple correlated dependent variables are predicted, rather than a single scalar variable.)</p>
+<p>In linear regression, the relationships are modeled using <a href="https://en.wikipedia.org/wiki/Linear_predictor_function" title="Linear Predictor Function">linear predictor functions</a> whose unknown model parameters are <a href="https://en.wikipedia.org/wiki/Estimation_theory" title="Estimation Theory">estimated</a> from the data. Such models are called <a href="https://en.wikipedia.org/wiki/Linear_model" title="Linear Model">linear models</a>. Most commonly, the <a href="https://en.wikipedia.org/wiki/Conditional_expectation" title="Conditional Expectation">conditional</a> mean of \(y\) given the value of \(X\) is assumed to be an <a href="https://en.wikipedia.org/wiki/Affine_transformation" title="Affine Transformation">affine function</a> of \(X\); less commonly, the <a href="https://en.wikipedia.org/wiki/Median" title="Median">median</a> or some other quantile of the conditional distribution of \(y\) given \(X\) is expressed as a linear function of \(X\). Like all forms of regression analysis, linear regression focuses on the <a href="https://en.wikipedia.org/wiki/Conditional_probability_distribution" title="Conditional Probability Distribution">conditional probability distribution</a> of \(y\) given \(X\), rather than on the <a href="https://en.wikipedia.org/wiki/Joint_probability_distribution" title="Joint Probability Distribution">joint probability distribution</a> of \(y\) and \(X\), which is the domain of <a href="https://en.wikipedia.org/wiki/Multivariate_analysis" title="Multivariate Analysis">multivariate analysis</a>.</p>
+<p>Linear regression was the first type of regression analysis to be studied rigorously, and to be used extensively in practical applications. This is because models which depend linearly on their unknown parameters are easier to fit than models which are non-linearly related to their parameters and because the statistical properties of the resulting estimators are easier to determine.</p>
+<p>Linear regression has many practical uses. Most applications fall into one of the following two broad categories:</p>
+<ul>
+<li>If the goal is prediction, or forecasting, or error reduction, linear regression can be used to fit a predictive model to an observed data set of \(y\) and \(X\) values. After developing such a model, if an additional value of \(X\) is then given without its accompanying value of \(y\), the fitted model can be used to make a prediction of the value of \(y\).         </li>
+<li>Given a variable \(y\) and a number of variables \(X_1, \, \ldots, \, X_p \) that may be related to \(y\), linear regression analysis can be applied to quantify the strength of the relationship between \(y\) and the \(X_j\), to assess which \(X_j\) may have no relationship with \(y\) at all, and to identify which subsets of the \(X_j\) contain redundant information about \(y\).        </li>
+</ul>
+<p>Linear regression models are often fitted using the <a href="https://en.wikipedia.org/wiki/Least_squares" title="Least Square">least squares</a> approach, but they may also be fitted in other ways, such as by minimizing the "lack of fit" in some other <a href="https://en.wikipedia.org/wiki/Norm_(mathematics)" title="Mathematical Norm">norm</a> (as with <a href="https://en.wikipedia.org/wiki/Least_absolute_deviations" title="Least Absolute Deviation">least absolute deviations</a> regression), or by minimizing a penalized version of the least squares <a href="https://en.wikipedia.org/wiki/Loss_function" title="Loss Function">loss function</a> as in <a href="https://en.wikipedia.org/wiki/Ridge_regression" title="Ridge Regression">ridge regression</a> (L2-norm penalty) and <a href="https://en.wikipedia.org/wiki/Lasso_(statistics)" title="Lasso">lasso</a> (L1-norm penalty). Conversely, the least squares approach can be used to fit models that are not linear models. Thus, although the terms "least squares" and "linear model" are closely linked, they are not synonymous.</p>
+<h4>Introduction</h4>
+<p>Given a data set
+\(  \left\{y_{i},   \, x_{i1}, \, \ldots, \,   x_{ip}  \right\} _{i=0}^{n} \)
+of  \( n \) statistical units, a linear regression model assumes that the relationship between the dependent variable \( y_{i} \) and the <em>p-vector</em> of regressors \( x_{i} \) is linear. This relationship is modeled through a disturbance term or error variable \( \epsilon_i \)— an unobserved random variable that adds noise to the linear relationship between the dependent variable and regressors.      </p>
+<p>Thus the model takes the form
+\[ y_{i} = \beta _{0}1 + \beta _{1}x _{i1} + \cdots + \beta _{p} x _{ip} + \varepsilon _{i} = \mathbf{x} _{i}^{ \top }{\boldsymbol{\beta}} + \varepsilon _{i},\qquad i=1,\ldots ,n, <br>
+\]  </p>
+<p>where T denotes the transpose, so that \( \mathbf{x} _{i}^{ \top }{\boldsymbol{\beta}} \) is the inner product between vectors \( \mathbf{x} _{i} \) and \( \boldsymbol{\beta} \).</p>
+<h4>Assumptions</h4>
+<p>Standard linear regression models with standard estimation techniques make a number of assumptions about the predictor variables, the response variables and their relationship. Numerous extensions have been developed that allow each of these assumptions to be relaxed (i.e. reduced to a weaker form), and in some cases eliminated entirely. Some methods are general enough that they can relax multiple assumptions at once, and in other cases this can be achieved by combining different extensions. Generally these extensions make the estimation procedure more complex and time-consuming, and may also require more data in order to produce an equally precise model.       </p>
+<p>The following are the major assumptions made by standard linear regression models with standard estimation techniques (e.g. <a href="https://en.wikipedia.org/wiki/Ordinary_least_squares" title="Ordinary Least Squares">ordinary least squares</a>):        </p>
+<ul>
+<li>
+<strong>Weak exogeneity</strong>. This essentially means that the predictor variables x can be treated as fixed values, rather than <a href="https://en.wikipedia.org/wiki/Random_variable" title="Random Variables">random variables</a>. This means, for example, that the predictor variables are assumed to be error-free—that is, not contaminated with measurement errors. Although this assumption is not realistic in many settings, dropping it leads to significantly more difficult <a href="https://en.wikipedia.org/wiki/Errors-in-variables_model" title="Errors in Variable Model">errors-in-variables models</a>.      </li>
+<li>
+<strong>Linearity</strong>. This means that the mean of the response variable is a <a href="https://en.wikipedia.org/wiki/Linear_combination" title="Linear Combination">linear combination</a> of the parameters (regression coefficients) and the predictor variables. Note that this assumption is much less restrictive than it may at first seem. Because the predictor variables are treated as fixed values (see above), linearity is really only a restriction on the parameters. The predictor variables themselves can be arbitrarily transformed, and in fact multiple copies of the same underlying predictor variable can be added, each one transformed differently. This trick is used, for example, in <a href="https://en.wikipedia.org/wiki/Polynomial_regression" title="Polynomial Regression">polynomial regression</a>, which uses linear regression to fit the response variable as an arbitrary <a href="https://en.wikipedia.org/wiki/Polynomial" title="Polynomial">polynomial</a> function (up to a given rank) of a predictor variable. This makes linear regression an extremely powerful inference method. In fact, models such as polynomial regression are often "too powerful", in that they tend to overfit the data. As a result, some kind of regularization must typically be used to prevent unreasonable solutions coming out of the estimation process. Common examples are <a href="https://en.wikipedia.org/wiki/Ridge_regression" title="Ridge Regression">ridge regression</a> and <a href="https://en.wikipedia.org/wiki/Lasso_regression" title="Lasso Regression">lasso regression</a>. <a href="https://en.wikipedia.org/wiki/Bayesian_linear_regression" title="Bayesian Linear Regression">Bayesian linear regression</a> can also be used, which by its nature is more or less immune to the problem of overfitting. (In fact, <a href="https://en.wikipedia.org/wiki/Ridge_regression" title="Ridge Regression">ridge regression</a> and <a href="https://en.wikipedia.org/wiki/Lasso_regression" title="Lasso Regression">lasso regression</a> can both be viewed as special cases of Bayesian linear regression, with particular types of prior distributions placed on the regression coefficients.)       </li>
+<li>
+<strong>Constant variance</strong> (a.k.a. <strong><a href="https://en.wikipedia.org/wiki/Homoscedasticity" title="Homoscedasticity">homoscedasticity</a></strong>). This means that different response variables have the same variance in their errors, regardless of the values of the predictor variables. In practice this assumption is invalid (i.e. the errors are heteroscedastic) if the response variables can vary over a wide scale. In order to determine for heterogeneous error variance, or when a pattern of residuals violates model assumptions of homoscedasticity (error is equally variable around the 'best-fitting line' for all points of x), it is prudent to look for a "fanning effect" between residual error and predicted values. This is to say there will be a systematic change in the absolute or squared residuals when plotted against the predicting outcome. Error will not be evenly distributed across the regression line. Heteroscedasticity will result in the averaging over of distinguishable variances around the points to get a single variance that is inaccurately representing all the variances of the line. In effect, residuals appear clustered and spread apart on their predicted plots for larger and smaller values for points along the linear regression line, and the mean squared error for the model will be wrong. Typically, for example, a response variable whose mean is large will have a greater variance than one whose mean is small. For example, a given person whose income is predicted to be \$100,000 may easily have an actual income of \$80,000 or \$120,000 (a standard deviation of around \$20,000), while another person with a predicted income of \$10,000 is unlikely to have the same \$20,000 standard deviation, which would imply their actual income would vary anywhere between -\$10,000 and \$30,000. (In fact, as this shows, in many cases—often the same cases where the assumption of normally distributed errors fails—the variance or standard deviation should be predicted to be proportional to the mean, rather than constant.) Simple linear regression estimation methods give less precise parameter estimates and misleading inferential quantities such as standard errors when substantial heteroscedasticity is present. However, various estimation techniques (e.g. <a href="https://en.wikipedia.org/wiki/Weighted_least_squares" title="Weighted Least Squares">weighted least squares</a> and <a href="https://en.wikipedia.org/wiki/Heteroscedasticity-consistent_standard_errors" title="Heteroscedasticity Consistent Standard Errors">heteroscedasticity-consistent standard errors</a>) can handle heteroscedasticity in a quite general way. Bayesian linear regression techniques can also be used when the variance is assumed to be a function of the mean. It is also possible in some cases to fix the problem by applying a transformation to the response variable (e.g. fit the logarithm of the response variable using a linear regression model, which implies that the response variable has a log-normal distribution rather than a normal distribution).          </li>
+<li>
+<strong>Independence of errors</strong>. This assumes that the errors of the response variables are uncorrelated with each other. (Actual statistical independence is a stronger condition than mere lack of correlation and is often not needed, although it can be exploited if it is known to hold.) Some methods (e.g. generalized least squares) are capable of handling correlated errors, although they typically require significantly more data unless some sort of regularization is used to bias the model towards assuming uncorrelated errors. Bayesian linear regression is a general way of handling this issue.</li>
+<li>
+<strong>Lack of multicollinearity</strong> in the predictors. For standard least squares estimation methods, the design matrix \( X \) must have full column rank \( p \); otherwise, we have a condition known as <a href="https://en.wikipedia.org/wiki/Multicollinearity" title="Multicollinearity">multicollinearity</a> in the predictor variables. This can be triggered by having two or more perfectly correlated predictor variables (e.g. if the same predictor variable is mistakenly given twice, either without transforming one of the copies or by transforming one of the copies linearly). It can also happen if there is too little data available compared to the number of parameters to be estimated (e.g. fewer data points than regression coefficients). In the case of multicollinearity, the parameter vector \( \beta \) will be non-identifiable—it has no unique solution. At most we will be able to identify some of the parameters, i.e. narrow down its value to some linear subspace of \( R^p \). See partial least squares regression. Methods for fitting linear models with multicollinearity have been developed; some require additional assumptions such as "effect sparsity"—that a large fraction of the effects are exactly zero.      <br>
+Note that the more computationally expensive iterated algorithms for parameter estimation, such as those used in generalized linear models, do not suffer from this problem—and in fact it's quite normal when handling categorically valued predictors to introduce a separate indicator variable predictor for each possible category, which inevitably introduces multicollinearity.</li>
+</ul>
+<p>Beyond these assumptions, several other statistical properties of the data strongly influence the performance of different estimation methods:   <br>
+- The statistical relationship between the error terms and the regressors plays an important role in determining whether an estimation procedure has desirable sampling properties such as being unbiased and consistent.     <br>
+- The arrangement, or probability distribution of the predictor variables \( x \) has a major influence on the precision of estimates of \( \beta \). Sampling and design of experiments are highly developed subfields of statistics that provide guidance for collecting data in such a way to achieve a precise estimate of \( \beta \).        </p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><div class="pager hidden-print pagination">
+
+            <span class="previous pagination-item older">
+                <a href="../04-supervised_learning-k_nearest_neighbors/" rel="prev" title="Supervised Learning - K Nearest Neighbors (KNN)">
+                Previous post
+                </a>
+            </span>
+
+
+            <span class="next pagination-item newer">
+                <a href="../05-datasets_and_questions/" rel="next" title="Datasets and Questions">
+Next post
+              </a>
+            </span>
+
+        </div>
+
+    </nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="chowygit",
+            disqus_url="https://chowy1026.github.io/course-notes/machine-learning/06-supervised_learning-regression/",
+        disqus_title="Supervised Learning - Regression",
+        disqus_identifier="cache/course-notes/machine-learning/06-supervised_learning-regression.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="chowygit";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73098247-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

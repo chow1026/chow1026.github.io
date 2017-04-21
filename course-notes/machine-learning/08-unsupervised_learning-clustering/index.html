@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" vocab="http://ogp.me/ns" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title> =^..^= MEH · Unsupervised Learning - Clustering </title>
+<link href="../../../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/poole.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/hyde.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/code.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700%7CAbril+Fatface">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://chowy1026.github.io/course-notes/machine-learning/08-unsupervised_learning-clustering/">
+<link rel="icon" href="../../../images/favicon.png" sizes="64x64">
+<link rel="icon" href="../../../images/icon_512x512.png" sizes="512x512">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+            },
+            displayAlign: 'center', // Change this to 'left' to left equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+    </script><script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="cHoWy">
+<link rel="prev" href="../07-outliers/" title="Outliers" type="text/html">
+<link rel="next" href="../09-feature_scaling/" title="Feature Scaling" type="text/html">
+<meta property="og:site_name" content=" =^..^= MEH">
+<meta property="og:title" content="Unsupervised Learning - Clustering">
+<meta property="og:url" content="https://chowy1026.github.io/course-notes/machine-learning/08-unsupervised_learning-clustering/">
+<meta property="og:description" content='Unsupervised Learning
+Unsupervised machine learning is the machine learning task of inferring a function to describe hidden structure from "unlabeled" data (a classification or categorization is not i'>
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-04-20T06:53:05+08:00">
+</head>
+<body class="test">
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+    <div class="sidebar">
+        <div class="container sidebar-sticky">
+            <div class="sidebar-about">
+              <h1>
+                <a href="https://chowy1026.github.io/">
+                      <h1 id="brand"><a href="https://chowy1026.github.io/" title=" =^..^= MEH" rel="home">
+
+        <span id="blog-title"> =^..^= MEH</span>
+    </a></h1>
+
+                </a>
+              </h1>
+                <p class="lead"></p>
+
+            </div>
+                <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../../posts/index.html">Articles</a>
+        <a class="sidebar-nav-item" href="../../index.html">Course Notes</a>
+        <a class="sidebar-nav-item" href="../../../links/index.html">Links</a>
+        <a class="sidebar-nav-item" href="../../../books/index.html">Books</a>
+        <a class="sidebar-nav-item" href="../../../archives/archives.html">Archives</a>
+        <a class="sidebar-nav-item" href="../../../tags.html">Tags</a>
+    
+    
+    </nav><footer id="footer"><p class="footer">
+              <span class="icon_row">
+
+                <a href="mailto:chowy1026@gmail.com">
+                  <img class="social_icon" src="../../../images/envelope1.png" title="email" width="24"></a> ·
+                <!--<a href="">
+                  <img class="social_icon" src="/images/twitter-black-shape1.png" title="twitter" width="24" /></a> &middot;-->
+                <a href="https://github.com/chowy1026/">
+                  <img class="social_icon" src="../../../images/github-character1.png" title="github" width="24"></a>
+              </span>
+              <br><br><span class="copyright">
+              
+Contents © 2017 by <a href="mailto:chowy1026@gmail.com">cHoWy</a> ·
+Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>
+
+            </span>
+            </p>
+            
+        </footer>
+</div>
+    </div>
+
+    <div class="content container" id="content">
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><h1 class="post-title p-name"><a href="." class="u-url">Unsupervised Learning - Clustering</a></h1>
+
+    <span class="post-date">
+      <time class="published dt-published" datetime="2017-04-20T06:53:05+08:00" itemprop="datePublished" title="2017-04-20 06:53">2017-04-20 06:53</time></span>
+
+    
+    
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<h3>Unsupervised Learning</h3>
+<p><strong>Unsupervised machine learning</strong> is the machine learning task of inferring a function to describe hidden structure from "unlabeled" data (a classification or categorization is not included in the observations). Since the examples given to the learner are unlabeled, there is no evaluation of the accuracy of the structure that is output by the relevant algorithm—which is one way of distinguishing <a href="https://en.wikipedia.org/wiki/Unsupervised_learning" title="Unsupervised Learning">unsupervised learning</a> from <a href="https://en.wikipedia.org/wiki/Supervised_learning" title="Supervised Learning">supervised learning</a> and <a href="https://en.wikipedia.org/wiki/Reinforcement_learning" title="Reinforced Learning">reinforcement learning</a>.</p>
+<p>A central case of unsupervised learning is the problem of <a href="https://en.wikipedia.org/wiki/Density_estimation" title="Density Estimation">density estimation</a> in statistics, though unsupervised learning encompasses many other problems (and solutions) involving summarizing and explaining key features of the data.</p>
+<p>Approaches to unsupervised learning include:</p>
+<p><strong><a href="https://en.wikipedia.org/wiki/Data_clustering" title="Data Clustering">Clustering</a></strong>    <br>
+- <a href="https://en.wikipedia.org/wiki/K-means" title="K Means">k-means</a>    <br>
+- <a href="https://en.wikipedia.org/wiki/Mixture_models" title="Mixture Models">mixture models</a>    <br>
+- <a href="https://en.wikipedia.org/wiki/Hierarchical_clustering" title="Hierachical Clustering">hierarchical clustering</a>      <br><strong><a href="https://en.wikipedia.org/wiki/Anomaly_detection" title="Anomaly Detection">Anomaly detection</a></strong>     <br><strong><a href="https://en.wikipedia.org/wiki/Artificial_neural_network" title="Neural Network">Neural Networks</a></strong>   <br>
+- <a href="https://en.wikipedia.org/wiki/Hebbian_Learning" title="Hebbian Learning">Hebbian Learning</a>  <br>
+- <a href="https://en.wikipedia.org/wiki/Generative_Adversarial_Networks" title="Generative Adversarial Networks">Generative Adversarial Networks</a>  <br><strong>Approaches for learning <a href="https://en.wikipedia.org/wiki/Latent_variable_model" title="Latent Variable Model">latent variable models</a></strong> such as          <br>
+- <a href="https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm" title="Expectation Maximization Algorithm">Expectation-Maximization Algorithm</a> (EM)
+- <a href="https://en.wikipedia.org/wiki/Method_of_moments_(statistics)" title="Method of Moments">Method of moments</a>
+- <a href="https://en.wikipedia.org/wiki/Blind_signal_separation" title="Blind Signal Separation">Blind signal separation</a> techniques, e.g.,
+    - <a href="https://en.wikipedia.org/wiki/Principal_component_analysis" title="Principal Component Analysis (PCA)">Principal component analysis</a>,     <br>
+    - <a href="https://en.wikipedia.org/wiki/Independent_component_analysis" title="Independent Component Analysis">Independent component analysis</a>,     <br>
+    - <a href="https://en.wikipedia.org/wiki/Non-negative_matrix_factorization" title="Non-Negative Matrix Factorization">Non-negative matrix factorization</a>,     <br>
+    - <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition" title="Singular Value Decomposition">Singular value decomposition</a>.        </p>
+<h3>Clustering</h3>
+<p><strong>Cluster analysis</strong> or <strong>Clustering</strong> is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense or another) to each other than to those in other groups (clusters). It is a main task of exploratory <a href="https://en.wikipedia.org/wiki/Data_mining" title="Data Mining">data mining</a>, and a common technique for statistical data analysis, used in many fields, including <a href="https://en.wikipedia.org/wiki/Machine_learning" title="Machine Learning">machine learning</a>, <a href="https://en.wikipedia.org/wiki/Pattern_recognition" title="Pattern Recognition">pattern recognition</a>, <a href="https://en.wikipedia.org/wiki/Image_analysis" title="Image Analysis">image analysis</a>, <a href="https://en.wikipedia.org/wiki/Information_retrieval" title="Information Retrieval">information retrieval</a>, <a href="https://en.wikipedia.org/wiki/Bioinformatics" title="Bio-Informatics">bioinformatics</a>, <a href="https://en.wikipedia.org/wiki/Data_compression" title="Data Compression">data compression</a>, and <a href="https://en.wikipedia.org/wiki/Computer_graphics" title="Computer Graphics">computer graphics</a>.</p>
+<p>Cluster analysis itself is not one specific algorithm, but the general task to be solved. It can be achieved by various algorithms that differ significantly in their notion of what constitutes a cluster and how to efficiently find them. Popular notions of clusters include groups with small distances among the cluster members, dense areas of the data space, intervals or particular statistical distributions. Clustering can therefore be formulated as a <a href="https://en.wikipedia.org/wiki/Multi-objective_optimization" title="Multi-Objective Optimization">multi-objective optimization</a> problem. The appropriate clustering algorithm and parameter settings (including values such as the distance function to use, a density threshold or the number of expected clusters) depend on the individual data set and intended use of the results. Cluster analysis as such is not an automatic task, but an iterative process of knowledge discovery or interactive multi-objective optimization that involves trial and failure. It is often necessary to modify data preprocessing and model parameters until the result achieves the desired properties.</p>
+<p>Besides the term clustering, there are a number of terms with similar meanings, including <em>automatic classification</em>, <em>numerical taxonomy</em>, <em>botryology</em> (from Greek βότρυς "grape") and typological analysis. The subtle differences are often in the usage of the results: while in data mining, the resulting groups are the matter of interest, in automatic classification the resulting discriminative power is of interest.</p>
+<p>The notion of a "cluster" cannot be precisely defined, which is one of the reasons why there are so many clustering algorithms. There is a common denominator: a group of data objects. However, different researchers employ different cluster models, and for each of these cluster models again different algorithms can be given. The notion of a cluster, as found by different algorithms, varies significantly in its properties. Understanding these "cluster models" is key to understanding the differences between the various algorithms.</p>
+<p>Typical cluster models include:          </p>
+<ul>
+<li>Connectivity models: for example, <a href="https://en.wikipedia.org/wiki/Hierarchical_clustering" title="Hierachical Clustering">hierarchical clustering</a> builds models based on distance connectivity.    </li>
+<li>Centroid models: for example, the <a href="https://en.wikipedia.org/wiki/K-means_algorithm" title="K Means Algorithm">k-means algorithm</a> represents each cluster by a single mean vector.      </li>
+<li>Distribution models: clusters are modeled using statistical distributions, such as <a href="https://en.wikipedia.org/wiki/Multivariate_normal_distribution" title="Multivariate Normal Distribution">multivariate normal distributions</a> used by the <a href="https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm" title="Expectation Maximization Algorithm">Expectation-Maximization Algorithm</a>.         </li>
+<li>Density models: for example, DBSCAN and OPTICS defines clusters as connected dense regions in the data space.        </li>
+<li>Subspace models: in Biclustering (also known as Co-clustering or two-mode-clustering), clusters are modeled with both cluster members and relevant attributes.       </li>
+<li>Group models: some algorithms do not provide a refined model for their results and just provide the grouping information.         </li>
+<li>Graph-based models: a clique, that is, a subset of nodes in a graph such that every two nodes in the subset are connected by an edge can be considered as a prototypical form of cluster. Relaxations of the complete connectivity requirement (a fraction of the edges can be missing) are known as quasi-cliques, as in the HCS clustering algorithm.        </li>
+</ul>
+<p>A "clustering" is essentially a set of such clusters, usually containing all objects in the data set. Additionally, it may specify the relationship of the clusters to each other, for example, a hierarchy of clusters embedded in each other. Clusterings can be roughly distinguished as:         </p>
+<ul>
+<li>Hard clustering: each object belongs to a cluster or not         </li>
+<li>Soft clustering (also: <a href="https://en.wikipedia.org/wiki/Fuzzy_clustering" title="Fuzzy Clustering">fuzzy clustering</a>): each object belongs to each cluster to a certain degree (for example, a likelihood of belonging to the cluster)       </li>
+</ul>
+<p>There are also finer distinctions possible, for example:        </p>
+<ul>
+<li>Strict partitioning clustering: each object belongs to exactly one cluster      </li>
+<li>Strict partitioning clustering with outliers: objects can also belong to no cluster, and are considered outliers       </li>
+<li>Overlapping clustering (also: alternative clustering, multi-view clustering): objects may belong to more than one cluster; usually involving hard clusters        </li>
+<li>Hierarchical clustering: objects that belong to a child cluster also belong to the parent cluster        </li>
+<li>
+<a href="https://en.wikipedia.org/wiki/Subspace_clustering" title="Subspace Clustering">Subspace clustering</a>: while an overlapping clustering, within a uniquely defined subspace, clusters are not expected to overlap        </li>
+</ul>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><div class="pager hidden-print pagination">
+
+            <span class="previous pagination-item older">
+                <a href="../07-outliers/" rel="prev" title="Outliers">
+                Previous post
+                </a>
+            </span>
+
+
+            <span class="next pagination-item newer">
+                <a href="../09-feature_scaling/" rel="next" title="Feature Scaling">
+Next post
+              </a>
+            </span>
+
+        </div>
+
+    </nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="chowygit",
+            disqus_url="https://chowy1026.github.io/course-notes/machine-learning/08-unsupervised_learning-clustering/",
+        disqus_title="Unsupervised Learning - Clustering",
+        disqus_identifier="cache/course-notes/machine-learning/08-unsupervised_learning-clustering.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="chowygit";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73098247-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" vocab="http://ogp.me/ns" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title> =^..^= MEH · Supervised Learning - Introduction </title>
+<link href="../../../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/poole.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/hyde.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/code.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700%7CAbril+Fatface">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://chowy1026.github.io/course-notes/machine-learning/00-supervised_learning-introduction/">
+<link rel="icon" href="../../../images/favicon.png" sizes="64x64">
+<link rel="icon" href="../../../images/icon_512x512.png" sizes="512x512">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+            },
+            displayAlign: 'center', // Change this to 'left' to left equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+    </script><script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="cHoWy">
+<link rel="prev" href="../../../posts/multiple-github-accounts/" title="Setting Up Multiple GitHub User Account on One Machine" type="text/html">
+<link rel="next" href="../01-supervised_learning-naive_bayes/" title="Supervised Learning - Naive Bayes" type="text/html">
+<meta property="og:site_name" content=" =^..^= MEH">
+<meta property="og:title" content="Supervised Learning - Introduction">
+<meta property="og:url" content="https://chowy1026.github.io/course-notes/machine-learning/00-supervised_learning-introduction/">
+<meta property="og:description" content="Supervised Learning and Classifications
+Supervised learning is the machine learning task of inferring a function from labeled training data. The training data consist of a set of training examples. In">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-03-26T14:25:23+08:00">
+</head>
+<body class="test">
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+    <div class="sidebar">
+        <div class="container sidebar-sticky">
+            <div class="sidebar-about">
+              <h1>
+                <a href="https://chowy1026.github.io/">
+                      <h1 id="brand"><a href="https://chowy1026.github.io/" title=" =^..^= MEH" rel="home">
+
+        <span id="blog-title"> =^..^= MEH</span>
+    </a></h1>
+
+                </a>
+              </h1>
+                <p class="lead"></p>
+
+            </div>
+                <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../../posts/index.html">Articles</a>
+        <a class="sidebar-nav-item" href="../../index.html">Course Notes</a>
+        <a class="sidebar-nav-item" href="../../../links/index.html">Links</a>
+        <a class="sidebar-nav-item" href="../../../books/index.html">Books</a>
+        <a class="sidebar-nav-item" href="../../../archives/archives.html">Archives</a>
+        <a class="sidebar-nav-item" href="../../../tags.html">Tags</a>
+    
+    
+    </nav><footer id="footer"><p class="footer">
+              <span class="icon_row">
+
+                <a href="mailto:chowy1026@gmail.com">
+                  <img class="social_icon" src="../../../images/envelope1.png" title="email" width="24"></a> ·
+                <!--<a href="">
+                  <img class="social_icon" src="/images/twitter-black-shape1.png" title="twitter" width="24" /></a> &middot;-->
+                <a href="https://github.com/chowy1026/">
+                  <img class="social_icon" src="../../../images/github-character1.png" title="github" width="24"></a>
+              </span>
+              <br><br><span class="copyright">
+              
+Contents © 2017 by <a href="mailto:chowy1026@gmail.com">cHoWy</a> ·
+Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>
+
+            </span>
+            </p>
+            
+        </footer>
+</div>
+    </div>
+
+    <div class="content container" id="content">
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><h1 class="post-title p-name"><a href="." class="u-url">Supervised Learning - Introduction</a></h1>
+
+    <span class="post-date">
+      <time class="published dt-published" datetime="2017-03-26T14:25:23+08:00" itemprop="datePublished" title="2017-03-26 14:25">2017-03-26 14:25</time></span>
+
+    
+    
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<h2>Supervised Learning and Classifications</h2>
+<p><strong>Supervised learning</strong> is the machine learning task of inferring a function from labeled <em>training data</em>. The training data consist of a set of training examples. In supervised learning, each example is a <em>pair</em> consisting of an input object (typically a vector) and a desired output value (also called the <em>supervisory signal</em>). A supervised learning algorithm analyzes the training data and produces an inferred function, which can be used for mapping new examples. An optimal scenario will allow for the algorithm to correctly determine the class labels for unseen instances. This requires the learning algorithm to generalize from the training data to unseen situations in a "reasonable" way (see <a href="https://en.wikipedia.org/wiki/Inductive_bias" title="Inductive Bias">inductive bias</a>).</p>
+<p>The parallel task in human and animal psychology is often referred to as <a href="https://en.wikipedia.org/wiki/Concept_learning" title="Concept Learning">concept learning</a>.</p>
+<h3>Overview</h3>
+<p>In order to solve a given problem of supervised learning, one has to perform the following steps:</p>
+<ol>
+<li>Determine the type of training examples. Before doing anything else, the user should decide what kind of data is to be used as a training set. In the case of handwriting analysis, for example, this might be a single handwritten character, an entire handwritten word, or an entire line of handwriting.      </li>
+<li>Gather a training set. The training set needs to be representative of the real-world use of the function. Thus, a set of input objects is gathered and corresponding outputs are also gathered, either from human experts or from measurements.      </li>
+<li>Determine the input feature representation of the learned function. The accuracy of the learned function depends strongly on how the input object is represented. Typically, the input object is transformed into a feature vector, which contains a number of features that are descriptive of the object. The number of features should not be too large, because of the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality" title="Curse of Dimensionality">curse of dimensionality</a>; but should contain enough information to accurately predict the output.       </li>
+<li>Determine the structure of the learned function and corresponding learning algorithm. For example, the engineer may choose to use <a href="https://en.wikipedia.org/wiki/Support_vector_machine" title="Support Vector Machine (SVM)">support vector machines</a> or <a href="https://en.wikipedia.org/wiki/Decision_tree_learning" title="Decision Tree">decision trees</a>.         </li>
+<li>Complete the design. Run the learning algorithm on the gathered training set. Some supervised learning algorithms require the user to determine certain control parameters. These parameters may be adjusted by optimizing performance on a subset (called a validation set) of the training set, or via <a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)" title="Cross Validation">cross-validation</a>.          </li>
+<li>Evaluate the accuracy of the learned function. After parameter adjustment and learning, the performance of the resulting function should be measured on a test set that is separate from the training set.          </li>
+<li>A wide range of supervised learning algorithms are available, each with its strengths and weaknesses. There is no single learning algorithm that works best on all supervised learning problems (see the <a href="https://en.wikipedia.org/wiki/No_free_lunch_in_search_and_optimization" title="No Free Lunch Theorem">No free lunch theorem</a>).     </li>
+</ol>
+<p>There are four major issues to consider in supervised learning:</p>
+<h4>Bias-variance tradeoff</h4>
+<p><em>Main article: <a href="https://en.wikipedia.org/wiki/Bias-variance_dilemma" title="Bias Variance Dilemma">Bias-variance dilemma</a></em>     </p>
+<p>A first issue is the tradeoff between bias and variance. Imagine that we have available several different, but equally good, training data sets. A learning algorithm is biased for a particular input \( x \) if, when trained on each of these data sets, it is systematically incorrect when predicting the correct output for \( x \) . A learning algorithm has high variance for a particular input \( x \) if it predicts different output values when trained on different training sets. The prediction error of a learned classifier is related to the sum of the bias and the variance of the learning algorithm. Generally, there is a tradeoff between bias and variance. A learning algorithm with low bias must be "flexible" so that it can fit the data well. But if the learning algorithm is too flexible, it will fit each training data set differently, and hence have high variance. A key aspect of many supervised learning methods is that they are able to adjust this tradeoff between bias and variance (either automatically or by providing a bias/variance parameter that the user can adjust).</p>
+<h4>Function complexity and amount of training data</h4>
+<p>The second issue is the amount of training data available relative to the complexity of the "true" function (classifier or regression function). If the true function is simple, then an "inflexible" learning algorithm with high bias and low variance will be able to learn it from a small amount of data. But if the true function is highly complex (e.g., because it involves complex interactions among many different input features and behaves differently in different parts of the input space), then the function will only be learnable from a very large amount of training data and using a "flexible" learning algorithm with low bias and high variance.</p>
+<h4>Dimensionality of the input space</h4>
+<p>A third issue is the dimensionality of the input space. If the input feature vectors have very high dimension, the learning problem can be difficult even if the true function only depends on a small number of those features. This is because the many "extra" dimensions can confuse the learning algorithm and cause it to have high variance. Hence, high input dimensionality typically requires tuning the classifier to have low variance and high bias. In practice, if the engineer can manually remove irrelevant features from the input data, this is likely to improve the accuracy of the learned function. In addition, there are many algorithms for feature selection that seek to identify the relevant features and discard the irrelevant ones. This is an instance of the more general strategy of dimensionality reduction, which seeks to map the input data into a lower-dimensional space prior to running the supervised learning algorithm.</p>
+<h4>Noise in the output values</h4>
+<p>A fourth issue is the degree of noise in the desired output values (the supervisory target variables). If the desired output values are often incorrect (because of human error or sensor errors), then the learning algorithm should not attempt to find a function that exactly matches the training examples. Attempting to fit the data too carefully leads to overfitting. You can overfit even when there are no measurement errors (stochastic noise) if the function you are trying to learn is too complex for your learning model. In such a situation that part of the target function that cannot be modeled "corrupts" your training data - this phenomenon has been called deterministic noise. When either type of noise is present, it is better to go with a higher bias, lower variance estimator.</p>
+<p>In practice, there are several approaches to alleviate noise in the output values such as early stopping to prevent overfitting as well as detecting and removing the noisy training examples prior to training the supervised learning algorithm. There are several algorithms that identify noisy training examples and removing the suspected noisy training examples prior to training has decreased generalization error with statistical significance.   </p>
+<h4>Other factors to consider (important)</h4>
+<p>Other factors to consider when choosing and applying a learning algorithm include the following:</p>
+<ol>
+<li>Heterogeneity of the data. If the feature vectors include features of many different kinds (discrete, discrete ordered, counts, continuous values), some algorithms are easier to apply than others. Many algorithms, including Support Vector Machines, linear regression, logistic regression, neural networks, and nearest neighbor methods, require that the input features be numerical and scaled to similar ranges (e.g., to the [-1,1] interval). Methods that employ a distance function, such as nearest neighbor methods and support vector machines with Gaussian kernels, are particularly sensitive to this. An advantage of decision trees is that they easily handle heterogeneous data.       </li>
+<li>Redundancy in the data. If the input features contain redundant information (e.g., highly correlated features), some learning algorithms (e.g., linear regression, logistic regression, and distance based methods) will perform poorly because of numerical instabilities. These problems can often be solved by imposing some form of regularization.       </li>
+<li>Presence of interactions and non-linearities. If each of the features makes an independent contribution to the output, then algorithms based on linear functions (e.g., linear regression, logistic regression, Support Vector Machines, naive Bayes) and distance functions (e.g., nearest neighbor methods, support vector machines with Gaussian kernels) generally perform well. However, if there are complex interactions among features, then algorithms such as decision trees and neural networks work better, because they are specifically designed to discover these interactions. Linear methods can also be applied, but the engineer must manually specify the interactions when using them.     </li>
+<li>When considering a new application, the engineer can compare multiple learning algorithms and experimentally determine which one works best on the problem at hand (see cross validation). Tuning the performance of a learning algorithm can be very time-consuming. Given fixed resources, it is often better to spend more time collecting additional training data and more informative features than it is to spend extra time tuning the learning algorithms.       </li>
+</ol>
+<p>The most widely used learning algorithms are <a href="https://en.wikipedia.org/wiki/Support_vector_machine" title="Support Vector Machine (SVM)">Support Vector Machines</a>, <a href="https://en.wikipedia.org/wiki/Linear_regression" title="Linear Regression">linear regression</a>, <a href="https://en.wikipedia.org/wiki/Logistic_regression" title="Logistic Regression">logistic regression</a>, <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier" title="Naive Bayes">naive Bayes</a>, <a href="https://en.wikipedia.org/wiki/Linear_discriminant_analysis" title="Linear Discriminant Analysis">linear discriminant analysis</a>, <a href="https://en.wikipedia.org/wiki/Decision_tree_learning" title="Decision Tree">decision trees</a>, <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm" title="K-Nearest Neighbors Algorithm">k-nearest neighbor algorithm</a>, and <a href="https://en.wikipedia.org/wiki/Artificial_neural_network" title="Artificial Neural Network">Neural Networks</a> (<a href="https://en.wikipedia.org/wiki/Multilayer_perceptron" title="Multilayer Perceptron">Multilayer perceptron</a>).</p>
+<p>In Machine learning, it is very important to train and test two different sets of data.  If we don't do that we could overfit the data.  We could think we know better what is actually going on than we actually know.</p>
+<p>Usually when we get a dataset, we use 90% of the data as training data, and save 10% as testing data. When we do reporting, we use the results from the test data, as it more closely resemble real life application / tests on the algorithm.</p>
+<h3>Overfitting and Underfitting</h3>
+<p>In statistics and machine learning, one of the most common tasks is to fit a "model" to a set of training data, so as to be able to make reliable predictions on general untrained data.</p>
+<p>In <strong>overfitting</strong>, a statistical model describes random error or noise instead of the underlying relationship. Overfitting occurs when a model is excessively complex, such as having too many parameters relative to the number of observations. A model that has been overfit has poor predictive performance, as it overreacts to minor fluctuations in the training data.</p>
+<p><strong>Underfitting</strong> occurs when a statistical model or machine learning algorithm cannot capture the underlying trend of the data. Underfitting would occur, for example, when fitting a linear model to non-linear data. Such a model would have poor predictive performance.</p>
+<p>The possibility of overfitting exists because the criterion used for training the model is not the same as the criterion used to judge the efficacy of a model. In particular, a model is typically trained by maximizing its performance on some set of training data. However, its efficacy is determined not by its performance on the training data but by its ability to perform well on unseen data. Overfitting occurs when a model begins to "memorize" training data rather than "learning" to generalize from trend. As an extreme example, if the number of parameters is the same as or greater than the number of observations, a simple model or learning process can perfectly predict the training data simply by memorizing the training data in its entirety, but such a model will typically fail drastically when making predictions about new or unseen data, since the simple model has not learned to generalize at all.</p>
+<p>The potential for overfitting depends not only on the number of parameters and data but also the conformability of the model structure with the data shape, and the magnitude of model error compared to the expected level of noise or error in the data.</p>
+<p>Even when the fitted model does not have an excessive number of parameters, it is to be expected that the fitted relationship will appear to perform less well on a new data set than on the data set used for fitting. In particular, the value of the coefficient of determination will shrink relative to the original training data.</p>
+<p>In order to avoid overfitting, it is necessary to use additional techniques (e.g. <a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)" title="Cross Validation">cross-validation</a>, <a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)" title="Regularization">regularization</a>, <a href="https://en.wikipedia.org/wiki/Early_stopping" title="Early Stopping">early stopping</a>, <a href="https://en.wikipedia.org/wiki/Pruning_(algorithm)" title="Pruning">pruning</a>, <a href="https://en.wikipedia.org/wiki/Prior_distribution" title="Bayesian Prior">Bayesian priors</a> on parameters or <a href="https://en.wikipedia.org/wiki/Bayesian_model_comparison" title="Bayesian Model Comparision">model comparison</a>), that can indicate when further training is not resulting in better generalization. The basis of some techniques is either (1) to explicitly penalize overly complex models, or (2) to test the model's ability to generalize by evaluating its performance on a set of data not used for training, which is assumed to approximate the typical unseen data that a model will encounter.</p>
+<p>A good analogy for the overfitting problem is imagine a baby trying to learn what is a window or what is not a window, we start to show him windows and he detects at an initial phase that all windows have glasses, and a frame and you can look outside, some of them may be opened. If we keep showing the same windows the baby may also falsely deduce that all windows are green, and that all green frames are windows. Thus overfitting the problem.</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><div class="pager hidden-print pagination">
+
+            <span class="previous pagination-item older">
+                <a href="../../../posts/multiple-github-accounts/" rel="prev" title="Setting Up Multiple GitHub User Account on One Machine">
+                Previous post
+                </a>
+            </span>
+
+
+            <span class="next pagination-item newer">
+                <a href="../01-supervised_learning-naive_bayes/" rel="next" title="Supervised Learning - Naive Bayes">
+Next post
+              </a>
+            </span>
+
+        </div>
+
+    </nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="chowygit",
+            disqus_url="https://chowy1026.github.io/course-notes/machine-learning/00-supervised_learning-introduction/",
+        disqus_title="Supervised Learning - Introduction",
+        disqus_identifier="cache/course-notes/machine-learning/00-supervised_learning-Introduction.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="chowygit";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73098247-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

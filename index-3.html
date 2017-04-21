@@ -16,7 +16,7 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
 <link rel="canonical" href="https://chowy1026.github.io/index-3.html">
 <link rel="icon" href="images/favicon.png" sizes="64x64">
 <link rel="icon" href="images/icon_512x512.png" sizes="512x512">
-<link rel="prev" href="." type="text/html">
+<link rel="prev" href="index-4.html" type="text/html">
 <link rel="next" href="index-2.html" type="text/html">
 <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({
@@ -80,7 +80,7 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
               </span>
               <br><br><span class="copyright">
               
-Contents © 2016 by <a href="mailto:chowy1026@gmail.com">cHoWy</a> ·
+Contents © 2017 by <a href="mailto:chowy1026@gmail.com">cHoWy</a> ·
 Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>
 
             </span>
@@ -93,41 +93,422 @@ Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href
     <div class="content container" id="content">
     
 <div class="post">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/principles_of_adult_behavior/" class="u-url">Principles of Adult Behavior by John Perry Barlow</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/inferential-statistics/lesson-15/" class="u-url">Inferential Statistics - Regressions</a></h1>
         <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-10-02T10:57:59+08:00" title="2016-10-02 10:57">2016-10-02 10:57</time></span>
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-11-08T15:00:58+08:00" title="2016-11-08 15:00">2016-11-08 15:00</time></span>
         </div>
     </header><div class="e-content entry-content">
     <div>
-<p>I stumbled upon this, a little late.  But better late than never, I hope.  </p>
-<p><strong>Principles of Adult Behavior</strong> by John Perry Barlow</p>
+<h3>Linear Regressions</h3>
+<p>Line of best fit forms a line to help us:  <br>
+- describe data  <br>
+- make predictions     </p>
+<p><strong>Observed Y vs Expected Y</strong>   <br><strong>Expected Y</strong> \( \hat{y} \) are the ones calculated/predicted based on the best fit regression line.  <br><strong>Observed Y</strong> \( y \) are collected data or real-life data.  <br><strong>Residual</strong> is the difference between Observed value and Expected value.  </p>
+<p>A few ways to find the line of best fit:  <br>
+- Find a line to minimize the sum of residuals.   The problem with this approach is sometimes, negative and positive residuals cancel each other out.     <br>
+- Find a line that minimize the sum of <strong>absolute</strong> residuals.  <br>
+- Find a line that minimize the sum of squared residuals, \( \sum{(y - \hat{y})} \)</p>
+<p>When we use calculus to determine the slope, b:<br>
+\[
+  b = \frac{\sum{(y_i - \bar{y})(x_i - \bar{x})}}{\sum{(x_i - \bar{x})^2}} \\
+  = r (\frac{S_y}{S_x}) \\
+  \text{where } r \text{ is Pearson's Correlation Coefficient and }\\
+   S \text{ are standard deviations of } x \text{ and } y.
+\]</p>
+<p>We have decided to symbolize the regression line by y = bx + a, where b represents the slope and a represents the y-intercept.
+Since \( b = r(\frac{S_y}{S_x}) \), we can also symbolize the regression line like this:  <br>
+\[ y = r(\frac{S_y}{S_x})x + a \]</p>
+<p><strong>Pearson's Correlation Coefficient \( r \)</strong>  <br>
+A high \(r\) value indicates a strong correlation. This could contribute to high \(r^2 \) value, which indicates the percentage of differences in Y is due to differences in X.  </p>
+<p><strong>Standard Error of Estimates</strong>  <br>
+Standard error of estimates: <br>
+\[
+SE = \sqrt{ \frac{\sum (y - \hat{y})^2}{N-2}}
+\]</p>
+<p><strong>Factors that Affect the Regressions</strong> <br>
+- outliers affect the value of r, correlation Coefficient
+- outliers also affect the linear regression line
+-</p>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/inferential-statistics/lesson-14/" class="u-url">Inferential Statistics - Correlations</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-11-07T13:33:58+08:00" title="2016-11-07 13:33">2016-11-07 13:33</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p><strong>Relationships</strong>   <br>
+How one variable is related to the other?</p>
+<p><strong>Variable X and Y</strong>    <br>
+X is often referred to as the predictor, explanatory, independent variable.      </p>
+<p>Y is often referred as the outcome, response, dependent variable.  </p>
+<p>Scatterplot is a popular/ most common way to show relationship of X and Y variables.      </p>
+<p><strong>Strong Relationships</strong>    <br>
+Strong relationships usually have less scattered plots.  If we draw an eclipse surrounding the data points, the smaller the ratio of minor axis to the major axis, the stronger the relationship is.  </p>
+<p><strong>Direction of Relationships</strong>       <br>
+Positively related - Y responses in the same direction as X changes; Negatively related - Y responses in opposite directions of X changes.</p>
+<p><strong>Correlation Coefficient, (r)</strong>    <br>
+Also known as Pierson's r.  </p>
+<p>r is a fraction, with the covariance of x and y (how much do they vary together) as the numerator, and the product of standard deviation of x  and standard deviation of y as the denominator.<br>
+\[
+  r = \frac{cov(x,y)}{ S_x * S_y } = \frac{cov_{x,y}}{ S_x * S_y }
+\]  <br>
+r measures the strength of a relationship, by measuring how closely the data falls along a straight line.      </p>
+<p>Even though r is a ratio, it is not interpreted as a percentage.  However, \(r^2\) is a percentage of the variation in y explained by variation in x.  \(r^2\) is called the coefficient determination.       </p>
+<p><strong>True Correlation of Population, rho, \( \rho \)</strong>     <br>
+We usually perform hypothesis testing with t-tests.
+\[
+  H_{0} : \rho = 0 \\
+  H_{1} : \rho \gt 0 \\
+  H_{1} : \rho \lt 0 \\
+  H_{1} : \rho \ne 0
+\]</p>
+<p><strong>Causation vs Correlations</strong>    <br><strong>Causation</strong> - One variable caused another to happen.     </p>
+<p><strong>Correlation</strong> - There is a relationship between two variables.  But there are lots of lurking variables.  For example, there are two variables X and Y.  They could have a relationship because both of them are influenced by variable A, or Y is influenced by X <strong>through</strong> variable A.  In this case, variable A is called the mediating variable.  </p>
+<p>To make a causal statement: <br>
+     - the independent variable would have to occur BEFORE the dependent variable.<br>
+     - have to rule out other lurking variables too</p>
+<p><strong>Fallacies</strong>  <br>
+Ambiguous Temporal Precedence - we don't know which variable happens first.   <br>
+Third variable problem    <br>
+Post-hoc fallacy      </p>
+<p><strong>t value and Correlation Coefficient, (r)</strong>   <br>
+t value and r:
+\[
+  t = \frac{r  \sqrt{N-2}}{\sqrt{1-r^2}}
+\]
+where \(df\) is \( N - 2 \)</p>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/inferential-statistics/lesson-13/" class="u-url">Inferential Statistics - ANOVA Continued.</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-11-03T21:55:35+08:00" title="2016-11-03 21:55">2016-11-03 21:55</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>One of the popular Multiple Comparison Tests is Tukey's Honestly Significant Differences.    <br><strong>Tukey's Honestly Significant Differences (HSD)</strong>  <br>
+Tukey's HSD is calculated as the following:
+\[
+\text{Tukey's HSD} = q * \sqrt{\frac{MS_{within}}{n}} \\
+q \text{ is looked up with } df_{within} \text{ and } k \text{, the number of treatments/sample groups}   \\
+n \text{ is the number of samples in one sample group}
+\]   </p>
+<p>If the mean difference between/among treatments are greater than Tukey's HSD, the difference is significant.    </p>
+<p>Note this is very similar to Z test and T test. For Z tests, the margin of error is:
+\[
+\text{Margin of Error} = z * \frac{\sigma}{\sqrt{n}}
+\]</p>
+<p>Whereas for t tests, the margin of error is:
+\[
+\text{Margin of Error} = t * \frac{s}{\sqrt{n}}
+\]</p>
+<p><strong>Cohen's D for Multiple Comparisons</strong>  <br>
+For normal comparisons, Cohen's D is calculated by
+\[
+\text{Cohen's D, } d = \frac{\bar{X_1} - \bar{X_2}}{SD_{pooled}}
+\]   </p>
+<p>In multiple comparisons, Cohen's D is calculated by
+\[
+\text{Cohen's D, } d = \frac{\bar{X_1} - \bar{X_2}}{\sqrt{MS_{within}}}
+\]</p>
+<p>Cohen's D is calculated per pair comparisons.  </p>
+<p><strong>\( \mathbf{\eta ^ 2} \)</strong>  <br>
+\( \eta ^2 \) is defined as the proportion of total variance that is due to between-group differences (explained variation).  </p>
+<p>\[
+\eta ^2 = \frac{SS_{between}}{SS_{total}} \\
+      = \frac{SS_{between}}{SS_{between} + SS_{within}}
+\]    </p>
+<p><strong>Reporting Reports of Anova</strong>  <br>
+We report the results of F Statistics as the following:   <br>
+\[
+   F(df_{between}, df_{within}) = 27 \quad p &lt; 0.05 \quad \eta ^2 = 0.90 \quad \\
+   \text{p is estimated, by hand} \\
+   F(df_{between}, df_{within}) = 27 \quad p = 0.001 \quad \eta ^2 = 0.90 \quad \\
+   \text{exact p value calculated by software} \\
+\]</p>
+<p><strong>ANOVA for Groups with Different Sample Sizes</strong>  <br>
+Grand mean
+\[
+  \text{Grand mean, } \bar{X_G} = \frac{ \sum_{j=0}^k n_j (\bar{x_j}) }{\sum_{j=0}^k n_j } \\
+  n_j \text{ is sample size for each sample} \\<br>
+  k \text{ is number of sample groups}      \\
+\]    </p>
+<p>SS (Sum of Squares) Between   <br>
+\[
+  \text{sum of squares, } SS_{between} = \sum_{j=0}^k n_j (\bar{x_j} - \bar{x_G})^2 \\
+  n_j \text{ is sample size for each sample}   \\
+\]    </p>
+<p>SS (Sum of Squares) Within   <br>
+\[
+  \text{sum of squares, } SS_{within} = \sum_{i=0}^N (x_i - \bar{x_k})^2 \\
+  k \text{ is number of sample groups}      \\
+  N \text{ is total number of all samples of each sample group}     \\
+\]    </p>
+<p>DF (Degress of Freedom) Between   <br>
+\[
+  \text{degrees of freedom, } df_{between} = k - 1 \\
+  k \text{ is number of sample groups}    \\
+\]    </p>
+<p>DF (Degress of Freedom) Within   <br>
+\[
+  \text{degrees of freedom, } df_{within} = N - k \\
+  k \text{ is number of sample groups}      \\
+  N \text{ is total number of all samples of each sample group}     \\
+\]    </p>
+<p>MS (Mean Squares) Between   <br>
+\[
+  \text{Mean square, } MS_{between} = \frac{SS_{between}}{df_{between}}  \\
+  = \frac{\sum_{j=0}^k n_j (\bar{x_j} - \bar{x_G})^2}{k - 1}
+\]    </p>
+<p>MS (Mean Squares) Within   <br>
+\[
+\text{Mean square, } MS_{within} = \frac{SS_{within}}{df_{within}}  \\
+= \frac{\sum_{i=0}^N (x_i - \bar{x_k})^2}{N - k}
+\]    </p>
+<p>F Stats
+\[
+\text{F Statistics, } F = \frac{MS_{between}}{MS_{within}}  \\
+= \frac{\sum_{j=0}^k n_j (\bar{x_j} - \bar{x_G})^2 / (k - 1)}{\sum_{i=0}^N (x_i - \bar{x_k})^2 / (N - k)}
+\]   </p>
+<p><strong>\( \mathbf{\eta ^ 2} \)</strong><br>
+\[
+\eta ^2 = \frac{SS_{between}}{SS_{total}} \\
+      = \frac{SS_{between}}{SS_{between} + SS_{within}}
+\]  </p>
+<p><strong>ANOVA Power</strong>  <br>
+Increase POWER in order to avoid Type II statistical error where we fail to reject the null when there is a treatment effect.   </p>
+<p>In the case of drug testing, we want to:  <br>
+- test <strong>more people</strong>  <br>
+- give each drug to <strong>very similar</strong> groups of people  <br>
+- test with a <strong>strong</strong> dosage    </p>
+<p><strong>ANOVA Assumptions &amp; Conclusions</strong>   <br>
+We assume:  <br>
+- <strong>Normality</strong>: the population of which our samples are from are all normally distributed.  <br>
+- <strong>Homogeneity of Variance</strong>: the samples come from populations that have equal amount of variability.   <br>
+- <strong>Independence of Observations</strong>: The results found from one samples won't affect the others.   </p>
+<p>We could have the following exceptions:  <br>
+- violate the normality if the sample is large  <br>
+- violate the homogeneity of variance if:  <br>
+        - almost equal sample sizes  <br>
+        - ratio of any two variances doesn't exceed 4     <br>
+-</p>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/intro-data-analysis/1-data_analysis_process/" class="u-url">Intro to DA - Data Analysis Process</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-10-14T13:57:55+08:00" title="2016-10-14 13:57">2016-10-14 13:57</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h2>Data Analysis Process</h2>
 <ol>
-<li>Be patient. No matter what.</li>
-<li>Don’t badmouth: Assign responsibility, not blame. Say nothing of another you wouldn’t say to him.</li>
-<li>Never assume the motives of others are, to them, less noble than yours are to you.</li>
-<li>Expand your sense of the possible.</li>
-<li>Don’t trouble yourself with matters you truly cannot change.</li>
-<li>Expect no more of anyone than you can deliver yourself.</li>
-<li>Tolerate ambiguity.</li>
-<li>Laugh at yourself frequently.</li>
-<li>Concern yourself with what is right rather than who is right.</li>
-<li>Never forget that, no matter how certain, you might be wrong.</li>
-<li>Give up blood sports.</li>
-<li>Remember that your life belongs to others as well. Don’t risk it frivolously.</li>
-<li>Never lie to anyone for any reason. (Lies of omission are sometimes exempt.)</li>
-<li>Learn the needs of those around you and respect them.</li>
-<li>Avoid the pursuit of happiness. Seek to define your mission and pursue that.</li>
-<li>Reduce your use of the first personal pronoun.</li>
-<li>Praise at least as often as you disparage.</li>
-<li>Admit your errors freely and soon.</li>
-<li>Become less suspicious of joy.</li>
-<li>Understand humility.</li>
-<li>Remember that love forgives everything.</li>
-<li>Foster dignity.</li>
-<li>Live memorably.</li>
-<li>Love yourself.</li>
-<li>Endure.</li>
+<li>
+<strong>Question</strong>  <br>
+    Problem begins with a question you want answer or problem you wanna solve.  For example:    <ul>
+<li>Characters of students who pass projects</li>
+<li>How can I stock stores with products that most people want to buy?</li>
+</ul>
+</li>
+<li>
+<strong>Wrangler</strong>    <ul>
+<li>Data Acquisition   </li>
+<li>Data Cleaning   </li>
+</ul>
+</li>
+<li>
+<strong>Explore</strong>   <ul>
+<li>Building intuition</li>
+<li>Finding patterns</li>
+</ul>
+</li>
+<li>
+<strong>Draw Conclusions</strong>   <br>
+    This requires statistics and machine learning (that is beyond the scope of this course)<ul>
+<li>Draw Conclusion =&gt; Users less likely to XXX</li>
+<li>Make Prediction =&gt; Predict what products a user would like</li>
+</ul>
+</li>
+<li>
+<strong>Communicate</strong>  <ul>
+<li>Blog post, paper, email, powerpoint, in-person conversation</li>
+</ul>
+</li>
 </ol>
+<p>The steps aren't always sequential.  We might go back and forth between data wrangling and exploration.  Along the process, one may go back to the question to further refine the question.  And data acquisition might occur before the question arises.</p>
+<h2>Data Wrangling</h2>
+<p>Data Types: <br>
+Usually data acquired are in JSON or CSV (comma separated value) format.    </p>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/inferential-statistics/lesson-12/" class="u-url">Inferential Statistics - One-Way ANOVA</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-10-14T10:25:32+08:00" title="2016-10-14 10:25">2016-10-14 10:25</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>In lesson 11, we learned to perform t-tests for two independent samples.  However, in real statistical studies, there are a lot of times we need to compare more than two independent samples.  When we have \( n \) independent samples, the number of t-tests we need to perform are:
+<!-- {n+1 \choose 2k} == \binom{n+1}{2k} -->
+\[
+  \text{no of t-tests with n samples} = \binom{n}{2} = \frac{n!}{2!(n-2)!}
+\]</p>
+<p>However, the same concept of t-test applies here.  Remember t is defined by a function of the distance apart from each other and the variability of each sample.
+\[
+  t_{statistic} = \frac{ \bar{X_1} - \bar{X_2}}{ \sqrt{ \frac{ S_p^2 }{ n_1 } + \frac{ S_p^2 }{ n_2 }}}
+\]
+When we compare 3 or more samples, we compare distance/variability between means (as numerator) and some kind of sample error (as the denominator)</p>
+<p><strong>Think about this:</strong> <br>
+Q: How can we compare three or more samples? <br>
+A: Find the average squared deviation of each sample means.</p>
+<p>Q: Will the <strong>Grand Mean</strong>, mean of the sample means be the same as the mean of all values in each sample? <br>
+A: Sometimes.  Only when the sample sizes are equal for each sample, that the Grand Mean will be the same.</p>
+<p><strong>Between Group Variability</strong> <br>
+Between group variability is the variability between/among samples.   <br>
+Q: What conclusions can we draw from the deviation of each sample mean from the mean of the means? <br>
+A: The smaller the distance between sample means, the less likely the population means will defer significantly.  Vice versa the greater the distance between sample means, the more likely population means will differ significantly.  </p>
+<p><strong>Within Group Variability</strong> <br>
+Within group variability is the variability of the individual samples within a sample.  <br>
+The greater the variability of each individual sample, the less likely population means will differ significantly.  (thinner, non overlapping normal distribution.) <br>
+The smaller the variability of each individual sample, the more likely population means will differ significantly.  (wider, overlapping normal distribution)</p>
+<p>Since we are analyzing the variabilities between samples and within samples, we call this Analysis of Variability (ANOVA).  We have one way ANOVA when we have one independent variable (sometimes called a factor)  </p>
+<p><strong>F Statistics</strong> <br>
+F statistics is the ratio of between group variability (numerator) to the within group variability (denominator)
+If the between group variability is big, it constitutes to big F statistics, which results in rejecting the null hypothesis and accepting the alternative hypothesis.<br>
+Whereas if the within group variability is large, it makes the F statistics small, which results in accepting the null hypothesis and rejecting the alternative hypothesis.</p>
+<p>\[
+F = \frac{ \text{between group variability}}{ \text{within group variability}} \\<br>
+  = \frac{ \sum_{j=0}^k n_j (\bar{x_j} - \bar{x_G})^2 / (k-1)}{\sum_{i=0}^N  (x_i - \bar{x_k})^2 / (N-k) } \\
+  n_j \text{ is sample size for each sample}   \\
+  = \frac{ n \sum_{j=0}^k (\bar{x_j} - \bar{x_G})^2 / (k-1)}{\sum_{i=0}^N (x_i - \bar{x_k})^2 / (N-k) } \text{when sample size is same for all samples}  \\
+  k \text{ is number of sample groups}      \\
+  N \text{ is total number of all samples of each sample group}     \\
+\]</p>
+<p>F can also be formulated as
+\[
+F = \frac{SS_{between} / df_{between}}{SS_{within} / df_{within}} \text{ where } SS \text{ stands for Sum of Squares }      \\
+  = \frac{MS_{between}}{MS_{within}} \text{ where } MS \text{ stands for Mean Square }
+\]</p>
+<p>Note that \(df_{between}\) is \( k - 1 \) while \(df_{within}\) is \( N - k \)</p>
+<p>If we add \(df_{between}\) and \(df_{within}\) up, we get \( N - 1\) which is the total degree of freedom \(df_{total}\)
+\[
+df_{total} = df_{between} + df_{within} \\
+= N - 1
+\]</p>
+<p>Similarly, the total variation \(SS_{total}\) is the sum of \(SS_{between}\) and \(SS_{within}\).<br>
+\[
+SS_{total} = SS_{between} + SS_{within} \\
+= \sum{(x_i - \bar{x_G}) ^ 2}
+\]</p>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/inferential-statistics/lesson-11/" class="u-url">Inferential Statistics - T-Test, Independent Samples</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2016-10-11T12:35:53+08:00" title="2016-10-11 12:35">2016-10-11 12:35</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p><strong>Dependent Samples (Repeated Measures)</strong> deals with within-subject designs.<br>
+Types of Dependent Samples:</p>
+<ul>
+<li>Two conditions (a control group and a treatment group, OR two groups with two types of treatment)</li>
+<li>Longitudinal (same subject group measured two different points in time)</li>
+<li>Pre-test, Post-test (subject group measure before and after treatment)</li>
+</ul>
+<p>Pros:</p>
+<ul>
+<li>Controls for individual differences:<ul>
+<li>Use fewer subjects</li>
+<li>More cost-effective</li>
+<li>Less time-consuming</li>
+<li>Less expensive</li>
+</ul>
+</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>Carry-over effect:<ul>
+<li>The second measurement might be affected by the first treatment</li>
+</ul>
+</li>
+<li>The order in which treatments were given might influence the results</li>
+</ul>
+<h2>Independent Samples:</h2>
+<p>Independent Samples deals with between-subject designs.
+Types of Independent Samples:</p>
+<ul>
+<li>Experimental</li>
+<li>Observational</li>
+</ul>
+<p>Pros:</p>
+<ul>
+<li>Control for carry-over effect:<ul>
+<li>The second measurement less likely be affected by the first treatment</li>
+</ul>
+</li>
+<li>The order in which treatments no longer influence the results</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>Little/no control for individual differences:</li>
+<li>Need more subjects</li>
+<li>Less cost-effective</li>
+<li>More time-consuming</li>
+<li>More expensive</li>
+</ul>
+<h2>Two-Sample Tests</h2>
+<p>Considering two independent normally distributed samples collected, when we subtract those two data, we get a new dataset.<br>
+\[
+    N ( \mu_{1}, \sigma_{1} ) - N ( \mu_{2}, \sigma_{2} ) = N ( \mu_{1} - \mu_{2}, \sqrt{ \sigma_{1}^2 + \sigma_{2}^2 } )
+\]</p>
+<p>The standard deviation, \( SD \) would be:
+\[
+    SD = \sqrt{ SD_{1}^2 + SD_{2}^ 2 }
+\]</p>
+<p>The standard error, \( SE \) would be:
+\[
+    SE = \sqrt{ \frac{SD_{1}^2}{n_{1}} + \frac{SD_{2}^2}{n_2}}
+\]</p>
+<p>The t statistic, \( t_{statistic} \) would be:
+\[
+    t_{statistic} = \frac{ (\bar{x_{1}} - \bar{x_{2}} ) - (\mu_{1} - \mu_{2})}{ SE }
+\]</p>
+<p>The degree of freedom, \( df \) would be:
+\[
+    df = (n_{1} - 1) + (n_{2} - 1) = n_{1} + n_{2} - 2
+\]
+or the smaller value between
+\(
+(n_{1} - 1) \text{ and } (n_{2} - 1)
+\).</p>
+<h2>Pooled Variance</h2>
+<p>Pooled variance is a method for estimating variance
+given several different samples taken in different circumstances where the mean may vary
+between samples but the true variance is assumed to remain the same. The pooled variance is
+computed by using
+The Pooled Variance, \( S_{p}^2 \) would be:
+\[
+    S_{p}^2 = \frac{(SS_{x} + SS_{y})}{df_{x} + df_{y}}
+\]
+where \( SS_{x} = \sum (x_{i} - \bar{x})^ 2 \)
+and \( SS_{y} = \sum (y_{i} - \bar{y})^ 2 \)</p>
+<p>The Standard Error, \( SE_{(\bar{x}-\bar{y})} \), using Pooled Variance is:</p>
+<p>\[
+    SE_{(\bar{x}-\bar{y})} = \sqrt{ \frac{S_{p}^2}{n_x} + \frac{S_{p}^2}{n_y} }
+\]</p>
+<p>The full t statistic \( t_{statistic} \) formula would be:
+\[
+    t_{statistic} = \frac{ (\bar{x} - \bar{y}) - \delta }{ SE_{(\bar{x}-\bar{y})} }
+\]
+\(\bar{x} - \bar{y} \) is called the observed difference.
+The \( \delta \)expected_diff is derived from the Null Hypothesis, \( H_0 \), when
+\[
+    H_0: \mu_x - \mu_y = \delta
+\]
+There are lots of cases where \( \delta \) was assumed 0.  </p>
+<p>When we use Pooled Variance, we hold the following assumptions:
+1. X and Y should be two random samples from two independent populations. <br>
+2. Populations that X and Y come from, should be approximately normal.  This is less important when sample size is really large ( &gt;30).<br>
+3. Sample data can be used to estimate population variances.
+4. Population variances should be roughly equal.</p>
 </div>
     </div>
     </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/inferential-statistics/lesson-10/" class="u-url">Inferential Statistics - T-Test, Dependent Samples</a></h1>
@@ -522,126 +903,11 @@ that you take while using a design pattern in an application.  </li>
     </header><div class="e-content entry-content">
     <p>Write your post here.</p>
     </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/plum_blossom_tree/" class="u-url">Being Oblivious</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-23T10:08:32+08:00" title="2016-09-23 10:08">2016-09-23 10:08</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<p>A random story.  </p>
-<p>In one of the trips I went home, I was cleaning my parents' house and noticed a framed painting of plum blossom tree left laying flat on a nightstand.  It is a gift from my eldest nephew for my dad's birthday.  The drawing was quite well painted, and I felt it's such a shame to let it lay flat.  So, I decided to hang it up.  I spent a couple moments admiring it after I did that, cause I was quite impressed by my nephew's painting.<br>
-A couple days later, my brother, the painter nephew's dad, came visit.  He too noticed the painting was hung up.  He asked "who hung the painting".  I proudly and promptly said "I did.".  "I couldn't stand letting it lay flat on a nightstand," I added.  </p>
-<p>He then said, "You've hung the picture upside down."  Then he spent 15 min conversation on how to tell the correct orientation of the painting by looking at the twigs in the painting.  </p>
-<p>I was totally embarrassed, but was grateful that my brother corrected my mistake.  It also reminded me how oblivious I am about the little (good) things that I take for granted.  I have completely forgotten that a plant, or a tree, big or small, their twigs and branches always grow up, even sometimes extending sideways.  </p>
-<p>As I was hanging the painting up, I was thinking "Luckily my nephew did see his painting just left laying around, it would have broken his heart."  Now, I wonder, would he be more upset to see the painting laying around or to see the painting was hung upside down.</p>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/inferential-statistics/lesson-9/" class="u-url">Inferential Statistics - Hypothesis Testing</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-20T17:36:10+08:00" title="2016-09-20 17:36">2016-09-20 17:36</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h2>Hypothesis Test and Alpha Levels</h2>
-<p>A Hypothesis test is used to test a claim that someone has about an observation may be different from the known population parameter.  </p>
-<p><strong>Alpha level</strong> (<strong>\( \alpha \)</strong>) of a hypothesis test helps us determine the critical region of a distribution.  Refer to <a href="course-notes/inferential-statistics/lesson-9/#critical-region">Critical Regions</a> below.</p>
-<p><strong>Null Hypothesis</strong> is always an equality.  It is the claim we are trying to provide evidence <em>against</em>.  We commonly write the null hypothesis as one of the following:
-\[  H_{0} : \mu_{0} = \mu\\  H_{0} : \mu_{0} \ge \mu\\  H_{0} : \mu_{0} \le \mu \]</p>
-<p><strong>Null Hypothesis</strong> is result we are checking against the claim.  This is always some kind of inequality.  We commonly write the alternative hypothesis as one of the following:
-\[  case\;a &gt;&gt; H_{0} : \mu_{0} \neq \mu\\  case\;b &gt;&gt; H_{0} : \mu_{0} \gt \mu\\  case\;c &gt;&gt; H_{0} : \mu_{0} \lt \mu \]</p>
-<p>If we know which direction we are checking against the claim, use case b or case c, else we typically use case a.  Case a is a two tailed test, while case b and case c are one tailed tests.  Read more on this <a href="course-notes/inferential-statistics/lesson-9/#one-tailed-two-tailed">below</a>.  </p>
-<h2>
-<a id="critical-region" name="critical-region"></a>Critical Regions</h2>
-<p>When it comes to constructing a hypothesis test, it is best to choose a significant level before the test is performed.  The results of the test can be reported as significant a certain critical level, but it is important that you are not "fishing" for results before seeing the results in your sample.  For additional readings on Hypothesis Testing, here is an <a href="http://blog.minitab.com/blog/adventures-in-statistics/understanding-hypothesis-tests:-significance-levels-alpha-and-p-values-in-statistics" title="Hypothesis Testing">article</a>.  </p>
-<p>The corresponding Z-critical values, \( Z_{critical} \) at each \( \alpha \) level for one-tailed test and two-tailed test respectively:
-\[
-\begin{array}{c|cc}
-\alpha &amp; \text{one-tailed} &amp; \text{two-tailed} \\
-\hline
-0.05 &amp; 1.67 \; or\; -1.67 &amp; \pm 1.96 \\
-0.01 &amp; 2.32 \; or\; -2.32 &amp; \pm 2.57 \\
-0.001 &amp; 3.08 \; or\; -3.08 &amp; \pm 3.27
-\end{array}
-\]</p>
-<p>If we get a sample mean in the critical region, then we decide that most likely those sample means by chance.  The \( Z_{critical} \) values are the same that we used to calculate confidence intervals.  </p>
-<p>When we do statistical test, we'll set our own criteria for making a decision (in other words, we'll choose an alpha level). Then we decide if the probability of obtaining that sample mean is less than the alpha level (ie. sample means fall in the critical region, and \(Z\) is greater than \(Z_{critical}\)). Then if there is an evidence of an effect (of the intervention).</p>
-<p>Note that we <strong>CANNOT prove</strong> if a hypothesis is true.  We can only obtain evidence to reject the null hypothesis.  </p>
-<p><strong>Example</strong>:
-A null hypothesis says "Most (more than 50%) dogs have four legs." and the alternative hypothesis says "Most dogs have less than four legs."</p>
-<p>In a sample of 10 dogs, there are 6 dogs with less than four legs.  </p>
-<p>In this case we are taking 50% as significance level.  We are able to reject the null hypothesis based on this.  Under a typical statistical test (such as using a 5% significance level), this sample data would be evidence against null hypothesis, but not necessarily enough evidence/information to reject the null hypothesis.  </p>
-<p>However, if the definition of null hypothesis was changed to indicate 70% of dogs have four legs, then our current evidence would be enough to reject the null hypothesis to reject the null hypothesis at a 5% significance level.  </p>
-<h2>
-<a id="one-tailed-two-tailed" name="one-tailed-two-tailed"></a> One Tailed and Two Tailed</h2>
-<p>Take a hypothesis test:
-\[
-    H_{0}:
-    \begin{cases}
-      \mu = \mu_{I},  &amp; \mu_{I} \text{is post intervention}
-    \end{cases} \\
-    H_{A}:
-    \begin{cases}
-      \mu \lt \mu_{I},  &amp; \text{right one-tailed, with } \mu_{I} \text{ greater than } \mu \\
-      \mu \gt \mu_{I},  &amp; \text{left one-tailed, with } \mu_{I} \text{ less than } \mu \\
-      \mu \neq \mu_{I},  &amp; \text{right one-tailed, with } \mu_{I} \text{ greater or less than } \mu
-    \end{cases}
-\]</p>
-<p>We choose a one-tailed, or directional hypothesis test when we predict a direction of the treatment effect.  Alternatively, when we do not predict the direction of the treatment, we choose the two-tailed or non-directional test.  In general we use two-tailed because it is more conservative.  We are less likely to reject the null when it is true.  It also prevents us from mistaking the wrong direction of the effect.  </p>
-<h2>Decision Errors</h2>
-<p>There are two types of Hypothesis Decision Errors:
-<strong>Type I error</strong>: is when you reject the null when the null hypothesis is actually true.<br><strong>Type II error</strong>: is when you fail to reject the null when the null hypothesis is actually false.  </p>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/singapore_animal_shelters/" class="u-url">Singapore Animal Shelters and Animal Protection</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-09-20T11:41:02+08:00" title="2016-09-20 11:41">2016-09-20 11:41</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h3>The Search for Animal Shelters to Volunteer</h3>
-<p>In the Buddhist Dharma class last night, we talked about relationships we have with everything in the world - family we are born in, friends and acquaintances we encounter, animals, trees, and even things we own.  One thing came up in the lesson was how rarely we spent time just to be with ourselves nowadays.  So much so that we can't live without all the distractions - social media website, the TV, the movies, the radio, the cellphones, the excessive indulgence in food...  Anything that we could use to fill the void.</p>
-<p>One of the take aways from last night, was we should be more aware of our motivations of our actions and/or daily habits.  I realized my movie / tv show binge-watching isn't great.  I need to be more careful of how I spend my time, and whom I spend time with.  While the practice meditation is great, I figured my restless self is not at the level to do that all day.  I personally feel more practical to do something more productive, something that connects me better to the outside world, or humanity.  I used to volunteer at soup kitchen, and I miss it now.  </p>
-<p>Given that I always have patience and love for animals, I took the time to research for a list of animal shelters in Singapore.  Here is the list:</p>
-<h4>Cat Welfare Society</h4>
-<p>Website: http://www.catwelfare.org/volunteer</p>
-<h4>MettaCat.org</h4>
-<p>Website: http://www.mettacats.org/</p>
-<h4>Voices for Animals</h4>
-<p>Address: 11, Pasir Ris Farmway 2
-Website: https://www.facebook.com/VFASIN/</p>
-<h4>SPCA (Society for Prevention of Cruelty to Animals)</h4>
-<p>Address: 50 Sungei Tengah Road, Singapore 699012
-Address: 31 Mount Vernon Road??
-Phone: +65 62875355
-Website: http://www.spca.org.sg/helpus_volunteer.asp</p>
-<h4>Causes for Animals Singapore</h4>
-<p>Website: http://www.causesforanimals.com/</p>
-<h4>Mdm Wong's Shelter and Friends</h4>
-<p>Address: 18 Pasir Ris Farmway 2, Ericsson Pet Farm Block 14 Shelter
-Email: mdmwongshelterandfriends@hotmail.com
-Website: https://www.facebook.com/Mdmwongsshelterandfriends</p>
-<h4>Save our Street Dogs</h4>
-<p>Website: http://sosd.org.sg/join-us-as-volunteers/</p>
-<h4>MUTTS AND MITTENS</h4>
-<p>Address: 11 Pasir Ris Farmway 2
-Website: http://www.muttsnmittens.com/volunteer.html#1</p>
-<h4>ACTION FOR SINGAPORE DOGS</h4>
-<p>Address: 80 Lim Chu Kang Lane 1
-Website: http://asdsingapore.com/wp/be-a-volunteer/</p>
-<h4>Animal Lovers League Pets Villa</h4>
-<p>Address: 61 Pasir Ris Farmway 3
-Website: http://www.animalloversleague.com/volunteer.html</p>
-<h4>Oasis Second Chance Shelters</h4>
-<p>Website: http://www.oscas.sg/p/volunteer.html
-Address: 18 Pasir Ris Farmway 2
-Email: oasis2ndchance@gmail.com</p>
-</div>
-    </div>
     </article>
 </div>
         <nav class="postindexpager"><ul class="pager">
 <li class="previous">
-                <a href="." rel="prev">Newer posts</a>
+                <a href="index-4.html" rel="prev">Newer posts</a>
             </li>
             <li class="next">
                 <a href="index-2.html" rel="next">Older posts</a>

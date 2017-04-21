@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://chowy1026.github.io/</loc>
-  <lastmod>2016-11-07T09:57:00Z</lastmod>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/archives/2016/</loc>
@@ -134,8 +134,44 @@
   <lastmod>2016-11-15T07:58:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/archives/2017/</loc>
+  <lastmod>2017-04-04T03:48:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2017/03/</loc>
+  <lastmod>2017-04-04T03:52:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2017/03/26/</loc>
+  <lastmod>2017-04-04T03:52:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2017/03/28/</loc>
+  <lastmod>2017-04-04T03:48:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2017/03/29/</loc>
+  <lastmod>2017-04-04T03:51:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2017/04/</loc>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2017/04/03/</loc>
+  <lastmod>2017-04-04T03:48:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2017/04/04/</loc>
+  <lastmod>2017-04-04T08:23:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/archives/2017/04/20/</loc>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/archives/archives.html</loc>
-  <lastmod>2016-11-15T07:58:00Z</lastmod>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/books/</loc>
@@ -163,7 +199,7 @@
  </url>
  <url>
   <loc>https://chowy1026.github.io/course-notes/</loc>
-  <lastmod>2016-10-14T05:57:00Z</lastmod>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/course-notes/descriptive-statistics/final_project/</loc>
@@ -199,11 +235,19 @@
  </url>
  <url>
   <loc>https://chowy1026.github.io/course-notes/index-1.html</loc>
-  <lastmod>2016-11-14T09:03:00Z</lastmod>
+  <lastmod>2017-04-04T03:48:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/course-notes/index-2.html</loc>
-  <lastmod>2016-11-14T09:01:00Z</lastmod>
+  <lastmod>2017-04-04T08:23:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/index-3.html</loc>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/index-4.html</loc>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/course-notes/inferential-statistics/lesson-10/</loc>
@@ -246,6 +290,86 @@
   <lastmod>2016-10-14T05:57:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/00-supervised_learning-introduction/</loc>
+  <lastmod>2017-04-04T03:48:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/01-supervised_learning-naive_bayes/</loc>
+  <lastmod>2017-04-04T03:48:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/02-supervised_learning-svm/</loc>
+  <lastmod>2017-04-04T03:48:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/03-supervised_learning-decision_tree/</loc>
+  <lastmod>2017-04-04T08:23:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/03-supervised_learning-decision_trees/</loc>
+  <lastmod>2017-04-04T03:48:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/04-supervised_learning-k_nearest_neighbors/</loc>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/04-supervised_learning-random_forest/</loc>
+  <lastmod>2017-04-04T08:23:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/05-datasets_and_questions/</loc>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/05-supervised_learning-adaboost/</loc>
+  <lastmod>2017-04-04T08:23:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/05-supervised_learning-random_forest/</loc>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/06-supervised_learning-k_nearest_neighbors/</loc>
+  <lastmod>2017-04-04T08:23:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/06-supervised_learning-regression/</loc>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/07-outliers/</loc>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/08-unsupervised_learning-clustering/</loc>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/09-feature_scaling/</loc>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/10-text_learning/</loc>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/11-feature_selection/</loc>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/12-pca/</loc>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/13-validation/</loc>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/course-notes/machine-learning/14-evaluation_metrics/</loc>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/course-notes/python-crash-notes/01-basics/</loc>
   <lastmod>2016-08-30T06:15:00Z</lastmod>
  </url>
@@ -283,15 +407,23 @@
  </url>
  <url>
   <loc>https://chowy1026.github.io/index-1.html</loc>
-  <lastmod>2016-11-14T09:03:00Z</lastmod>
+  <lastmod>2017-04-04T03:48:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/index-2.html</loc>
-  <lastmod>2016-11-14T09:01:00Z</lastmod>
+  <lastmod>2017-04-04T03:48:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/index-3.html</loc>
-  <lastmod>2016-11-15T07:58:00Z</lastmod>
+  <lastmod>2017-04-04T08:23:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/index-4.html</loc>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/index-5.html</loc>
+  <lastmod>2017-04-20T02:26:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/links/</loc>
@@ -338,12 +470,20 @@
   <lastmod>2016-09-20T05:00:00Z</lastmod>
  </url>
  <url>
+  <loc>https://chowy1026.github.io/private/death_cafe1/</loc>
+  <lastmod>2016-10-11T14:46:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://chowy1026.github.io/private/death_cafe2/</loc>
+  <lastmod>2016-10-11T14:46:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://chowy1026.github.io/projects/</loc>
   <lastmod>2016-08-12T07:15:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags.html</loc>
-  <lastmod>2016-11-14T06:29:00Z</lastmod>
+  <lastmod>2017-04-04T03:48:00Z</lastmod>
  </url>
  <url>
   <loc>https://chowy1026.github.io/tags/adult/</loc>
