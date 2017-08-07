@@ -21,7 +21,7 @@ BLOG_AUTHOR = "cHoWy"  # (translatable)
 BLOG_TITLE = " =^..^= MEH"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
-SITE_URL = "https://chowy1026.github.io/"
+SITE_URL = "https://chow1026.github.io/"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "/blog/"
@@ -1308,11 +1308,11 @@ GLOBAL_CONTEXT = {
     "hyde_subtheme": "test",
     "social_email": ("/images/envelope1.png", "mailto:chowy1026@gmail.com"),
     "social_twitter": ("/images/twitter-black-shape1.png", "#"),
-    "social_github": ("/images/github-character1.png", "https://github.com/chowy1026/"),
+    "social_github": ("/images/github-character1.png", "https://github.com/chow1026/"),
     "social_icons": (
         ("email", "/images/envelope1.png", "mailto:chowy1026@gmail.com"),
         ("twitter","/images/twitter-black-shape1.png", "#"),
-        ("github", "/images/github-character1.png", "https://github.com/chowy1026/")
+        ("github", "/images/github-character1.png", "https://github.com/chow1026/")
     ),
 }
 
