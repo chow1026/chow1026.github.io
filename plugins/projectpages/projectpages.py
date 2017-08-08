@@ -118,6 +118,7 @@ class ProjectPages(Task):
 
         template_name = "projects.tmpl"
 
+        self.site.scan_posts()
         self.find_projects()
 
         # Create index.html for each language
@@ -148,6 +149,8 @@ class ProjectPages(Task):
             if self.kw['strip_indexes'] and link[-(1 + index_len):] == '/' + self.kw['index_file']:
                 link = link[:-index_len]
             context["permalink"] = '/' + link
+
+            context["pagekind"] = ['projectpages']
 
             all_meta = [(p.title(), p.meta('status')) for p in self.projects]
             all_meta += [p.meta('previewimage') for p in context["featured"]]
