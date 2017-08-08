@@ -13,10 +13,9 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700%7CAbril+Fatface">
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
-<link rel="canonical" href="https://chowy1026.github.io/course-notes/">
+<link rel="canonical" href="https://chow1026.github.io/course-notes/">
 <link rel="icon" href="../images/favicon.png" sizes="64x64">
 <link rel="icon" href="../images/icon_512x512.png" sizes="512x512">
-<link rel="next" href="index-4.html" type="text/html">
 <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
@@ -48,8 +47,8 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
         <div class="container sidebar-sticky">
             <div class="sidebar-about">
               <h1>
-                <a href="https://chowy1026.github.io/">
-                      <h1 id="brand"><a href="https://chowy1026.github.io/" title=" =^..^= MEH" rel="home">
+                <a href="https://chow1026.github.io/">
+                      <h1 id="brand"><a href="https://chow1026.github.io/" title=" =^..^= MEH" rel="home">
 
         <span id="blog-title"> =^..^= MEH</span>
     </a></h1>
@@ -90,499 +89,151 @@ Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href
     </div>
 
     <div class="content container" id="content">
-
-<div class="sectionindex">
-    <header><h2><a href=".">Course Notes</a></h2>
-    </header><div class="post">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="machine-learning/14-evaluation_metrics/" class="u-url">Evaluation Metrics</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2017-04-20T07:04:44+08:00" title="2017-04-20 07:04">2017-04-20 07:04</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<p>The simplest metric is Accuracy.  It is defined as :</p>
-<p>Accuracy = no. of items in a class labeled correctly / all items in that class</p>
-<p>There are shortcomings of accuracy:      </p>
-<ul>
-<li>not ideal for skewed classes    </li>
-<li>may want to err on side of guessing innocent   </li>
-<li>may want to err of side of guessing guilty   </li>
-</ul>
-<h3>Model Evaluation Metrics</h3>
-<p>There are 3 different approaches to evaluate the quality of predictions of a model:    </p>
-<ul>
+<article class="listpage"><header><h1>Course Notes</h1>
+    </header><ul class="postlist">
 <li>
-<strong>Estimator score method</strong>: Estimators have a score method providing a default evaluation criterion for the problem they are designed to solve. This is not discussed on this page, but in each estimator’s documentation.     </li>
+<a href="ab-testing/lesson3-choosing_and_characterizing_metrics/">Choosing and Characterizing Metrics</a>
+        </li>
 <li>
-<strong>Scoring parameter</strong>: Model-evaluation tools using <a href="http://scikit-learn.org/stable/modules/cross_validation.html#cross-validation" title="Cross Validation">cross-validation</a> (such as model_selection.cross_val_score and model_selection.GridSearchCV) rely on an internal scoring strategy. This is discussed in the section <a href="http://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter" title="Scoring Parameter">The scoring parameter: defining model evaluation rules</a>.     </li>
+<a href="ab-testing/lesson1-overview/">Overview of A/B Testing</a>
+        </li>
 <li>
-<strong>Metric functions</strong>: The metrics module implements functions assessing prediction error for specific purposes. These metrics are detailed in sections on <a href="http://scikit-learn.org/stable/modules/model_evaluation.html#classification-metrics" title="Classification Metrics">Classification metrics</a>, <a href="http://scikit-learn.org/stable/modules/model_evaluation.html#multilabel-ranking-metrics" title="Multilabel Ranking Metrics">Multilabel ranking metrics</a>, <a href="http://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics" title="Regression Metrics">Regression metrics</a> and <a href="http://scikit-learn.org/stable/modules/model_evaluation.html#clustering-metrics" title="Clustering Metrics">Clustering metrics</a>.     </li>
-</ul>
-<p>Finally, Dummy estimators are useful to get a baseline value of those metrics for random predictions.</p>
-<p>For the most common use cases, you can designate a scorer object with the scoring parameter; the table below shows all possible values. All scorer objects follow the convention that <strong>higher return values are better than lower return values</strong>.</p>
-<p><strong>Classification</strong>:       </p>
-<ul>
-<li>confusion matrix</li>
-<li>accuracy   </li>
-<li>average precision     </li>
-<li>precision score    </li>
-<li>recall score    </li>
-<li>f1 score (micro, macro, weighted, samples)    </li>
-<li>roc auc (area under curve)      </li>
-<li>log loss</li>
-</ul>
-<p><strong>Clustering</strong>:       </p>
-<ul>
-<li>adjusted rand score</li>
-</ul>
-<p><strong>Regression</strong>:      </p>
-<ul>
-<li>Mean absolute error</li>
-<li>Mean square error</li>
-<li>Median absolute error</li>
-<li>\(r^2\) score</li>
-</ul>
-<h3>Confusion Matrix</h3>
-<p>In the field of <a href="https://en.wikipedia.org/wiki/Machine_learning" title="Machine Learning">machine learning</a> and specifically the problem of <a href="https://en.wikipedia.org/wiki/Statistical_classification" title="Statistical Classification">statistical classification</a>, a <strong>confusion matrix</strong>, also known as an error matrix,[4] is a specific table layout that allows visualization of the performance of an algorithm, typically a <a href="https://en.wikipedia.org/wiki/Supervised_learning" title="Supervised Learning">supervised learning</a> one (in <a href="https://en.wikipedia.org/wiki/Unsupervised_learning" title="Unsupervised Learning">unsupervised learning</a> it is usually called a <strong>matching matrix</strong>). Each column of the matrix represents the instances in a predicted class while each row represents the instances in an actual class (or vice versa).   The name stems from the fact that it makes it easy to see if the system is confusing two classes (i.e. commonly mislabelling one as another).</p>
-<p>It is a special kind of <a href="https://en.wikipedia.org/wiki/Contingency_table" title="Contingency Table">contingency table</a>, with two dimensions ("actual" and "predicted"), and identical sets of "classes" in both dimensions (each combination of dimension and class is a variable in the contingency table).</p>
-<h4>NOTES FROM UDACITY CLASS:</h4>
-<p><strong>Recall</strong>: True Positive / (True Positive + False Negative). Out of all the items that are truly positive, how many were correctly classified as positive. Or simply, how many positive items were 'recalled' from the dataset.      </p>
-<p><strong>Precision</strong>: True Positive / (True Positive + False Positive). Out of all the items labeled as positive, how many truly belong to the positive class.      </p>
-<h4>Terminology and derivations from a confusion matrix</h4>
-<p><strong>condition positive (P)</strong> :: the number of real positive cases in the data      </p>
-<p><strong>condition negatives (N)</strong> :: the number of real negative cases in the data</p>
-<p><strong>true positive (TP)</strong> :: eqv. with hit    </p>
-<p><strong>true negative (TN)</strong> :: eqv. with correct rejection    </p>
-<p><strong>false positive (FP)</strong> :: eqv. with <a href="https://en.wikipedia.org/wiki/False_alarm" title="False Alarm">false alarm</a>, <a href="https://en.wikipedia.org/wiki/Type_I_error" title="Type I Error">Type I error</a></p>
-<p><strong>false negative (FN)</strong> :: eqv. with miss, <a href="https://en.wikipedia.org/wiki/Type_II_error" title="Type II Error">Type II error</a></p>
-<hr>
-<p><a href="https://en.wikipedia.org/wiki/Sensitivity_(test)" title="Sensitivity">sensitivity</a>, <a href="https://en.wikipedia.org/wiki/Information_retrieval#Recall" title="Recall">recall</a>, <a href="https://en.wikipedia.org/wiki/Hit_rate" title="Hit Rate">hit rate</a>, or <a href="https://en.wikipedia.org/wiki/Sensitivity_(test)" title="True Positive Rate (TPR)">true positive rate (TPR)</a> ::
-\[
-  \mathrm{TPR} = \frac{\mathrm{TP}}{P} = \frac{\mathrm{TP}}{\mathrm{TP} + \mathrm{FN}}
-\]</p>
-<p><a href="https://en.wikipedia.org/wiki/Specificity_(tests)" title="Speciticity">specificity</a> or <a href="https://en.wikipedia.org/wiki/Specificity_(tests)" title="True Negative Rate (TNR)">true negative rate (TNR)</a> ::
-\[
-  \mathrm{TNR} = \frac{\mathrm{TN}}{N} = \frac{\mathrm{TN}}{\mathrm{TN} + \mathrm{FP}}
-\]</p>
-<p><a href="https://en.wikipedia.org/wiki/Information_retrieval#Precision" title="Precision">precision</a> or <a href="https://en.wikipedia.org/wiki/Positive_predictive_value" title="Positive Predictive Value">positive predictive value (PPV)</a> :: <br>
-\[
-  \mathrm{PPV} = \frac{\mathrm{TP}}{\mathrm {TP} +\mathrm {FP}}
-\]</p>
-<p><a href="https://en.wikipedia.org/wiki/Negative_predictive_value" title="Negative Predictive Value">negative predictive value (NPV)</a> ::  <br>
-\[
-  \mathrm{NPV} = \frac{\mathrm{TN}}{\mathrm {TN} +\mathrm {FN}}
-\]</p>
-<p><strong>miss rate</strong> or <a href="https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#False_positive_and_false_negative_rates" title="False Negative Rate">false negative rate (FNR)</a> :: <br>
-\[
-  \mathrm{FNR} = \frac{\mathrm{FN}}{P} = \frac{\mathrm{FN}}{\mathrm{FN} + \mathrm{TP}} = 1 - \mathrm{TPR}
-\]</p>
-<p><a href="https://en.wikipedia.org/wiki/Information_retrieval#Fall-out" title="Fall Out">fall-out</a> or <a href="https://en.wikipedia.org/wiki/Information_retrieval#Fall-out" title="False Positive Rate">false positive rate (FPR)</a> ::  <br>
-\[
-  \mathrm{FPR} = \frac{\mathrm{FP}}{N} = \frac{\mathrm{FP}}{\mathrm{FP} + \mathrm{TN}} = 1 - \mathrm{TNP}
-\]</p>
-<p><a href="https://en.wikipedia.org/wiki/False_discovery_rate" title="False Discovery Rate">false discovery rate (FDR)</a> ::   <br>
-\[
-  \mathrm{FDR} = \frac{\mathrm{FP}}{\mathrm {FP} +\mathrm {TP}} = 1 - \mathrm{PPV}
-\]</p>
-<p><a href="https://en.wikipedia.org/wiki/Positive_and_negative_predictive_values" title="False Omission Rate">false omission rate (FOR)</a>  ::    <br>
-\[
-  \mathrm{FOR} = \frac{\mathrm{FN}}{\mathrm {FN} +\mathrm {TN}} = 1 - \mathrm{NPV}
-\]</p>
-<hr>
-<p><a href="https://en.wikipedia.org/wiki/Accuracy" title="Accuracy">accuracy (ACC)</a> ::  <br>
-\[
-  \mathrm{ACC} = \frac{\mathrm{TP} + \mathrm{TN}}{ {P} + {N}}
-\]</p>
-<p><a href="https://en.wikipedia.org/wiki/F1_score" title="F1 Score">F1 score</a> :: is the <a href="https://en.wikipedia.org/wiki/Harmonic_mean#Harmonic_mean_of_two_numbers" title="Harmonic Mean">harmonic mea</a>n of <a href="https://en.wikipedia.org/wiki/Information_retrieval#Precision" title="Precision">precision</a> and <a href="https://en.wikipedia.org/wiki/Sensitivity_(test)" title="Sensitivity">sensitivity</a>     <br>
-\[
-  F_{1} = 2 \cdot \frac{\mathrm{PPV} \cdot \mathrm{TPR}}{\mathrm{PPV} + \mathrm{TPR}} =  \frac{2\mathrm{TP}}{2\mathrm{TP} + \mathrm{FP} + \mathrm{FN}}
-\]</p>
-<p><a href="https://en.wikipedia.org/wiki/Matthews_correlation_coefficient" title="Matthews Correlation Coefficient">Matthews correlation coefficient (MCC)</a> ::   <br>
-\[
-  \mathrm{MCC} = \frac{ \mathrm{TP} \times \mathrm{TN} - \mathrm{FP} \times \mathrm{FN} }{ \sqrt{(\mathrm{TP} + \mathrm{FP} )(\mathrm{TP} + \mathrm{FN} )( \mathrm{TN} + \mathrm{FP} )( \mathrm{TN} + \mathrm{FN} )} }
-\]</p>
-<p><a href="https://en.wikipedia.org/wiki/Informedness" title="Informedness">Informedness</a> or <strong>Bookmaker Informedness (BM)</strong> ::   <br>
-\[
-  \mathrm{BM}  = \mathrm{TPR} + \mathrm{TNR} -1
-\]</p>
-<p><strong>Markedness (MK)</strong> ::    <br>
-\[
-  \mathrm{MK}  = \mathrm{PPV} + \mathrm{NPV} -1
-\]</p>
-<hr>
-<table class="wikitable" align="center" style="text-align:center; border:none; background:transparent;"><tbody>
-<tr>
-<td colspan="2" style="border:none;"></td>
-<td colspan="2" style="background:#eeeebb;"><b>predicted condition</b></td>
-</tr>
-<tr>
-<td style="border:none;"></td>
-<td style="background:#dddddd;"><a href="https://en.wikipedia.org/wiki/Statistical_population" title="Statistical population">total population</a></td>
-<td style="background:#ffffcc;">prediction positive</td>
-<td style="background:#ddddaa;">prediction negative</td>
-<td style="background:#eeeecc;">
-<a href="https://en.wikipedia.org/wiki/Prevalence" title="Prevalence">Prevalence</a> <span style="font-size:118%;white-space:nowrap;">= <span class="texhtml"><span class="sfrac nowrap" style="display:inline-block; vertical-align:-0.5em; font-size:85%; text-align:center;"><span style="display:block; line-height:1em; margin:0 0.1em;">Σ condition positive</span><span style="display:block; line-height:1em; margin:0 0.1em; border-top:1px solid;">Σ total population</span></span></span></span>
-</td>
-</tr>
-<tr>
-<td rowspan="2" style="background:#bbeeee;"><b>true<br>
-condition</b></td>
-<td style="background:#ccffff;">condition<br>
-positive</td>
-<td style="background:#ccffcc;"><span style="color:#006600;"><b><a href="https://en.wikipedia.org/wiki/True_positive" class="mw-redirect" title="True positive">True Positive (TP)</a></b></span></td>
-<td style="background:#eedddd;">
-<span style="color:#cc0000;"><b><a href="https://en.wikipedia.org/wiki/False_Negative" class="mw-redirect" title="False Negative">False Negative (FN)</a></b></span><br>
-(<a href="https://en.wikipedia.org/wiki/Type_II_error" class="mw-redirect" title="Type II error">type II error</a>)</td>
-<td style="background:#eeffcc;">
-<a href="https://en.wikipedia.org/wiki/True_Positive_Rate" class="mw-redirect" title="True Positive Rate">True Positive Rate (TPR)</a>, <a href="https://en.wikipedia.org/wiki/Sensitivity_(tests)" class="mw-redirect" title="Sensitivity (tests)">Sensitivity</a>, <a href="https://en.wikipedia.org/wiki/Recall_(information_retrieval)" class="mw-redirect" title="Recall (information retrieval)">Recall</a>, Probability of Detection <span style="font-size:118%;white-space:nowrap;">= <span class="texhtml"><span class="sfrac nowrap" style="display:inline-block; vertical-align:-0.5em; font-size:85%; text-align:center;"><span style="display:block; line-height:1em; margin:0 0.1em;">Σ TP</span><span style="display:block; line-height:1em; margin:0 0.1em; border-top:1px solid;">Σ condition positive</span></span></span></span>
-</td>
-<td style="background:#ffeecc;">
-<a href="https://en.wikipedia.org/wiki/False_Negative_Rate" class="mw-redirect" title="False Negative Rate">False Negative Rate (FNR)</a>, Miss Rate <span style="font-size:118%;white-space:nowrap;">= <span class="texhtml"><span class="sfrac nowrap" style="display:inline-block; vertical-align:-0.5em; font-size:85%; text-align:center;"><span style="display:block; line-height:1em; margin:0 0.1em;">Σ FN</span><span style="display:block; line-height:1em; margin:0 0.1em; border-top:1px solid;">Σ condition positive</span></span></span></span>
-</td>
-</tr>
-<tr>
-<td style="background:#aadddd;">condition<br>
-negative</td>
-<td style="background:#ffdddd;">
-<span style="color:#cc0000;"><b><a href="https://en.wikipedia.org/wiki/False_Positive" class="mw-redirect" title="False Positive">False Positive (FP)</a></b></span><br>
-(<a href="https://en.wikipedia.org/wiki/Type_I_error" class="mw-redirect" title="Type I error">Type I error</a>)</td>
-<td style="background:#bbeebb;"><span style="color:#006600;"><b><a href="https://en.wikipedia.org/wiki/True_negative" class="mw-redirect" title="True negative">True Negative (TN)</a></b></span></td>
-<td style="background:#eeddbb;">
-<a href="https://en.wikipedia.org/wiki/False_Positive_Rate" class="mw-redirect" title="False Positive Rate">False Positive Rate (FPR)</a>, <a href="https://en.wikipedia.org/wiki/Information_retrieval" title="Information retrieval"><span class="nowrap">Fall-out</span></a>, Probability of False Alarm <span style="font-size:118%;white-space:nowrap;">= <span class="texhtml"><span class="sfrac nowrap" style="display:inline-block; vertical-align:-0.5em; font-size:85%; text-align:center;"><span style="display:block; line-height:1em; margin:0 0.1em;">Σ FP</span><span style="display:block; line-height:1em; margin:0 0.1em; border-top:1px solid;">Σ condition negative</span></span></span></span>
-</td>
-<td style="background:#ddeebb;">
-<a href="https://en.wikipedia.org/wiki/True_Negative_Rate" class="mw-redirect" title="True Negative Rate">True Negative Rate (TNR)</a>, <a href="https://en.wikipedia.org/wiki/Specificity_(tests)" class="mw-redirect" title="Specificity (tests)">Specificity</a> (SPC) <span style="font-size:118%;white-space:nowrap;">= <span class="texhtml"><span class="sfrac nowrap" style="display:inline-block; vertical-align:-0.5em; font-size:85%; text-align:center;"><span style="display:block; line-height:1em; margin:0 0.1em;">Σ TN</span><span style="display:block; line-height:1em; margin:0 0.1em; border-top:1px solid;">Σ condition negative</span></span></span></span>
-</td>
-</tr>
-<tr>
-<td style="border:none;"></td>
-<td rowspan="2" style="background:#cceecc;border-top:solid grey;border-right:solid grey">
-<a href="https://en.wikipedia.org/wiki/Accuracy_and_precision" title="Accuracy and precision">Accuracy</a> <span style="font-size:118%;white-space:nowrap;">= <span class="texhtml"><span class="sfrac nowrap" style="display:inline-block; vertical-align:-0.5em; font-size:85%; text-align:center;"><span style="display:block; line-height:1em; margin:0 0.1em;">Σ TP + Σ TN</span><span style="display:block; line-height:1em; margin:0 0.1em; border-top:1px solid;">Σ total population</span></span></span></span>
-</td>
-<td style="background:#ccffee;border-top:solid grey;">
-<a href="https://en.wikipedia.org/wiki/Positive_Predictive_Value" class="mw-redirect" title="Positive Predictive Value">Positive Predictive Value (PPV)</a>, <a href="https://en.wikipedia.org/wiki/Precision_(information_retrieval)" class="mw-redirect" title="Precision (information retrieval)">Precision</a> <span style="font-size:118%;white-space:nowrap;">= <span class="texhtml"><span class="sfrac nowrap" style="display:inline-block; vertical-align:-0.5em; font-size:85%; text-align:center;"><span style="display:block; line-height:1em; margin:0 0.1em;">Σ TP</span><span style="display:block; line-height:1em; margin:0 0.1em; border-top:1px solid;">Σ prediction positive</span></span></span></span>
-</td>
-<td style="background:#eeddee;border-bottom:solid grey;">
-<a href="https://en.wikipedia.org/wiki/False_omission_rate" class="mw-redirect" title="False omission rate">False Omission Rate (FOR)</a> <span style="font-size:118%;white-space:nowrap;">= <span class="texhtml"><span class="sfrac nowrap" style="display:inline-block; vertical-align:-0.5em; font-size:85%; text-align:center;"><span style="display:block; line-height:1em; margin:0 0.1em;">Σ FN</span><span style="display:block; line-height:1em; margin:0 0.1em; border-top:1px solid;">Σ prediction negative</span></span></span></span>
-</td>
-<td style="background:#eeeeee;">
-<a href="https://en.wikipedia.org/wiki/Positive_likelihood_ratio" class="mw-redirect" title="Positive likelihood ratio">Positive Likelihood Ratio <span class="nowrap">(LR+)</span></a> <span style="font-size:118%;white-space:nowrap;">= <span class="texhtml"><span class="sfrac nowrap" style="display:inline-block; vertical-align:-0.5em; font-size:85%; text-align:center;"><span style="display:block; line-height:1em; margin:0 0.1em;">TPR</span><span style="display:block; line-height:1em; margin:0 0.1em; border-top:1px solid;">FPR</span></span></span></span>
-</td>
-<td rowspan="2" style="background:#dddddd;">
-<a href="https://en.wikipedia.org/wiki/Diagnostic_odds_ratio" title="Diagnostic odds ratio">Diagnostic Odds Ratio (DOR)</a> <span style="font-size:118%;white-space:nowrap;">= <span class="texhtml"><span class="sfrac nowrap" style="display:inline-block; vertical-align:-0.5em; font-size:85%; text-align:center;"><span style="display:block; line-height:1em; margin:0 0.1em;">LR+</span><span style="display:block; line-height:1em; margin:0 0.1em; border-top:1px solid;">LR−</span></span></span></span>
-</td>
-</tr>
-<tr>
-<td style="border:none;"></td>
-<td style="background:#cceeff;border-top:solid grey;">
-<a href="https://en.wikipedia.org/wiki/False_Discovery_Rate" class="mw-redirect" title="False Discovery Rate">False Discovery Rate (FDR)</a> <span style="font-size:118%;white-space:nowrap;">= <span class="texhtml"><span class="sfrac nowrap" style="display:inline-block; vertical-align:-0.5em; font-size:85%; text-align:center;"><span style="display:block; line-height:1em; margin:0 0.1em;">Σ FP</span><span style="display:block; line-height:1em; margin:0 0.1em; border-top:1px solid;">Σ prediction positive</span></span></span></span>
-</td>
-<td style="background:#aaddcc;border-bottom:solid grey;">
-<a href="https://en.wikipedia.org/wiki/Negative_Predictive_Value" class="mw-redirect" title="Negative Predictive Value">Negative Predictive Value (NPV)</a> <span style="font-size:118%;white-space:nowrap;">= <span class="texhtml"><span class="sfrac nowrap" style="display:inline-block; vertical-align:-0.5em; font-size:85%; text-align:center;"><span style="display:block; line-height:1em; margin:0 0.1em;">Σ TN</span><span style="display:block; line-height:1em; margin:0 0.1em; border-top:1px solid;">Σ prediction negative</span></span></span></span>
-</td>
-<td style="background:#cccccc;">
-<a href="https://en.wikipedia.org/wiki/Negative_likelihood_ratio" class="mw-redirect" title="Negative likelihood ratio">Negative Likelihood Ratio <span class="nowrap">(LR−)</span></a> <span style="font-size:118%;white-space:nowrap;">= <span class="texhtml"><span class="sfrac nowrap" style="display:inline-block; vertical-align:-0.5em; font-size:85%; text-align:center;"><span style="display:block; line-height:1em; margin:0 0.1em;">FNR</span><span style="display:block; line-height:1em; margin:0 0.1em; border-top:1px solid;">TNR</span></span></span></span>
-</td>
-</tr>
-</tbody></table>
+<a href="data-visualization/02-d3_building_blocks/">D3 Building Blocks</a>
+        </li>
+<li>
+<a href="data-visualization/01-visualization_fundamentals/">Visualization Fundamentals</a>
+        </li>
+<li>
+<a href="machine-learning/14-evaluation_metrics/">Evaluation Metrics</a>
+        </li>
+<li>
+<a href="machine-learning/13-validation/">Validation</a>
+        </li>
+<li>
+<a href="machine-learning/12-pca/">Principle Component Analysis</a>
+        </li>
+<li>
+<a href="machine-learning/11-feature_selection/">Feature Selection</a>
+        </li>
+<li>
+<a href="machine-learning/10-text_learning/">Text Learning</a>
+        </li>
+<li>
+<a href="machine-learning/09-feature_scaling/">Feature Scaling</a>
+        </li>
+<li>
+<a href="machine-learning/08-unsupervised_learning-clustering/">Unsupervised Learning - Clustering</a>
+        </li>
+<li>
+<a href="machine-learning/07-outliers/">Outliers</a>
+        </li>
+<li>
+<a href="machine-learning/05-datasets_and_questions/">Datasets and Questions</a>
+        </li>
+<li>
+<a href="machine-learning/06-supervised_learning-regression/">Supervised Learning - Regression</a>
+        </li>
+<li>
+<a href="machine-learning/04-supervised_learning-k_nearest_neighbors/">Supervised Learning - K Nearest Neighbors (KNN)</a>
+        </li>
+<li>
+<a href="machine-learning/05-supervised_learning-adaboost/">Supervised Learning - Adaboost</a>
+        </li>
+<li>
+<a href="machine-learning/05-supervised_learning-random_forest/">Supervised Learning - Random Forest</a>
+        </li>
+<li>
+<a href="machine-learning/03-supervised_learning-decision_tree/">Supervised Learning - Decision Tree</a>
+        </li>
+<li>
+<a href="machine-learning/02-supervised_learning-svm/">Supervised Learning - Support Vector Machine (SVM)</a>
+        </li>
+<li>
+<a href="machine-learning/01-supervised_learning-naive_bayes/">Supervised Learning - Naive Bayes</a>
+        </li>
+<li>
+<a href="machine-learning/00-supervised_learning-introduction/">Supervised Learning - Introduction</a>
+        </li>
+<li>
+<a href="descriptive-statistics/final_project/">Descriptive Statistics Final Project - Random Draws of Card Deck</a>
+        </li>
+<li>
+<a href="inferential-statistics/lesson-16/">Inferential Statistics - Chi-Squared Tests</a>
+        </li>
+<li>
+<a href="inferential-statistics/lesson-15/">Inferential Statistics - Regressions</a>
+        </li>
+<li>
+<a href="inferential-statistics/lesson-14/">Inferential Statistics - Correlations</a>
+        </li>
+<li>
+<a href="inferential-statistics/lesson-13/">Inferential Statistics - ANOVA Continued.</a>
+        </li>
+<li>
+<a href="intro-data-analysis/1-data_analysis_process/">Intro to DA - Data Analysis Process</a>
+        </li>
+<li>
+<a href="inferential-statistics/lesson-12/">Inferential Statistics - One-Way ANOVA</a>
+        </li>
+<li>
+<a href="inferential-statistics/lesson-11/">Inferential Statistics - T-Test, Independent Samples</a>
+        </li>
+<li>
+<a href="inferential-statistics/lesson-10/">Inferential Statistics - T-Test, Dependent Samples</a>
+        </li>
+<li>
+<a href="inferential-statistics/lesson-9/">Inferential Statistics - Hypothesis Testing</a>
+        </li>
+<li>
+<a href="inferential-statistics/lesson-8/">Inferential Statistics - Estimation</a>
+        </li>
+<li>
+<a href="python-crash-notes/08-testing/">Testing Python Code</a>
+        </li>
+<li>
+<a href="python-crash-notes/07-files-and-exceptions-and-storing-data/">Files and Exceptions and Storing Data</a>
+        </li>
+<li>
+<a href="python-crash-notes/06-classes-instances-inheritance/">Classes, Instances and Inheritance</a>
+        </li>
+<li>
+<a href="python-crash-notes/05-functions-modules/">Functions and Modules</a>
+        </li>
+<li>
+<a href="python-crash-notes/04-user-inputs-and-loops/">User Input and Loops</a>
+        </li>
+<li>
+<a href="python-crash-notes/03-lists-and-tuples-and-dictionaries/">Lists and Tuples and Dictionaries</a>
+        </li>
+<li>
+<a href="python-crash-notes/02-variables-and-simple-data-types/">Variables and Simple Data Types</a>
+        </li>
+<li>
+<a href="python-crash-notes/01-basics/">Python Basics and Philosophy</a>
+        </li>
+<li>
+<a href="descriptive-statistics/lesson-7/">Descriptive Statistics - Sampling Distributions</a>
+        </li>
+<li>
+<a href="descriptive-statistics/lesson-6/">Descriptive Statistics - Normal Distribution</a>
+        </li>
+<li>
+<a href="descriptive-statistics/lesson-5/">Descriptive Statistics - Standardizing</a>
+        </li>
+<li>
+<a href="descriptive-statistics/lesson-4/">Descriptive Statistics - Variability</a>
+        </li>
+<li>
+<a href="descriptive-statistics/lesson-3/">Descriptive Statistics - Central Tendency</a>
+        </li>
+<li>
+<a href="descriptive-statistics/lesson-1/">Descriptive Statistics - Research Methods</a>
+        </li>
+<li>
+<a href="descriptive-statistics/lesson-2/">Descriptive Statistics - Visualizing Data</a>
+    </li>
+</ul></article>
 </div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="machine-learning/13-validation/" class="u-url">Validation</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2017-04-20T07:04:10+08:00" title="2017-04-20 07:04">2017-04-20 07:04</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<p><strong>Cross-validation</strong>, sometimes called <strong>rotation estimation</strong>, is a <a href="https://en.wikipedia.org/wiki/Model_validation" title="Model Validation">model validation</a> technique for assessing how the results of a statistical analysis will generalize to an independent data set. It is mainly used in settings where the goal is prediction, and one wants to estimate how accurately a predictive model will perform in practice. In a prediction problem, a model is usually given a dataset of known data on which training is run (training dataset), and a dataset of unknown data (or first seen data) against which the model is tested (testing dataset).[4] The goal of cross validation is to define a dataset to "test" the model in the training phase (i.e., the validation dataset), in order to limit problems like overfitting, give an insight on how the model will generalize to an independent dataset (i.e., an unknown dataset, for instance from a real problem), etc.</p>
-<p>One round of cross-validation involves partitioning a sample of data into complementary subsets, performing the analysis on one subset (called the training set), and validating the analysis on the other subset (called the validation set or testing set). To reduce variability, multiple rounds of cross-validation are performed using different partitions, and the validation results are averaged over the rounds.</p>
-<p>One of the main reasons for using cross-validation instead of using the conventional validation (e.g. partitioning the data set into two sets of 70% for training and 30% for test) is that there is not enough data available to partition it into separate training and test sets without losing significant modelling or testing capability. In these cases, a fair way to properly estimate model prediction performance is to use cross-validation as a powerful general technique.    </p>
-<p>In summary, cross-validation combines (averages) measures of fit (prediction error) to derive a more accurate estimate of model prediction performance.    </p>
-<h3>Common types of cross-validation</h3>
-<p>Two types of cross-validation can be distinguished, exhaustive and non-exhaustive cross-validation.</p>
-<h4>Exhaustive cross-validation</h4>
-<p>Exhaustive cross-validation methods are cross-validation methods which learn and test on all possible ways to divide the original sample into a training and a validation set.</p>
-<h5>Leave-p-out cross-validation</h5>
-<p>Leave-p-out cross-validation (LpO CV) involves using p observations as the validation set and the remaining observations as the training set. This is repeated on all ways to cut the original sample on a validation set of p observations and a training set.</p>
-<p>LpO cross-validation requires training and validating the model \( C_{n}^{p} \) \( C_{n}^{p} \) times, where n is the number of observations in the original sample, and where \( C_{n}^{p} \) is the <a href="https://en.wikipedia.org/wiki/Binomial_coefficient" title="Binomial Coefficient">binomial coefficient</a>. For \( p \) &gt; 1 and for even moderately large \( n \), LpO CV can become computationally infeasible. For example, with \( n \) = 100 and \( p \) = 30 = 30 percent of 100 (as suggested above), \( C_{100}^{30} \approx 3\times 10^{25} \).  </p>
-<h5>Leave-one-out cross-validation</h5>
-<p>Leave-one-out cross-validation (LOOCV) is a particular case of leave-p-out cross-validation with \( p \) = 1. The process looks similar to <a href="https://en.wikipedia.org/wiki/Jackknife_resampling" title="Jackknife Resampling">jackknife</a>, however with cross-validation you compute a statistic on the left-out sample(s), while with jackknifing you compute a statistic from the kept samples only.</p>
-<p>LOO cross-validation does not have the same problem of excessive compute time as general LpO cross-validation because \( C_{n}^{1}=n \).</p>
-<h4>Non-exhaustive cross-validation</h4>
-<p>Non-exhaustive cross validation methods do not compute all ways of splitting the original sample. Those methods are approximations of leave-p-out cross-validation.</p>
-<h5>k-fold cross-validation</h5>
-<p>In k-fold cross-validation, the original sample is randomly partitioned into k equal sized subsamples. Of the \( k \) subsamples, a single subsample is retained as the validation data for testing the model, and the remaining \( k \) − 1 subsamples are used as training data. The cross-validation process is then repeated \( k \) times (the folds), with each of the k subsamples used exactly once as the validation data. The \( k \) results from the folds can then be averaged to produce a single estimation. The advantage of this method over repeated random sub-sampling (see below) is that all observations are used for both training and validation, and each observation is used for validation exactly once. 10-fold cross-validation is commonly used, but in general k remains an unfixed parameter.</p>
-<p>For example, setting \( k \) = 2 results in 2-fold cross-validation. In 2-fold cross-validation, we randomly shuffle the dataset into two sets \( d_0 \) and \( d_1 \), so that both sets are equal size (this is usually implemented by shuffling the data array and then splitting it in two). We then train on \( d_0 \) and test on \( d_1 \), followed by training on \( d_1 \) and testing on \( d_0 \).</p>
-<p>When \( k \) = \( n \) (the number of observations), the k-fold cross-validation is exactly the leave-one-out cross-validation.</p>
-<p>In stratified k-fold cross-validation, the folds are selected so that the mean response value is approximately equal in all the folds. In the case of a dichotomous classification, this means that each fold contains roughly the same proportions of the two types of class labels.</p>
-<h5>Holdout method</h5>
-<p>In the holdout method, we randomly assign data points to two sets \( d_0 \) and \( d_1 \), usually called the training set and the test set, respectively. The size of each of the sets is arbitrary although typically the test set is smaller than the training set. We then train on \( d_0 \) and test on \( d_1 \).</p>
-<p>In typical cross-validation, multiple runs are aggregated together; in contrast, the holdout method, in isolation, involves a single run. While the holdout method can be framed as "the simplest kind of cross-validation", many sources instead classify holdout as a type of simple validation, rather than a simple or degenerate form of cross-validation.</p>
-<h5>Repeated random sub-sampling validation</h5>
-<p>This method, also known as Monte Carlo cross-validation, randomly splits the dataset into training and validation data. For each such split, the model is fit to the training data, and predictive accuracy is assessed using the validation data. The results are then averaged over the splits. The advantage of this method (over k-fold cross validation) is that the proportion of the training/validation split is not dependent on the number of iterations (folds). The disadvantage of this method is that some observations may never be selected in the validation subsample, whereas others may be selected more than once. In other words, validation subsets may overlap. This method also exhibits Monte Carlo variation, meaning that the results will vary if the analysis is repeated with different random splits.</p>
-<p>As the number of random splits approaches infinity, the result of repeated random sub-sampling validation tends towards that of leave-p-out cross-validation.</p>
-<p>In a stratified variant of this approach, the random samples are generated in such a way that the mean response value (i.e. the dependent variable in the regression) is equal in the training and testing sets. This is particularly useful if the responses are dichotomous with an unbalanced representation of the two response values in the data.</p>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="machine-learning/12-pca/" class="u-url">Principle Component Analysis</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2017-04-20T07:00:11+08:00" title="2017-04-20 07:00">2017-04-20 07:00</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<p>Principal component analysis (PCA) is a statistical procedure that uses an <a href="https://en.wikipedia.org/wiki/Orthogonal_transformation" title="Orthogonal Transformation">orthogonal transformation</a> to convert a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called principal components (or sometimes, principal modes of variation). The number of principal components is less than or equal to the smaller of the number of original variables or the number of observations. This transformation is defined in such a way that the first principal component has the largest possible variance (that is, accounts for as much of the variability in the data as possible), and each succeeding component in turn has the highest variance possible under the constraint that it is <a href="https://en.wikipedia.org/wiki/Orthogonal" title="Orthogonal">orthogonal</a> to the preceding components. The resulting vectors are an uncorrelated <a href="https://en.wikipedia.org/wiki/Orthogonal_basis_set" title="Orthogonal Basis Set">orthogonal basis set</a>. PCA is sensitive to the relative scaling of the original variables.</p>
-<p>PCA is mostly used as a tool in <a href="https://en.wikipedia.org/wiki/Exploratory_data_analysis" title="Exploratory Data Analysis">exploratory data analysis</a> and for making <a href="https://en.wikipedia.org/wiki/Predictive_modeling" title="Predictive Model">predictive models</a>. PCA can be done by <a href="https://en.wikipedia.org/wiki/Eigendecomposition_of_a_matrix" title="Eigenvalue Decomposition">eigenvalue decomposition</a> of a data <a href="https://en.wikipedia.org/wiki/Covariance" title="Covariance">covariance</a> (or <a href="https://en.wikipedia.org/wiki/Correlation" title="Correlation">correlation</a>) matrix or <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition" title="Singular Value Decomposition">singular value decomposition</a> of a <a href="https://en.wikipedia.org/wiki/Data_matrix_(multivariate_statistics)" title="Data Matrix">data matrix</a>, usually after mean centering (and normalizing or using Z-scores) the data matrix for each attribute. The results of a PCA are usually discussed in terms of component scores, sometimes called factor scores (the transformed variable values corresponding to a particular data point), and loadings (the weight by which each standardized original variable should be multiplied to get the component score).</p>
-<p>PCA is the simplest of the true <a href="https://en.wikipedia.org/wiki/Eigenvectors" title="Eigenvectors">eigenvector</a>-based multivariate analyses. Often, its operation can be thought of as revealing the internal structure of the data in a way that best explains the variance in the data. If a multivariate dataset is visualised as a set of coordinates in a high-dimensional data space (1 axis per variable), PCA can supply the user with a lower-dimensional picture, a projection of this object when viewed from its most informative viewpoint. This is done by using only the first few principal components so that the dimensionality of the transformed data is reduced.</p>
-<p>PCA is closely related to <a href="https://en.wikipedia.org/wiki/Factor_analysis" title="Factor Analysis">factor analysis</a>. Factor analysis typically incorporates more domain specific assumptions about the underlying structure and solves eigenvectors of a slightly different matrix.</p>
-<p>PCA is also related to <a href="https://en.wikipedia.org/wiki/Canonical_correlation" title="Canonical Correlation">canonical correlation analysis</a> (CCA). CCA defines coordinate systems that optimally describe the cross-covariance between two datasets while PCA defines a new <a href="https://en.wikipedia.org/wiki/Orthogonal_coordinate_system" title="Orthogonal Coordinate System">orthogonal coordinate system</a> that optimally describes variance in a single dataset.</p>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="machine-learning/11-feature_selection/" class="u-url">Feature Selection</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2017-04-20T06:59:28+08:00" title="2017-04-20 06:59">2017-04-20 06:59</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<p>In machine learning and statistics, <strong>feature selection</strong>, also known as <strong>variable selection</strong>, <strong>attribute selection</strong> or <strong>variable subset selection</strong>, is the process of selecting a subset of relevant features (variables, predictors) for use in model construction. Feature selection techniques are used for four reasons:      </p>
-<ul>
-<li>simplification of models to make them easier to interpret by researchers/users,     </li>
-<li>shorter training times,      </li>
-<li>to avoid the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality" title="Curse of Dimensionality">curse of dimensionality</a>,      </li>
-<li>enhanced generalization by reducing overfitting (formally, reduction of variance)      </li>
-</ul>
-<p>The central premise when using a feature selection technique is that the data contains many features that are either <em>redundant</em> or <em>irrelevant</em>, and can thus be removed without incurring much loss of information. <em>Redundant</em> or <em>irrelevant</em> features are two distinct notions, since one relevant feature may be redundant in the presence of another relevant feature with which it is strongly correlated.</p>
-<p>Feature selection techniques should be distinguished from <a href="https://en.wikipedia.org/wiki/Feature_extraction" title="Feature Extraction">feature extraction</a>. Feature extraction creates new features from functions of the original features, whereas feature selection returns a subset of the features. Feature selection techniques are often used in domains where there are many features and comparatively few samples (or data points). Archetypal cases for the application of feature selection include the analysis of written texts and DNA microarray data, where there are many thousands of features, and a few tens to hundreds of samples.</p>
-<h3>Introduction</h3>
-<p>A feature selection algorithm can be seen as the combination of a search technique for proposing new feature subsets, along with an evaluation measure which scores the different feature subsets. The simplest algorithm is to test each possible subset of features finding the one which minimizes the error rate. This is an exhaustive search of the space, and is computationally intractable for all but the smallest of feature sets. The choice of evaluation metric heavily influences the algorithm, and it is these evaluation metrics which distinguish between the three main categories of feature selection algorithms: wrappers, filters and embedded methods.     </p>
-<ul>
-<li>Wrapper methods use a predictive model to score feature subsets. Each new subset is used to train a model, which is tested on a hold-out set. Counting the number of mistakes made on that hold-out set (the error rate of the model) gives the score for that subset. As wrapper methods train a new model for each subset, they are very computationally intensive, but usually provide the best performing feature set for that particular type of model.      </li>
-<li>Filter methods use a proxy measure instead of the error rate to score a feature subset. This measure is chosen to be fast to compute, while still capturing the usefulness of the feature set. Common measures include the <a href="https://en.wikipedia.org/wiki/Mutual_information" title="Mutual Information">mutual information</a>, the <a href="https://en.wikipedia.org/wiki/Pointwise_mutual_information" title="Pointwise Mutual Information">pointwise mutual information</a>, <a href="https://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient" title="Pearson Product Moment Correlation Coefficient">Pearson product-moment correlation coefficient</a>, inter/intra class distance or the scores of <a href="https://en.wikipedia.org/wiki/Statistical_hypothesis_testing" title="Significance Test">significance tests</a> for each class/feature combinations.  Filters are usually less computationally intensive than wrappers, but they produce a feature set which is not tuned to a specific type of predictive model. This lack of tuning means a feature set from a filter is more general than the set from a wrapper, usually giving lower prediction performance than a wrapper. However the feature set doesn't contain the assumptions of a prediction model, and so is more useful for exposing the relationships between the features. Many filters provide a feature ranking rather than an explicit best feature subset, and the cut off point in the ranking is chosen via <a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)" title="Cross Validation">cross-validation</a>. Filter methods have also been used as a preprocessing step for wrapper methods, allowing a wrapper to be used on larger problems.      </li>
-<li>Embedded methods are a catch-all group of techniques which perform feature selection as part of the model construction process. The exemplar of this approach is the <a href="https://en.wikipedia.org/wiki/Lasso_(statistics)" title="Lasso">LASSO</a> method for constructing a linear model, which penalizes the regression coefficients with an L1 penalty, shrinking many of them to zero. Any features which have non-zero regression coefficients are 'selected' by the <a href="https://en.wikipedia.org/wiki/Lasso_(statistics)" title="Lasso">LASSO</a> algorithm. Improvements to the <a href="https://en.wikipedia.org/wiki/Lasso_(statistics)" title="Lasso">LASSO</a> include Bolasso which bootstraps samples, and FeaLect which scores all the features based on combinatorial analysis of regression coefficients. One other popular approach is the Recursive Feature Elimination algorithm, commonly used with Support Vector Machines to repeatedly construct a model and remove features with low weights. These approaches tend to be between filters and wrappers in terms of computational complexity.       </li>
-</ul>
-<p>In traditional statistics, the most popular form of feature selection is <a href="https://en.wikipedia.org/wiki/Stepwise_regression" title="Stepwise Regression">stepwise regression</a>, which is a wrapper technique. It is a <a href="https://en.wikipedia.org/wiki/Greedy_algorithm" title="Greedy Algorithm">greedy algorithm</a> that adds the best feature (or deletes the worst feature) at each round. The main control issue is deciding when to stop the algorithm. In machine learning, this is typically done by <a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)" title="Cross Validation">cross-validation</a>. In statistics, some criteria are optimized. This leads to the inherent problem of nesting. More robust methods have been explored, such as <a href="https://en.wikipedia.org/wiki/Branch_and_bound" title="Branch and Bound">branch and bound</a> and piecewise linear network.</p>
-<h3>Subset selection</h3>
-<p>Subset selection evaluates a subset of features as a group for suitability. Subset selection algorithms can be broken up into Wrappers, Filters and Embedded. Wrappers use a search algorithm to search through the space of possible features and evaluate each subset by running a model on the subset. Wrappers can be computationally expensive and have a risk of over fitting to the model. Filters are similar to Wrappers in the search approach, but instead of evaluating against a model, a simpler filter is evaluated. Embedded techniques are embedded in and specific to a model.</p>
-<p>Many popular search approaches use <a href="https://en.wikipedia.org/wiki/Hill_climbing" title="Hill Climbing">greedy hill climbing</a>, which iteratively evaluates a candidate subset of features, then modifies the subset and evaluates if the new subset is an improvement over the old. Evaluation of the subsets requires a scoring metric that grades a subset of features. Exhaustive search is generally impractical, so at some implementor (or operator) defined stopping point, the subset of features with the highest score discovered up to that point is selected as the satisfactory feature subset. The stopping criterion varies by algorithm; possible criteria include: a subset score exceeds a threshold, a program's maximum allowed run time has been surpassed, etc.</p>
-<p>Alternative search-based techniques are based on targeted projection pursuit which finds low-dimensional projections of the data that score highly: the features that have the largest projections in the lower-dimensional space are then selected.</p>
-<p>Search approaches include:       </p>
-<ul>
-<li>Exhaustive    </li>
-<li>
-<a href="https://en.wikipedia.org/wiki/Best-first_search" title="Best First">Best first</a>       </li>
-<li>
-<a href="https://en.wikipedia.org/wiki/Simulated_annealing" title="Simulated Annealing">Simulated annealing</a>       </li>
-<li>
-<a href="https://en.wikipedia.org/wiki/Genetic_algorithm" title="Genetic Algorithm">Genetic algorithm</a>       </li>
-<li>Greedy forward selection        </li>
-<li>Greedy backward elimination              </li>
-<li>
-<a href="https://en.wikipedia.org/wiki/Particle_swarm_optimization" title="Particle Swarm Optimization">Particle swarm optimization</a>         </li>
-<li>
-<a href="https://en.wikipedia.org/wiki/Targeted_projection_pursuit" title="Targeted Projection Pursuit">Targeted projection pursuit</a>        </li>
-<li>Scatter Search        </li>
-<li>
-<a href="https://en.wikipedia.org/wiki/Variable_Neighborhood_Search" title="Variable Neighborhood Search">Variable Neighborhood Search</a>      </li>
-</ul>
-<p>Two popular filter metrics for classification problems are <a href="https://en.wikipedia.org/wiki/Correlation" title="Correlation">correlation</a> and <a href="https://en.wikipedia.org/wiki/Mutual_information" title="Mutual Information">mutual information</a>, although neither are true metrics or 'distance measures' in the mathematical sense, since they fail to obey the triangle inequality and thus do not compute any actual 'distance' – they should rather be regarded as 'scores'. These scores are computed between a candidate feature (or set of features) and the desired output category. There are, however, true metrics that are a simple function of the mutual information;[15] see here.</p>
-<p>Other available filter metrics include:      </p>
-<ul>
-<li>Class separability       <ul>
-<li>Error probability      </li>
-<li>Inter-class distance      </li>
-<li>Probabilistic distance      </li>
-<li>Entropy      </li>
-</ul>
-</li>
-<li>Consistency-based feature selection      </li>
-<li>Correlation-based feature selection      </li>
-</ul>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="machine-learning/10-text_learning/" class="u-url">Text Learning</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2017-04-20T06:54:29+08:00" title="2017-04-20 06:54">2017-04-20 06:54</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <p>Write your post here.</p>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="machine-learning/09-feature_scaling/" class="u-url">Feature Scaling</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2017-04-20T06:53:53+08:00" title="2017-04-20 06:53">2017-04-20 06:53</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h3>Introduction</h3>
-<p>Feature scaling is a method used to standardize the range of independent variables or features of data. In <a href="https://en.wikipedia.org/wiki/Data_processing" title="Data Processing">data processing</a>, it is also known as data normalization and is generally performed during the data preprocessing step.</p>
-<p>Since the range of values of raw data varies widely, in some <a href="https://en.wikipedia.org/wiki/Machine_learning" title="Machine Learning">machine learning</a> algorithms, objective functions will not work properly without <a href="https://en.wikipedia.org/wiki/Normalization_(statistics)" title="Normalization">normalization</a>. For example, the majority of <a href="https://en.wikipedia.org/wiki/Statistical_classification" title="Classifiers">classifiers</a> calculate the distance between two points by the <a href="https://en.wikipedia.org/wiki/Euclidean_distance" title="Euclidean Distance">Euclidean distance</a>. If one of the features has a broad range of values, the distance will be governed by this particular feature. Therefore, the range of all features should be normalized so that each feature contributes approximately proportionately to the final distance.</p>
-<p>Another reason why feature scaling is applied is that <a href="https://en.wikipedia.org/wiki/Gradient_descent" title="Gradient Descent">gradient descent</a> converges much faster with feature scaling than without it.</p>
-<h3>Methods</h3>
-<h4>Rescaling</h4>
-<p>The simplest method is rescaling the range of features to scale the range in [0, 1] or [−1, 1]. Selecting the target range depends on the nature of the data. The general formula is given as:</p>
-<p>\( x' = \frac{x- \text{min}(x)} {{\text{max}}(x)-{\text{min}}(x)} \)</p>
-<p>where \(  x \) is an original value, \( x' \) is the normalized value. For example, suppose that we have the students' weight data, and the students' weights span [160 pounds, 200 pounds]. To rescale this data, we first subtract 160 from each student's weight and divide the result by 40 (the difference between the maximum and minimum weights).</p>
-<h4>Standardization</h4>
-<p>In machine learning, we can handle various types of data, e.g. audio signals and pixel values for image data, and this data can include multiple <a href="https://en.wikipedia.org/wiki/Dimensions" title="Dimensions">dimensions</a>. Feature standardization makes the values of each feature in the data have zero-mean (when subtracting the mean in the numerator) and unit-variance. This method is widely used for normalization in many machine learning algorithms (e.g., <a href="https://en.wikipedia.org/wiki/Support_vector_machine" title="Support Vector Machine">support vector machines</a>, <a href="https://en.wikipedia.org/wiki/Logistic_regression" title="Logistic Regression">logistic regression</a>, and <a href="https://en.wikipedia.org/wiki/Neural_network" title="Neural Network">neural networks</a>). This is typically done by calculating <a href="https://en.wikipedia.org/wiki/Standard_score" title="Standard Score">standard scores</a>. The general method of calculation is to determine the distribution mean and standard deviation for each feature. Next we subtract the mean from each feature. Then we divide the values (mean is already subtracted) of each feature by its standard deviation.</p>
-<p>\( x'= \frac{x-{\bar {x}}}{\sigma } \)</p>
-<p>Where \(  x \) is the original feature vector, \( \bar {x} \) is the mean of that feature vector, and \( \sigma \)  is its standard deviation.</p>
-<h4>Scaling to unit length</h4>
-<p>Another option that is widely used in machine-learning is to scale the components of a feature vector such that the complete vector has length one. This usually means dividing each component by the <a href="https://en.wikipedia.org/wiki/Euclidean_length" title="Euclidean Length">Euclidean length</a> of the vector. In some applications (e.g. Histogram features) it can be more practical to use the L1 norm (i.e. Manhattan Distance, City-Block Length or <a href="https://en.wikipedia.org/wiki/Taxicab_Geometry" title="Taxicab Geometry">Taxicab Geometry</a>) of the feature vector:</p>
-<p>\(  x'= \frac {x}{||x||} \)
-This is especially important if in the following learning steps the Scalar Metric is used as a distance measure.</p>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="machine-learning/08-unsupervised_learning-clustering/" class="u-url">Unsupervised Learning - Clustering</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2017-04-20T06:53:05+08:00" title="2017-04-20 06:53">2017-04-20 06:53</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h3>Unsupervised Learning</h3>
-<p><strong>Unsupervised machine learning</strong> is the machine learning task of inferring a function to describe hidden structure from "unlabeled" data (a classification or categorization is not included in the observations). Since the examples given to the learner are unlabeled, there is no evaluation of the accuracy of the structure that is output by the relevant algorithm—which is one way of distinguishing <a href="https://en.wikipedia.org/wiki/Unsupervised_learning" title="Unsupervised Learning">unsupervised learning</a> from <a href="https://en.wikipedia.org/wiki/Supervised_learning" title="Supervised Learning">supervised learning</a> and <a href="https://en.wikipedia.org/wiki/Reinforcement_learning" title="Reinforced Learning">reinforcement learning</a>.</p>
-<p>A central case of unsupervised learning is the problem of <a href="https://en.wikipedia.org/wiki/Density_estimation" title="Density Estimation">density estimation</a> in statistics, though unsupervised learning encompasses many other problems (and solutions) involving summarizing and explaining key features of the data.</p>
-<p>Approaches to unsupervised learning include:</p>
-<p><strong><a href="https://en.wikipedia.org/wiki/Data_clustering" title="Data Clustering">Clustering</a></strong>    <br>
-- <a href="https://en.wikipedia.org/wiki/K-means" title="K Means">k-means</a>    <br>
-- <a href="https://en.wikipedia.org/wiki/Mixture_models" title="Mixture Models">mixture models</a>    <br>
-- <a href="https://en.wikipedia.org/wiki/Hierarchical_clustering" title="Hierachical Clustering">hierarchical clustering</a>      <br><strong><a href="https://en.wikipedia.org/wiki/Anomaly_detection" title="Anomaly Detection">Anomaly detection</a></strong>     <br><strong><a href="https://en.wikipedia.org/wiki/Artificial_neural_network" title="Neural Network">Neural Networks</a></strong>   <br>
-- <a href="https://en.wikipedia.org/wiki/Hebbian_Learning" title="Hebbian Learning">Hebbian Learning</a>  <br>
-- <a href="https://en.wikipedia.org/wiki/Generative_Adversarial_Networks" title="Generative Adversarial Networks">Generative Adversarial Networks</a>  <br><strong>Approaches for learning <a href="https://en.wikipedia.org/wiki/Latent_variable_model" title="Latent Variable Model">latent variable models</a></strong> such as          <br>
-- <a href="https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm" title="Expectation Maximization Algorithm">Expectation-Maximization Algorithm</a> (EM)
-- <a href="https://en.wikipedia.org/wiki/Method_of_moments_(statistics)" title="Method of Moments">Method of moments</a>
-- <a href="https://en.wikipedia.org/wiki/Blind_signal_separation" title="Blind Signal Separation">Blind signal separation</a> techniques, e.g.,
-    - <a href="https://en.wikipedia.org/wiki/Principal_component_analysis" title="Principal Component Analysis (PCA)">Principal component analysis</a>,     <br>
-    - <a href="https://en.wikipedia.org/wiki/Independent_component_analysis" title="Independent Component Analysis">Independent component analysis</a>,     <br>
-    - <a href="https://en.wikipedia.org/wiki/Non-negative_matrix_factorization" title="Non-Negative Matrix Factorization">Non-negative matrix factorization</a>,     <br>
-    - <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition" title="Singular Value Decomposition">Singular value decomposition</a>.        </p>
-<h3>Clustering</h3>
-<p><strong>Cluster analysis</strong> or <strong>Clustering</strong> is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense or another) to each other than to those in other groups (clusters). It is a main task of exploratory <a href="https://en.wikipedia.org/wiki/Data_mining" title="Data Mining">data mining</a>, and a common technique for statistical data analysis, used in many fields, including <a href="https://en.wikipedia.org/wiki/Machine_learning" title="Machine Learning">machine learning</a>, <a href="https://en.wikipedia.org/wiki/Pattern_recognition" title="Pattern Recognition">pattern recognition</a>, <a href="https://en.wikipedia.org/wiki/Image_analysis" title="Image Analysis">image analysis</a>, <a href="https://en.wikipedia.org/wiki/Information_retrieval" title="Information Retrieval">information retrieval</a>, <a href="https://en.wikipedia.org/wiki/Bioinformatics" title="Bio-Informatics">bioinformatics</a>, <a href="https://en.wikipedia.org/wiki/Data_compression" title="Data Compression">data compression</a>, and <a href="https://en.wikipedia.org/wiki/Computer_graphics" title="Computer Graphics">computer graphics</a>.</p>
-<p>Cluster analysis itself is not one specific algorithm, but the general task to be solved. It can be achieved by various algorithms that differ significantly in their notion of what constitutes a cluster and how to efficiently find them. Popular notions of clusters include groups with small distances among the cluster members, dense areas of the data space, intervals or particular statistical distributions. Clustering can therefore be formulated as a <a href="https://en.wikipedia.org/wiki/Multi-objective_optimization" title="Multi-Objective Optimization">multi-objective optimization</a> problem. The appropriate clustering algorithm and parameter settings (including values such as the distance function to use, a density threshold or the number of expected clusters) depend on the individual data set and intended use of the results. Cluster analysis as such is not an automatic task, but an iterative process of knowledge discovery or interactive multi-objective optimization that involves trial and failure. It is often necessary to modify data preprocessing and model parameters until the result achieves the desired properties.</p>
-<p>Besides the term clustering, there are a number of terms with similar meanings, including <em>automatic classification</em>, <em>numerical taxonomy</em>, <em>botryology</em> (from Greek βότρυς "grape") and typological analysis. The subtle differences are often in the usage of the results: while in data mining, the resulting groups are the matter of interest, in automatic classification the resulting discriminative power is of interest.</p>
-<p>The notion of a "cluster" cannot be precisely defined, which is one of the reasons why there are so many clustering algorithms. There is a common denominator: a group of data objects. However, different researchers employ different cluster models, and for each of these cluster models again different algorithms can be given. The notion of a cluster, as found by different algorithms, varies significantly in its properties. Understanding these "cluster models" is key to understanding the differences between the various algorithms.</p>
-<p>Typical cluster models include:          </p>
-<ul>
-<li>Connectivity models: for example, <a href="https://en.wikipedia.org/wiki/Hierarchical_clustering" title="Hierachical Clustering">hierarchical clustering</a> builds models based on distance connectivity.    </li>
-<li>Centroid models: for example, the <a href="https://en.wikipedia.org/wiki/K-means_algorithm" title="K Means Algorithm">k-means algorithm</a> represents each cluster by a single mean vector.      </li>
-<li>Distribution models: clusters are modeled using statistical distributions, such as <a href="https://en.wikipedia.org/wiki/Multivariate_normal_distribution" title="Multivariate Normal Distribution">multivariate normal distributions</a> used by the <a href="https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm" title="Expectation Maximization Algorithm">Expectation-Maximization Algorithm</a>.         </li>
-<li>Density models: for example, DBSCAN and OPTICS defines clusters as connected dense regions in the data space.        </li>
-<li>Subspace models: in Biclustering (also known as Co-clustering or two-mode-clustering), clusters are modeled with both cluster members and relevant attributes.       </li>
-<li>Group models: some algorithms do not provide a refined model for their results and just provide the grouping information.         </li>
-<li>Graph-based models: a clique, that is, a subset of nodes in a graph such that every two nodes in the subset are connected by an edge can be considered as a prototypical form of cluster. Relaxations of the complete connectivity requirement (a fraction of the edges can be missing) are known as quasi-cliques, as in the HCS clustering algorithm.        </li>
-</ul>
-<p>A "clustering" is essentially a set of such clusters, usually containing all objects in the data set. Additionally, it may specify the relationship of the clusters to each other, for example, a hierarchy of clusters embedded in each other. Clusterings can be roughly distinguished as:         </p>
-<ul>
-<li>Hard clustering: each object belongs to a cluster or not         </li>
-<li>Soft clustering (also: <a href="https://en.wikipedia.org/wiki/Fuzzy_clustering" title="Fuzzy Clustering">fuzzy clustering</a>): each object belongs to each cluster to a certain degree (for example, a likelihood of belonging to the cluster)       </li>
-</ul>
-<p>There are also finer distinctions possible, for example:        </p>
-<ul>
-<li>Strict partitioning clustering: each object belongs to exactly one cluster      </li>
-<li>Strict partitioning clustering with outliers: objects can also belong to no cluster, and are considered outliers       </li>
-<li>Overlapping clustering (also: alternative clustering, multi-view clustering): objects may belong to more than one cluster; usually involving hard clusters        </li>
-<li>Hierarchical clustering: objects that belong to a child cluster also belong to the parent cluster        </li>
-<li>
-<a href="https://en.wikipedia.org/wiki/Subspace_clustering" title="Subspace Clustering">Subspace clustering</a>: while an overlapping clustering, within a uniquely defined subspace, clusters are not expected to overlap        </li>
-</ul>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="machine-learning/07-outliers/" class="u-url">Outliers</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2017-04-20T06:51:18+08:00" title="2017-04-20 06:51">2017-04-20 06:51</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<p>In statistics, an outlier is an observation point that is distant from other observations. An outlier may be due to variability in the measurement or it may indicate experimental error; the latter are sometimes excluded from the data set.</p>
-<p>Outliers can occur by chance in any distribution, but they often indicate either <a href="https://en.wikipedia.org/wiki/Measurement_error" title="Measurement Error">measurement error</a> or that the population has a <a href="https://en.wikipedia.org/wiki/Heavy-tailed_distribution" title="Heavy Tailed Distribution">heavy-tailed distribution</a>. In the former case one wishes to discard them or use statistics that are robust to outliers, while in the latter case they indicate that the distribution has high skewness and that one should be very cautious in using tools or intuitions that assume a normal distribution. A frequent cause of outliers is a mixture of two distributions, which may be two distinct sub-populations, or may indicate 'correct trial' versus 'measurement error'; this is modeled by a <a href="https://en.wikipedia.org/wiki/Mixture_model" title="Mixture Model">mixture model</a>.</p>
-<p>In most larger samplings of data, some data points will be further away from the sample mean than what is deemed reasonable. This can be due to incidental systematic error or flaws in the theory that generated an assumed family of probability distributions, or it may be that some observations are far from the center of the data. Outlier points can therefore indicate faulty data, erroneous procedures, or areas where a certain theory might not be valid. However, in large samples, a small number of outliers is to be expected (and not due to any anomalous condition).</p>
-<p>Outliers, being the most extreme observations, may include the sample maximum or sample minimum, or both, depending on whether they are extremely high or low. However, the sample maximum and minimum are not always outliers because they may not be unusually far from other observations.</p>
-<p>Naive interpretation of statistics derived from data sets that include outliers may be misleading. For example, if one is calculating the average temperature of 10 objects in a room, and nine of them are between 20 and 25 degrees Celsius, but an oven is at 175 °C, the median of the data will be between 20 and 25 °C but the mean temperature will be between 35.5 and 40 °C. In this case, the median better reflects the temperature of a randomly sampled object (but not the temperature in the room) than the mean; naively interpreting the mean as "a typical sample", equivalent to the median, is incorrect. As illustrated in this case, outliers may indicate data points that belong to a different population than the rest of the sample set.</p>
-<p>Estimators capable of coping with outliers are said to be robust: the median is a robust statistic of central tendency, while the mean is not. However, the mean is generally more precise estimator.</p>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="machine-learning/05-datasets_and_questions/" class="u-url">Datasets and Questions</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2017-04-20T06:28:08+08:00" title="2017-04-20 06:28">2017-04-20 06:28</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<h3>Accuracy and Training Set Size</h3>
-<p>The larger the training data set the higher to chance of obtaining higher accuracy.  If the training set isn't big enough, accuracy could be low.  However, the accuracy increment by dataset size would plateau off at some point, as adding more data points won't improve accuracy much.  </p>
-<p>In real life, there might be cases where datasets are small in size, and it is not possible to attain more data.  But most data projects, it is always good to start with question like this : how does accuracy change with the number of training events especially if we have the power to go out and obtain more data (data points).  </p>
-<p>Datasets with incomplete information will also lead to low accuracy.  </p>
-<h3>Types of Data</h3>
-<ul>
-<li>Numerical      </li>
-<li>Salary Info     </li>
-<li>Number of email sent      </li>
-<li>Categorical     </li>
-<li>Job title      </li>
-<li>Time Series       </li>
-<li>Time Stamp on emails      </li>
-<li>Text      </li>
-<li>Content on emails      </li>
-<li>To/From of emails      </li>
-<li>Other     </li>
-</ul>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="machine-learning/06-supervised_learning-regression/" class="u-url">Supervised Learning - Regression</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2017-04-20T06:19:50+08:00" title="2017-04-20 06:19">2017-04-20 06:19</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<p>In <a href="https://en.wikipedia.org/wiki/Statistical_model" title="Statistical Model">statistical modeling</a>, <strong>regression analysis</strong> is a statistical process for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when the focus is on the relationship between a <a href="https://en.wikipedia.org/wiki/Dependent_variable" title="Dependent Variable">dependent variable</a> and one or more <a href="https://en.wikipedia.org/wiki/Independent_variable" title="Independent Variable">independent variables</a> (or 'predictors'). More specifically, regression analysis helps one understand how the typical value of the dependent variable (or 'criterion variable') changes when any one of the independent variables is varied, while the other independent variables are held fixed. Most commonly, regression analysis estimates the <a href="https://en.wikipedia.org/wiki/Conditional_expectation" title="Conditional Expectation">conditional expectation</a> of the dependent variable given the independent variables – that is, the <a href="https://en.wikipedia.org/wiki/Average_value" title="Average Value">average value</a> of the dependent variable when the independent variables are fixed. Less commonly, the focus is on a <a href="https://en.wikipedia.org/wiki/Quantile" title="Quantile">quantile</a>, or other <a href="https://en.wikipedia.org/wiki/Location_parameter" title="Location Parameter">location parameter</a> of the conditional distribution of the dependent variable given the independent variables. In all cases, the estimation target is a function of the independent variables called the <strong>regression function</strong>. In regression analysis, it is also of interest to characterize the variation of the dependent variable around the regression function which can be described by a <a href="https://en.wikipedia.org/wiki/Probability_distribution" title="Probability Distribution">probability distribution</a>. A related but distinct approach is necessary condition analysis (NCA), which estimates the maximum (rather than average) value of the dependent variable for a given value of the independent variable (ceiling line rather than central line) in order to identify what value of the independent variable is necessary but not sufficient for a given value of the dependent variable.</p>
-<p>Regression analysis is widely used for <a href="https://en.wikipedia.org/wiki/Prediction" title="Prediction">prediction</a> and <a href="https://en.wikipedia.org/wiki/Forecasting" title="Forecasting">forecasting</a>, where its use has substantial overlap with the field of machine learning. Regression analysis is also used to understand which among the independent variables are related to the dependent variable, and to explore the forms of these relationships. In restricted circumstances, regression analysis can be used to infer <a href="https://en.wikipedia.org/wiki/Causality" title="Casual Relationships">causal relationships</a> between the independent and dependent variables. However this can lead to illusions or false relationships, so caution is advisable;[2] for example, <a href="https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation" title="Correlation is Not Causation">correlation does not imply causation</a>.</p>
-<p>Many techniques for carrying out regression analysis have been developed. Familiar methods such as <a href="https://en.wikipedia.org/wiki/Linear_regression" title="Linear Regression">linear regression</a> and <a href="https://en.wikipedia.org/wiki/Ordinary_least_squares" title="Ordinary Least Squares">ordinary least squares</a> regression are <a href="https://en.wikipedia.org/wiki/Parametric_statistics" title="Parametric Statistics">parametric</a>, in that the regression function is defined in terms of a finite number of unknown parameters that are estimated from the data. <a href="https://en.wikipedia.org/wiki/Nonparametric_regression" title="Non-Parametric Regression">Nonparametric regression</a> refers to techniques that allow the regression function to lie in a specified set of functions, which may be infinite-dimensional.</p>
-<p>The performance of regression analysis methods in practice depends on the form of the data generating process, and how it relates to the regression approach being used. Since the true form of the data-generating process is generally not known, regression analysis often depends to some extent on making assumptions about this process. These assumptions are sometimes testable if a sufficient quantity of data is available. Regression models for prediction are often useful even when the assumptions are moderately violated, although they may not perform optimally. However, in many applications, especially with small effects or questions of causality based on observational data, regression methods can give misleading results.</p>
-<p>In a narrower sense, regression may refer specifically to the estimation of continuous response variables, as opposed to the discrete response variables used in <a href="https://en.wikipedia.org/wiki/Statistical_classification" title="Statistical Classification">classification</a>. The case of a continuous output variable may be more specifically referred to as <strong>metric regression</strong> to distinguish it from related problems.</p>
-<h3>Linear Regression</h3>
-<p>In statistics, linear regression is an approach for modeling the relationship between a scalar dependent variable \(y\) and one or more explanatory variables (or independent variables) denoted \(X\). The case of one explanatory variable is called <a href="https://en.wikipedia.org/wiki/Simple_linear_regression" title="Simple Linear Regression">simple linear regression</a>. For more than one explanatory variable, the process is called <em>multiple linear regression</em>. (This term is distinct from <a href="https://en.wikipedia.org/wiki/General_linear_model" title="Multivariate Regression">multivariate linear regression</a>, where multiple correlated dependent variables are predicted, rather than a single scalar variable.)</p>
-<p>In linear regression, the relationships are modeled using <a href="https://en.wikipedia.org/wiki/Linear_predictor_function" title="Linear Predictor Function">linear predictor functions</a> whose unknown model parameters are <a href="https://en.wikipedia.org/wiki/Estimation_theory" title="Estimation Theory">estimated</a> from the data. Such models are called <a href="https://en.wikipedia.org/wiki/Linear_model" title="Linear Model">linear models</a>. Most commonly, the <a href="https://en.wikipedia.org/wiki/Conditional_expectation" title="Conditional Expectation">conditional</a> mean of \(y\) given the value of \(X\) is assumed to be an <a href="https://en.wikipedia.org/wiki/Affine_transformation" title="Affine Transformation">affine function</a> of \(X\); less commonly, the <a href="https://en.wikipedia.org/wiki/Median" title="Median">median</a> or some other quantile of the conditional distribution of \(y\) given \(X\) is expressed as a linear function of \(X\). Like all forms of regression analysis, linear regression focuses on the <a href="https://en.wikipedia.org/wiki/Conditional_probability_distribution" title="Conditional Probability Distribution">conditional probability distribution</a> of \(y\) given \(X\), rather than on the <a href="https://en.wikipedia.org/wiki/Joint_probability_distribution" title="Joint Probability Distribution">joint probability distribution</a> of \(y\) and \(X\), which is the domain of <a href="https://en.wikipedia.org/wiki/Multivariate_analysis" title="Multivariate Analysis">multivariate analysis</a>.</p>
-<p>Linear regression was the first type of regression analysis to be studied rigorously, and to be used extensively in practical applications. This is because models which depend linearly on their unknown parameters are easier to fit than models which are non-linearly related to their parameters and because the statistical properties of the resulting estimators are easier to determine.</p>
-<p>Linear regression has many practical uses. Most applications fall into one of the following two broad categories:</p>
-<ul>
-<li>If the goal is prediction, or forecasting, or error reduction, linear regression can be used to fit a predictive model to an observed data set of \(y\) and \(X\) values. After developing such a model, if an additional value of \(X\) is then given without its accompanying value of \(y\), the fitted model can be used to make a prediction of the value of \(y\).         </li>
-<li>Given a variable \(y\) and a number of variables \(X_1, \, \ldots, \, X_p \) that may be related to \(y\), linear regression analysis can be applied to quantify the strength of the relationship between \(y\) and the \(X_j\), to assess which \(X_j\) may have no relationship with \(y\) at all, and to identify which subsets of the \(X_j\) contain redundant information about \(y\).        </li>
-</ul>
-<p>Linear regression models are often fitted using the <a href="https://en.wikipedia.org/wiki/Least_squares" title="Least Square">least squares</a> approach, but they may also be fitted in other ways, such as by minimizing the "lack of fit" in some other <a href="https://en.wikipedia.org/wiki/Norm_(mathematics)" title="Mathematical Norm">norm</a> (as with <a href="https://en.wikipedia.org/wiki/Least_absolute_deviations" title="Least Absolute Deviation">least absolute deviations</a> regression), or by minimizing a penalized version of the least squares <a href="https://en.wikipedia.org/wiki/Loss_function" title="Loss Function">loss function</a> as in <a href="https://en.wikipedia.org/wiki/Ridge_regression" title="Ridge Regression">ridge regression</a> (L2-norm penalty) and <a href="https://en.wikipedia.org/wiki/Lasso_(statistics)" title="Lasso">lasso</a> (L1-norm penalty). Conversely, the least squares approach can be used to fit models that are not linear models. Thus, although the terms "least squares" and "linear model" are closely linked, they are not synonymous.</p>
-<h4>Introduction</h4>
-<p>Given a data set
-\(  \left\{y_{i},   \, x_{i1}, \, \ldots, \,   x_{ip}  \right\} _{i=0}^{n} \)
-of  \( n \) statistical units, a linear regression model assumes that the relationship between the dependent variable \( y_{i} \) and the <em>p-vector</em> of regressors \( x_{i} \) is linear. This relationship is modeled through a disturbance term or error variable \( \epsilon_i \)— an unobserved random variable that adds noise to the linear relationship between the dependent variable and regressors.      </p>
-<p>Thus the model takes the form
-\[ y_{i} = \beta _{0}1 + \beta _{1}x _{i1} + \cdots + \beta _{p} x _{ip} + \varepsilon _{i} = \mathbf{x} _{i}^{ \top }{\boldsymbol{\beta}} + \varepsilon _{i},\qquad i=1,\ldots ,n, <br>
-\]  </p>
-<p>where T denotes the transpose, so that \( \mathbf{x} _{i}^{ \top }{\boldsymbol{\beta}} \) is the inner product between vectors \( \mathbf{x} _{i} \) and \( \boldsymbol{\beta} \).</p>
-<h4>Assumptions</h4>
-<p>Standard linear regression models with standard estimation techniques make a number of assumptions about the predictor variables, the response variables and their relationship. Numerous extensions have been developed that allow each of these assumptions to be relaxed (i.e. reduced to a weaker form), and in some cases eliminated entirely. Some methods are general enough that they can relax multiple assumptions at once, and in other cases this can be achieved by combining different extensions. Generally these extensions make the estimation procedure more complex and time-consuming, and may also require more data in order to produce an equally precise model.       </p>
-<p>The following are the major assumptions made by standard linear regression models with standard estimation techniques (e.g. <a href="https://en.wikipedia.org/wiki/Ordinary_least_squares" title="Ordinary Least Squares">ordinary least squares</a>):        </p>
-<ul>
-<li>
-<strong>Weak exogeneity</strong>. This essentially means that the predictor variables x can be treated as fixed values, rather than <a href="https://en.wikipedia.org/wiki/Random_variable" title="Random Variables">random variables</a>. This means, for example, that the predictor variables are assumed to be error-free—that is, not contaminated with measurement errors. Although this assumption is not realistic in many settings, dropping it leads to significantly more difficult <a href="https://en.wikipedia.org/wiki/Errors-in-variables_model" title="Errors in Variable Model">errors-in-variables models</a>.      </li>
-<li>
-<strong>Linearity</strong>. This means that the mean of the response variable is a <a href="https://en.wikipedia.org/wiki/Linear_combination" title="Linear Combination">linear combination</a> of the parameters (regression coefficients) and the predictor variables. Note that this assumption is much less restrictive than it may at first seem. Because the predictor variables are treated as fixed values (see above), linearity is really only a restriction on the parameters. The predictor variables themselves can be arbitrarily transformed, and in fact multiple copies of the same underlying predictor variable can be added, each one transformed differently. This trick is used, for example, in <a href="https://en.wikipedia.org/wiki/Polynomial_regression" title="Polynomial Regression">polynomial regression</a>, which uses linear regression to fit the response variable as an arbitrary <a href="https://en.wikipedia.org/wiki/Polynomial" title="Polynomial">polynomial</a> function (up to a given rank) of a predictor variable. This makes linear regression an extremely powerful inference method. In fact, models such as polynomial regression are often "too powerful", in that they tend to overfit the data. As a result, some kind of regularization must typically be used to prevent unreasonable solutions coming out of the estimation process. Common examples are <a href="https://en.wikipedia.org/wiki/Ridge_regression" title="Ridge Regression">ridge regression</a> and <a href="https://en.wikipedia.org/wiki/Lasso_regression" title="Lasso Regression">lasso regression</a>. <a href="https://en.wikipedia.org/wiki/Bayesian_linear_regression" title="Bayesian Linear Regression">Bayesian linear regression</a> can also be used, which by its nature is more or less immune to the problem of overfitting. (In fact, <a href="https://en.wikipedia.org/wiki/Ridge_regression" title="Ridge Regression">ridge regression</a> and <a href="https://en.wikipedia.org/wiki/Lasso_regression" title="Lasso Regression">lasso regression</a> can both be viewed as special cases of Bayesian linear regression, with particular types of prior distributions placed on the regression coefficients.)       </li>
-<li>
-<strong>Constant variance</strong> (a.k.a. <strong><a href="https://en.wikipedia.org/wiki/Homoscedasticity" title="Homoscedasticity">homoscedasticity</a></strong>). This means that different response variables have the same variance in their errors, regardless of the values of the predictor variables. In practice this assumption is invalid (i.e. the errors are heteroscedastic) if the response variables can vary over a wide scale. In order to determine for heterogeneous error variance, or when a pattern of residuals violates model assumptions of homoscedasticity (error is equally variable around the 'best-fitting line' for all points of x), it is prudent to look for a "fanning effect" between residual error and predicted values. This is to say there will be a systematic change in the absolute or squared residuals when plotted against the predicting outcome. Error will not be evenly distributed across the regression line. Heteroscedasticity will result in the averaging over of distinguishable variances around the points to get a single variance that is inaccurately representing all the variances of the line. In effect, residuals appear clustered and spread apart on their predicted plots for larger and smaller values for points along the linear regression line, and the mean squared error for the model will be wrong. Typically, for example, a response variable whose mean is large will have a greater variance than one whose mean is small. For example, a given person whose income is predicted to be \$100,000 may easily have an actual income of \$80,000 or \$120,000 (a standard deviation of around \$20,000), while another person with a predicted income of \$10,000 is unlikely to have the same \$20,000 standard deviation, which would imply their actual income would vary anywhere between -\$10,000 and \$30,000. (In fact, as this shows, in many cases—often the same cases where the assumption of normally distributed errors fails—the variance or standard deviation should be predicted to be proportional to the mean, rather than constant.) Simple linear regression estimation methods give less precise parameter estimates and misleading inferential quantities such as standard errors when substantial heteroscedasticity is present. However, various estimation techniques (e.g. <a href="https://en.wikipedia.org/wiki/Weighted_least_squares" title="Weighted Least Squares">weighted least squares</a> and <a href="https://en.wikipedia.org/wiki/Heteroscedasticity-consistent_standard_errors" title="Heteroscedasticity Consistent Standard Errors">heteroscedasticity-consistent standard errors</a>) can handle heteroscedasticity in a quite general way. Bayesian linear regression techniques can also be used when the variance is assumed to be a function of the mean. It is also possible in some cases to fix the problem by applying a transformation to the response variable (e.g. fit the logarithm of the response variable using a linear regression model, which implies that the response variable has a log-normal distribution rather than a normal distribution).          </li>
-<li>
-<strong>Independence of errors</strong>. This assumes that the errors of the response variables are uncorrelated with each other. (Actual statistical independence is a stronger condition than mere lack of correlation and is often not needed, although it can be exploited if it is known to hold.) Some methods (e.g. generalized least squares) are capable of handling correlated errors, although they typically require significantly more data unless some sort of regularization is used to bias the model towards assuming uncorrelated errors. Bayesian linear regression is a general way of handling this issue.</li>
-<li>
-<strong>Lack of multicollinearity</strong> in the predictors. For standard least squares estimation methods, the design matrix \( X \) must have full column rank \( p \); otherwise, we have a condition known as <a href="https://en.wikipedia.org/wiki/Multicollinearity" title="Multicollinearity">multicollinearity</a> in the predictor variables. This can be triggered by having two or more perfectly correlated predictor variables (e.g. if the same predictor variable is mistakenly given twice, either without transforming one of the copies or by transforming one of the copies linearly). It can also happen if there is too little data available compared to the number of parameters to be estimated (e.g. fewer data points than regression coefficients). In the case of multicollinearity, the parameter vector \( \beta \) will be non-identifiable—it has no unique solution. At most we will be able to identify some of the parameters, i.e. narrow down its value to some linear subspace of \( R^p \). See partial least squares regression. Methods for fitting linear models with multicollinearity have been developed; some require additional assumptions such as "effect sparsity"—that a large fraction of the effects are exactly zero.      <br>
-Note that the more computationally expensive iterated algorithms for parameter estimation, such as those used in generalized linear models, do not suffer from this problem—and in fact it's quite normal when handling categorically valued predictors to introduce a separate indicator variable predictor for each possible category, which inevitably introduces multicollinearity.</li>
-</ul>
-<p>Beyond these assumptions, several other statistical properties of the data strongly influence the performance of different estimation methods:   <br>
-- The statistical relationship between the error terms and the regressors plays an important role in determining whether an estimation procedure has desirable sampling properties such as being unbiased and consistent.     <br>
-- The arrangement, or probability distribution of the predictor variables \( x \) has a major influence on the precision of estimates of \( \beta \). Sampling and design of experiments are highly developed subfields of statistics that provide guidance for collecting data in such a way to achieve a precise estimate of \( \beta \).        </p>
-</div>
-    </div>
-    </article>
-</div>
-        <nav class="postindexpager"><ul class="pager">
-<li class="next">
-                <a href="index-4.html" rel="next">Older posts</a>
-            </li>
-        </ul></nav><script>var disqus_shortname="chowygit";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
-</div>
-
-    </div>
 
     
 <script>

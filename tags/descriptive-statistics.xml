@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title> =^..^= MEH (descriptive-statistics)</title><link>https://chowy1026.github.io/</link><description></description><atom:link rel="self" type="application/rss+xml" href="https://chowy1026.github.io/tags/descriptive-statistics.xml"></atom:link><language>en</language><lastBuildDate>Mon, 14 Nov 2016 08:57:58 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Descriptive Statistics - Sampling Distributions</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-7/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 7: Central Limit Theorem&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title> =^..^= MEH (Posts about descriptive-statistics)</title><link>https://chow1026.github.io/</link><description></description><atom:link href="https://chow1026.github.io/tags/descriptive-statistics.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Tue, 08 Aug 2017 01:30:35 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Descriptive Statistics - Sampling Distributions</title><link>https://chow1026.github.io/course-notes/descriptive-statistics/lesson-7/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 7: Central Limit Theorem&lt;/h3&gt;
 &lt;p&gt;The Central Limit Theorem allows us to know where any sample mean falls on a distribution of sample means.  The Central Limit Theorem is used to help us understand the following facts regardless of
 whether the population distribution is normal or not:&lt;/p&gt;
 &lt;ol&gt;
@@ -9,7 +9,7 @@ whether the population distribution is normal or not:&lt;/p&gt;
 \[ SE = \frac{\sigma}{ \sqrt{n}} \]&lt;/li&gt;
 &lt;li&gt;The distribution of sample means will become increasingly more normal as the sample size, n,  increases.&lt;/li&gt;
 &lt;li&gt;Sampling Distribution often form a normal distribution.  &lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><category>descriptive-statistics</category><category>sampling distribution</category><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-7/</guid><pubDate>Fri, 19 Aug 2016 02:36:43 GMT</pubDate></item><item><title>Descriptive Statistics - Standardizing</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-5/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 5: Standardizing&lt;/h3&gt;
+&lt;/ol&gt;&lt;/div&gt;</description><category>descriptive-statistics</category><category>sampling distribution</category><guid>https://chow1026.github.io/course-notes/descriptive-statistics/lesson-7/</guid><pubDate>Fri, 19 Aug 2016 02:36:43 GMT</pubDate></item><item><title>Descriptive Statistics - Standardizing</title><link>https://chow1026.github.io/course-notes/descriptive-statistics/lesson-5/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 5: Standardizing&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;If we are concerned about a proportion less than or greater than a certain value on a distribution, we should use RELATIVE FREQUENCIES.&lt;/li&gt;
 &lt;li&gt;When a bin-size is too big, we can't tell for sure the detailed values of the bin; when a bin-size is too small, the distribution becomes more and more of a uniform distribution.  A predicament: We want a small bin size to have as much details as possible about the location of data values, relative to the rest of the distribution.  &lt;/li&gt;
@@ -25,7 +25,7 @@ whether the population distribution is normal or not:&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;On a standardized distribution, the mean, \( \mu \) is 0.  &lt;/li&gt;
 &lt;li&gt;On a standardized distribution, the standard deviation, \( \sigma \) is 1.&lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><category>descriptive-statistics</category><category>standardizing</category><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-5/</guid><pubDate>Thu, 18 Aug 2016 02:09:35 GMT</pubDate></item><item><title>Descriptive Statistics - Variability</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-4/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 4: Variability&lt;/h3&gt;
+&lt;/ol&gt;&lt;/div&gt;</description><category>descriptive-statistics</category><category>standardizing</category><guid>https://chow1026.github.io/course-notes/descriptive-statistics/lesson-5/</guid><pubDate>Thu, 18 Aug 2016 02:09:35 GMT</pubDate></item><item><title>Descriptive Statistics - Variability</title><link>https://chow1026.github.io/course-notes/descriptive-statistics/lesson-4/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 4: Variability&lt;/h3&gt;
 &lt;h4&gt;General Ideas of Variability&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Range&lt;/strong&gt;: The maximum data point minus the minimum data point.  &lt;/li&gt;
@@ -92,7 +92,7 @@ whether the population distribution is normal or not:&lt;/p&gt;
 &lt;li&gt;\[ s = \sqrt{\frac{\sum_{i=0}^N{{({x_{i} - \bar{x}})}^2}}{N-1}} \]&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><category>descriptive-statistics</category><category>variability</category><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-4/</guid><pubDate>Wed, 17 Aug 2016 03:29:46 GMT</pubDate></item><item><title>Descriptive Statistics - Central Tendency</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-3/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 3: Central Tendency&lt;/h3&gt;
+&lt;/ol&gt;&lt;/div&gt;</description><category>descriptive-statistics</category><category>variability</category><guid>https://chow1026.github.io/course-notes/descriptive-statistics/lesson-4/</guid><pubDate>Wed, 17 Aug 2016 03:29:46 GMT</pubDate></item><item><title>Descriptive Statistics - Central Tendency</title><link>https://chow1026.github.io/course-notes/descriptive-statistics/lesson-3/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 3: Central Tendency&lt;/h3&gt;
 &lt;h4&gt;Some Definitions&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Mode&lt;/strong&gt;:&lt;ul&gt;
@@ -139,7 +139,7 @@ whether the population distribution is normal or not:&lt;/p&gt;
 &lt;li&gt;Mode is easy to find on histogram.  &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><category>central tendency</category><category>descriptive-statistics</category><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-3/</guid><pubDate>Tue, 16 Aug 2016 07:09:38 GMT</pubDate></item><item><title>Descriptive Statistics - Research Methods</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-1/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 1: Introduction to Research Methods&lt;/h3&gt;
+&lt;/ol&gt;&lt;/div&gt;</description><category>central tendency</category><category>descriptive-statistics</category><guid>https://chow1026.github.io/course-notes/descriptive-statistics/lesson-3/</guid><pubDate>Tue, 16 Aug 2016 07:09:38 GMT</pubDate></item><item><title>Descriptive Statistics - Research Methods</title><link>https://chow1026.github.io/course-notes/descriptive-statistics/lesson-1/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 1: Introduction to Research Methods&lt;/h3&gt;
 &lt;h4&gt;Some Definitions&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -199,7 +199,7 @@ whether the population distribution is normal or not:&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Within-Subject Design&lt;/strong&gt;: A technique to see how a factor influences the impact we are measuring, for the same study subject, keeping other controlled and uncontrolled factors constant.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><category>descriptive-statistics</category><category>introduction</category><category>research methods</category><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-1/</guid><pubDate>Thu, 11 Aug 2016 13:10:06 GMT</pubDate></item><item><title>Descriptive Statistics - Visualizing Data</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-2/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 2: Visualizing Data&lt;/h3&gt;
+&lt;/ol&gt;&lt;/div&gt;</description><category>descriptive-statistics</category><category>introduction</category><category>research methods</category><guid>https://chow1026.github.io/course-notes/descriptive-statistics/lesson-1/</guid><pubDate>Thu, 11 Aug 2016 13:10:06 GMT</pubDate></item><item><title>Descriptive Statistics - Visualizing Data</title><link>https://chow1026.github.io/course-notes/descriptive-statistics/lesson-2/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 2: Visualizing Data&lt;/h3&gt;
 &lt;h4&gt;Some Definitions&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Frequencies&lt;/strong&gt;&lt;/li&gt;
@@ -220,4 +220,4 @@ whether the population distribution is normal or not:&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;\( \mathcal{f}  \)&lt;/strong&gt;: Frequencies&lt;/li&gt;
 &lt;li&gt;\( \sum \): Total sum&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;\( \mathcal{p} \)&lt;/strong&gt;: Proportion (Probability)&lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><category>descriptive-statistics</category><category>visualizing data</category><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-2/</guid><pubDate>Thu, 11 Aug 2016 13:04:36 GMT</pubDate></item></channel></rss>
+&lt;/ol&gt;&lt;/div&gt;</description><category>descriptive-statistics</category><category>visualizing data</category><guid>https://chow1026.github.io/course-notes/descriptive-statistics/lesson-2/</guid><pubDate>Thu, 11 Aug 2016 13:04:36 GMT</pubDate></item></channel></rss>

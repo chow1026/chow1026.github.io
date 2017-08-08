@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title> =^..^= MEH (final-project)</title><link>https://chowy1026.github.io/</link><description></description><atom:link rel="self" type="application/rss+xml" href="https://chowy1026.github.io/tags/final-project.xml"></atom:link><language>en</language><lastBuildDate>Tue, 15 Nov 2016 07:58:40 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Descriptive Statistics Final Project - Random Draws of Card Deck</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/final_project/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;Instead of working on this project on a google sheet files, I decided to write my own python script to simulate the experiments.  &lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title> =^..^= MEH (Posts about final-project)</title><link>https://chow1026.github.io/</link><description></description><atom:link href="https://chow1026.github.io/tags/final-project.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Tue, 08 Aug 2017 01:30:33 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Descriptive Statistics Final Project - Random Draws of Card Deck</title><link>https://chow1026.github.io/course-notes/descriptive-statistics/final_project/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;p&gt;Instead of working on this project on a google sheet files, I decided to write my own python script to simulate the experiments.  &lt;/p&gt;
 &lt;p&gt;1) Histogram generated shown as below.   &lt;br&gt;
-&lt;img alt="Original Cards" src="https://chowy1026.github.io/images/descriptive-statistics/original52.png"&gt;  &lt;br&gt;
+&lt;img alt="Original Cards" src="https://chow1026.github.io/images/descriptive-statistics/original52.png"&gt;  &lt;br&gt;
 Histogram for original card values are negatively skewed (towards right).    &lt;/p&gt;
 &lt;p&gt;2) Randomly Drawing 3 Cards   &lt;br&gt;
 I wrote python scripts with pandas and matplotlib for the rest of the project.  &lt;/p&gt;
 &lt;p&gt;3) Distribution of Sum of 3 Randomly Drawn Cards   &lt;br&gt;
 &lt;strong&gt;30 Samples of Sum of 3 Randomly Drawn Cards&lt;/strong&gt;   &lt;br&gt;
-&lt;img alt="30 Samples of Sum of 3 Randomly Drawn Cards" src="https://chowy1026.github.io/images/descriptive-statistics/sample30.png"&gt;   &lt;/p&gt;
+&lt;img alt="30 Samples of Sum of 3 Randomly Drawn Cards" src="https://chow1026.github.io/images/descriptive-statistics/sample30.png"&gt;   &lt;/p&gt;
 &lt;p&gt;Statistical Description of this sample with n = 30:  &lt;br&gt;
 count  30.000000  &lt;br&gt;
 mean   19.866667  &lt;br&gt;
@@ -18,7 +18,7 @@ min     9.000000  &lt;br&gt;
 75%    24.000000  &lt;br&gt;
 max    30.000000    &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;500 Samples of Sum of 3 Randomly Drawn Cards&lt;/strong&gt;      &lt;br&gt;
-&lt;img alt="500 Samples of Sum of 3 Randomly Drawn Cards" src="https://chowy1026.github.io/images/descriptive-statistics/sample500.png"&gt;&lt;/p&gt;
+&lt;img alt="500 Samples of Sum of 3 Randomly Drawn Cards" src="https://chow1026.github.io/images/descriptive-statistics/sample500.png"&gt;&lt;/p&gt;
 &lt;p&gt;Statistical Description of this sample with n = 500:  &lt;br&gt;
 count  500.000000  &lt;br&gt;
 mean    19.542000  &lt;br&gt;
@@ -44,4 +44,4 @@ max     30.000000    &lt;/p&gt;
 \]&lt;/p&gt;
 &lt;p&gt;For sample with sample size 30, at z = 0.024021, the probability is 0.51 (51%).  That means the change of drawing 3 cards with sum greater than 20 from this sample is 49%.      &lt;/p&gt;
 &lt;p&gt;For sample with sample size 500, at z = 0.024021, the probability is 0.534 (53.4%).  That means the change of drawing 3 cards with sum greater than 20 from this sample is 46.6%.    &lt;/p&gt;
-&lt;p&gt;Finally, here's a &lt;a href="http://www.stat.ufl.edu/~athienit/Tables/Ztable.pdf"&gt;link to the z-table&lt;/a&gt; for reference.  &lt;/p&gt;&lt;/div&gt;</description><category>final-project</category><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/final_project/</guid><pubDate>Mon, 14 Nov 2016 03:39:38 GMT</pubDate></item></channel></rss>
+&lt;p&gt;Finally, here's a &lt;a href="http://www.stat.ufl.edu/~athienit/Tables/Ztable.pdf"&gt;link to the z-table&lt;/a&gt; for reference.  &lt;/p&gt;&lt;/div&gt;</description><category>final-project</category><guid>https://chow1026.github.io/course-notes/descriptive-statistics/final_project/</guid><pubDate>Mon, 14 Nov 2016 03:39:38 GMT</pubDate></item></channel></rss>

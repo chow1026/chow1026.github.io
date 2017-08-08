@@ -13,7 +13,7 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700%7CAbril+Fatface">
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
-<link rel="canonical" href="https://chowy1026.github.io/posts/">
+<link rel="canonical" href="https://chow1026.github.io/posts/">
 <link rel="icon" href="../images/favicon.png" sizes="64x64">
 <link rel="icon" href="../images/icon_512x512.png" sizes="512x512">
 <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
@@ -47,8 +47,8 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
         <div class="container sidebar-sticky">
             <div class="sidebar-about">
               <h1>
-                <a href="https://chowy1026.github.io/">
-                      <h1 id="brand"><a href="https://chowy1026.github.io/" title=" =^..^= MEH" rel="home">
+                <a href="https://chow1026.github.io/">
+                      <h1 id="brand"><a href="https://chow1026.github.io/" title=" =^..^= MEH" rel="home">
 
         <span id="blog-title"> =^..^= MEH</span>
     </a></h1>
@@ -89,350 +89,28 @@ Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href
     </div>
 
     <div class="content container" id="content">
-
-<div class="sectionindex">
-    <header><h2><a href=".">Posts</a></h2>
-    </header><div class="post">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="multiple-github-accounts/" class="u-url">Setting Up Multiple GitHub User Account on One Machine</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-11-15T12:39:45+08:00" title="2016-11-15 12:39">2016-11-15 12:39</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<p>It is not unusual that developers need multiple github accounts on a single machine.  I was looking through the resources on the internet and found <a href="https://gist.github.com/jexchan/2351996/">this</a> the most useful.  None the less, I decided to write a post about this, just so for my own references.  </p>
-<p>Here are the steps:
-- Create the users (however many you need) on <a href="https://github.com/">github</a> first.     </p>
-<ul>
-<li>Use <code>ssh-keygen</code> to generate various ssh keys.  When prompted, make sure the keys are named appropriately so they can be identified easily.     </li>
-</ul>
-<pre class="code literal-block"><span></span>ssh-keygen -t rsa -C "{email1@youremail1.com}"
-ssh-keygen -t rsa -C "{email1@youremail1.com}"
-</pre>
-
-
-<p>Make sure emails used are the ones you used for creating the github accounts.    </p>
-<p>Usually ssh keys are stored under <code>home/{username}/.ssh</code> folder (or <code>/Users/{username}/.ssh</code> if you are on mac).  For example, the following keys are generated:    </p>
-<pre class="code literal-block"><span></span>~/.ssh/id_rsa_{git_username1}
-~/.ssh/id_rsa_{git_username2}
-</pre>
-
-
-<ul>
-<li>Add the keys to SSH to the SSH Agent on the system:     </li>
-</ul>
-<pre class="code literal-block"><span></span>ssh-add ~/.ssh/id_rsa_{git_username1}
-ssh-add ~/.ssh/id_rsa_{git_username2}
-</pre>
-
-
-<p>To delete ALL previously added keys:    </p>
-<pre class="code literal-block"><span></span>ssh-add -D
-</pre>
-
-
-<p>To delete a previously added key:    </p>
-<pre class="code literal-block"><span></span>ssh-add -d {id_rsa_keyname}
-</pre>
-
-
-<p>To list ALL previously added keys:    </p>
-<pre class="code literal-block"><span></span>ssh-add -l
-</pre>
-
-
-<ul>
-<li>The public keys need to be added to the github accounts accordingly.  </li>
-</ul>
-<pre class="code literal-block"><span></span>pbcopy &lt; ~/.ssh/id_rsa_{git_username1}.pub
-</pre>
-
-
-<p>Paste the content to corresponding <a href="https://github.com/settings/keys">github SSH key management</a>.   <br>
-Repeat for all other keys for other accounts.     </p>
-<ul>
-<li>Configure SSH config</li>
-</ul>
-<pre class="code literal-block"><span></span>cd ~/.ssh/
-nano config
-</pre>
-
-
-<ul>
-<li>Add the following lines, modify accordingly:</li>
-</ul>
-<pre class="code literal-block"><span></span># github_{user1} account
-Host github.com-{user1}
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/id_rsa_{git_username1}
-    IdentitiesOnly yes
-
-# github_{user2} account
-Host github.com-{user2}
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/id_rsa_{git_username2}
-    IdentitiesOnly yes
-</pre>
-
-
-<ul>
-<li>Manage Global Git Configs.  You may either define those in command line or store them in a .gitconfig_global under     </li>
-</ul>
-<pre class="code literal-block"><span></span><span class="k">[core]</span>
-       <span class="na">editor</span> <span class="o">=</span> <span class="s">atom -n -w</span>
-<span class="s">       excludesfile = {filepath}/.gitignore_global</span>
-<span class="k">[push]</span>
-       <span class="na">default</span> <span class="o">=</span> <span class="s">upstream</span>
-<span class="k">[merge]</span>
-       <span class="na">conflictstyle</span> <span class="o">=</span> <span class="s">diff3</span>
-<span class="k">[color]</span>
-       <span class="na">ui</span> <span class="o">=</span> <span class="s">true</span>
-<span class="k">[user]</span>
-       <span class="na">name</span> <span class="o">=</span> <span class="s">{leave null, define this locally}</span>
-<span class="s">       email = {leave null, define this locally}</span>
-</pre>
-
-
-<ul>
-<li>Manage Local Git Configs  <br>
-For example, github user1</li>
-</ul>
-<pre class="code literal-block"><span></span><span class="k">[user]</span>
-        <span class="na">name</span> <span class="o">=</span> <span class="s">{github_username1}</span>
-<span class="s">        email = {github_email1}</span>
-<span class="k">[remote "origin"]</span>
-        <span class="na">url</span> <span class="o">=</span> <span class="s">git@github.com-{user1}:{github_username}/{github_repo}</span>
-</pre>
-
-
-<p>Note that the host in URL has to be the right host defined earlier in the <code>~/.ssh/config</code> file.   </p>
-<p>The same precaution has to be taken when cloning.  ie when executing <code>git clone</code> command, make sure the git host in 'copied and pasted' repo url is edited accordingly to the right user/host.  </p>
+<article class="listpage"><header><h1>Posts</h1>
+    </header><ul class="postlist">
+<li>
+<a href="python-library-not-loaded/">dyld: Library Not Loaded: @executable_path/../.Python</a>
+        </li>
+<li>
+<a href="tableau/">Visualization with Tableau</a>
+        </li>
+<li>
+<a href="multiple-github-accounts/">Setting Up Multiple GitHub User Account on One Machine</a>
+        </li>
+<li>
+<a href="matplotlib-on-osx-virtualenv/">Matplotlib on OSX with VirtualEnv/VirtualEnvWrapper (and Pip)</a>
+        </li>
+<li>
+<a href="nikola-setup/">Setting Up Nikola, a Static Site Generator</a>
+        </li>
+<li>
+<a href="hello-world/">Hello World!</a>
+    </li>
+</ul></article>
 </div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="matplotlib-on-osx-virtualenv/" class="u-url">Matplotlib on OSX with VirtualEnv/VirtualEnvWrapper (and Pip)</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-11-14T14:17:26+08:00" title="2016-11-14 14:17">2016-11-14 14:17</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<p>I like keeping my mini projects separate, mostly under its own virtual environment set up.  I use <a href="https://virtualenv.pypa.io/en/stable/">VirtualEnv</a> and <a href="https://virtualenvwrapper.readthedocs.io/en/latest/">VirtualEnvWrapper</a>.  </p>
-<p>As I am working on code for data analysis and data visualization, inevitably I need the matplotlib library.  Reading various resources online, I managed to get it to work.  And with this post, I hope to document the steps for future reference.  </p>
-<p>My environments:    <br>
-- MacBookPro, OS macOS Sierra (10.12.1)   <br>
-- VirtualEnv v.15.0.3   <br>
-- python v.3.5.1  <br>
-- Pip v.9.0.1    </p>
-<p>Steps:  <br>
-1. Activate the virtual environment: <code>workon {env}</code>  <br>
-2. Show pip packages: <code>pip3 list</code>  <br>
-3. Install necessary packages for data analysis and plotting: <code>pip install numpy scipy matplotlib pandas sympy nose</code>  <br>
-4. Install PyQt5: <code>pip install PyQt5</code>   <br>
-5. Modify matplotlibrc file: <code>nano {path to env}/lib/{pythonX.X}/site-packages/matplotlib/mpl-data/matplotlibrc</code>   <br>
-      - At the  top of the configurations, define backend: <code>backend    :   Qt5Agg</code>  <br>
-      - Then, define backend binding: <code>backend.qt5    :    PyQt5</code>  <br>
-      - Save file.   </p>
-<p>You are all set now.</p>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="nikola-setup/" class="u-url">Setting Up Nikola, a Static Site Generator</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-15T11:32:11+08:00" title="2016-08-15 11:32">2016-08-15 11:32</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<p>A while back, I started to look into static site generators for building my professional and personal blog site.  I had used <a href="https://wordpress.org/" title="Wordpress">Wordpress</a> long ago, but want to practice programming in Python.  Recently I tried out <a href="https://medium.com/" title="Medium">Medium</a>, but find it rather limiting when it comes to formatting content, and to organizing my posts.   </p>
-<p>I want to use the opportunity to explore what's new out there and get my hands dirty in programming again.  While researching, I stumble upon this site for static site generator - <a href="https://www.staticgen.com/" title="StaticGen">StaticGen</a>.  After testing out briefly with Pelican and Nikola, At last I decided to go with <a href="https://getnikola.com/" title="Nikola">Nikola</a> .</p>
-<p>Nikola is rather lightweight, written with Python, supports contents written in markdown (my preferred way of writing content), and supports <a href="https://www.mathjax.org/" title="MathJax">MathJax</a> with a little tweaking.</p>
-<h4>Installation</h4>
-<p>The initial installation is rather basic.  First I install Nikola using pip.  Note that I install the extras as well, so I don't have to worry about them later.</p>
-<pre class="code literal-block"><span></span>$ pip install --upgrade <span class="s2">"Nikola[extras]"</span>
-</pre>
-
-
-<p>Then, I created a virtual environment and a project for this using  <a href="https://virtualenv.pypa.io/en/stable/" title="Python VirtualEnv"><code>virtualevn</code></a> and <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" title="Python VirtualEnvWrapper"><code>virtualevnwrapper</code></a>:</p>
-<pre class="code literal-block"><span></span>$ mkproject -p /usr/local/bin/python3 nikola
-$ workon nikola
-</pre>
-
-
-<p>Then I was able to initialize a Nikola site.  </p>
-<pre class="code literal-block"><span></span>$ nikola init <span class="o">{</span>site_name<span class="o">}</span>
-</pre>
-
-
-<p>Voila! We have a site!  Nikola has neat built-in commands. Check them out with <code>nikola help</code>.  For example, to create a new post, use the following:</p>
-<pre class="code literal-block"><span></span>$ nikola new_post <span class="o">{</span>post_name<span class="o">}</span>.md
-</pre>
-
-
-<p>I like to keep the nikola server running as I go through the edit/preview cycles, I typed</p>
-<pre class="code literal-block"><span></span>$ nikola auto -b
-</pre>
-
-
-<h4>Configurations</h4>
-<p>I used most of the default settings in the <code>config.py</code>, except for the following:</p>
-<pre class="code literal-block"><span></span># Category Settings #
-CATEGORY_PATH = "categories"
-CATEGORY_PREFIX = ""
-CATEGORY_ALLOW_HIERARCHIES = True
-CATEGORY_OUTPUT_FLAT_HIERARCHY = False
-CATEGORY_PAGES_ARE_INDEXES = False
-
-# Author Page #
-ENABLE_AUTHOR_PAGES = False
-
-# Archives Settings #
-CREATE_MONTHLY_ARCHIVE = True
-CREATE_DAILY_ARCHIVE = True
-ARCHIVE_PATH = "archives"
-ARCHIVE_FILENAME = "archives.html"
-
-# FavIcons #
-FAVICONS = (
-    ("icon", "{path to favicon}", "64x64"),
-    ("icon", "{path to favicon}", "512x512"),
-)
-
-# Hide Source Link #
-SHOW_SOURCELINK = False
-</pre>
-
-
-<h4>Organizing Content</h4>
-<p>Instead the built-in Category and Tag features, I am not quite satisfied with the way it organizes my content.  I prefer to organize my content a certain way.  So, in the <code>config.py</code>, I made the following settings:</p>
-<pre class="code literal-block"><span></span>POSTS = (
-    ("posts/*.md", "posts", "post.tmpl"),
-    ("course-notes/*.md", "course-notes", "post.tmpl"),
-    ("links/*.md", "links", "post.tmpl"),
-    ("books/*.md", "books", "post.tmpl"),
-    ("movies-shows/*.md", "movies-shows", "post.tmpl"),
-    ("music/*.md", "music", "post.tmpl"),
-)
-PAGES = (
-    ("pages/*.md", "pages", "story.tmpl"),
-)
-</pre>
-
-
-<p>Although Nikola offers two content types - post and page, I figure I only use the post type (for now at least).  I am simply keeping <code>PAGES</code> as is.   </p>
-<p>To add the corresponding content type to the navigation links,</p>
-<pre class="code literal-block"><span></span>NAVIGATION_LINKS = {
-    DEFAULT_LANG: (
-        ("/posts/index.html", "Articles"),
-        ("/course-notes/index.html", "Course Notes"),
-        ("/links/index.html", "Links"),
-        ("/books/index.html", "Books"),
-        ("/archives/archives.html", "Archives"),
-        ("/tags.html", "Tags"),
-    ),
-}
-</pre>
-
-
-<h4>Themes</h4>
-<p>Nikola's theme repo doesn't offer too extensive a choice. So I decided to make my own by following this very nicely written guide in <a href="http://nikola.readthedocs.io/en/latest/creating-a-theme/" title="Creating a Nikola Theme">creating your own theme</a>.  You may find <a href="https://github.com/chowy1026/nikola-themes/tree/hyde/v7/hyde" title="Nikola Theme - Hyde">my theme here</a>.  </p>
-<h4>Enabling MathJax</h4>
-<p>The steps to enable MathJax in Nikola are easy. First, add the following line to <code>templates\base_helper.tmpl</code>.</p>
-<pre class="code literal-block"><span></span>&lt;link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface"&gt;
-</pre>
-
-
-<p>Then add</p>
-<pre class="code literal-block"><span></span>MATHJAX_CONFIG = """
-    <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"</span><span class="nt">&gt;&lt;/script&gt;</span>
-    <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">"text/x-mathjax-config"</span><span class="nt">&gt;</span>
-        MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [ ['$','$'], ["\\\(","\\\)"] ],
-                displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ],
-                processEscapes: true
-            },
-            displayAlign: 'left', // Change this to 'center' to center equations.
-            "HTML-CSS": {
-                styles: {'.MathJax_Display': {"margin": 0}}
-            }
-        });
-    <span class="nt">&lt;/script&gt;</span>
-    <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">"text/x-mathjax-config"</span><span class="nt">&gt;</span>
-  MathJax.Hub.Queue(function() {
-    // Fix <span class="nt">&lt;code&gt;</span> tags after MathJax finishes running. This is a
-    // hack to overcome a shortcoming of Markdown. Discussion at
-    // https://github.com/mojombo/jekyll/issues/199
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i <span class="nt">&lt; all.length</span><span class="err">;</span> <span class="err">i</span> <span class="err">+=</span> <span class="err">1)</span> <span class="err">{</span>
-        <span class="err">all[i].SourceElement().parentNode.className</span> <span class="err">+=</span> <span class="err">'</span> <span class="err">has-jax';</span>
-    <span class="err">}</span>
-<span class="err">});</span>
-<span class="err">&lt;/script</span><span class="nt">&gt;</span>
-    """
-</pre>
-
-
-<p>and this</p>
-<pre class="code literal-block"><span></span>HIDDEN_TAGS = ['mathjax']
-</pre>
-
-
-<p>to <code>config.py</code>.  All set! In markdown, I can use
-<code>\\( {math expression} \\)</code> for inline math, and</p>
-<pre class="code literal-block"><span></span>\\[ {math expression} \\]
-</pre>
-
-
-<p>for block display.  For other references to <a href="https://www.mathjax.org/" title="MathJax">MathJax</a>, see <a href="https://mechowy.github.io/link/mathjax/" title="MathJax Reference Links">this link</a>.</p>
-<h4>GitHub Deploy</h4>
-<p>Admittedly, Git confuses me sometimes.  And the built-in command that Nikola offers is absolutely godsent.  It nicely push content to the master branch of your userpage repo, which is {github.username}.github.io, and keep source in the source branch.  </p>
-<p>Having had my empty <code>{github.username}.github.io</code> repo ready on github, I have these in my <code>config.py</code>:</p>
-<pre class="code literal-block"><span></span># DEPLOY_COMMANDS = {
-#    'default': [
-#        'git add .',
-#        "git commit -am 'Update'",
-#        'git push origin master',
-#        'git subtree split --prefix output -b gh-pages',
-#        'git push -f origin gh-pages:gh-pages',
-#        'git branch -D gh-pages'
-#    ]
-#}
-
-GITHUB_SOURCE_BRANCH = 'source'
-GITHUB_DEPLOY_BRANCH = 'master'
-
-GITHUB_REMOTE_NAME = 'origin'
-
-GITHUB_COMMIT_SOURCE = True
-</pre>
-
-
-<p><del> I am honestly a little confused whether or not the <code>DEPLOY_COMMANDS</code> is actually needed.  I looked into the github_deploy.py under the hood of Nikola, it seems the deploy commands are already predefined.  I need to further experiment whether the <code>nikola github_deploy</code> would work without a <code>DEPLOY_COMMANDS</code> defined in <code>config.py</code>.  Will update when I am 200% certain. </del></p>
-<p>Update: <code>nikola github_deploy</code> IS indeed GOD-SENT.  Without having to define <code>DEPLOY_COMMANDS</code>, it nicely does everything for us - push <code>output</code> content to master, and source to source.</p>
-<p><del>That said</del> Now, whenever I want to update content to my github page, I simply type:</p>
-<pre class="code literal-block"><span></span>$ nikola github_deploy
-</pre>
-
-
-<h4>Others</h4>
-<p>For additional features, there are <a href="https://github.com/getnikola/plugins" title="Nikola Plugins">plugins</a> that could be installed.  There is also a <a href="https://groups.google.com/forum/#!forum/nikola-discuss" title="Nikola Google Dicussion Group">Google Discussion Group for Nikola</a>.  </p>
-</div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="hello-world/" class="u-url">Hello World!</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2016-08-06T21:36:10+08:00" title="2016-08-06 21:36">2016-08-06 21:36</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <div>
-<p>Hello! I am <!--\\[ e^{i\pi} + 1 = 0 \\] -->writing this post <!--\\( e^{i\pi} + 1 = 0 \\) --> we'll see how this works!</p>
-<!--\\[ e^{i\pi} + 1 = 0 \\]-->
-</div>
-    </div>
-    </article>
-</div>
-
-               <script>var disqus_shortname="chowygit";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
-</div>
-
-    </div>
 
     
 <script>

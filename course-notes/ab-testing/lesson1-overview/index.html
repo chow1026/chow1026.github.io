@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" vocab="http://ogp.me/ns" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title> =^..^= MEH · Overview of A/B Testing </title>
+<link href="../../../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/poole.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/hyde.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/code.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700%7CAbril+Fatface">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://chow1026.github.io/course-notes/ab-testing/lesson1-overview/">
+<link rel="icon" href="../../../images/favicon.png" sizes="64x64">
+<link rel="icon" href="../../../images/icon_512x512.png" sizes="512x512">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+            },
+            displayAlign: 'center', // Change this to 'left' to left equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+    </script><script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="cHoWy">
+<link rel="prev" href="../../data-visualization/02-d3_building_blocks/" title="D3 Building Blocks" type="text/html">
+<link rel="next" href="../lesson3-choosing_and_characterizing_metrics/" title="Choosing and Characterizing Metrics" type="text/html">
+<meta property="og:site_name" content=" =^..^= MEH">
+<meta property="og:title" content="Overview of A/B Testing">
+<meta property="og:url" content="https://chow1026.github.io/course-notes/ab-testing/lesson1-overview/">
+<meta property="og:description" content="What is AB Testing:
+AB Testing is general methodology used online when one wants to test a new product or feature.  
+Example Business Use Case:
+Experiment the user's steps on Audacity, explore the cus">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-05-08T13:37:59+08:00">
+</head>
+<body class="test">
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+    <div class="sidebar">
+        <div class="container sidebar-sticky">
+            <div class="sidebar-about">
+              <h1>
+                <a href="https://chow1026.github.io/">
+                      <h1 id="brand"><a href="https://chow1026.github.io/" title=" =^..^= MEH" rel="home">
+
+        <span id="blog-title"> =^..^= MEH</span>
+    </a></h1>
+
+                </a>
+              </h1>
+                <p class="lead"></p>
+
+            </div>
+                <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../../posts/index.html">Articles</a>
+        <a class="sidebar-nav-item" href="../../index.html">Course Notes</a>
+        <a class="sidebar-nav-item" href="../../../links/index.html">Links</a>
+        <a class="sidebar-nav-item" href="../../../books/index.html">Books</a>
+        <a class="sidebar-nav-item" href="../../../archives/archives.html">Archives</a>
+        <a class="sidebar-nav-item" href="../../../tags.html">Tags</a>
+    
+    
+    </nav><footer id="footer"><p class="footer">
+              <span class="icon_row">
+
+                <a href="mailto:chowy1026@gmail.com">
+                  <img class="social_icon" src="../../../images/envelope1.png" title="email" width="24"></a> ·
+                <!--<a href="">
+                  <img class="social_icon" src="/images/twitter-black-shape1.png" title="twitter" width="24" /></a> &middot;-->
+                <a href="https://github.com/chowy1026/">
+                  <img class="social_icon" src="../../../images/github-character1.png" title="github" width="24"></a>
+              </span>
+              <br><br><span class="copyright">
+              
+Contents © 2017 by <a href="mailto:chowy1026@gmail.com">cHoWy</a> ·
+Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>
+
+            </span>
+            </p>
+            
+        </footer>
+</div>
+    </div>
+
+    <div class="content container" id="content">
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><h1 class="post-title p-name"><a href="." class="u-url">Overview of A/B Testing</a></h1>
+
+    <span class="post-date">
+      <time class="published dt-published" datetime="2017-05-08T13:37:59+08:00" itemprop="datePublished" title="2017-05-08 13:37">2017-05-08 13:37</time></span>
+
+    
+    
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<h3>What is AB Testing:</h3>
+<p>AB Testing is general methodology used online when one wants to test a new product or feature.  </p>
+<h4>Example Business Use Case:</h4>
+<p>Experiment the user's steps on Audacity, explore the customer funnel.  Experiment changing the color of a "Start Now" button from Orange to Pink.  See if the change has any impact on how many student explore  Audacity's courses.  </p>
+<p>Therefore, Our initial hypothesis 0: Changing the "Start Now" button <em>from Orange to Pink</em> will increase the number of student exploring the Audacity courses.  </p>
+<h5>Metrics:</h5>
+<p>What audacity ultimately cares about is: How many total number of students actually complete the courses:</p>
+<p>Common Metrics
+- Total Number of Courses Completed  (Takes long time to complete course, too long for experiment and for practical business feedback)
+- Total number of Clicks (However this doesn't reflect the proportion of it to total visit)
+- Click Through Rate [the number of clicks/number of page views] (this is slightly better button doesn't account for users who just visited without clicks, or users who clicks multiple times)
+- Click Through Probability [unique visitors who clicks/unique visitors who visits] (This is the best for this use case)</p>
+<p>Generally we use "rate" when we want to measure the usability, whereas when we want to measure the total impact we use the "probability".  "Rate" measures usability of a button, ie. how often a user finds and clicks a button when placed on a site (with other buttons and links); ""</p>
+<p>Now, our upgraded hypothesis:
+Changing the "Start Now" button from <em>Orange to Pink</em> will <strong>increase the click-through probability</strong> of the button.  </p>
+<h4>Estimating Click-Through Probability</h4>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><div class="pager hidden-print pagination">
+
+            <span class="previous pagination-item older">
+                <a href="../../data-visualization/02-d3_building_blocks/" rel="prev" title="D3 Building Blocks">
+                Previous post
+                </a>
+            </span>
+
+
+            <span class="next pagination-item newer">
+                <a href="../lesson3-choosing_and_characterizing_metrics/" rel="next" title="Choosing and Characterizing Metrics">
+Next post
+              </a>
+            </span>
+
+        </div>
+
+    </nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="chowygit",
+            disqus_url="https://chow1026.github.io/course-notes/ab-testing/lesson1-overview/",
+        disqus_title="Overview of A/B Testing",
+        disqus_identifier="cache/course-notes/ab-testing/lesson1-overview.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="chowygit";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73098247-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

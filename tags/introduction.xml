@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title> =^..^= MEH (introduction)</title><link>https://chowy1026.github.io/</link><description></description><atom:link rel="self" type="application/rss+xml" href="https://chowy1026.github.io/tags/introduction.xml"></atom:link><language>en</language><lastBuildDate>Tue, 27 Sep 2016 04:02:37 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Python Design Patterns - Introduction</title><link>https://chowy1026.github.io/books/python-design-patterns/01-intro/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h2&gt;Understanding Object-Oriented Programming&lt;/h2&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title> =^..^= MEH (Posts about introduction)</title><link>https://chow1026.github.io/</link><description></description><atom:link href="https://chow1026.github.io/tags/introduction.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Tue, 08 Aug 2017 01:30:34 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Python Design Patterns - Introduction</title><link>https://chow1026.github.io/books/python-design-patterns/01-intro/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h2&gt;Understanding Object-Oriented Programming&lt;/h2&gt;
 &lt;h3&gt;Objects&lt;/h3&gt;
 &lt;p&gt;Objects are described as:&lt;/p&gt;
 &lt;ul&gt;
@@ -20,7 +20,7 @@
 &lt;li&gt;Methods work on attributes and also implement the desired functionality.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Person&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;
         &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt;
 
@@ -68,7 +68,7 @@
 &lt;li&gt;It abstracts the complexity of internal classes with an interface so that the client needs not aware of the internal implementation.  &lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Adder&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
       &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
@@ -211,7 +211,7 @@ that you take while using a design pattern in an application.  &lt;/li&gt;
 &lt;li&gt;Objects should be able to interact and still be loosely coupled.  &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>book</category><category>Chetan Giridhar</category><category>design-patterns</category><category>introduction</category><category>python</category><guid>https://chowy1026.github.io/books/python-design-patterns/01-intro/</guid><pubDate>Mon, 26 Sep 2016 08:22:03 GMT</pubDate></item><item><title>Descriptive Statistics - Research Methods</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-1/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 1: Introduction to Research Methods&lt;/h3&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><category>book</category><category>Chetan Giridhar</category><category>design-patterns</category><category>introduction</category><category>python</category><guid>https://chow1026.github.io/books/python-design-patterns/01-intro/</guid><pubDate>Mon, 26 Sep 2016 08:22:03 GMT</pubDate></item><item><title>Descriptive Statistics - Research Methods</title><link>https://chow1026.github.io/course-notes/descriptive-statistics/lesson-1/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 1: Introduction to Research Methods&lt;/h3&gt;
 &lt;h4&gt;Some Definitions&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -271,4 +271,4 @@ that you take while using a design pattern in an application.  &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Within-Subject Design&lt;/strong&gt;: A technique to see how a factor influences the impact we are measuring, for the same study subject, keeping other controlled and uncontrolled factors constant.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><category>descriptive-statistics</category><category>introduction</category><category>research methods</category><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-1/</guid><pubDate>Thu, 11 Aug 2016 13:10:06 GMT</pubDate></item></channel></rss>
+&lt;/ol&gt;&lt;/div&gt;</description><category>descriptive-statistics</category><category>introduction</category><category>research methods</category><guid>https://chow1026.github.io/course-notes/descriptive-statistics/lesson-1/</guid><pubDate>Thu, 11 Aug 2016 13:10:06 GMT</pubDate></item></channel></rss>

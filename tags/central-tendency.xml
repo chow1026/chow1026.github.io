@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title> =^..^= MEH (central tendency)</title><link>https://chowy1026.github.io/</link><description></description><atom:link href="https://chowy1026.github.io/tags/central-tendency.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Wed, 17 Aug 2016 03:34:26 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Descriptive Statistics - Central Tendency</title><link>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-3/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 3: Central Tendency&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title> =^..^= MEH (Posts about central tendency)</title><link>https://chow1026.github.io/</link><description></description><atom:link href="https://chow1026.github.io/tags/central-tendency.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Tue, 08 Aug 2017 01:30:35 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Descriptive Statistics - Central Tendency</title><link>https://chow1026.github.io/course-notes/descriptive-statistics/lesson-3/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lesson 3: Central Tendency&lt;/h3&gt;
 &lt;h4&gt;Some Definitions&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Mode&lt;/strong&gt;:&lt;ul&gt;
@@ -46,4 +46,4 @@
 &lt;li&gt;Mode is easy to find on histogram.  &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ol&gt;&lt;/div&gt;</description><category>central tendency</category><category>descriptive-statistics</category><guid>https://chowy1026.github.io/course-notes/descriptive-statistics/lesson-3/</guid><pubDate>Tue, 16 Aug 2016 07:09:38 GMT</pubDate></item></channel></rss>
+&lt;/ol&gt;&lt;/div&gt;</description><category>central tendency</category><category>descriptive-statistics</category><guid>https://chow1026.github.io/course-notes/descriptive-statistics/lesson-3/</guid><pubDate>Tue, 16 Aug 2016 07:09:38 GMT</pubDate></item></channel></rss>

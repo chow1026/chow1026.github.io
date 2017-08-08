@@ -6,303 +6,251 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
-  <loc>https://chowy1026.github.io/books/rss.xml</loc>
-  <lastmod>2017-04-04T03:48:00Z</lastmod>
+  <loc>https://chow1026.github.io/books/rss.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/course-notes/rss.xml</loc>
-  <lastmod>2017-04-20T02:26:00Z</lastmod>
+  <loc>https://chow1026.github.io/course-notes/rss.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/galleries/rss.xml</loc>
-  <lastmod>2017-04-04T03:48:00Z</lastmod>
+  <loc>https://chow1026.github.io/galleries/rss.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/links/rss.xml</loc>
-  <lastmod>2016-09-19T08:57:00Z</lastmod>
+  <loc>https://chow1026.github.io/links/rss.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/posts/rss.xml</loc>
-  <lastmod>2017-04-04T03:48:00Z</lastmod>
+  <loc>https://chow1026.github.io/posts/rss.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/rss.xml</loc>
-  <lastmod>2017-04-20T02:26:00Z</lastmod>
+  <loc>https://chow1026.github.io/rss.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/sitemap.xml</loc>
-  <lastmod>2017-04-20T02:26:00Z</lastmod>
+  <loc>https://chow1026.github.io/sitemap.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/adult.xml</loc>
-  <lastmod>2016-10-02T03:02:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/anova.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/animal-lovers.xml</loc>
-  <lastmod>2016-09-20T05:00:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/basics.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/animal-shelters.xml</loc>
-  <lastmod>2016-09-20T05:00:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/book.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/anova.xml</loc>
-  <lastmod>2016-11-07T05:35:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/central-tendency.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/basics.xml</loc>
-  <lastmod>2016-09-07T07:04:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/chetan-giridhar.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/behavior.xml</loc>
-  <lastmod>2016-10-02T03:02:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/classes.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/book.xml</loc>
-  <lastmod>2017-04-04T03:48:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/cohens-d.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/central-tendency.xml</loc>
-  <lastmod>2016-08-17T03:34:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/correlations.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/chetan-giridhar.xml</loc>
-  <lastmod>2016-09-29T05:24:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/dependent-samples.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/classes.xml</loc>
-  <lastmod>2016-09-07T06:46:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/descriptive-statistics.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/cohens-d.xml</loc>
-  <lastmod>2016-11-07T05:35:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/design-patterns.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/correlations.xml</loc>
-  <lastmod>2016-11-07T07:33:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/estimation.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/dependent-samples.xml</loc>
-  <lastmod>2016-10-11T05:48:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/exceptions.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/descriptive-statistics.xml</loc>
-  <lastmod>2016-11-14T08:57:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/files.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/design-patterns.xml</loc>
-  <lastmod>2016-09-29T05:24:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/final-project.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/estimation.xml</loc>
-  <lastmod>2016-11-14T09:01:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/functions.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/exceptions.xml</loc>
-  <lastmod>2016-09-07T08:50:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/github-pages.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/files.xml</loc>
-  <lastmod>2016-09-07T08:50:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/github.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/final-project.xml</loc>
-  <lastmod>2016-11-15T07:58:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/hello-world.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/functions.xml</loc>
-  <lastmod>2016-09-07T05:11:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/helpful-links.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/github-pages.xml</loc>
-  <lastmod>2016-08-15T07:11:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/hypothsis-testing.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/github.xml</loc>
-  <lastmod>2016-08-15T07:11:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/independent-samples.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/hello-world.xml</loc>
-  <lastmod>2016-08-12T07:15:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/inferential-statistics.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/helpful-links.xml</loc>
-  <lastmod>2016-08-12T07:15:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/inheritance.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/hypothsis-testing.xml</loc>
-  <lastmod>2016-09-30T07:42:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/instances.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/independent-samples.xml</loc>
-  <lastmod>2016-10-14T02:26:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/introduction.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/inferential-statistics.xml</loc>
-  <lastmod>2016-11-14T09:01:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/lists.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/inheritance.xml</loc>
-  <lastmod>2016-09-07T06:46:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/loops.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/instances.xml</loc>
-  <lastmod>2016-09-07T06:46:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/matplotlib.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/introduction.xml</loc>
-  <lastmod>2016-09-27T04:02:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/modules.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/john-perry-barlow.xml</loc>
-  <lastmod>2016-10-02T03:02:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/nikola.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/lists.xml</loc>
-  <lastmod>2016-09-07T04:30:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/one-way-anova.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/loops.xml</loc>
-  <lastmod>2016-09-07T04:29:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/osx.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/matplotlib.xml</loc>
-  <lastmod>2016-11-14T06:39:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/python-crash-course.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/modules.xml</loc>
-  <lastmod>2016-09-07T05:11:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/python.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/nikola.xml</loc>
-  <lastmod>2016-08-15T07:11:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/research-methods.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/oblivious.xml</loc>
-  <lastmod>2016-10-13T02:54:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/sampling-distribution.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/one-way-anova.xml</loc>
-  <lastmod>2016-11-07T05:35:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/setup-method.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/osx.xml</loc>
-  <lastmod>2016-11-14T06:39:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/simple-data-types.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/painting.xml</loc>
-  <lastmod>2016-10-13T02:54:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/singleton.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/plum_blossom_tree.xml</loc>
-  <lastmod>2016-10-13T02:54:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/standardizing.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/principles.xml</loc>
-  <lastmod>2016-10-02T03:02:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/storing-data.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/python-crash-course.xml</loc>
-  <lastmod>2016-09-07T09:53:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/t-test.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/python.xml</loc>
-  <lastmod>2016-09-29T05:24:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/test-cases.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/research-methods.xml</loc>
-  <lastmod>2016-08-16T07:10:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/testing.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/sampling-distribution.xml</loc>
-  <lastmod>2016-11-14T08:57:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/tukey-hsd.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/setup-method.xml</loc>
-  <lastmod>2016-09-07T09:53:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/tuples.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/shelters.xml</loc>
-  <lastmod>2016-09-20T05:00:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/unit-test.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/simple-data-types.xml</loc>
-  <lastmod>2016-09-07T01:45:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/user-input.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/singapore.xml</loc>
-  <lastmod>2016-09-20T05:00:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/variability.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/singleton.xml</loc>
-  <lastmod>2016-09-29T05:24:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/variables.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/standardizing.xml</loc>
-  <lastmod>2016-08-18T05:14:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/virtualenv.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/storing-data.xml</loc>
-  <lastmod>2016-09-07T08:50:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/virtualenvwrapper.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/t-test.xml</loc>
-  <lastmod>2016-10-14T02:26:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/visualizing-data.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://chowy1026.github.io/tags/test-cases.xml</loc>
-  <lastmod>2016-09-07T09:53:00Z</lastmod>
- </sitemap>
- <sitemap>
-  <loc>https://chowy1026.github.io/tags/testing.xml</loc>
-  <lastmod>2016-09-07T09:53:00Z</lastmod>
- </sitemap>
- <sitemap>
-  <loc>https://chowy1026.github.io/tags/tukey-hsd.xml</loc>
-  <lastmod>2016-11-07T05:35:00Z</lastmod>
- </sitemap>
- <sitemap>
-  <loc>https://chowy1026.github.io/tags/tuples.xml</loc>
-  <lastmod>2016-09-07T04:30:00Z</lastmod>
- </sitemap>
- <sitemap>
-  <loc>https://chowy1026.github.io/tags/unit-test.xml</loc>
-  <lastmod>2016-09-07T09:53:00Z</lastmod>
- </sitemap>
- <sitemap>
-  <loc>https://chowy1026.github.io/tags/user-input.xml</loc>
-  <lastmod>2016-09-07T04:29:00Z</lastmod>
- </sitemap>
- <sitemap>
-  <loc>https://chowy1026.github.io/tags/variability.xml</loc>
-  <lastmod>2016-08-17T15:06:00Z</lastmod>
- </sitemap>
- <sitemap>
-  <loc>https://chowy1026.github.io/tags/variables.xml</loc>
-  <lastmod>2016-09-07T01:45:00Z</lastmod>
- </sitemap>
- <sitemap>
-  <loc>https://chowy1026.github.io/tags/virtualenv.xml</loc>
-  <lastmod>2016-11-14T06:39:00Z</lastmod>
- </sitemap>
- <sitemap>
-  <loc>https://chowy1026.github.io/tags/virtualenvwrapper.xml</loc>
-  <lastmod>2016-11-14T06:39:00Z</lastmod>
- </sitemap>
- <sitemap>
-  <loc>https://chowy1026.github.io/tags/visualizing-data.xml</loc>
-  <lastmod>2016-08-30T05:58:00Z</lastmod>
- </sitemap>
- <sitemap>
-  <loc>https://chowy1026.github.io/tags/vladimir-nabokov.xml</loc>
-  <lastmod>2016-08-12T07:15:00Z</lastmod>
- </sitemap>
- <sitemap>
-  <loc>https://chowy1026.github.io/tags/volunteer.xml</loc>
-  <lastmod>2016-09-20T05:00:00Z</lastmod>
- </sitemap>
- <sitemap>
-  <loc>https://chowy1026.github.io/tags/zen-of-python.xml</loc>
-  <lastmod>2016-09-07T07:04:00Z</lastmod>
+  <loc>https://chow1026.github.io/tags/zen-of-python.xml</loc>
+  <lastmod>2017-08-08T01:30:00Z</lastmod>
  </sitemap>
 </sitemapindex>

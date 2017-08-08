@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title> =^..^= MEH (python-crash-course)</title><link>https://chowy1026.github.io/</link><description></description><atom:link type="application/rss+xml" href="https://chowy1026.github.io/tags/python-crash-course.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Wed, 07 Sep 2016 09:53:44 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Testing Python Code</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/08-testing/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Testing a Function&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title> =^..^= MEH (Posts about python-crash-course)</title><link>https://chow1026.github.io/</link><description></description><atom:link href="https://chow1026.github.io/tags/python-crash-course.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Tue, 08 Aug 2017 01:30:35 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Testing Python Code</title><link>https://chow1026.github.io/course-notes/python-crash-notes/08-testing/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Testing a Function&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;name_function.py&lt;/li&gt;
 &lt;/ul&gt;
@@ -115,7 +115,7 @@
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;AnonymousSurvey&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
     &lt;span class="sd"&gt;""" Collect anonymous answers to a survey question. """&lt;/span&gt;
 
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;question&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;question&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
       &lt;span class="sd"&gt;""" Store a question, prepare to store responses. """&lt;/span&gt;
       &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;question&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="n"&gt;question&lt;/span&gt;
       &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;responses&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
@@ -215,7 +215,7 @@
         &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store_response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;resp&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
       &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;resp&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
         &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertIn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;resp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;survey&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;responses&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><category>python-crash-course</category><category>setUp()-method</category><category>test-cases</category><category>testing</category><category>unit-test</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/08-testing/</guid><pubDate>Wed, 07 Sep 2016 08:55:02 GMT</pubDate></item><item><title>Files and Exceptions and Storing Data</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/07-files-and-exceptions-and-storing-data/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Files&lt;/h3&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><category>python-crash-course</category><category>setUp()-method</category><category>test-cases</category><category>testing</category><category>unit-test</category><guid>https://chow1026.github.io/course-notes/python-crash-notes/08-testing/</guid><pubDate>Wed, 07 Sep 2016 08:55:02 GMT</pubDate></item><item><title>Files and Exceptions and Storing Data</title><link>https://chow1026.github.io/course-notes/python-crash-notes/07-files-and-exceptions-and-storing-data/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Files&lt;/h3&gt;
 &lt;h4&gt;Filepath&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;A &lt;em&gt;relative path&lt;/em&gt; is a to look for a given location relative to the directory where the currently running program file is stored.  &lt;/li&gt;
@@ -459,14 +459,14 @@
     &lt;span class="n"&gt;primes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fobj&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
   &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;primes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><category>exceptions</category><category>files</category><category>python-crash-course</category><category>storing-data</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/07-files-and-exceptions-and-storing-data/</guid><pubDate>Wed, 07 Sep 2016 07:05:56 GMT</pubDate></item><item><title>Classes, Instances and Inheritance</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/06-classes-instances-inheritance/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Classes&lt;/h3&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><category>exceptions</category><category>files</category><category>python-crash-course</category><category>storing-data</category><guid>https://chow1026.github.io/course-notes/python-crash-notes/07-files-and-exceptions-and-storing-data/</guid><pubDate>Wed, 07 Sep 2016 07:05:56 GMT</pubDate></item><item><title>Classes, Instances and Inheritance</title><link>https://chow1026.github.io/course-notes/python-crash-notes/06-classes-instances-inheritance/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Classes&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;dog.py&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Dog&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt; &lt;span class="c1"&gt;# define class with class_name&lt;/span&gt;
     &lt;span class="sd"&gt;""" A simple attempt to model a dog """&lt;/span&gt; &lt;span class="c1"&gt;#docstring describing what this class does.  &lt;/span&gt;
 
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
       &lt;span class="sd"&gt;""" Initialize name and age attributes """&lt;/span&gt;
       &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;
       &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt;
@@ -492,7 +492,7 @@
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
     &lt;span class="sd"&gt;""" A simple attempt to represent a car. """&lt;/span&gt;
 
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
       &lt;span class="sd"&gt;""" Initialize attributes to describe a car. """&lt;/span&gt;
       &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;
       &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;
@@ -540,7 +540,7 @@
   &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Battery&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
     &lt;span class="sd"&gt;""" A simple attempt to model a battery for an electric car """&lt;/span&gt;
 
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;70&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;70&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
       &lt;span class="sd"&gt;""" Initialize the battery's attributes. """&lt;/span&gt;
       &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;battery_size&lt;/span&gt;
 
@@ -560,9 +560,9 @@
   &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ElectricCar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="sd"&gt;""" Represents aspects of a car, but specific to electric vehicle. """&lt;/span&gt;
 
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
       &lt;span class="sd"&gt;""" Initialize attributes of the parent class """&lt;/span&gt;
-      &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
       &lt;span class="sd"&gt;""" Initialize attributes specific to an electric car """&lt;/span&gt;
       &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;70&lt;/span&gt; &lt;span class="c1"&gt;# specifying initial battery size&lt;/span&gt;
       &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Battery&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# initialize a battery object&lt;/span&gt;
@@ -592,7 +592,7 @@
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
     &lt;span class="sd"&gt;""" A simple attempt to represent a car. """&lt;/span&gt;
 
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
       &lt;span class="sd"&gt;""" Initialize attributes to describe a car. """&lt;/span&gt;
       &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;
       &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;
@@ -647,7 +647,7 @@
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
     &lt;span class="sd"&gt;""" A simple attempt to represent a car. """&lt;/span&gt;
 
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
       &lt;span class="sd"&gt;""" Initialize attributes to describe a car. """&lt;/span&gt;
       &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;
       &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;
@@ -684,9 +684,9 @@
   &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ElectricCar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="sd"&gt;""" Represents aspects of a car, but specific to electric vehicle. """&lt;/span&gt;
 
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
       &lt;span class="sd"&gt;""" Initialize attributes of the parent class """&lt;/span&gt;
-      &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
       &lt;span class="sd"&gt;""" Initialize attributes specific to an electric car """&lt;/span&gt;
       &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Battery&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# initialize a battery object&lt;/span&gt;
 
@@ -744,7 +744,7 @@
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
   &lt;span class="sd"&gt;""" A simple attempt to represent a car. """&lt;/span&gt;
 
-  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="sd"&gt;""" Initialize attributes to describe a car. """&lt;/span&gt;
     &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;
     &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;
@@ -788,7 +788,7 @@
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Battery&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
   &lt;span class="sd"&gt;""" A simple attempt to model a battery for an electric car """&lt;/span&gt;
 
-  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;70&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;70&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="sd"&gt;""" Initialize the battery's attributes. """&lt;/span&gt;
     &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;battery_size&lt;/span&gt;
 
@@ -808,9 +808,9 @@
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ElectricCar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
   &lt;span class="sd"&gt;""" Represents aspects of a car, but specific to electric vehicle. """&lt;/span&gt;
 
-  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="sd"&gt;""" Initialize attributes of the parent class """&lt;/span&gt;
-    &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="sd"&gt;""" Initialize attributes specific to an electric car """&lt;/span&gt;
     &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;battery_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Battery&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# initialize a battery object&lt;/span&gt;
 
@@ -831,7 +831,7 @@
 
   &lt;span class="n"&gt;my_tesla&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ElectricCar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'tesla'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'roadster'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2016&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
   &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_tesla&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_descriptive_name&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><category>classes</category><category>inheritance</category><category>instances</category><category>python-crash-course</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/06-classes-instances-inheritance/</guid><pubDate>Wed, 07 Sep 2016 05:12:46 GMT</pubDate></item><item><title>Functions and Modules</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/05-functions-modules/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Functions&lt;/h3&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><category>classes</category><category>inheritance</category><category>instances</category><category>python-crash-course</category><guid>https://chow1026.github.io/course-notes/python-crash-notes/06-classes-instances-inheritance/</guid><pubDate>Wed, 07 Sep 2016 05:12:46 GMT</pubDate></item><item><title>Functions and Modules</title><link>https://chow1026.github.io/course-notes/python-crash-notes/05-functions-modules/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Functions&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;def function_name():&lt;/code&gt; // define a function&lt;/li&gt;
 &lt;/ul&gt;
@@ -938,7 +938,7 @@
 
 &lt;ul&gt;
 &lt;li&gt;However it is best not to use this approach.  Python may see several functions or variables with the same name, and instead of importing all the functions separately it will overwrite the functions.&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>functions</category><category>modules</category><category>python-crash-course</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/05-functions-modules/</guid><pubDate>Wed, 07 Sep 2016 03:14:55 GMT</pubDate></item><item><title>User Input and Loops</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/04-user-inputs-and-loops/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Loops&lt;/h3&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><category>functions</category><category>modules</category><category>python-crash-course</category><guid>https://chow1026.github.io/course-notes/python-crash-notes/05-functions-modules/</guid><pubDate>Wed, 07 Sep 2016 03:14:55 GMT</pubDate></item><item><title>User Input and Loops</title><link>https://chow1026.github.io/course-notes/python-crash-notes/04-user-inputs-and-loops/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Loops&lt;/h3&gt;
 &lt;h4&gt;For Loop&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;for x in {list_name}:&lt;/code&gt; // loop through list_name list&lt;/li&gt;
@@ -979,7 +979,7 @@
         &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
           &lt;span class="k"&gt;continue&lt;/span&gt;
         &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><category>loops</category><category>python-crash-course</category><category>user-input</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/04-user-inputs-and-loops/</guid><pubDate>Tue, 30 Aug 2016 07:00:52 GMT</pubDate></item><item><title>Lists and Tuples and Dictionaries</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/03-lists-and-tuples-and-dictionaries/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lists&lt;/h3&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><category>loops</category><category>python-crash-course</category><category>user-input</category><guid>https://chow1026.github.io/course-notes/python-crash-notes/04-user-inputs-and-loops/</guid><pubDate>Tue, 30 Aug 2016 07:00:52 GMT</pubDate></item><item><title>Lists and Tuples and Dictionaries</title><link>https://chow1026.github.io/course-notes/python-crash-notes/03-lists-and-tuples-and-dictionaries/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;Lists&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Lists are mutable.  Lists can be modified throughout the life of a programme.&lt;/li&gt;
 &lt;li&gt;Accessing Element in a List&lt;ul&gt;
@@ -1044,7 +1044,7 @@
 &lt;li&gt;&lt;code&gt;set(dict.values())&lt;/code&gt; // build a set by selecting unique items from dict.values()&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>lists</category><category>python-crash-course</category><category>tuples</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/03-lists-and-tuples-and-dictionaries/</guid><pubDate>Tue, 30 Aug 2016 06:29:09 GMT</pubDate></item><item><title>Variables and Simple Data Types</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/02-variables-and-simple-data-types/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;String&lt;/h3&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><category>lists</category><category>python-crash-course</category><category>tuples</category><guid>https://chow1026.github.io/course-notes/python-crash-notes/03-lists-and-tuples-and-dictionaries/</guid><pubDate>Tue, 30 Aug 2016 06:29:09 GMT</pubDate></item><item><title>Variables and Simple Data Types</title><link>https://chow1026.github.io/course-notes/python-crash-notes/02-variables-and-simple-data-types/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;String&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Strings are NOT mutable.  &lt;/li&gt;
 &lt;/ul&gt;
@@ -1077,7 +1077,7 @@
 &lt;ul&gt;
 &lt;li&gt;Integers&lt;/li&gt;
 &lt;li&gt;Floats&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>python-crash-course</category><category>simple-data-types</category><category>variables</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/02-variables-and-simple-data-types/</guid><pubDate>Tue, 30 Aug 2016 05:58:19 GMT</pubDate></item><item><title>Python Basics and Philosophy</title><link>https://chowy1026.github.io/course-notes/python-crash-notes/01-basics/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;The Zen of Python&lt;/h3&gt;
+&lt;/ul&gt;&lt;/div&gt;</description><category>python-crash-course</category><category>simple-data-types</category><category>variables</category><guid>https://chow1026.github.io/course-notes/python-crash-notes/02-variables-and-simple-data-types/</guid><pubDate>Tue, 30 Aug 2016 05:58:19 GMT</pubDate></item><item><title>Python Basics and Philosophy</title><link>https://chow1026.github.io/course-notes/python-crash-notes/01-basics/</link><dc:creator>cHoWy</dc:creator><description>&lt;div&gt;&lt;h3&gt;The Zen of Python&lt;/h3&gt;
 &lt;h4&gt;by Tim Peters&lt;/h4&gt;
 &lt;p&gt;:: Type &lt;code&gt;import this&lt;/code&gt; in python CLI&lt;/p&gt;
 &lt;ul&gt;
@@ -1100,4 +1100,4 @@
 &lt;li&gt;If the implementation is hard to explain, it's a bad idea.  &lt;/li&gt;
 &lt;li&gt;If the implementation is easy to explain, it may be a good idea.&lt;/li&gt;
 &lt;li&gt;Namespaces are one honking good idea - let's do more of those!&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>basics</category><category>python-crash-course</category><category>zen-of-python</category><guid>https://chowy1026.github.io/course-notes/python-crash-notes/01-basics/</guid><pubDate>Mon, 29 Aug 2016 06:15:20 GMT</pubDate></item></channel></rss>
+&lt;/ul&gt;&lt;/div&gt;</description><category>basics</category><category>python-crash-course</category><category>zen-of-python</category><guid>https://chow1026.github.io/course-notes/python-crash-notes/01-basics/</guid><pubDate>Mon, 29 Aug 2016 06:15:20 GMT</pubDate></item></channel></rss>
