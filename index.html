@@ -39,7 +39,7 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
         all[i].SourceElement().parentNode.className += ' has-jax';
     }
 });
-</script><!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/python-library-not-loaded/" type="text/html">
+</script><!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/fixing-anaconda/" type="text/html">
 </head>
 <body class="test">
     <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -92,7 +92,14 @@ Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href
     <div class="content container" id="content">
     
 <div class="post">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/python-library-not-loaded/" class="u-url">dyld: Library Not Loaded: @executable_path/../.Python</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/fixing-anaconda/" class="u-url">Fixing Anaconda</a></h1>
+        <div class="metadata">
+            <span class="post-date dateline"><time class="published dt-published" datetime="2017-08-15T10:20:58+08:00" title="2017-08-15 10:20">2017-08-15 10:20</time></span>
+        </div>
+    </header><div class="e-content entry-content">
+    <p>Write your post here.</p>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/python-library-not-loaded/" class="u-url">dyld: Library Not Loaded: @executable_path/../.Python</a></h1>
         <div class="metadata">
             <span class="post-date dateline"><time class="published dt-published" datetime="2017-08-07T16:39:43+08:00" title="2017-08-07 16:39">2017-08-07 16:39</time></span>
         </div>
@@ -115,6 +122,7 @@ $ pip3 install  ... <span class="o">{</span>other packages required <span class=
 
 <p>All that said, <strong>NOTE TO SELF</strong>:</p>
 <h4>REMEMBER TO PIP FREEZE REQUIREMENTS.TXT BEFORE UPGRADING SYSTEM'S PYTHON.</h4>
+<p>PS: For Nikola, to rebuild site after the virtualenv fix, Nikola Static site builder somehow failed.  Error message was "dbm.error: db type is dbm.gnu, but the module is not available".  After some googling around, I found out we need to clear cache and previously built .db file type <code>nikola clean</code> and <code>nikola forget</code>.  Then run <code>nikola auto -b</code> to build a new build. </p>
 </div>
     </div>
     </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/tableau/" class="u-url">Visualization with Tableau</a></h1>
@@ -816,13 +824,6 @@ negative</td>
 <li>Correlation-based feature selection      </li>
 </ul>
 </div>
-    </div>
-    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="course-notes/machine-learning/10-text_learning/" class="u-url">Text Learning</a></h1>
-        <div class="metadata">
-            <span class="post-date dateline"><time class="published dt-published" datetime="2017-04-20T06:54:29+08:00" title="2017-04-20 06:54">2017-04-20 06:54</time></span>
-        </div>
-    </header><div class="e-content entry-content">
-    <p>Write your post here.</p>
     </div>
     </article>
 </div>

@@ -32,3 +32,5 @@ $ pip3 install  ... {other packages required for the project}
 
 All that said, **NOTE TO SELF**:
 ### REMEMBER TO PIP FREEZE REQUIREMENTS.TXT BEFORE UPGRADING SYSTEM'S PYTHON.    
+
+PS: For Nikola, to rebuild site after the virtualenv fix, Nikola Static site builder somehow failed.  Error message was "dbm.error: db type is dbm.gnu, but the module is not available".  After some googling around, I found out we need to clear cache and previously built .db file type `nikola clean` and `nikola forget`.  Then run `nikola auto -b` to build a new build. 

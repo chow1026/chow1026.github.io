@@ -5,7 +5,7 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title> =^..^= MEH · dyld: Library Not Loaded: @executable_path/../.Python </title>
+<title> =^..^= MEH · Fixing Anaconda </title>
 <link href="../../assets/css/rst.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/poole.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/hyde.css" rel="stylesheet" type="text/css">
@@ -13,7 +13,7 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700%7CAbril+Fatface">
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
-<link rel="canonical" href="https://chow1026.github.io/posts/python-library-not-loaded/">
+<link rel="canonical" href="https://chow1026.github.io/posts/fixing-anaconda/">
 <link rel="icon" href="../../images/favicon.png" sizes="64x64">
 <link rel="icon" href="../../images/icon_512x512.png" sizes="512x512">
 <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">
@@ -39,15 +39,13 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
     }
 });
 </script><!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="cHoWy">
-<link rel="prev" href="../tableau/" title="Visualization with Tableau" type="text/html">
-<link rel="next" href="../fixing-anaconda/" title="Fixing Anaconda" type="text/html">
+<link rel="prev" href="../python-library-not-loaded/" title="dyld: Library Not Loaded: @executable_path/../.Python" type="text/html">
 <meta property="og:site_name" content=" =^..^= MEH">
-<meta property="og:title" content="dyld: Library Not Loaded: @executable_path/../.Python">
-<meta property="og:url" content="https://chow1026.github.io/posts/python-library-not-loaded/">
-<meta property="og:description" content="I have always been a fan of virtualenv and virtualenvwrapper.  It is nice to be able to isolate development environments for each of my python projects.  
-However some of the projects I work on aren't">
+<meta property="og:title" content="Fixing Anaconda">
+<meta property="og:url" content="https://chow1026.github.io/posts/fixing-anaconda/">
+<meta property="og:description" content="Write your post here.">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2017-08-07T16:39:43+08:00">
+<meta property="article:published_time" content="2017-08-15T10:20:58+08:00">
 </head>
 <body class="test">
     <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -98,49 +96,28 @@ Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href
     </div>
 
     <div class="content container" id="content">
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><h1 class="post-title p-name"><a href="." class="u-url">dyld: Library Not Loaded: @executable_path/../.Python</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><h1 class="post-title p-name"><a href="." class="u-url">Fixing Anaconda</a></h1>
 
     <span class="post-date">
-      <time class="published dt-published" datetime="2017-08-07T16:39:43+08:00" itemprop="datePublished" title="2017-08-07 16:39">2017-08-07 16:39</time></span>
+      <time class="published dt-published" datetime="2017-08-15T10:20:58+08:00" itemprop="datePublished" title="2017-08-15 10:20">2017-08-15 10:20</time></span>
 
     
     
 
     <div class="e-content entry-content" itemprop="articleBody text">
-    <div>
-<p>I have always been a fan of virtualenv and virtualenvwrapper.  It is nice to be able to isolate development environments for each of my python projects.  </p>
-<p>However some of the projects I work on aren't python projects.  It could be R, it could be iPython Jupyter notebook.   That means I could be away from meddling with any of the python virtual environments for a while.  And if I 'accidentally' updated my native python version on my MacOS machine, I would see the error as such "dyld: Library Not Loaded: @executable_path/../.Python".  </p>
-<p>After googling around, the solutions out there are either to start from scratch and recreate a new virtual environments or to go through the some steps to recreate the links from the virtual environments to the new version and paths of python.  </p>
-<p>I tried both ways, and I really can't tell which is easier.  Ultimately, after recreating the links or recreate a project, one will still have to re-install all the packages needed for the project.  I would love the ability to freeze requirements into a requirements.txt, but even that will require a working python virtualenv and pip.  Typical chicken and egg problem.  </p>
-<p>Anyway, for the sake of future reference, I thought it would be good to type out all the command lines to recreate the links:</p>
-<pre class="code literal-block"><span></span>$ <span class="nb">cd</span> <span class="o">{</span>python virtualenv folder<span class="o">}</span>
-$ find <span class="o">{</span>broken virtualenv<span class="o">}</span>/ -type l         <span class="c1">## to list out all the links</span>
-$ deactivate <span class="c1">## Optional, deactivate if virtualenv is active</span>
-$ find <span class="o">{</span>broken virtualenv<span class="o">}</span>/ -type l -delete <span class="c1">## to delete the broken links</span>
-$ virtualenv <span class="o">{</span>broken virtualenv<span class="o">}</span> --python<span class="o">=</span>python3   <span class="c1">## recreate links to OS's python</span>
-$ workon <span class="o">{</span>broken virtualenv<span class="o">}</span> <span class="c1">## activate and workon the fixed virtualenv</span>
-$ pip3 install  ... <span class="o">{</span>other packages required <span class="k">for</span> the project<span class="o">}</span>
-</pre>
-
-
-<p>All that said, <strong>NOTE TO SELF</strong>:</p>
-<h4>REMEMBER TO PIP FREEZE REQUIREMENTS.TXT BEFORE UPGRADING SYSTEM'S PYTHON.</h4>
-<p>PS: For Nikola, to rebuild site after the virtualenv fix, Nikola Static site builder somehow failed.  Error message was "dbm.error: db type is dbm.gnu, but the module is not available".  After some googling around, I found out we need to clear cache and previously built .db file type <code>nikola clean</code> and <code>nikola forget</code>.  Then run <code>nikola auto -b</code> to build a new build. </p>
-</div>
+    <p>Write your post here.</p>
     </div>
     <aside class="postpromonav"><nav><div class="pager hidden-print pagination">
 
             <span class="previous pagination-item older">
-                <a href="../tableau/" rel="prev" title="Visualization with Tableau">
+                <a href="../python-library-not-loaded/" rel="prev" title="dyld: Library Not Loaded: @executable_path/../.Python">
                 Previous post
                 </a>
             </span>
 
 
             <span class="next pagination-item newer">
-                <a href="../fixing-anaconda/" rel="next" title="Fixing Anaconda">
 Next post
-              </a>
             </span>
 
         </div>
@@ -149,9 +126,9 @@ Next post
                         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="chowygit",
-            disqus_url="https://chow1026.github.io/posts/python-library-not-loaded/",
-        disqus_title="dyld: Library Not Loaded: @executable_path/../.Python",
-        disqus_identifier="cache/posts/python-library-not-loaded.html",
+            disqus_url="https://chow1026.github.io/posts/fixing-anaconda/",
+        disqus_title="Fixing Anaconda",
+        disqus_identifier="cache/posts/fixing-anaconda.html",
         disqus_config = function () {
             this.language = "en";
         };
