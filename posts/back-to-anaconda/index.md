@@ -13,7 +13,8 @@ It was last year that I first heard of Anaconda, iPython (currently known as Jup
 
 What prompted me to revisit Anaconda, and Jupyter Notebook?  I am kind of looking for a "one tool does all" environment for data science project that accommodate the use of python and R.  I have been using homebrew with pip, virtualenv, virtualenvwrapper to manage development environment and packages for python projects; and RStudio for R projects.  It is sort of redundant to set up different environments, use different package manager and learn two different tools to do any kind of data science work at all.
 
-So here we are.  The set up for Anaconda is pretty straight forward and there are tons of documentations out there.  Here is a simplified short list of steps:
+So here we are.  The set up for Anaconda is pretty straight forward and there are tons of documentations out there.  Here is a simplified short list of steps:      
+
 1. Go to [Download](https://www.continuum.io/downloads) page on [Anaconda](https://www.continuum.io/) home page.
 2. Choose the download that is suitable for your platform:    
 3. Install by double clicking the installer package, or type `bash AnacondaX.Y.Z-XXX.sh` if you downloaded the bash installer script instead.  
