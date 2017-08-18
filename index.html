@@ -39,7 +39,7 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
         all[i].SourceElement().parentNode.className += ' has-jax';
     }
 });
-</script><!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/fixing-anaconda/" type="text/html">
+</script><!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/back-to-anaconda/" type="text/html">
 </head>
 <body class="test">
     <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -92,12 +92,24 @@ Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> <br><a href
     <div class="content container" id="content">
     
 <div class="post">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/fixing-anaconda/" class="u-url">Fixing Anaconda</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/back-to-anaconda/" class="u-url">Back to Anaconda</a></h1>
         <div class="metadata">
             <span class="post-date dateline"><time class="published dt-published" datetime="2017-08-15T10:20:58+08:00" title="2017-08-15 10:20">2017-08-15 10:20</time></span>
         </div>
     </header><div class="e-content entry-content">
-    <p>Write your post here.</p>
+    <div>
+<p>It was last year that I first heard of Anaconda, iPython (currently known as Jupyter) Notebook, etc... It didn't make sense to me back then, mind you it is a mighty and powerful platform.  I felt a bit overwhelmed then.  But today as I revisit the <a href="https://www.continuum.io/">Anaconda</a> website and <a href="http://jupyter.readthedocs.io/en/latest/">Jupyter</a> (formerly iPython) website, reading the documents again, it sort of makes sense now.  </p>
+<p>What prompted me to revisit Anaconda, and Jupyter Notebook?  I am kind of looking for a "one tool does all" environment for data science project that accommodate the use of python and R.  I have been using homebrew with pip, virtualenv, virtualenvwrapper to manage development environment and packages for python projects; and RStudio for R projects.  It is sort of redundant to set up different environments, use different package manager and learn two different tools to do any kind of data science work at all.</p>
+<p>So here we are.  The set up for Anaconda is pretty straight forward and there are tons of documentations out there.  Here is a simplified short list of steps:
+1. Go to <a href="https://www.continuum.io/downloads">Download</a> page on <a href="https://www.continuum.io/">Anaconda</a> home page.
+2. Choose the download that is suitable for your platform:  <br>
+3. Install by double clicking the installer package, or type <code>bash AnacondaX.Y.Z-XXX.sh</code> if you downloaded the bash installer script instead.<br>
+4. Once installation is completed, we could move on to using the terminal/bash. Type in <code>conda update conda</code> and <code>conda update anaconda</code> to make sure packages at root are up-to-date.<br>
+5. Sometimes packages or library that comes with anaconda might be out of date, you can update by <code>conda update scikit-learn</code> or <code>conda install -c anaconda scikit-learn=X.XX.X</code>.  </p>
+<p>One thing I noticed was the project-env hook that virtualenvwrapper offers.  When I typed <code>workon XXXenv</code>, the virtual environment of XXX will be activated, and I was also redirected to the project directory.  This is convenient, if we have 1-to-1 match of project and virtualenv setups, which was mostly the case for me.  Note that this is not a fixed/default setup, I just happened to like it this way.  </p>
+<p>I guess the advantage of anaconda is one could set up an environment once and share it across projects that uses similar libraries or packages.  </p>
+<p>TODO: Explore anaconda-project.  </p>
+</div>
     </div>
     </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/python-library-not-loaded/" class="u-url">dyld: Library Not Loaded: @executable_path/../.Python</a></h1>
         <div class="metadata">
